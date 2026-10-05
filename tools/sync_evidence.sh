@@ -14,7 +14,8 @@ for cohort in orion finland skin; do
     --exclude='*smoke*/' --exclude='*profile*/' --exclude='hematoxylin_segmenter/' --exclude='segmenter/' \
     --include='*/' --include='config.yml' --include='status.json' --include='history.jsonl' \
     --include='run_metadata.json' --include='model_summary.json' --include='selection.json' \
-    --include='final_evaluation.json' --include='summary.json' --include='per_tile.csv' \
+    --include='final_evaluation.json' --include='summary.json' --include='complete.json' \
+    --include='training_source.json' --include='evaluation_source.json' --include='per_tile.csv' \
     --include='*_per_tile.csv' --include='final_*.png' --include='events.out.tfevents.*' --exclude='*' \
     "$benchmark_host:$source_dir" "$benchmark_root/.source-cache/$cohort/"
 done

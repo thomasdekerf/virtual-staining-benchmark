@@ -23,6 +23,13 @@ for entry in index['runs']:
         if e['partial'] if 'partial' in e else False: assert not e['rankable'], 'Partial evaluation was ranked'
         if e['split'] in ['monitor','pilot']: assert not e['rankable'], 'Provisional evaluation was ranked'
         if e['rankable']: assert e['n'] and e['n']>0
+        if run['task']=='unstained' and e['rankable']:
+            assert e['split'] in ['val','test'] and not e.get('partial')
+            assert e['checkpoint_sha256'] and e['manifest_sha256']
+            assert e['evidence']['file'].endswith('/complete.json'), 'Unstained rank lacks completion evidence'
+            assert set(e['nuclei_protocol'])=={'stardist','stardist2x','hovernet','cellpose_sam'}
+            for detector in e['nuclei_protocol']:
+                assert detector+'_nuclei_f1' in e['metrics'], 'Missing nuclei result'
         assert all(k in index['metrics'] for k in e['metrics']), 'Metric missing from glossary'
         evaluations+=1
     for tag,points in run['curves'].items():
@@ -35,9 +42,16 @@ for entry in index['runs']:
         images+=1
     for split,stats in run['distributions'].items():
         assert (root/'downloads'/f'{run["id"]}_{split}_per_tile.csv').is_file()
+        if run['task']=='unstained':
+            evaluation=next((e for e in run['evaluations'] if e['split']==split),None)
+            if evaluation:
+                assert stats['psnr']['n']==evaluation['n'], 'Subset replaced full-split distributions'
         for metric,s in stats.items():
             assert s['n']>0 and s['quantiles']==sorted(s['quantiles'])
             assert all(math.isfinite(x) and 0<=d<=1 for x,d in s['density'])
+
+unstained_rows=sum(e['rankable'] and r['task']=='unstained' for r in index['runs'] for e in r['evaluations'])
+assert unstained_rows==index['audit']['unstained_result_rows_verified'], 'Unreconciled unstained scores'
 
 # Independent published-reference anchors catch protocol mixing and rounded values.
 unet=json.loads((root/'data/runs/unet_l1_job1320937.json').read_text())

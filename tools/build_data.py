@@ -173,6 +173,10 @@ for ds,folder,sheet in [('finland','unstained_finland','Unstained Finland'),('sk
         rid=ds+'__'+t['id'];p=progress.get('tasks',{}).get(t['id'],{})
         run=new_run(rid,t['model'],ds,variant='RGB adaptation · seed 42',state=p.get('status',t.get('status')),seed=t.get('seed'),training_hours=p.get('training_hours'),gpu_hours=p.get('gpu_hours'),notes=t.get('reason') or p.get('reason'),live_status=p.get('training_state'),selection='Minimum full-validation AlexNet LPIPS; 10 warmup checks, then 20 checks without improvement')
         run['sources'].append({'file':f'artifacts/{folder}/progress.json','record':t['id']})
+        run['scheduler_status']=p.get('status')
+        run['status_as_of']=datetime.fromtimestamp(progress['as_of_unix'],timezone.utc).isoformat() if progress.get('as_of_unix') else None
+        for key in ['training_job','evaluation_job','scheduler','evaluation_scheduler']:
+            if key in p:run[key]=p[key]
         cfg=ROOT/'artifacts'/folder/t.get('config','missing')
         if cfg.exists():run['configuration']=cfg.read_text()
     for row,r in sheet_rows(sheet,9):
@@ -222,13 +226,23 @@ for rid,dirs in source_dirs.items():
         if alloc.get('seconds') and run.get('training_hours') is None:
             run['training_hours']=alloc['seconds']/3600;run['gpu_hours']=run['training_hours']*alloc.get('world_size',4);run['time_definition']='Recorded training-job allocation; setup, validation and checkpoints included. Parent and earlier segments may be excluded.'
         # Audited final summaries take precedence over latest training status.
-        files=list(d.glob('final_evaluation.json'))+list(d.glob('*/summary.json'))
+        files=list(d.glob('final_evaluation.json'))+[
+            f.with_name('complete.json') if f.with_name('complete.json').exists() else f
+            for f in d.glob('*/summary.json')]
         for f in files:
             obj=read_json(f,{})
             if obj.get('full_splits'):
                 for key in ['training_hours','gpu_hours','time_definition','checkpoint_sha256','source_sha256','selection','position','evaluation_seconds']:
                     if obj.get(key) is not None:run[key]=obj[key]
-                complete=obj.get('all_literature_metrics_complete',True)
+                complete=obj.get('benchmark_profile_complete') is True if ds in ['finland','skin'] else obj.get('all_literature_metrics_complete',True)
+                if ds in ['finland','skin']:
+                    run['remaining_metrics']=obj.get('remaining_metrics',{})
+                    run['evaluation_source']=obj.get('evaluation_source')
+                    if complete:
+                        assert obj.get('production_result') and obj.get('core_metrics_complete'), f'Invalid completion: {f}'
+                        for split in ['val','test']:
+                            reports=obj['full_splits'][split].get('learned_nuclei',{})
+                            assert set(reports)=={'stardist','stardist2x','hovernet','cellpose_sam'}, f'Incomplete nuclei profile: {f}'
                 for split,s in obj['full_splits'].items():
                     if not s.get('metrics'):continue
                     vals=metrics(s['metrics']);coverage={}
@@ -237,11 +251,16 @@ for rid,dirs in source_dirs.items():
                             if isinstance(v,dict) and finite(v.get('mean')):vals[k]=v['mean'];coverage[k]=v.get('valid_tiles')
                     for detector,values in s.get('learned_nuclei',{}).items():
                         if isinstance(values,dict):
+                            for k,v in values.get('metrics',{}).items():
+                                if isinstance(v,dict) and finite(v.get('mean')):
+                                    vals[detector+'_'+k]=v['mean'];coverage[detector+'_'+k]=v.get('valid_tiles')
                             for k,v in values.items():
-                                if finite(v):vals[detector+'_'+k]=v
+                                if finite(v) and k not in ['seconds','sample_count','normalization_fallback_calls']:vals[detector+'_'+k]=v
                     proto=box_protocol(s.get('n',0)) if ds=='orion' else ('Full production evaluation' if complete else 'Partial production evaluation')
                     vals.update(metrics({k:v for k,v in s.get('distribution',{}).items() if k in ['fid_clean','kid_clean']}))
-                    add_eval(run,ds,split,vals,s.get('n'),proto,rankable=complete,partial=not complete,coverage=coverage,group_macro=s.get('group_macro_bootstrap'),bootstrap_unit=s.get('bootstrap_unit'),manifest_sha256=s.get('manifest_sha256'),evidence={'file':str(f.relative_to(ROOT))},metric_protocol=obj.get('protocol'),checkpoint_sha256=obj.get('checkpoint_sha256'))
+                    nuclei_protocol={k:{field:v.get(field) for field in ['protocol','detector_adapter_sha256','checkpoint_sha256','normalization','sample_count']} for k,v in s.get('learned_nuclei',{}).items()}
+                    extra_protocol={'nuclei_protocol':nuclei_protocol} if ds in ['finland','skin'] else {}
+                    add_eval(run,ds,split,vals,s.get('n'),proto,rankable=complete,partial=not complete,coverage=coverage,group_macro=s.get('group_macro_bootstrap'),bootstrap_unit=s.get('bootstrap_unit'),manifest_sha256=s.get('manifest_sha256'),evidence={'file':str(f.relative_to(ROOT))},metric_protocol=obj.get('protocol'),checkpoint_sha256=obj.get('checkpoint_sha256'),**extra_protocol)
             elif finite(obj.get('psnr')):
                 split=obj.get('split') or ('val' if 'validation' in f.parent.name else 'test')
                 n=obj.get('samples',obj.get('n',0));crop=obj.get('crop_size',256)
@@ -368,6 +387,8 @@ for run in runs.values():
         run['curves'][tag]=[[x,unique[x]] for x in sorted(unique)]
     if any(e.get('rankable') and e['split'] in ['val','test'] for e in run['evaluations']):run['state']='Evaluated'
     if run['task']=='unstained' and any(e.get('partial') for e in run['evaluations']):run['state']='Partial evaluation'
+    if run['task']=='unstained' and run.get('scheduler_status') and run['state']!='Evaluated':
+        run['state']=run['scheduler_status']
 
 # The 24-patch pathology pilot is a distinct experiment, never a full-test rank.
 pilot_root=ROOT/'artifacts/pathology_evaluation/pilot_20260921'
@@ -421,6 +442,9 @@ if not args.quick:
         run=runs[rid];seen=set()
         for d in reversed(dirs):
             files=sorted(list(d.rglob('per_tile.csv'))+list(d.rglob('*_per_tile.csv')),key=lambda f:('test_matched' not in str(f),str(f)))
+            if run['task']=='unstained':
+                # Detector subsets must not replace full-split image metrics.
+                files=sorted((d/'evaluation_v1').glob('*_per_tile.csv'))
             for f in files:
                 split='val' if '/val/' in str(f) or f.name.startswith('val_') else 'test'
                 if split in seen:continue
@@ -442,7 +466,31 @@ if not args.quick:
                     destination=OUT/'downloads'/f'{rid}_{split}_per_tile.csv'
                     with destination.open('w',newline='') as fp:
                         writer=csv.writer(fp);writer.writerow(['tile_index']+list(dist))
-                        for i,row in enumerate(records):writer.writerow([i]+[row.get('delta_e' if k=='delta_e76' else k) for k in dist])
+                        for i,row in enumerate(records):writer.writerow([i]+[row.get('delta_e76',row.get('delta_e')) if k=='delta_e76' else row.get(k) for k in dist])
+
+# Completed unstained rows must agree with the same workbook snapshot.
+unstained_reconciliation=[]
+unstained_columns={'PSNR ↑ (dB)':'psnr','SSIM box ↑':'ssim','SSIM skimage ↑':'ssim_skimage',
+    'LPIPS ↓':'lpips','UNI cosine distance ↓':'uni_cosine_distance','CONCH cosine distance ↓':'conch_cosine_distance',
+    'H-Optimus cosine distance ↓':'hoptimus_cosine_distance','DISTS ↓':'dists','FID clean ↓':'fid_clean','KID clean ↓':'kid_clean'}
+for detector in ['stardist','stardist2x','hovernet','cellpose_sam']:
+    for label,key in [('F1 ↑','nuclei_f1'),('precision ↑','nuclei_precision'),('recall ↑','nuclei_recall'),('Dice ↑','nuclei_mask_dice'),('IoU ↑','nuclei_mask_iou'),('count abs error ↓','nuclei_count_abs_error')]:
+        unstained_columns[f'{detector} {label}']=f'{detector}_{key}'
+for ds,sheet in [('finland','Unstained Finland'),('skin','Unstained Skin')]:
+    for row,r in sheet_rows(sheet,9):
+        if not r.get('Run directory'):continue
+        rid=ds+'__'+Path(r['Run directory']).name
+        matches=[e for e in runs[rid]['evaluations'] if e['split']==r['Split'] and e['rankable']]
+        if r.get('Progress')!='Complete':
+            assert not matches, f'Refresh workbook before publishing completed result: {rid}'
+            continue
+        assert len(matches)==1, f'Missing completed evaluation: {sheet}!{row}'
+        e=matches[0]
+        assert e['n']==r['Tiles'] and e['manifest_sha256']==r['Manifest SHA256'] and e['checkpoint_sha256']==r['Checkpoint SHA256']
+        for col,key in unstained_columns.items():
+            a,b=r.get(col),e['metrics'].get(key)
+            assert finite(a) and finite(b) and abs(a-b)<1e-9, f'Workbook mismatch: {sheet}!{row}: {col}'
+        unstained_reconciliation.append({'sheet':sheet,'row':row,'run':rid,'evaluation':e['id']})
 
 metric_defs={
  'psnr':('PSNR','↑','dB','Peak signal-to-noise ratio from RGB pixel error, averaged per tile. Higher means less pixel error. Sensitive to registration; does not establish cell fidelity.'),
@@ -512,7 +560,7 @@ for run in runs.values():
         with (OUT/'downloads'/f'{rid}_curves.csv').open('w',newline='') as fp:
             writer=csv.writer(fp);writer.writerow(['tag','step_or_epoch','value'])
             for tag,points in full_curves.items():
-                for p in points:writer.writerow([tag,*p])
+                for p in points:writer.writerow([tag,float(p[0]),float(p[1])])
     run['curve_counts']={tag:len(p) for tag,p in full_curves.items()}
     run['curves']={tag:(p if len(p)<=700 else [p[i] for i in sorted(set(np.linspace(0,len(p)-1,700,dtype=int)))]) for tag,p in full_curves.items()}
     run['curve_axis']='epoch' if rid in ['unet_l1_job1320937','gated_unet_l1_job1320938','pix2pix_job1320940','gated_unet_structural_job1320939','gated_pix2pix_structural_job1320936'] else 'step'
@@ -527,8 +575,10 @@ for model in models.values():
 
 snapshot=datetime.now(timezone.utc).isoformat()
 audit={'workbook_sha256':hashlib.sha256(workbook_path.read_bytes()).hexdigest(),'workbook_sheets':wb.sheetnames,'model_priority_rows':len(sheet_rows('Model priorities',9)),'orion_inventory_rows':len(orion_sheet),'breast_runs':len(breast.get('tasks',[])),'dataset_result_rows_verified':len(reconciliation),'verified_cells':len(reconciliation)*7,'workbook_orion_rows_accounted':all(rid in runs for _,rid in orion_sheet),'warnings':warnings,'notes':['Validation and test entries refer to one training run; compute is stored once.','All 39 model-priority rows are retained, including deferred and out-of-scope methods.','Unstained pending and excluded methods retain their reason without fabricated results.','Cluster evaluation evidence may be newer than the workbook; partial production evaluations are excluded from ranking.','Some breast image/per-tile archives are not locally accessible; curves and complete means are preserved.']}
+audit['unstained_result_rows_verified']=len(unstained_reconciliation)
+audit['unstained_metric_cells_verified']=len(unstained_reconciliation)*len(unstained_columns)
 write_json(OUT/'data/index.json',{'snapshot':snapshot,'workbook_date':'2026-10-05','runs':index_runs,'datasets':datasets,'models':list(models.values()),'metrics':glossary,'audit':audit})
-write_json(OUT/'data/reconciliation.json',{'audit':audit,'dataset_rows':reconciliation,'orion_rows':[{'sheet':'ORION runs','row':row,'run':rid} for row,rid in orion_sheet]})
+write_json(OUT/'data/reconciliation.json',{'audit':audit,'dataset_rows':reconciliation,'unstained_rows':unstained_reconciliation,'orion_rows':[{'sheet':'ORION runs','row':row,'run':rid} for row,rid in orion_sheet]})
 with (OUT/'downloads/results.csv').open('w',newline='') as fp:
     writer=csv.writer(fp);metric_keys=sorted(all_metric_keys)
     writer.writerow(['run_id','model','dataset','marker','split','protocol','tiles','rankable','training_hours']+metric_keys)
