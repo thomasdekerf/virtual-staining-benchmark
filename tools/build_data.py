@@ -574,6 +574,9 @@ for model in models.values():
     model['datasets']=sorted({d for r in mine for d in r['datasets'] if any(e['dataset']==d and e['rankable'] for e in r['evaluations'])})
 
 snapshot=datetime.now(timezone.utc).isoformat()
+html_path=OUT/'index.html'
+app_version=hashlib.sha256((OUT/'app.js').read_bytes()).hexdigest()[:12]
+html_path.write_text(re.sub(r'src="app\.js(?:\?v=[^"]*)?"',f'src="app.js?v={app_version}"',html_path.read_text()))
 audit={'workbook_sha256':hashlib.sha256(workbook_path.read_bytes()).hexdigest(),'workbook_sheets':wb.sheetnames,'model_priority_rows':len(sheet_rows('Model priorities',9)),'orion_inventory_rows':len(orion_sheet),'breast_runs':len(breast.get('tasks',[])),'dataset_result_rows_verified':len(reconciliation),'verified_cells':len(reconciliation)*7,'workbook_orion_rows_accounted':all(rid in runs for _,rid in orion_sheet),'warnings':warnings,'notes':['Validation and test entries refer to one training run; compute is stored once.','All 39 model-priority rows are retained, including deferred and out-of-scope methods.','Unstained pending and excluded methods retain their reason without fabricated results.','Cluster evaluation evidence may be newer than the workbook; partial production evaluations are excluded from ranking.','Some breast image/per-tile archives are not locally accessible; curves and complete means are preserved.']}
 audit['unstained_result_rows_verified']=len(unstained_reconciliation)
 audit['unstained_metric_cells_verified']=len(unstained_reconciliation)*len(unstained_columns)
