@@ -1,0 +1,5 @@
+openpyxl>=3.1,<4
+numpy>=2,<3
+Pillow>=11,<13
+PyYAML>=6,<7
+tensorboard>=2.18,<3
