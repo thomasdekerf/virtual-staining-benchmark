@@ -30,6 +30,9 @@ for entry in index['runs']:
             assert set(e['nuclei_protocol'])=={'stardist','stardist2x','hovernet','cellpose_sam'}
             for detector in e['nuclei_protocol']:
                 assert detector+'_nuclei_f1' in e['metrics'], 'Missing nuclei result'
+                precision=detector+'_nuclei_precision'
+                if e.get('coverage',{}).get(precision)==0:
+                    assert precision not in e['metrics'], 'Undefined precision was replaced by a score'
         assert all(k in index['metrics'] for k in e['metrics']), 'Metric missing from glossary'
         evaluations+=1
     for tag,points in run['curves'].items():

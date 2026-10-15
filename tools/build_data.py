@@ -252,8 +252,9 @@ for rid,dirs in source_dirs.items():
                     for detector,values in s.get('learned_nuclei',{}).items():
                         if isinstance(values,dict):
                             for k,v in values.get('metrics',{}).items():
-                                if isinstance(v,dict) and finite(v.get('mean')):
-                                    vals[detector+'_'+k]=v['mean'];coverage[detector+'_'+k]=v.get('valid_tiles')
+                                if isinstance(v,dict):
+                                    coverage[detector+'_'+k]=v.get('valid_tiles')
+                                    if finite(v.get('mean')):vals[detector+'_'+k]=v['mean']
                             for k,v in values.items():
                                 if finite(v) and k not in ['seconds','sample_count','normalization_fallback_calls']:vals[detector+'_'+k]=v
                     proto=box_protocol(s.get('n',0)) if ds=='orion' else ('Full production evaluation' if complete else 'Partial production evaluation')
@@ -489,7 +490,8 @@ for ds,sheet in [('finland','Unstained Finland'),('skin','Unstained Skin')]:
         assert e['n']==r['Tiles'] and e['manifest_sha256']==r['Manifest SHA256'] and e['checkpoint_sha256']==r['Checkpoint SHA256']
         for col,key in unstained_columns.items():
             a,b=r.get(col),e['metrics'].get(key)
-            assert finite(a) and finite(b) and abs(a-b)<1e-9, f'Workbook mismatch: {sheet}!{row}: {col}'
+            undefined=a is None and b is None and e.get('coverage',{}).get(key)==0
+            assert undefined or (finite(a) and finite(b) and abs(a-b)<1e-9), f'Workbook mismatch: {sheet}!{row}: {col}'
         unstained_reconciliation.append({'sheet':sheet,'row':row,'run':rid,'evaluation':e['id']})
 
 metric_defs={
@@ -580,7 +582,8 @@ html_path.write_text(re.sub(r'src="app\.js(?:\?v=[^"]*)?"',f'src="app.js?v={app_
 audit={'workbook_sha256':hashlib.sha256(workbook_path.read_bytes()).hexdigest(),'workbook_sheets':wb.sheetnames,'model_priority_rows':len(sheet_rows('Model priorities',9)),'orion_inventory_rows':len(orion_sheet),'breast_runs':len(breast.get('tasks',[])),'dataset_result_rows_verified':len(reconciliation),'verified_cells':len(reconciliation)*7,'workbook_orion_rows_accounted':all(rid in runs for _,rid in orion_sheet),'warnings':warnings,'notes':['Validation and test entries refer to one training run; compute is stored once.','All 39 model-priority rows are retained, including deferred and out-of-scope methods.','Unstained pending and excluded methods retain their reason without fabricated results.','Cluster evaluation evidence may be newer than the workbook; partial production evaluations are excluded from ranking.','Some breast image/per-tile archives are not locally accessible; curves and complete means are preserved.']}
 audit['unstained_result_rows_verified']=len(unstained_reconciliation)
 audit['unstained_metric_cells_verified']=len(unstained_reconciliation)*len(unstained_columns)
-write_json(OUT/'data/index.json',{'snapshot':snapshot,'workbook_date':'2026-10-05','runs':index_runs,'datasets':datasets,'models':list(models.values()),'metrics':glossary,'audit':audit})
+workbook_date=datetime.fromtimestamp(workbook_path.stat().st_mtime,timezone.utc).date().isoformat()
+write_json(OUT/'data/index.json',{'snapshot':snapshot,'workbook_date':workbook_date,'runs':index_runs,'datasets':datasets,'models':list(models.values()),'metrics':glossary,'audit':audit})
 write_json(OUT/'data/reconciliation.json',{'audit':audit,'dataset_rows':reconciliation,'unstained_rows':unstained_reconciliation,'orion_rows':[{'sheet':'ORION runs','row':row,'run':rid} for row,rid in orion_sheet]})
 with (OUT/'downloads/results.csv').open('w',newline='') as fp:
     writer=csv.writer(fp);metric_keys=sorted(all_metric_keys)
