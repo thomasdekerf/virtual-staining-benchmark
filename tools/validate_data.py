@@ -1,5 +1,6 @@
 """Validate scientific snapshot consistency and static references before deployment."""
-import json, math
+import hashlib, json, math, re
+from datetime import datetime
 from pathlib import Path
 
 root=Path(__file__).resolve().parents[1]/'dist'
@@ -12,8 +13,10 @@ assert index['audit']['workbook_orion_rows_accounted'], 'Unaccounted workbook OR
 assert index['audit']['breast_runs']==130, 'Incomplete breast campaign'
 assert index['audit']['dataset_result_rows_verified']==360, 'Incomplete workbook reconciliation'
 evaluations=images=curves=0
+run_details={}
 for entry in index['runs']:
     run=json.loads((root/'data/runs'/f'{entry["id"]}.json').read_text())
+    run_details[run['id']]=run
     assert run['id']==entry['id']
     eids=[e['id'] for e in run['evaluations']]
     assert len(eids)==len(set(eids))
@@ -63,4 +66,88 @@ assert abs(matched['metrics']['psnr']-23.7402681356641)<1e-10
 assert not any(e['split']=='test' and e['protocol'].startswith('Box SSIM') for e in unet['evaluations'])
 pilot=next(e for e in json.loads((root/'data/runs/priority_nafnet_orion_production_job1383267.json').read_text())['evaluations'] if e['split']=='pilot')
 assert abs(pilot['metrics']['psnr']-23.186044288262085)<1e-10 and pilot['n']==24
-print(json.dumps({'runs':len(ids),'evaluations':evaluations,'scalar_series':curves,'paired_fields':images,'workbook_cells_verified':index['audit']['verified_cells'],'validation':'passed'}))
+
+# The overview must validate from checked-in public data only: CI has no private
+# training workspace, SSH access, evaluator checkpoints or activity receipts.
+for filename in ['index.html','app.js','overview.js','styles.css','overview.css']:
+    assert (root/filename).is_file(), f'Missing overview asset: {filename}'
+html=(root/'index.html').read_text()
+for reference in re.findall(r'(?:src|href)=[\"\']([^\"\']+)[\"\']',html):
+    if reference.startswith(('http:','https:','data:','#')): continue
+    assert (root/reference.split('?')[0]).is_file(), f'Broken static reference: {reference}'
+assert re.search(r"from\s+['\"]\./overview\.js['\"]",(root/'app.js').read_text()), 'Overview module is not imported'
+assert 'overview.css' in html, 'Overview stylesheet is not loaded'
+
+summary_path=root/'data/visual-summary.json'
+summary=json.loads(summary_path.read_text())
+assert summary['schema']=='virtual-staining-visual-summary-v1'
+assert summary['snapshot']['benchmark']==index['snapshot'], 'Overview uses a different historical snapshot'
+assert datetime.fromisoformat(summary['snapshot']['activity'])>=datetime.fromisoformat(index['snapshot'])
+assert not re.search(r'/(?:Users|sofia|user|home|mnt)/',summary_path.read_text()), 'Private filesystem path in public chart data'
+entries=index['runs']
+ranked=lambda r: any(e.get('rankable') for e in r['evaluations'])
+tested=lambda r: any(e.get('rankable') and e['split']=='test' for e in r['evaluations'])
+scale=summary['scale']
+expected={'run_records':len(entries),'catalog_models':len(index['models']),
+    'model_families_with_runs':len({r['model'] for r in entries}),
+    'evaluation_records':sum(len(r['evaluations']) for r in entries),
+    'rankable_evaluations':sum(bool(e.get('rankable')) for r in entries for e in r['evaluations']),
+    'evaluated_runs':sum(ranked(r) for r in entries),'tested_runs':sum(tested(r) for r in entries),
+    'scalar_series':sum(len(r.get('curve_counts',{})) for r in entries),
+    'scalar_points':sum(sum(r.get('curve_counts',{}).values()) for r in entries),
+    'paired_fields':sum(r.get('image_count',0) for r in entries),
+    'datasets_published':len(index['datasets']),'her2match_tasks':len(summary['activity']['her2match'])}
+for key,value in expected.items(): assert scale[key]==value, f'Inflated or stale overview count: {key}'
+compute=[r['gpu_hours'] for r in entries if isinstance(r.get('gpu_hours'),(int,float)) and math.isfinite(r['gpu_hours'])]
+assert scale['compute_runs']==len(compute) and math.isclose(scale['recorded_gpu_hours'],math.fsum(compute),rel_tol=1e-12)
+dataset_ids={d['id'] for d in summary['datasets']}
+assert len(dataset_ids)==len(summary['datasets'])==scale['datasets_registered']
+assert dataset_ids=={d['id'] for d in index['datasets']}|{'her2match'}
+her2=next(d for d in summary['datasets'] if d['id']=='her2match')
+assert sum(her2['counts'].values())==her2['pairs']==21172
+assert her2['rankable_evaluations']==her2['evaluated_runs']==0, 'Unfinished HER2Match campaign was scored'
+assert {d['id'] for d in summary['coverage']['datasets']}==dataset_ids
+for row in summary['coverage']['rows']:
+    assert len(row['cells'])==len(dataset_ids) and {c['dataset'] for c in row['cells']}==dataset_ids
+    for cell in row['cells']:
+        assert 0<=cell['tested_runs']<=cell['evaluated_runs']<=cell['runs']
+        if cell['dataset']=='her2match':
+            assert cell['evaluated_runs']==cell['tested_runs']==cell['score_rows']==0
+        else:
+            records=[r for r in entries if r['model']==row['id'] and cell['dataset'] in r['datasets']]
+            scored=[r for r in records if any(e.get('rankable') and e['dataset']==cell['dataset'] for e in r['evaluations'])]
+            assert cell['runs']==len(records) and cell['evaluated_runs']==len(scored), 'Coverage cell mixes scopes'
+
+cohort=summary['cohort']
+assert cohort['models']==len(cohort['runs']) and len({r['id'] for r in cohort['runs']})==len(cohort['runs'])
+assert set(cohort['default_runs'])<={r['id'] for r in cohort['runs']}
+for metric in cohort['metrics']:
+    values=[r['values'][metric['key']] for r in cohort['runs']]
+    assert all(math.isfinite(v) for v in values)
+    assert (metric['min'],metric['max'])==(min(values),max(values)), 'Radar normalization cohort changed'
+    assert metric['direction'] in ['higher','lower'] and metric['coverage_n']==cohort['n']
+    for row in cohort['runs']:
+        evaluation=next(e for e in run_details[row['id']]['evaluations'] if e['dataset']==cohort['dataset'] and e['split']==cohort['split'] and e['protocol']==cohort['protocol'])
+        assert evaluation['rankable'] and evaluation['n']==cohort['n']
+        assert evaluation['manifest_sha256']==cohort['manifest_sha256'] and evaluation['checkpoint_sha256']==row['checkpoint_sha256']
+        value=row['values'][metric['key']]
+        assert value==evaluation['metrics'][metric['key']] and row['coverage'][metric['key']]==cohort['n']
+        low,high=metric['min'],metric['max']
+        normalized=.5 if low==high else (value-low)/(high-low)
+        if low!=high and metric['direction']=='lower': normalized=1-normalized
+        assert math.isclose(row['normalized'][metric['key']],normalized,abs_tol=1e-12), 'Radar direction/scale incorrect'
+for series in summary['trajectories']['series']:
+    detail=run_details[series['id']]
+    assert series['points']==detail['curves']['val/lpips'], 'Learning plot fabricates or drops measurements'
+    assert series['recorded_points']==detail['curve_counts']['val/lpips']==len(series['points'])
+    assert series['axis']=='optimizer updates' and all(p[0]>0 for p in series['points'])
+    assert all(series['points'][i][0]<series['points'][i+1][0] for i in range(len(series['points'])-1))
+for row in summary['activity']['her2match']:
+    assert row['metrics_rankable'] is False and row['step']>=0
+    assert 'metrics' not in row, 'Provisional HER2Match values entered scored chart data'
+for source in summary['provenance']:
+    assert re.fullmatch(r'[0-9a-f]{64}',source['sha256']), 'Malformed evidence fingerprint'
+    if source.get('href'):
+        path=root/source['href']
+        assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==source['sha256'], 'Changed public chart source'
+print(json.dumps({'runs':len(ids),'evaluations':evaluations,'scalar_series':curves,'paired_fields':images,'workbook_cells_verified':index['audit']['verified_cells'],'overview_cohort_runs':cohort['models'],'overview_coverage_cells':sum(len(r['cells']) for r in summary['coverage']['rows']),'validation':'passed'}))
