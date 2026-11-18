@@ -129,6 +129,8 @@ for metric in cohort['metrics']:
     for row in cohort['runs']:
         evaluation=next(e for e in run_details[row['id']]['evaluations'] if e['dataset']==cohort['dataset'] and e['split']==cohort['split'] and e['protocol']==cohort['protocol'])
         assert evaluation['rankable'] and evaluation['n']==cohort['n']
+        assert evaluation['metric_protocol']==cohort['metric_protocol']
+        assert evaluation.get('coverage',{}).get(metric['key'],evaluation['n'])==cohort['n'], 'Radar axis uses a subset of the cohort'
         assert evaluation['manifest_sha256']==cohort['manifest_sha256'] and evaluation['checkpoint_sha256']==row['checkpoint_sha256']
         value=row['values'][metric['key']]
         assert value==evaluation['metrics'][metric['key']] and row['coverage'][metric['key']]==cohort['n']
@@ -138,6 +140,8 @@ for metric in cohort['metrics']:
         assert math.isclose(row['normalized'][metric['key']],normalized,abs_tol=1e-12), 'Radar direction/scale incorrect'
 for series in summary['trajectories']['series']:
     detail=run_details[series['id']]
+    trajectory=summary['trajectories']
+    assert any(e['dataset']==trajectory['dataset'] and e['split']==trajectory['split'] and e['marker']==trajectory['marker'] and e['n']==trajectory['n'] and e['protocol']==trajectory['protocol'] for e in detail['evaluations']), 'Learning curves mix evaluation cohorts'
     assert series['points']==detail['curves']['val/lpips'], 'Learning plot fabricates or drops measurements'
     assert series['recorded_points']==detail['curve_counts']['val/lpips']==len(series['points'])
     assert series['axis']=='optimizer updates' and all(p[0]>0 for p in series['points'])
