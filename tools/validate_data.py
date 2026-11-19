@@ -69,14 +69,23 @@ assert abs(pilot['metrics']['psnr']-23.186044288262085)<1e-10 and pilot['n']==24
 
 # The overview must validate from checked-in public data only: CI has no private
 # training workspace, SSH access, evaluator checkpoints or activity receipts.
-for filename in ['index.html','app.js','overview.js','styles.css','overview.css']:
+for filename in ['index.html','app.js','overview.js','styles.css','overview.css',
+                 'profile-data.js','learning-explorer.js','learning-explorer.css',
+                 'data-laboratory.js','data-laboratory.css']:
     assert (root/filename).is_file(), f'Missing overview asset: {filename}'
 html=(root/'index.html').read_text()
 for reference in re.findall(r'(?:src|href)=[\"\']([^\"\']+)[\"\']',html):
     if reference.startswith(('http:','https:','data:','#')): continue
     assert (root/reference.split('?')[0]).is_file(), f'Broken static reference: {reference}'
-assert re.search(r"from\s+['\"]\./overview\.js['\"]",(root/'app.js').read_text()), 'Overview module is not imported'
+assert re.search(r"from\s+['\"]\./overview\.js(?:[?#][^'\"]*)?['\"]",(root/'app.js').read_text()), 'Overview module is not imported'
 assert 'overview.css' in html, 'Overview stylesheet is not loaded'
+for stylesheet in ['learning-explorer.css','data-laboratory.css']:
+    assert stylesheet in html, f'Explorer stylesheet is not loaded: {stylesheet}'
+for module in root.glob('*.js'):
+    for reference in re.findall(r"(?:from\s+|import\s*)['\"](\./[^'\"]+)['\"]",module.read_text()):
+        resolved=re.split(r'[?#]',reference,maxsplit=1)[0]
+        assert (module.parent/resolved).is_file(), f'Broken JavaScript import in {module.name}: {reference}'
+assert (root.parent/'tools/test_explorer_semantics.mjs').is_file(), 'Missing explorer semantic tests'
 
 summary_path=root/'data/visual-summary.json'
 summary=json.loads(summary_path.read_text())

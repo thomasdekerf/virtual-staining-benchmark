@@ -20,6 +20,8 @@ jobs:
       - uses: actions/checkout@v6
       - name: Validate the published snapshot
         run: python3 tools/validate_data.py
+      - name: Check exploratory chart semantics
+        run: node --test tools/test_explorer_semantics.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
