@@ -29,7 +29,10 @@ class VisualSummaryTests(unittest.TestCase):
     def test_radar_has_identical_complete_test_coverage_and_fixed_cohort_scales(self):
         cohort = self.data['cohort']
         self.assertEqual(cohort['n'], 5179)
-        self.assertEqual(len(cohort['runs']), 16)
+        self.assertEqual(len(cohort['runs']), cohort['models'])
+        index=summary.read_json(HERE.parent/'dist/data/index.json')
+        expected=sum(e.get('rankable') and e['dataset']=='finland' and e['split']=='test' and e['protocol']=='Full production evaluation' for run in index['runs'] for e in run['evaluations'])
+        self.assertEqual(len(cohort['runs']),expected)
         self.assertEqual(len(cohort['default_runs']), 3)
         self.assertEqual({m['direction'] for m in cohort['metrics']}, {'higher', 'lower'})
         for metric in cohort['metrics']:
@@ -43,18 +46,32 @@ class VisualSummaryTests(unittest.TestCase):
                 expected = summary.normalize(run['values'][key], metric['min'], metric['max'], metric['direction'] == 'higher')
                 self.assertEqual(run['normalized'][key], expected)
 
-    def test_new_training_is_unscored_and_does_not_inflate_historical_results(self):
-        recent = self.data['activity']['her2match']
-        self.assertEqual(len(recent), 11)
-        self.assertTrue(all(not row['metrics_rankable'] for row in recent))
-        self.assertTrue(all('values' not in row and 'metrics' not in row for row in recent))
-        self.assertEqual(self.data['scale']['run_records'], 304)
-        self.assertEqual(self.data['scale']['datasets_published'], 6)
-        self.assertEqual(self.data['scale']['datasets_registered'], 7)
-        self.assertEqual(self.data['datasets'][-1]['rankable_evaluations'], 0)
-        queued = [row for row in recent if not row['production_started']]
-        self.assertTrue(queued)
-        self.assertTrue(all(row['step'] == 0 for row in queued))
+    def test_only_completed_source_bound_runs_acquire_scores(self):
+        index=summary.read_json(HERE.parent/'dist/data/index.json')
+        recent=self.data['activity']['her2match']
+        self.assertEqual(len(recent),11)
+        for row in recent:
+            run=next(r for r in index['runs'] if r['id']=='her2match__'+row['id']+'_seed42')
+            scored=any(e.get('rankable') and e['split']=='test' for e in run['evaluations'])
+            self.assertEqual(row['metrics_rankable'],scored)
+            if not row['complete']:self.assertFalse(scored)
+        self.assertEqual(self.data['scale']['run_records'],len(index['runs']))
+        self.assertEqual(self.data['scale']['datasets_published'],len(index['datasets']))
+        self.assertEqual(self.data['scale']['datasets_registered'],len(self.data['datasets']))
+        for task in self.data.get('coverage_balance',{}).get('tasks',[]):
+            run=next((r for r in index['runs'] if r['id']=='balance__'+task['id']),None)
+            if run:self.assertFalse(any(e.get('rankable') for e in run['evaluations']))
+
+    def test_research_full_validation_never_becomes_a_monitor_curve_point(self):
+        for model in ['eqm','nvg','lrdm']:
+            run=summary.read_json(HERE.parent/'dist/data/runs'/f'finland__research_{model}_20261017.json')
+            scope=run['curve_protocol']
+            self.assertEqual(scope['n'],256)
+            self.assertEqual(scope['separate_full_validation_n'],5979)
+            full=next(e for e in run['evaluations'] if e['split']=='val')
+            self.assertEqual(full['n'],5979)
+            self.assertFalse(full['rankable'])
+            self.assertTrue(all(points[i][0]<points[i+1][0] for points in run['curves'].values() for i in range(len(points)-1)))
 
     def test_bci_trajectories_have_actual_shared_update_axis_and_selected_markers(self):
         chart = self.data['trajectories']
@@ -70,7 +87,7 @@ class VisualSummaryTests(unittest.TestCase):
         if self.workspace_receipts_available:
             self.assertEqual(self.data, summary.build(HERE.parent / 'dist', HERE.parents[1]))
         self.assertTrue(all(len(p['sha256']) == 64 for p in self.data['provenance']))
-        self.assertNotEqual(self.data['snapshot']['benchmark'], self.data['snapshot']['activity'])
+        self.assertGreaterEqual(self.data['snapshot']['activity'],self.data['snapshot']['benchmark'])
         for private in ['/Users/', '/sofia/', '/user/', 'vsc20775', 'case_id', 'patient_id']:
             self.assertNotIn(private, text)
 

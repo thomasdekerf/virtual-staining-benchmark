@@ -42,8 +42,8 @@ function header(data, layout) {
   </section>
   <div class="scope-stats" aria-label="Research scale">
     ${scaleCard(s.run_records, 'run records', 'Includes scored and unscored records')}
-    ${scaleCard(s.model_families_with_runs, 'historical model families', `${number(s.catalog_models)} catalogued methods · BBDM now added`)}
-    ${scaleCard(s.datasets_registered, 'datasets represented', `${number(s.datasets_published)} with published result records + HER2Match`)}
+    ${scaleCard(s.model_families_with_runs, 'model families represented', `${number(s.catalog_models)} catalogued methods · includes queued work`)}
+    ${scaleCard(s.datasets_registered, 'datasets represented', `${number(s.datasets_published)} with published result records`)}
     ${scaleCard(s.rankable_evaluations, 'scored evaluation rows', 'Dataset / stain / split / protocol results')}
     ${scaleCard(s.scalar_points, 'recorded curve points', `${number(s.scalar_series)} scalar histories`)}
   </div>
@@ -51,6 +51,22 @@ function header(data, layout) {
   <nav class="visual-tabs" aria-label="Visual examples">
     ${[['atlas','01','Coverage atlas','Breadth & completeness'],['curves','02','Learning explorer','Recorded histories'],['radar','03','Radar profiles','Overlay or individual grids'],['scatter','04','Scatter explorer','Quality & compute trade-offs'],['heatmap','05','Metric heatmap','Models × quality measures'],['parallel','06','Parallel coordinates','Follow each metric profile'],['correlation','07','Metric relationships','Agreement & disagreement']].map(([id,n,title,subtitle]) => `<a ${layout===id?'aria-current="page"':''} class="visual-tab ${layout===id?'active':''}" href="#/overview${id==='atlas'?'':'/'+id}"><span class="view-index">${n}</span><span><strong>${title}</strong><small>${subtitle}</small></span>${id==='atlas'?'<span class="recommended-view">Start here</span>':''}</a>`).join('')}
   </nav>`;
+}
+
+function familyCount(data,dataset,key='tested_model_families'){
+  if(typeof dataset[key]==='number')return dataset[key];
+  return data.coverage.rows.filter(row=>row.cells.some(c=>c.dataset===dataset.id&&(key==='tested_model_families'?c.tested_runs>0:c.evaluated_runs>0))).length;
+}
+
+function balancePlan(data){
+  const plan=data.coverage_balance;
+  if(!plan)return '';
+  return `<section class="visual-panel balance-plan"><div class="visual-panel-heading"><div><div class="eyebrow">A focused expansion</div><h2>Closing the coverage gap</h2><p>${number(plan.task_count || plan.tasks?.length)} new runs add complementary model families across the breast and unstained datasets.</p></div><span class="chart-badge">${plan.job_id?'Array '+esc(plan.job_id):'New campaign'} · pending results</span></div><div class="table-wrap"><table><caption class="sr-only">Current tested model families and selected new training additions.</caption><thead><tr><th>Dataset</th><th class="number">Tested families now</th><th>Added families in this campaign</th><th class="number">Planned benchmark families</th></tr></thead><tbody>${(plan.datasets||[]).map(row=>{
+    const dataset=data.datasets.find(d=>d.id===row.id)||row;
+    const added=row.added_models||row.models||[];
+    const names=added.map(m=>typeof m==='object'?m.name||m.id:plan.models?.find(model=>model.id===m)?.name||data.coverage.rows.find(model=>model.id===m)?.name||m);
+    return `<tr><th scope="row">${esc(dataset.name||row.id)}</th><td class="number">${number(familyCount(data,dataset))}</td><td>${esc(names.join(', '))}${row.marker?`<small>${esc(row.marker)} anchor comparison</small>`:''}</td><td class="number">${number(row.target_model_families||row.target_families||familyCount(data,dataset)+added.length)}</td></tr>`;
+  }).join('')}</tbody></table></div><p class="visual-caption">Targets describe the model families covered once the selected runs finish. New runs are shown as queued, in a smoke check or training until full evaluations exist. Original breast additions target HER2; the other marker and pooling combinations are not duplicated.</p></section>`;
 }
 
 function coverage(data) {
@@ -62,12 +78,12 @@ function coverage(data) {
       const c=row.cells.find(c=>c.dataset===d.id)||{};
       const style=cellStyle(c), runs=c.runs||0;
       const label=`${row.name}, ${d.name || d.id}: ${runs} run records, ${c.evaluated_runs||0} with scored evaluations${style==='active'?', current campaign':''}`;
-      return `<td><a class="coverage-cell ${style}" href="${d.id==='her2match'?'#activity':'#/benchmark?dataset='+encodeURIComponent(d.id)+'&model='+encodeURIComponent(row.id)}" aria-label="${esc(label)}"><span>${runs || '—'}</span><span class="cell-detail">${style==='scored'?'scored':style==='active'?'campaign':style==='recorded'?'recorded':''}</span></a></td>`;
+      return `<td><a class="coverage-cell ${style}" href="${'#/benchmark?dataset='+encodeURIComponent(d.id)+'&model='+encodeURIComponent(row.id)}" aria-label="${esc(label)}"><span>${runs || '—'}</span><span class="cell-detail">${style==='scored'?'scored':style==='active'?'campaign':style==='recorded'?'recorded':''}</span></a></td>`;
     }).join('')}</tr>`).join('')}</tbody></table></div>
     <p class="visual-caption">A record is not a claim that training or evaluation finished. Pooled runs appear in more than one dataset column; column totals must not be added as distinct runs.</p>
-    </section><aside class="atlas-aside"><section class="visual-panel"><div class="eyebrow">Published snapshot</div><h3>How the work is distributed</h3><div class="dataset-bars">${data.datasets.map(d=>{
-      const max=Math.max(...data.datasets.map(x=>x.runs||0),1);
-      return `<a href="${d.id==='her2match'?'#activity':'#/benchmark?dataset='+encodeURIComponent(d.id)}" class="dataset-bar-row"><span>${esc(d.short_name || d.name)}</span><strong>${number(d.runs)}</strong><div class="dataset-bar-track"><i style="width:${100*(d.runs||0)/max}%"></i></div><small>${number(d.evaluated_runs)} records with scores</small></a>`;
+    </section><aside class="atlas-aside"><section class="visual-panel"><div class="eyebrow">Distinct families with held-out tests</div><h3>Model breadth by dataset</h3><p class="family-count-note">Each family counts once. Recipe variants do not increase these bars.</p><div class="dataset-bars">${data.datasets.map(d=>{
+      const max=Math.max(...data.datasets.map(x=>familyCount(data,x)),1),counted=familyCount(data,d);
+      return `<a href="${'#/benchmark?dataset='+encodeURIComponent(d.id)}" class="dataset-bar-row"><span>${esc(d.short_name || d.name)}</span><strong>${number(counted)}</strong><div class="dataset-bar-track"><i style="width:${100*counted/max}%"></i></div><small>${typeof d.trained_model_families==='number'?number(d.trained_model_families)+' trained families · ':''}${number(d.runs)} run records</small></a>`;
     }).join('')}</div></section>
     <section class="view-verdict"><span class="verdict-number">01</span><h3>Best first impression</h3><p>The atlas makes breadth and gaps visible together. Use it as the opening page; follow it with curves and metric profiles.</p><div><strong>Shows</strong> coverage, variants, missing results</div><div><strong>Doesn’t show</strong> which model is best</div></section>
     <section class="visual-panel evidence-totals"><h3>More than a leaderboard</h3><p><strong>${number(data.scale.evaluated_runs)}</strong> run records with a scored evaluation</p><p><strong>${number(data.scale.paired_fields)}</strong> retained paired tissue previews</p><p><strong>${number(data.scale.recorded_gpu_hours)}</strong> recorded GPU hours</p><small>Compute is recorded for ${number(data.scale.compute_runs)} runs only. Missing and parent allocations are not estimated.</small></section></aside></div>`;
@@ -153,13 +169,13 @@ function radarView(data) {
 function activities(data) {
   const activity=data.activity;
   return `<section class="campaign-section" id="activity"><div class="visual-heading"><div><div class="eyebrow">Work continuing beyond the published scores</div><h2>The next chapter is already running.</h2></div><p>Activity observed ${date(activity.observed_utc || data.snapshot.activity)}<br>Saved evidence; this page does not poll the cluster.</p></div>
-    <div class="campaign-grid"><article class="visual-panel"><div class="visual-panel-heading"><div><h3>HER2Match / 11 models</h3><p>21,172 paired images · author case splits</p></div><span class="chart-badge">New dataset</span></div><div class="campaign-runs">${activity.her2match.map(r=>{
+    <div class="campaign-grid"><article class="visual-panel"><div class="visual-panel-heading"><div><h3>HER2Match / ${activity.her2match.length} models</h3><p>21,172 paired images · author case splits</p></div><span class="chart-badge">New dataset</span></div><div class="campaign-runs">${activity.her2match.map(r=>{
       const progress=r.max_steps?Math.min(100,100*(r.step||0)/r.max_steps):0;
       return `<div class="campaign-run"><div><strong>${esc(r.name)}</strong><span>${esc(r.state)}</span></div><div class="campaign-progress"><i style="width:${progress}%"></i></div><small>${r.step?number(r.step)+' optimizer updates':r.production_started?'Production started':'Awaiting production'}${r.max_steps?' / '+number(r.max_steps):''}</small></div>`;
     }).join('')}</div><p class="visual-caption">Progress bars show the recorded update budget where available. Queued and unfinished runs carry no final scores.</p></article>
     <div><article class="visual-panel"><h3>Recoveries, with the evidence retained</h3><div class="recovery-list">${activity.recoveries.map(r=>`<div><span class="recovery-state ${r.complete?'done':''}" aria-hidden="true">${r.complete?'✓':'↗'}</span><div><strong>${esc(r.name)}</strong><span>${esc(r.state)}${r.step?' · '+number(r.step)+' updates':''}</span><p>${esc(r.note)}</p></div></div>`).join('')}</div></article>
     <article class="visual-panel metric-readiness"><h3>Pathology-aware evaluators</h3>${activity.evaluators.map(e=>`<div><strong>${esc(e.name)}</strong><span>${esc(e.state)}</span><p>${esc(e.note)}</p></div>`).join('')}</article></div></div>
-    </section><details class="overview-provenance"><summary>How these visual examples are grounded</summary><p>The coverage counts come from the published benchmark snapshot. The separate campaign cards use dated execution receipts. These snapshots have different dates; new activity has not been promoted into final leaderboard scores.</p><ul>${(data.notes||[]).map(n=>`<li>${esc(n)}</li>`).join('')}</ul><a href="data/visual-summary.json" download>Download the chart data and evidence fingerprints</a></details>`;
+    </section><details class="overview-provenance"><summary>How these visual examples are grounded</summary><p>The coverage counts and scores come from verified evaluation evidence. Campaign cards show separately dated execution progress. A queued or unfinished run enters scored comparisons only after its complete held-out evaluation is verified.</p><ul>${(data.notes||[]).map(n=>`<li>${esc(n)}</li>`).join('')}</ul><a href="data/visual-summary.json" download>Download the chart data and evidence fingerprints</a></details>`;
 }
 
 function bind(main, data, layout) {
@@ -219,7 +235,7 @@ export async function renderOverview(main, layout='atlas', index) {
   if(layout==='radar')data=prepareProfiles(data,index);
   activeSummary=data;
   const content=layout==='radar'?radarView(data):layout==='atlas'?coverage(data):'<div class="loading">Loading the visual explorer…</div>';
-  main.innerHTML=`<div class="research-overview">${header(data,layout)}<section class="visual-example" id="visual-example" aria-label="${layout} explorer">${content}</section>${activities(data)}</div>`;
+  main.innerHTML=`<div class="research-overview">${header(data,layout)}<section class="visual-example" id="visual-example" aria-label="${layout} explorer">${content}</section>${balancePlan(data)}${activities(data)}</div>`;
   bind(main,data,layout);
   const container=$('#visual-example',main);
   if(layout==='curves'){

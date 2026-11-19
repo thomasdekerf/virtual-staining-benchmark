@@ -16,10 +16,15 @@ import yaml
 SITE = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
 parser.add_argument('--workspace', type=Path, default=SITE.parent)
+parser.add_argument('--refresh-existing', action='store_true', help='Reconcile newly staged current results into the preserved public snapshot')
 parser.add_argument('--quick', action='store_true', help='Skip TensorBoard and distribution extraction for an initial preview')
 parser.add_argument('--reuse-curves', action='store_true', help='Reuse exported scalar CSVs and previews; only use when raw TensorBoard logs are unchanged')
 args = parser.parse_args()
 ROOT = args.workspace.resolve()
+if args.refresh_existing:
+    from refresh_live_results import refresh
+    print(json.dumps(refresh(SITE, ROOT), indent=2))
+    raise SystemExit(0)
 OUT = SITE / 'dist'
 for name in ['data/runs', 'assets', 'downloads']:
     (OUT/name).mkdir(parents=True, exist_ok=True)

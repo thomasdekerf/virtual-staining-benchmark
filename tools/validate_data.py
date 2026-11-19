@@ -7,7 +7,7 @@ root=Path(__file__).resolve().parents[1]/'dist'
 index=json.loads((root/'data/index.json').read_text())
 ids=[r['id'] for r in index['runs']]
 assert len(ids)==len(set(ids)), 'Duplicate run IDs'
-assert len(index['datasets'])==6, 'Missing dataset'
+assert {d['id'] for d in index['datasets']}=={'orion','BCI','MIST','IHC4BC','finland','skin','her2match'}, 'Missing registered dataset'
 assert index['audit']['model_priority_rows']==39, 'Workbook model inventory changed; reconcile coverage'
 assert index['audit']['workbook_orion_rows_accounted'], 'Unaccounted workbook ORION rows'
 assert index['audit']['breast_runs']==130, 'Incomplete breast campaign'
@@ -111,18 +111,23 @@ compute=[r['gpu_hours'] for r in entries if isinstance(r.get('gpu_hours'),(int,f
 assert scale['compute_runs']==len(compute) and math.isclose(scale['recorded_gpu_hours'],math.fsum(compute),rel_tol=1e-12)
 dataset_ids={d['id'] for d in summary['datasets']}
 assert len(dataset_ids)==len(summary['datasets'])==scale['datasets_registered']
-assert dataset_ids=={d['id'] for d in index['datasets']}|{'her2match'}
+assert dataset_ids=={d['id'] for d in index['datasets']}
 her2=next(d for d in summary['datasets'] if d['id']=='her2match')
 assert sum(her2['counts'].values())==her2['pairs']==21172
-assert her2['rankable_evaluations']==her2['evaluated_runs']==0, 'Unfinished HER2Match campaign was scored'
+her2_records=[r for r in entries if 'her2match' in r['datasets']]
+assert her2['rankable_evaluations']==sum(bool(e.get('rankable')) and e['dataset']=='her2match' for r in her2_records for e in r['evaluations'])
+assert her2['evaluated_runs']==sum(any(e.get('rankable') and e['dataset']=='her2match' for e in r['evaluations']) for r in her2_records)
+for row in her2_records:
+    for e in row['evaluations']:
+        if e.get('rankable'):
+            assert e['checkpoint_sha256'] and e['manifest_sha256'] and e['evidence']['file'].endswith('/final_evaluation.json')
+            assert e['n']=={'val':3582,'test':5980}[e['split']]
 assert {d['id'] for d in summary['coverage']['datasets']}==dataset_ids
 for row in summary['coverage']['rows']:
     assert len(row['cells'])==len(dataset_ids) and {c['dataset'] for c in row['cells']}==dataset_ids
     for cell in row['cells']:
         assert 0<=cell['tested_runs']<=cell['evaluated_runs']<=cell['runs']
-        if cell['dataset']=='her2match':
-            assert cell['evaluated_runs']==cell['tested_runs']==cell['score_rows']==0
-        else:
+        if True:
             records=[r for r in entries if r['model']==row['id'] and cell['dataset'] in r['datasets']]
             scored=[r for r in records if any(e.get('rankable') and e['dataset']==cell['dataset'] for e in r['evaluations'])]
             assert cell['runs']==len(records) and cell['evaluated_runs']==len(scored), 'Coverage cell mixes scopes'
@@ -156,8 +161,25 @@ for series in summary['trajectories']['series']:
     assert series['axis']=='optimizer updates' and all(p[0]>0 for p in series['points'])
     assert all(series['points'][i][0]<series['points'][i+1][0] for i in range(len(series['points'])-1))
 for row in summary['activity']['her2match']:
-    assert row['metrics_rankable'] is False and row['step']>=0
+    assert row['step']>=0
+    actual=next((r for r in entries if r['id']=='her2match__'+row['id']+'_seed42'),None)
+    assert row['metrics_rankable']==bool(actual and any(e.get('rankable') and e['split']=='test' for e in actual['evaluations']))
     assert 'metrics' not in row, 'Provisional HER2Match values entered scored chart data'
+for dataset in summary['datasets']:
+    mine=[r for r in entries if dataset['id'] in r['datasets']]
+    tested={r['model'] for r in mine if any(e.get('rankable') and e['dataset']==dataset['id'] and e['split']=='test' for e in r['evaluations'])}
+    trained={r['model'] for r in mine if any(e.get('rankable') for e in r['evaluations']) or sum(r.get('curve_counts',{}).values()) or (r.get('last_step') or 0)>0}
+    assert dataset['tested_model_families']==len(tested) and dataset['trained_model_families']==len(trained), 'Model-family counts were inflated by variants'
+proof=json.loads((root/'data/refresh-provenance.json').read_text())
+assert proof['original_ranked_rows_preserved']==index['audit']['original_ranked_rows_preserved']
+assert len(proof['original_score_fingerprints'])==proof['original_ranked_rows_preserved']
+for binding in proof['original_score_fingerprints']:
+    e=next(e for e in run_details[binding['run']]['evaluations'] if e['id']==binding['evaluation'])
+    values={k:e['metrics'][k] for k in binding['metric_keys']}
+    assert hashlib.sha256(json.dumps(values,sort_keys=True,separators=(',',':')).encode()).hexdigest()==binding['metrics_sha256'], 'Original scored result changed'
+for task in (summary.get('coverage_balance') or {}).get('tasks',[]):
+    registered=run_details.get('balance__'+task['id'])
+    if registered:assert not any(e.get('rankable') for e in registered['evaluations']), 'Queued balancing run acquired invented scores'
 for source in summary['provenance']:
     assert re.fullmatch(r'[0-9a-f]{64}',source['sha256']), 'Malformed evidence fingerprint'
     if source.get('href'):

@@ -141,7 +141,9 @@ test('radar axes omit metrics measured on only a subset of the common cohort', (
 test('published exploratory rows remain confined to one scored cohort', async () => {
   const index=JSON.parse(await readFile(new URL('../dist/data/index.json',import.meta.url),'utf8'));
   const rows=cohortRows(index,{dataset:'finland',marker:'H&E',split:'test',protocol:'Full production evaluation'});
-  assert.equal(rows.length,16);
+  const expected=index.runs.flatMap(run=>run.evaluations.filter(e=>e.rankable&&e.dataset==='finland'&&e.split==='test'&&e.protocol==='Full production evaluation'));
+  assert.equal(rows.length,expected.length);
+  assert.ok(rows.length>=16);
   assert.equal(new Set(rows.map(r=>cohortKey(r.evaluation))).size,1);
   assert.ok(rows.every(r=>r.evaluation.rankable && r.evaluation.n===5179));
   const groups=buildProfileCohorts(index);

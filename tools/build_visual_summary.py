@@ -140,6 +140,23 @@ def activity(workspace, names):
         source_list.append(source_record(overlay_path, 'Later read-only activity refresh', activity_stamp))
         for source in overlay['source_hashes']:
             source_list.append({'label': source['label'], 'sha256': source['sha256'], 'as_of': activity_stamp})
+    current_path=workspace/'artifacts/coverage_balance_20261119/live_audit/cluster_snapshot.json'
+    if current_path.exists():
+        live=read_json(current_path);activity_stamp=live['captured_utc']
+        source_list.append(source_record(current_path,'Current read-only production and recovery audit',activity_stamp))
+        for row in rows:
+            files=live['her2match'][row['id']]['files'];saved=files.get('status.json',{}).get('data',{});final=files.get('final_evaluation.json',{}).get('data')
+            row.update(step=saved.get('step',0),max_steps=saved.get('max_steps'),complete=bool(saved.get('complete')),production_started=bool(saved.get('step')),observed_utc=activity_stamp,metrics_rankable=bool(final),state='evaluated' if final else 'training complete / evaluation' if saved.get('complete') else 'checkpointed / queued' if saved.get('budget_pause') else 'training')
+            launch=files.get('launch_state.json',{}).get('data',{})
+            row['job_id']=launch.get('job_id',row['job_id'])
+            row['note']='Full selected-checkpoint validation and test results are published; clinical HER2 grading was not evaluated.' if final else 'Production continues; final selected-checkpoint test results remain pending.'
+        for row in recoveries:
+            if row['id']=='itarflow768':
+                saved=live['itarflow']['continuation_v1']['files']['status.json']['data'];row.update(step=saved['step'],complete=saved.get('complete',False),state='training complete / held-out evaluation',metric_status='Study validation evaluation running',note='Training stopped at 33k; selected checkpoint 25k. The original 128-image monitor remains separate from the held-out evaluation.',observed_utc=activity_stamp)
+            else:
+                files=live['recovery'][row['id']]['files'];saved=files['status.json']['data'];complete=bool(files.get('evaluation_v1/complete.json'))
+                row.update(step=saved['step'],complete=saved.get('complete',False),state='complete' if complete else 'training complete / evaluation' if saved.get('complete') else 'training',metric_status='Full benchmark complete' if complete else 'Full benchmark pending',observed_utc=activity_stamp)
+                if complete:row['note']='Numerical recovery and full image/foundation-model/four-detector benchmark evaluation completed; parent evidence retained.'
     return dict(observed_utc=activity_stamp, her2match=rows, recoveries=recoveries, evaluators=evaluators), source_list
 
 
@@ -164,39 +181,59 @@ def build(dist, workspace):
         paired_fields=sum(r.get('image_count', 0) for r in entries),
         recorded_gpu_hours=math.fsum(r['gpu_hours'] for r in recorded_compute),
         compute_runs=len(recorded_compute), datasets_published=len(data['datasets']),
-        datasets_registered=len(data['datasets']) + 1, her2match_tasks=len(HER2_MODELS),
+        datasets_registered=len(data['datasets']) if any(d['id']=='her2match' for d in data['datasets']) else len(data['datasets'])+1, her2match_tasks=len(HER2_MODELS),
         original_breast_runs=data['audit']['breast_runs'], workbook_verified_cells=data['audit']['verified_cells'])
     recent, receipt_sources = activity(workspace, names)
-    sources = [source_record(index_path, 'Historical reconciled benchmark inventory', data['snapshot'], 'data/index.json')]
+    sources = [source_record(index_path, 'Current reconciled benchmark inventory', data['snapshot'], 'data/index.json')]
     sources += receipt_sources
-    datasets = []
+    def trained(run):
+        return bool(any(e.get('rankable') for e in run['evaluations']) or sum(run.get('curve_counts',{}).values()) or (run.get('last_step') or 0)>0)
+    datasets=[]
     for dataset in data['datasets']:
-        runs = [r for r in entries if dataset['id'] in r['datasets']]
-        scored = [r for r in runs if any(e.get('rankable') and e['dataset'] == dataset['id'] for e in r['evaluations'])]
-        datasets.append(dict(id=dataset['id'], name=dataset['name'], runs=len(runs), evaluated_runs=len(scored),
-            rankable_evaluations=sum(bool(e.get('rankable')) and e['dataset'] == dataset['id'] for r in runs for e in r['evaluations'])))
-    datasets.append(dict(id='her2match', name='HER2Match', runs=11, evaluated_runs=0,
-        rankable_evaluations=0, pairs=21172, counts=dict(train=11610, val=3582, test=5980),
-        task='H&E → HER2', source='https://zenodo.org/records/15797050'))
-    cells = []
-    model_ids = sorted({r['model'] for r in entries} | {'bbdm'}, key=lambda k: names.get(k, k).casefold())
+        mine=[r for r in entries if dataset['id'] in r['datasets']]
+        scored=[r for r in mine if any(e.get('rankable') and e['dataset']==dataset['id'] for e in r['evaluations'])]
+        tested=[r for r in mine if any(e.get('rankable') and e['dataset']==dataset['id'] and e['split']=='test' for e in r['evaluations'])]
+        datasets.append(dict(id=dataset['id'],name=dataset['name'],runs=len(mine),evaluated_runs=len(scored),
+            tested_model_families=len({r['model'] for r in tested}),trained_model_families=len({r['model'] for r in mine if trained(r)}),
+            benchmark_trained_model_families=len({r['model'] for r in mine if trained(r) and '__research_' not in r['id']}),
+            registered_model_families=len({r['model'] for r in mine}),
+            rankable_evaluations=sum(bool(e.get('rankable')) and e['dataset']==dataset['id'] for r in mine for e in r['evaluations']),
+            **({k:dataset[k] for k in ['counts','cases'] if k in dataset})))
+    if not any(d['id']=='her2match' for d in datasets):
+        datasets.append(dict(id='her2match',name='HER2Match',runs=11,evaluated_runs=0,rankable_evaluations=0,tested_model_families=0,trained_model_families=0,registered_model_families=11,pairs=21172,counts=dict(train=11610,val=3582,test=5980)))
+    else:next(d for d in datasets if d['id']=='her2match')['pairs']=21172
+    cells=[]
+    model_ids=sorted({r['model'] for r in entries}|{'bbdm'},key=lambda k:names.get(k,k).casefold())
     for model in model_ids:
-        row = dict(id=model, name=names.get(model, 'BBDM' if model == 'bbdm' else model), cells=[])
+        row=dict(id=model,name=names.get(model,'BBDM' if model=='bbdm' else model),cells=[])
         for dataset in datasets:
-            runs = [r for r in entries if r['model'] == model and dataset['id'] in r['datasets']]
-            scored = [r for r in runs if any(e.get('rankable') and e['dataset'] == dataset['id'] for e in r['evaluations'])]
-            tests = [r for r in runs if any(e.get('rankable') and e['dataset'] == dataset['id'] and e['split'] == 'test' for e in r['evaluations'])]
-            is_new = dataset['id'] == 'her2match' and model in HER2_MODELS
-            state = 'evaluated' if scored else ('registered' if runs else 'none')
-            if is_new:
-                new = next(r for r in recent['her2match'] if r['id'] == model)
-                state = 'training' if new['production_started'] else 'queued'
-            row['cells'].append(dict(dataset=dataset['id'], runs=len(runs) + int(is_new), evaluated_runs=len(scored),
-                tested_runs=len(tests), score_rows=sum(bool(e.get('rankable')) and e['dataset'] == dataset['id'] for r in runs for e in r['evaluations']),
-                status=state))
+            mine=[r for r in entries if r['model']==model and dataset['id'] in r['datasets']]
+            scored=[r for r in mine if any(e.get('rankable') and e['dataset']==dataset['id'] for e in r['evaluations'])]
+            tests=[r for r in mine if any(e.get('rankable') and e['dataset']==dataset['id'] and e['split']=='test' for e in r['evaluations'])]
+            state='evaluated' if scored else 'trained / unscored' if any(trained(r) for r in mine) else 'registered' if mine else 'none'
+            if dataset['id']=='her2match' and not scored and model in HER2_MODELS:
+                state=next(r for r in recent['her2match'] if r['id']==model)['state']
+            row['cells'].append(dict(dataset=dataset['id'],runs=len(mine),evaluated_runs=len(scored),tested_runs=len(tests),
+                score_rows=sum(bool(e.get('rankable')) and e['dataset']==dataset['id'] for r in mine for e in r['evaluations']),status=state))
         cells.append(row)
-    coverage = dict(datasets=[dict(id=d['id'], name=d['name']) for d in datasets], rows=cells,
-        note='Cells count distinct run records per model and dataset, including pooled breast runs in each applicable dataset. Column totals overlap; they must not be added as independent experiments.')
+    coverage=dict(datasets=[dict(id=d['id'],name=d['name']) for d in datasets],rows=cells,
+        note='Cells count run records; pooled records occur in each applicable dataset. Dataset bars use distinct model families with full held-out tests. Trained research families with other protocols remain separate from the native benchmark targets.')
+    balance=None
+    plan_path=workspace/'artifacts/coverage_balance_20261119/prepared/campaign.json'
+    if plan_path.exists():
+        plan=read_json(plan_path);sources.append(source_record(plan_path,'Focused coverage-balancing campaign'))
+        public_tasks=[]
+        for task in plan['tasks']:
+            scope=['her2match' if d=='HER2Match' else d for d in task.get('datasets',[task['dataset']])]
+            public_tasks.append(dict(id=task['id'],model=task['model'],datasets=scope,marker=task['marker'],state=task.get('state','prepared'),job_id=task.get('job_id')))
+        table=[]
+        for d in datasets:
+            additions=sorted({t['model'] for t in public_tasks if d['id'] in t['datasets']})
+            if not additions:continue
+            current_models={r['model'] for r in entries if d['id'] in r['datasets'] and trained(r) and '__research_' not in r['id']}
+            table.append(dict(id=d['id'],name=d['name'],added_models=additions,target_model_families=len(current_models|set(additions)),target_kind='planned benchmark families'))
+        submission=read_json(workspace/'artifacts/coverage_balance_20261119/submission.json') if (workspace/'artifacts/coverage_balance_20261119/submission.json').exists() else {}
+        balance=dict(task_count=len(public_tasks),job_id=submission.get('array_job_id',submission.get('job_id')),snapshot=plan.get('created'),models=[dict(id=m,name=names.get(m,m)) for m in sorted({t['model'] for t in public_tasks})],tasks=public_tasks,datasets=table,target_note='Targets count task-specific benchmark families after the new runs finish. Research validation-only families are not counted as completed benchmark targets.')
     cohort_entries = [(run, evaluation) for run in entries for evaluation in run['evaluations']
                       if evaluation.get('rankable') and evaluation['dataset'] == 'finland'
                       and evaluation['split'] == 'test' and evaluation['protocol'] == 'Full production evaluation']
@@ -208,7 +245,7 @@ def build(dist, workspace):
         assert all(e.get('coverage', {}).get(key, e['n']) == e['n'] == 5179 for _, e in cohort_entries)
         metrics.append(dict(key=key, label=metadata['label'], direction='higher' if metadata['direction'] == '↑' else 'lower',
             unit=metadata['unit'], min=min(values), max=max(values), coverage_n=5179,
-            normalization='Min/max across all 16 recorded cohort models; larger plotted values are better.'))
+            normalization=f'Min/max across all {len(cohort_entries)} recorded cohort models; larger plotted values are better.'))
     cohort_runs = []
     for run, evaluation in cohort_entries:
         values = {k: evaluation['metrics'][k] for k in RADAR_METRICS}
@@ -221,7 +258,7 @@ def build(dist, workspace):
         metric_protocol=cohort_entries[0][1]['metric_protocol'], n=5179, metric_count=len(metrics),
         manifest_sha256=cohort_entries[0][1]['manifest_sha256'], models=len(cohort_runs),
         default_runs=DEFAULT_RUNS, metrics=metrics, runs=cohort_runs,
-        normalization_basis='All 16 fully evaluated models in this frozen Finland test cohort, unaffected by the selected display subset.',
+        normalization_basis=f'All {len(cohort_entries)} fully evaluated models in this frozen Finland test cohort, unaffected by the selected display subset.',
         note='Relative profiles are not probabilities, absolute quality or a combined clinical score. Raw values and protocol remain authoritative. One training seed per model; no significance claim.')
     trajectory_series = []
     for ident in TRAJECTORY_RUNS:
@@ -241,12 +278,12 @@ def build(dist, workspace):
         series=trajectory_series, note='Actual recorded values; no smoothing or extrapolation. Same BCI validation cohort. Training recipes differ; equal updates do not imply equal training compute. Validation trajectories do not use test scores.')
     return dict(schema='virtual-staining-visual-summary-v1', snapshot=dict(benchmark=data['snapshot'], activity=recent['observed_utc']),
         scale=scale, datasets=datasets, coverage=coverage, cohort=cohort, trajectories=trajectories,
-        activity=recent, provenance=sources,
-        notes=['Historical score inventory and later training activity have separate snapshot dates.',
-            '304 historical run records include evaluated, deferred, reused and unscored entries; they are not 304 independently completed training runs.',
-            'Recorded GPU-hours sum available per-run allocation evidence only; they exclude missing compute records and new HER2Match/recovery allocations.',
+        activity=recent, provenance=sources,coverage_balance=balance,
+        notes=['Current result inventory and activity retain explicit source and capture timestamps.',
+            f'{len(entries)} run records include evaluated, deferred, continuation and unscored entries; they are not independently completed training experiments.',
+            'Recorded GPU-hours sum available per-run evidence only. Missing allocations and parent compute are not estimated; a continuation is not total training compute.',
             'Scalar measurements count logged metric values across series; they are not independent samples or optimizer updates.',
-            'HER2Match has no completed held-out benchmark scores in this activity receipt. Pending values remain absent.',
+            'HER2Match completed full-split results are published only from their selected-checkpoint final reports; unfinished runs remain unscored.',
             'Unmeasured coverage is never replaced by a zero score. Run coverage is evidence scope, not model quality.'])
 
 

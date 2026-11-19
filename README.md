@@ -2,15 +2,15 @@
 
 [Open the benchmark](https://thomasdekerf.github.io/virtual-staining-benchmark/)
 
-A static benchmark for delivered virtual staining models across ORION CRC, BCI, MIST, IHC4BC, Finland mouse prostate and DermaRepo human skin.
+A static benchmark for delivered virtual staining models across ORION CRC, BCI, MIST, IHC4BC, Finland mouse prostate, DermaRepo human skin and HER2Match.
 
-The first view is a visual research atlas: 304 historical run records, 34 historical model families plus the new BBDM campaign, seven datasets represented, 570 scored evaluation rows and 3,654,537 recorded scalar measurements. Counts describe different units; they are not counts of independent experiments or claims that every run finished.
+The first view is a visual research atlas. Its current snapshot has 339 run records, 596 scored evaluation rows and seven datasets. The dataset bars count distinct model families with held-out test evidence, once per family; recipe variants stay visible as separate run records. Training and planned coverage remain separate from completed test scores.
 
 Seven interactive views are available:
 
 - [Coverage atlas](https://thomasdekerf.github.io/virtual-staining-benchmark/#/overview): model-family × dataset coverage, record counts, dataset bars and recorded compute. Recommended opening view for communicating the scale of the research.
-- [Learning explorer](https://thomasdekerf.github.io/virtual-staining-benchmark/#/overview/curves): reach all 283 records with scalar histories using dataset, stain, exact training scope and metric filters. Select any number of runs, compare overlays or individual panels, inspect checkpoints, switch to logarithmic values or relative observed progress, and export CSV. Pooled validation histories retain their pool identity. Unverified raw position units remain explicit and separate.
-- [Radar profiles](https://thomasdekerf.github.io/virtual-staining-benchmark/#/overview/radar): choose any number of models across 31 matched cohorts. Overlay profiles or show one radar per run, with shared cohort scales and configurable metric axes. Only common full-coverage finite metrics become radar axes. Raw values and zoomable dot plots remain available; radar area is not an overall ranking.
+- [Learning explorer](https://thomasdekerf.github.io/virtual-staining-benchmark/#/overview/curves): reach all available records with scalar histories using dataset, stain, exact training scope and metric filters. Select any number of runs, compare overlays or individual panels, inspect checkpoints, switch to logarithmic values or relative observed progress, and export CSV. Pooled validation histories retain their pool identity. Unverified raw position units remain explicit and separate.
+- [Radar profiles](https://thomasdekerf.github.io/virtual-staining-benchmark/#/overview/radar): choose any number of models across the available matched cohorts. Overlay profiles or show one radar per run, with shared cohort scales and configurable metric axes. Only common full-coverage finite metrics become radar axes. Raw values and zoomable dot plots remain available; radar area is not an overall ranking.
 - [Scatter explorer](https://thomasdekerf.github.io/virtual-staining-benchmark/#/overview/scatter): choose any two recorded dimensions, including quality, wall time and GPU hours. Presets cover pixel/perceptual, compute/quality, embedding and nucleus trade-offs. Optional bubble area, log horizontal scale, exact point inspection and a direction-aware Pareto frontier expose trade-offs without claiming significance.
 - [Metric heatmap](https://thomasdekerf.github.io/virtual-staining-benchmark/#/overview/heatmap): compare all matched runs across chosen quality measures, sorted by a metric, with direction-aligned colour and values in original units.
 - [Parallel coordinates](https://thomasdekerf.github.io/virtual-staining-benchmark/#/overview/parallel): follow each model across selected metric axes; focus a profile to isolate it. Missing measurements remain gaps.
@@ -18,7 +18,7 @@ Seven interactive views are available:
 
 The [searchable, sortable benchmark table](https://thomasdekerf.github.io/virtual-staining-benchmark/#/benchmark) remains available. Dataset, target stain, split and evaluation protocol define a comparison group. Best values are bold and second-best values are underlined, based on unrounded distinct values. Every metric has an explanation. Run pages expose objectives and validation curves, retained ground-truth/prediction pairs, actual per-tile violin plots, training time, configuration and source fingerprints. Up to three runs can be compared side by side.
 
-Historical result scores retain their 15 October snapshot. Separately dated November campaign cards show the eleven HER2Match tasks, numerical recoveries, and HAPS/PaPIS readiness without promoting unfinished work into scored results. These cards are saved evidence, not a live cluster connection. The small `dist/data/visual-summary.json` records its source fingerprints and scope notes.
+The 19 November refresh preserves every previously published ranked result and adds the verified current results: nine completed HER2Match models, three newly completed Finland families and recovered skin ASP. This gives 19 complete Finland test profiles and 21 for skin. Separately dated campaign cards show unfinished training, evaluations and the focused 17-run expansion. The expansion adds HEMIT, ImplicitStainer and MiPHEI-ViT to the breast HER2 anchor comparisons, plus BBDM across the original breast anchors, Finland and skin. Original breast and HER2Match target 14 benchmark families; Finland and skin target 22. These are planned targets until the runs and full evaluations finish. The small `dist/data/visual-summary.json` records source fingerprints and scope notes.
 
 ## Evidence and coverage
 
@@ -26,7 +26,7 @@ The snapshot reconciles every model-priority entry and ORION run row in `Virtual
 
 Held-out results, selected-checkpoint validation, latest training measurements and pilot evaluations stay separate. Legacy and matched FP32 scikit-image protocols are also separate. Unstained results enter the ranking only from `complete.json`, after the core profile and StarDist, StarDist 2×, HoVerNet and Cellpose-SAM evaluations finish. Metrics still outside this profile remain explicitly pending. A single numeric advantage is not statistical superiority, and image similarity does not establish diagnostic equivalence.
 
-Breast production previews and per-tile outputs were moved to an Ubuntu archive that was inaccessible for this snapshot. Their complete metric means and validation trajectories are preserved. Unavailable assets are labelled in the run view. Training checkpoints, raw source data, private paths and subject identifiers are not distributed here. Retained field images are derived benchmark previews. Original datasets and third-party model materials retain their own terms.
+Breast production previews and per-tile outputs remain in the Ubuntu archive outside this published snapshot; the original dataset bundle has been restored for the selective training extension. Their complete metric means and validation trajectories are preserved. Unavailable assets are labelled in the run view. Training checkpoints, raw source data, private paths and subject identifiers are not distributed here. Retained field images are derived benchmark previews. Original datasets and third-party model materials retain their own terms.
 
 ## Preview
 
@@ -46,7 +46,7 @@ The site does not poll private servers or imply that a saved training state is l
 python3 -m venv .build-env
 .build-env/bin/pip install -r tools/requirements.txt
 bash tools/sync_evidence.sh
-.build-env/bin/python tools/build_data.py --workspace /path/to/VirtualStaining
+.build-env/bin/python tools/build_data.py --workspace /path/to/VirtualStaining --refresh-existing
 .build-env/bin/python tools/build_visual_summary.py --workspace /path/to/VirtualStaining
 .build-env/bin/python tools/validate_data.py
 ```

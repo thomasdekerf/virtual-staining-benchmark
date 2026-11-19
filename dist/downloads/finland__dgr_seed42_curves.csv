@@ -144,6 +144,7 @@ train/adversarial_he,7050.0,0.4599609375
 train/adversarial_he,7100.0,0.46923828125
 train/adversarial_he,7150.0,0.48974609375
 train/adversarial_he,7200.0,0.44873046875
+train/adversarial_he,7202.0,0.4938303813176895
 train/adversarial_he,7250.0,0.50146484375
 train/adversarial_he,7300.0,0.48486328125
 train/adversarial_he,7350.0,0.46728515625
@@ -288,6 +289,7 @@ train/adversarial_he,14250.0,0.4912109375
 train/adversarial_he,14300.0,0.49560546875
 train/adversarial_he,14350.0,0.4443359375
 train/adversarial_he,14400.0,0.55517578125
+train/adversarial_he,14404.0,0.47491111003236947
 train/adversarial_he,14450.0,0.39697265625
 train/adversarial_he,14500.0,0.5439453125
 train/adversarial_he,14550.0,0.52587890625
@@ -432,6 +434,7 @@ train/adversarial_he,21450.0,0.53076171875
 train/adversarial_he,21500.0,0.4306640625
 train/adversarial_he,21550.0,0.4716796875
 train/adversarial_he,21600.0,0.4970703125
+train/adversarial_he,21606.0,0.46697504816370455
 train/adversarial_he,21650.0,0.47021484375
 train/adversarial_he,21700.0,0.4541015625
 train/adversarial_he,21750.0,0.419921875
@@ -576,6 +579,7 @@ train/adversarial_he,28650.0,0.50830078125
 train/adversarial_he,28700.0,0.4619140625
 train/adversarial_he,28750.0,0.57568359375
 train/adversarial_he,28800.0,0.50439453125
+train/adversarial_he,28808.0,0.4606023744489378
 train/adversarial_he,28850.0,0.46728515625
 train/adversarial_he,28900.0,0.48291015625
 train/adversarial_he,28950.0,0.44482421875
@@ -720,6 +724,7 @@ train/adversarial_he,35850.0,0.509765625
 train/adversarial_he,35900.0,0.43115234375
 train/adversarial_he,35950.0,0.42333984375
 train/adversarial_he,36000.0,0.4892578125
+train/adversarial_he,36010.0,0.45681816086243404
 train/adversarial_he,36050.0,0.4326171875
 train/adversarial_he,36100.0,0.44580078125
 train/adversarial_he,36150.0,0.44189453125
@@ -864,6 +869,7 @@ train/adversarial_he,43050.0,0.3837890625
 train/adversarial_he,43100.0,0.384765625
 train/adversarial_he,43150.0,0.501953125
 train/adversarial_he,43200.0,0.4228515625
+train/adversarial_he,43212.0,0.4599155128349764
 train/adversarial_he,43250.0,0.47509765625
 train/adversarial_he,43300.0,0.46923828125
 train/adversarial_he,43350.0,0.47705078125
@@ -1008,6 +1014,7 @@ train/adversarial_he,50250.0,0.47021484375
 train/adversarial_he,50300.0,0.5146484375
 train/adversarial_he,50350.0,0.47509765625
 train/adversarial_he,50400.0,0.4853515625
+train/adversarial_he,50414.0,0.478694950729832
 train/adversarial_he,50450.0,0.46875
 train/adversarial_he,50500.0,0.37646484375
 train/adversarial_he,50550.0,0.49658203125
@@ -1152,6 +1159,7 @@ train/adversarial_he,57450.0,0.42138671875
 train/adversarial_he,57500.0,0.56298828125
 train/adversarial_he,57550.0,0.47900390625
 train/adversarial_he,57600.0,0.4990234375
+train/adversarial_he,57616.0,0.5055047914207859
 train/adversarial_he,57650.0,0.47705078125
 train/adversarial_he,57700.0,0.5537109375
 train/adversarial_he,57750.0,0.45849609375
@@ -1296,6 +1304,7 @@ train/adversarial_he,64650.0,0.52587890625
 train/adversarial_he,64700.0,0.66455078125
 train/adversarial_he,64750.0,0.564453125
 train/adversarial_he,64800.0,0.638671875
+train/adversarial_he,64818.0,0.5432298062278708
 train/adversarial_he,64850.0,0.50048828125
 train/adversarial_he,64900.0,0.54931640625
 train/adversarial_he,64950.0,0.6103515625
@@ -1440,6 +1449,7 @@ train/adversarial_he,71850.0,0.5732421875
 train/adversarial_he,71900.0,0.47265625
 train/adversarial_he,71950.0,0.609375
 train/adversarial_he,72000.0,0.63671875
+train/adversarial_he,72020.0,0.5878269287719557
 train/adversarial_he,72050.0,0.5751953125
 train/adversarial_he,72100.0,0.55712890625
 train/adversarial_he,72150.0,0.4892578125
@@ -1584,6 +1594,7 @@ train/adversarial_he,79050.0,0.5751953125
 train/adversarial_he,79100.0,0.6015625
 train/adversarial_he,79150.0,0.732421875
 train/adversarial_he,79200.0,0.62353515625
+train/adversarial_he,79222.0,0.6289712343901868
 train/adversarial_he,79250.0,0.783203125
 train/adversarial_he,79300.0,0.7001953125
 train/adversarial_he,79350.0,0.552734375
@@ -1728,6 +1739,7 @@ train/adversarial_he,86250.0,0.54443359375
 train/adversarial_he,86300.0,0.73046875
 train/adversarial_he,86350.0,0.7783203125
 train/adversarial_he,86400.0,0.71337890625
+train/adversarial_he,86424.0,0.6712074269191718
 train/adversarial_he,86450.0,0.62841796875
 train/adversarial_he,86500.0,0.7509765625
 train/adversarial_he,86550.0,0.6962890625
@@ -1872,6 +1884,7 @@ train/adversarial_he,93450.0,0.6884765625
 train/adversarial_he,93500.0,0.6474609375
 train/adversarial_he,93550.0,0.7587890625
 train/adversarial_he,93600.0,0.662109375
+train/adversarial_he,93626.0,0.7074716658567065
 train/adversarial_he,93650.0,0.712890625
 train/adversarial_he,93700.0,0.6787109375
 train/adversarial_he,93750.0,0.6875
@@ -2016,6 +2029,7 @@ train/adversarial_he,100650.0,0.814453125
 train/adversarial_he,100700.0,0.8544921875
 train/adversarial_he,100750.0,0.833984375
 train/adversarial_he,100800.0,0.8310546875
+train/adversarial_he,100828.0,0.736099781310747
 train/adversarial_he,100850.0,0.6767578125
 train/adversarial_he,100900.0,0.8603515625
 train/adversarial_he,100950.0,0.7109375
@@ -2160,6 +2174,7 @@ train/adversarial_he,107850.0,0.7099609375
 train/adversarial_he,107900.0,0.67578125
 train/adversarial_he,107950.0,0.78515625
 train/adversarial_he,108000.0,0.7763671875
+train/adversarial_he,108030.0,0.7501217652214662
 train/adversarial_he,108050.0,0.8017578125
 train/adversarial_he,108100.0,0.767578125
 train/adversarial_he,108150.0,0.59228515625
@@ -2304,6 +2319,7 @@ train/adversarial_he,115050.0,0.6923828125
 train/adversarial_he,115100.0,0.6572265625
 train/adversarial_he,115150.0,0.830078125
 train/adversarial_he,115200.0,0.8134765625
+train/adversarial_he,115232.0,0.7717391599121771
 train/adversarial_he,115250.0,0.98828125
 train/adversarial_he,115300.0,0.77734375
 train/adversarial_he,115350.0,0.7470703125
@@ -2448,6 +2464,7 @@ train/adversarial_he,122250.0,0.91796875
 train/adversarial_he,122300.0,1.0693359375
 train/adversarial_he,122350.0,0.833984375
 train/adversarial_he,122400.0,0.859375
+train/adversarial_he,122434.0,0.7925109439543703
 train/adversarial_he,122450.0,0.64794921875
 train/adversarial_he,122500.0,0.90234375
 train/adversarial_he,122550.0,0.884765625
@@ -2592,6 +2609,7 @@ train/adversarial_he,129450.0,0.7431640625
 train/adversarial_he,129500.0,0.697265625
 train/adversarial_he,129550.0,0.783203125
 train/adversarial_he,129600.0,0.822265625
+train/adversarial_he,129636.0,0.8174916961000417
 train/adversarial_he,129650.0,0.923828125
 train/adversarial_he,129700.0,0.837890625
 train/adversarial_he,129750.0,0.8349609375
@@ -2736,6 +2754,7 @@ train/adversarial_he,136650.0,0.9638671875
 train/adversarial_he,136700.0,0.7685546875
 train/adversarial_he,136750.0,0.9365234375
 train/adversarial_he,136800.0,0.8349609375
+train/adversarial_he,136838.0,0.8345378101352054
 train/adversarial_he,136850.0,0.771484375
 train/adversarial_he,136900.0,0.8359375
 train/adversarial_he,136950.0,0.9462890625
@@ -2880,6 +2899,7 @@ train/adversarial_he,143850.0,0.828125
 train/adversarial_he,143900.0,0.794921875
 train/adversarial_he,143950.0,0.8037109375
 train/adversarial_he,144000.0,1.0
+train/adversarial_he,144040.0,0.8437196942906484
 train/adversarial_he,144050.0,0.81201171875
 train/adversarial_he,144100.0,0.787109375
 train/adversarial_he,144150.0,1.0146484375
@@ -3024,6 +3044,7 @@ train/adversarial_he,151050.0,0.8310546875
 train/adversarial_he,151100.0,0.8837890625
 train/adversarial_he,151150.0,0.8388671875
 train/adversarial_he,151200.0,0.779296875
+train/adversarial_he,151242.0,0.8513976830437726
 train/adversarial_he,151250.0,0.7978515625
 train/adversarial_he,151300.0,0.6416015625
 train/adversarial_he,151350.0,0.80859375
@@ -3168,6 +3189,7 @@ train/adversarial_he,158250.0,1.169921875
 train/adversarial_he,158300.0,0.904296875
 train/adversarial_he,158350.0,0.82421875
 train/adversarial_he,158400.0,0.9072265625
+train/adversarial_he,158444.0,0.8669640377672868
 train/adversarial_he,158450.0,0.8916015625
 train/adversarial_he,158500.0,0.8515625
 train/adversarial_he,158550.0,0.751953125
@@ -3312,6 +3334,7 @@ train/adversarial_he,165450.0,0.7744140625
 train/adversarial_he,165500.0,0.833984375
 train/adversarial_he,165550.0,0.8798828125
 train/adversarial_he,165600.0,0.72216796875
+train/adversarial_he,165646.0,0.8717383056572827
 train/adversarial_he,165650.0,0.9248046875
 train/adversarial_he,165700.0,1.03515625
 train/adversarial_he,165750.0,1.0185546875
@@ -3456,6 +3479,7 @@ train/adversarial_he,172650.0,0.6787109375
 train/adversarial_he,172700.0,0.806640625
 train/adversarial_he,172750.0,0.73486328125
 train/adversarial_he,172800.0,0.9326171875
+train/adversarial_he,172848.0,0.8807663222347091
 train/adversarial_he,172850.0,0.724609375
 train/adversarial_he,172900.0,0.8779296875
 train/adversarial_he,172950.0,0.8603515625
@@ -3745,6 +3769,7 @@ train/adversarial_he,187100.0,1.0546875
 train/adversarial_he,187150.0,1.048828125
 train/adversarial_he,187200.0,0.953125
 train/adversarial_he,187250.0,0.984375
+train/adversarial_he,187252.0,0.9016947196742224
 train/adversarial_he,187300.0,0.916015625
 train/adversarial_he,187350.0,0.8515625
 train/adversarial_he,187400.0,0.8662109375
@@ -3889,6 +3914,7 @@ train/adversarial_he,194300.0,0.966796875
 train/adversarial_he,194350.0,0.9091796875
 train/adversarial_he,194400.0,0.9111328125
 train/adversarial_he,194450.0,1.125
+train/adversarial_he,194454.0,0.9084128920351986
 train/adversarial_he,194500.0,0.8349609375
 train/adversarial_he,194550.0,0.9638671875
 train/adversarial_he,194600.0,0.7294921875
@@ -4033,6 +4059,7 @@ train/adversarial_he,201500.0,0.9091796875
 train/adversarial_he,201550.0,0.80859375
 train/adversarial_he,201600.0,0.8642578125
 train/adversarial_he,201650.0,1.037109375
+train/adversarial_he,201656.0,0.9200823528837476
 train/adversarial_he,201700.0,0.9248046875
 train/adversarial_he,201750.0,0.9365234375
 train/adversarial_he,201800.0,1.017578125
@@ -4177,6 +4204,7 @@ train/adversarial_he,208700.0,0.8876953125
 train/adversarial_he,208750.0,0.7783203125
 train/adversarial_he,208800.0,0.759765625
 train/adversarial_he,208850.0,0.9892578125
+train/adversarial_he,208858.0,0.9183101807657595
 train/adversarial_he,208900.0,1.0556640625
 train/adversarial_he,208950.0,0.91796875
 train/adversarial_he,209000.0,0.9755859375
@@ -4321,6 +4349,7 @@ train/adversarial_he,215900.0,0.982421875
 train/adversarial_he,215950.0,0.74609375
 train/adversarial_he,216000.0,0.9453125
 train/adversarial_he,216050.0,0.876953125
+train/adversarial_he,216060.0,0.9227644420603652
 train/adversarial_mif,1.0,0.0
 train/adversarial_mif,50.0,0.0
 train/adversarial_mif,100.0,0.0
@@ -4466,6 +4495,7 @@ train/adversarial_mif,7050.0,0.0
 train/adversarial_mif,7100.0,0.0
 train/adversarial_mif,7150.0,0.0
 train/adversarial_mif,7200.0,0.0
+train/adversarial_mif,7202.0,0.0
 train/adversarial_mif,7250.0,0.0
 train/adversarial_mif,7300.0,0.0
 train/adversarial_mif,7350.0,0.0
@@ -4610,6 +4640,7 @@ train/adversarial_mif,14250.0,0.0
 train/adversarial_mif,14300.0,0.0
 train/adversarial_mif,14350.0,0.0
 train/adversarial_mif,14400.0,0.0
+train/adversarial_mif,14404.0,0.0
 train/adversarial_mif,14450.0,0.0
 train/adversarial_mif,14500.0,0.0
 train/adversarial_mif,14550.0,0.0
@@ -4754,6 +4785,7 @@ train/adversarial_mif,21450.0,0.0
 train/adversarial_mif,21500.0,0.0
 train/adversarial_mif,21550.0,0.0
 train/adversarial_mif,21600.0,0.0
+train/adversarial_mif,21606.0,0.0
 train/adversarial_mif,21650.0,0.0
 train/adversarial_mif,21700.0,0.0
 train/adversarial_mif,21750.0,0.0
@@ -4898,6 +4930,7 @@ train/adversarial_mif,28650.0,0.0
 train/adversarial_mif,28700.0,0.0
 train/adversarial_mif,28750.0,0.0
 train/adversarial_mif,28800.0,0.0
+train/adversarial_mif,28808.0,0.0
 train/adversarial_mif,28850.0,0.0
 train/adversarial_mif,28900.0,0.0
 train/adversarial_mif,28950.0,0.0
@@ -5042,6 +5075,7 @@ train/adversarial_mif,35850.0,0.0
 train/adversarial_mif,35900.0,0.0
 train/adversarial_mif,35950.0,0.0
 train/adversarial_mif,36000.0,0.0
+train/adversarial_mif,36010.0,0.0
 train/adversarial_mif,36050.0,0.0
 train/adversarial_mif,36100.0,0.0
 train/adversarial_mif,36150.0,0.0
@@ -5186,6 +5220,7 @@ train/adversarial_mif,43050.0,0.0
 train/adversarial_mif,43100.0,0.0
 train/adversarial_mif,43150.0,0.0
 train/adversarial_mif,43200.0,0.0
+train/adversarial_mif,43212.0,0.0
 train/adversarial_mif,43250.0,0.0
 train/adversarial_mif,43300.0,0.0
 train/adversarial_mif,43350.0,0.0
@@ -5330,6 +5365,7 @@ train/adversarial_mif,50250.0,0.0
 train/adversarial_mif,50300.0,0.0
 train/adversarial_mif,50350.0,0.0
 train/adversarial_mif,50400.0,0.0
+train/adversarial_mif,50414.0,0.0
 train/adversarial_mif,50450.0,0.0
 train/adversarial_mif,50500.0,0.0
 train/adversarial_mif,50550.0,0.0
@@ -5474,6 +5510,7 @@ train/adversarial_mif,57450.0,0.0
 train/adversarial_mif,57500.0,0.0
 train/adversarial_mif,57550.0,0.0
 train/adversarial_mif,57600.0,0.0
+train/adversarial_mif,57616.0,0.0
 train/adversarial_mif,57650.0,0.0
 train/adversarial_mif,57700.0,0.0
 train/adversarial_mif,57750.0,0.0
@@ -5618,6 +5655,7 @@ train/adversarial_mif,64650.0,0.0
 train/adversarial_mif,64700.0,0.0
 train/adversarial_mif,64750.0,0.0
 train/adversarial_mif,64800.0,0.0
+train/adversarial_mif,64818.0,0.0
 train/adversarial_mif,64850.0,0.0
 train/adversarial_mif,64900.0,0.0
 train/adversarial_mif,64950.0,0.0
@@ -5762,6 +5800,7 @@ train/adversarial_mif,71850.0,0.0
 train/adversarial_mif,71900.0,0.0
 train/adversarial_mif,71950.0,0.0
 train/adversarial_mif,72000.0,0.0
+train/adversarial_mif,72020.0,0.0
 train/adversarial_mif,72050.0,0.0
 train/adversarial_mif,72100.0,0.0
 train/adversarial_mif,72150.0,0.0
@@ -5906,6 +5945,7 @@ train/adversarial_mif,79050.0,0.0
 train/adversarial_mif,79100.0,0.0
 train/adversarial_mif,79150.0,0.0
 train/adversarial_mif,79200.0,0.0
+train/adversarial_mif,79222.0,0.0
 train/adversarial_mif,79250.0,0.0
 train/adversarial_mif,79300.0,0.0
 train/adversarial_mif,79350.0,0.0
@@ -6050,6 +6090,7 @@ train/adversarial_mif,86250.0,0.0
 train/adversarial_mif,86300.0,0.0
 train/adversarial_mif,86350.0,0.0
 train/adversarial_mif,86400.0,0.0
+train/adversarial_mif,86424.0,0.0
 train/adversarial_mif,86450.0,0.0
 train/adversarial_mif,86500.0,0.0
 train/adversarial_mif,86550.0,0.0
@@ -6194,6 +6235,7 @@ train/adversarial_mif,93450.0,0.0
 train/adversarial_mif,93500.0,0.0
 train/adversarial_mif,93550.0,0.0
 train/adversarial_mif,93600.0,0.0
+train/adversarial_mif,93626.0,0.0
 train/adversarial_mif,93650.0,0.0
 train/adversarial_mif,93700.0,0.0
 train/adversarial_mif,93750.0,0.0
@@ -6338,6 +6380,7 @@ train/adversarial_mif,100650.0,0.0
 train/adversarial_mif,100700.0,0.0
 train/adversarial_mif,100750.0,0.0
 train/adversarial_mif,100800.0,0.0
+train/adversarial_mif,100828.0,0.0
 train/adversarial_mif,100850.0,0.0
 train/adversarial_mif,100900.0,0.0
 train/adversarial_mif,100950.0,0.0
@@ -6482,6 +6525,7 @@ train/adversarial_mif,107850.0,0.0
 train/adversarial_mif,107900.0,0.0
 train/adversarial_mif,107950.0,0.0
 train/adversarial_mif,108000.0,0.0
+train/adversarial_mif,108030.0,0.0
 train/adversarial_mif,108050.0,0.0
 train/adversarial_mif,108100.0,0.0
 train/adversarial_mif,108150.0,0.0
@@ -6626,6 +6670,7 @@ train/adversarial_mif,115050.0,0.0
 train/adversarial_mif,115100.0,0.0
 train/adversarial_mif,115150.0,0.0
 train/adversarial_mif,115200.0,0.0
+train/adversarial_mif,115232.0,0.0
 train/adversarial_mif,115250.0,0.0
 train/adversarial_mif,115300.0,0.0
 train/adversarial_mif,115350.0,0.0
@@ -6770,6 +6815,7 @@ train/adversarial_mif,122250.0,0.0
 train/adversarial_mif,122300.0,0.0
 train/adversarial_mif,122350.0,0.0
 train/adversarial_mif,122400.0,0.0
+train/adversarial_mif,122434.0,0.0
 train/adversarial_mif,122450.0,0.0
 train/adversarial_mif,122500.0,0.0
 train/adversarial_mif,122550.0,0.0
@@ -6914,6 +6960,7 @@ train/adversarial_mif,129450.0,0.0
 train/adversarial_mif,129500.0,0.0
 train/adversarial_mif,129550.0,0.0
 train/adversarial_mif,129600.0,0.0
+train/adversarial_mif,129636.0,0.0
 train/adversarial_mif,129650.0,0.0
 train/adversarial_mif,129700.0,0.0
 train/adversarial_mif,129750.0,0.0
@@ -7058,6 +7105,7 @@ train/adversarial_mif,136650.0,0.0
 train/adversarial_mif,136700.0,0.0
 train/adversarial_mif,136750.0,0.0
 train/adversarial_mif,136800.0,0.0
+train/adversarial_mif,136838.0,0.0
 train/adversarial_mif,136850.0,0.0
 train/adversarial_mif,136900.0,0.0
 train/adversarial_mif,136950.0,0.0
@@ -7202,6 +7250,7 @@ train/adversarial_mif,143850.0,0.0
 train/adversarial_mif,143900.0,0.0
 train/adversarial_mif,143950.0,0.0
 train/adversarial_mif,144000.0,0.0
+train/adversarial_mif,144040.0,0.0
 train/adversarial_mif,144050.0,0.0
 train/adversarial_mif,144100.0,0.0
 train/adversarial_mif,144150.0,0.0
@@ -7346,6 +7395,7 @@ train/adversarial_mif,151050.0,0.0
 train/adversarial_mif,151100.0,0.0
 train/adversarial_mif,151150.0,0.0
 train/adversarial_mif,151200.0,0.0
+train/adversarial_mif,151242.0,0.0
 train/adversarial_mif,151250.0,0.0
 train/adversarial_mif,151300.0,0.0
 train/adversarial_mif,151350.0,0.0
@@ -7490,6 +7540,7 @@ train/adversarial_mif,158250.0,0.0
 train/adversarial_mif,158300.0,0.0
 train/adversarial_mif,158350.0,0.0
 train/adversarial_mif,158400.0,0.0
+train/adversarial_mif,158444.0,0.0
 train/adversarial_mif,158450.0,0.0
 train/adversarial_mif,158500.0,0.0
 train/adversarial_mif,158550.0,0.0
@@ -7634,6 +7685,7 @@ train/adversarial_mif,165450.0,0.0
 train/adversarial_mif,165500.0,0.0
 train/adversarial_mif,165550.0,0.0
 train/adversarial_mif,165600.0,0.0
+train/adversarial_mif,165646.0,0.0
 train/adversarial_mif,165650.0,0.0
 train/adversarial_mif,165700.0,0.0
 train/adversarial_mif,165750.0,0.0
@@ -7778,6 +7830,7 @@ train/adversarial_mif,172650.0,0.0
 train/adversarial_mif,172700.0,0.0
 train/adversarial_mif,172750.0,0.0
 train/adversarial_mif,172800.0,0.0
+train/adversarial_mif,172848.0,0.0
 train/adversarial_mif,172850.0,0.0
 train/adversarial_mif,172900.0,0.0
 train/adversarial_mif,172950.0,0.0
@@ -8067,6 +8120,7 @@ train/adversarial_mif,187100.0,0.0
 train/adversarial_mif,187150.0,0.0
 train/adversarial_mif,187200.0,0.0
 train/adversarial_mif,187250.0,0.0
+train/adversarial_mif,187252.0,0.0
 train/adversarial_mif,187300.0,0.0
 train/adversarial_mif,187350.0,0.0
 train/adversarial_mif,187400.0,0.0
@@ -8211,6 +8265,7 @@ train/adversarial_mif,194300.0,0.0
 train/adversarial_mif,194350.0,0.0
 train/adversarial_mif,194400.0,0.0
 train/adversarial_mif,194450.0,0.0
+train/adversarial_mif,194454.0,0.0
 train/adversarial_mif,194500.0,0.0
 train/adversarial_mif,194550.0,0.0
 train/adversarial_mif,194600.0,0.0
@@ -8355,6 +8410,7 @@ train/adversarial_mif,201500.0,0.0
 train/adversarial_mif,201550.0,0.0
 train/adversarial_mif,201600.0,0.0
 train/adversarial_mif,201650.0,0.0
+train/adversarial_mif,201656.0,0.0
 train/adversarial_mif,201700.0,0.0
 train/adversarial_mif,201750.0,0.0
 train/adversarial_mif,201800.0,0.0
@@ -8499,6 +8555,7 @@ train/adversarial_mif,208700.0,0.0
 train/adversarial_mif,208750.0,0.0
 train/adversarial_mif,208800.0,0.0
 train/adversarial_mif,208850.0,0.0
+train/adversarial_mif,208858.0,0.0
 train/adversarial_mif,208900.0,0.0
 train/adversarial_mif,208950.0,0.0
 train/adversarial_mif,209000.0,0.0
@@ -8643,6 +8700,7 @@ train/adversarial_mif,215900.0,0.0
 train/adversarial_mif,215950.0,0.0
 train/adversarial_mif,216000.0,0.0
 train/adversarial_mif,216050.0,0.0
+train/adversarial_mif,216060.0,0.0
 train/discriminator,1.0,0.6283227801322937
 train/discriminator,50.0,0.03808595985174179
 train/discriminator,100.0,0.012763191014528275
@@ -8788,6 +8846,7 @@ train/discriminator,7050.0,2.1733194444095716e-05
 train/discriminator,7100.0,8.988699846668169e-06
 train/discriminator,7150.0,1.0084333553095348e-05
 train/discriminator,7200.0,1.4557029317074921e-05
+train/discriminator,7202.0,0.0017613220670943783
 train/discriminator,7250.0,1.6885796867427416e-05
 train/discriminator,7300.0,1.0095426659972873e-05
 train/discriminator,7350.0,1.644525764277205e-05
@@ -8932,6 +8991,7 @@ train/discriminator,14250.0,3.153867510263808e-06
 train/discriminator,14300.0,2.767085788946133e-06
 train/discriminator,14350.0,1.641231392568443e-06
 train/discriminator,14400.0,2.0123836748098256e-06
+train/discriminator,14404.0,5.947651727018898e-06
 train/discriminator,14450.0,1.6568105820624623e-06
 train/discriminator,14500.0,3.0499707008857513e-06
 train/discriminator,14550.0,2.4278267574118217e-06
@@ -9076,6 +9136,7 @@ train/discriminator,21450.0,7.965429631440202e-07
 train/discriminator,21500.0,1.2625163208213053e-06
 train/discriminator,21550.0,7.81878895850241e-07
 train/discriminator,21600.0,7.881679948695819e-07
+train/discriminator,21606.0,1.489878773720091e-06
 train/discriminator,21650.0,1.50994287650974e-06
 train/discriminator,21700.0,7.773424499646353e-07
 train/discriminator,21750.0,7.158529342632391e-07
@@ -9220,6 +9281,7 @@ train/discriminator,28650.0,2.2275006017480337e-07
 train/discriminator,28700.0,1.2984368424895365e-07
 train/discriminator,28750.0,2.3296230722280598e-07
 train/discriminator,28800.0,4.5040439999866067e-07
+train/discriminator,28808.0,4.445566522511655e-07
 train/discriminator,28850.0,6.706600430561593e-08
 train/discriminator,28900.0,7.438669769044282e-08
 train/discriminator,28950.0,2.2976747970915312e-07
@@ -9364,6 +9426,7 @@ train/discriminator,35850.0,1.5933590447048118e-08
 train/discriminator,35900.0,3.820879967975088e-08
 train/discriminator,35950.0,3.0789255589525055e-08
 train/discriminator,36000.0,2.7525349111101605e-08
+train/discriminator,36010.0,1.1937129881565886e-07
 train/discriminator,36050.0,7.387482270360124e-08
 train/discriminator,36100.0,5.5650602348578104e-08
 train/discriminator,36150.0,3.36344854190429e-08
@@ -9508,6 +9571,7 @@ train/discriminator,43050.0,8.601581669154257e-08
 train/discriminator,43100.0,2.5001401837698722e-08
 train/discriminator,43150.0,4.1894107738471575e-08
 train/discriminator,43200.0,1.9399807982267703e-08
+train/discriminator,43212.0,3.6411312291839797e-08
 train/discriminator,43250.0,6.660373585987145e-09
 train/discriminator,43300.0,1.5903617978096918e-08
 train/discriminator,43350.0,1.1145404599233188e-08
@@ -9652,6 +9716,7 @@ train/discriminator,50250.0,3.112075930289393e-08
 train/discriminator,50300.0,1.5061194957866064e-08
 train/discriminator,50350.0,7.57221751968018e-09
 train/discriminator,50400.0,1.5365252181709366e-08
+train/discriminator,50414.0,1.594524931807984e-08
 train/discriminator,50450.0,7.99821808783463e-09
 train/discriminator,50500.0,1.0050582588405632e-08
 train/discriminator,50550.0,7.0908918736733995e-09
@@ -9796,6 +9861,7 @@ train/discriminator,57450.0,3.6176506235108263e-09
 train/discriminator,57500.0,3.92048793429467e-09
 train/discriminator,57550.0,4.202721726187519e-09
 train/discriminator,57600.0,1.3966345413507497e-08
+train/discriminator,57616.0,8.447242609429587e-09
 train/discriminator,57650.0,1.3162829937130027e-08
 train/discriminator,57700.0,3.61266394577342e-09
 train/discriminator,57750.0,5.679367198752061e-09
@@ -9940,6 +10006,7 @@ train/discriminator,64650.0,2.067518378723321e-09
 train/discriminator,64700.0,6.993427170698396e-09
 train/discriminator,64750.0,5.2468349664991365e-09
 train/discriminator,64800.0,4.543298626202841e-09
+train/discriminator,64818.0,5.5272175607570276e-09
 train/discriminator,64850.0,3.0839464315590703e-09
 train/discriminator,64900.0,1.0414367146438508e-08
 train/discriminator,64950.0,1.383877235028308e-09
@@ -10084,6 +10151,7 @@ train/discriminator,71850.0,2.9264530798656097e-09
 train/discriminator,71900.0,2.5713362550305874e-09
 train/discriminator,71950.0,3.4281169014604984e-09
 train/discriminator,72000.0,1.3751771943404378e-09
+train/discriminator,72020.0,3.7250598132003024e-09
 train/discriminator,72050.0,4.301690115227075e-09
 train/discriminator,72100.0,1.9413251006739074e-09
 train/discriminator,72150.0,5.421581406039877e-09
@@ -10228,6 +10296,7 @@ train/discriminator,79050.0,6.339490266071834e-09
 train/discriminator,79100.0,1.0549007223303875e-09
 train/discriminator,79150.0,2.518486308389356e-09
 train/discriminator,79200.0,2.290614808941882e-09
+train/discriminator,79222.0,2.740197414292067e-09
 train/discriminator,79250.0,1.1779843767101283e-09
 train/discriminator,79300.0,2.1764148261382843e-09
 train/discriminator,79350.0,5.119522583640901e-09
@@ -10372,6 +10441,7 @@ train/discriminator,86250.0,1.3557415190490474e-09
 train/discriminator,86300.0,1.394971915757992e-09
 train/discriminator,86350.0,5.2342352674372705e-09
 train/discriminator,86400.0,6.001238395114683e-10
+train/discriminator,86424.0,2.1364096991004725e-09
 train/discriminator,86450.0,8.212115987227264e-10
 train/discriminator,86500.0,2.378137464731367e-09
 train/discriminator,86550.0,1.8389058054069096e-09
@@ -10516,6 +10586,7 @@ train/discriminator,93450.0,8.853829891464216e-10
 train/discriminator,93500.0,8.051408428855211e-10
 train/discriminator,93550.0,5.269036318367171e-10
 train/discriminator,93600.0,2.5638563494467803e-10
+train/discriminator,93626.0,1.7593636708247634e-09
 train/discriminator,93650.0,1.3146433941457758e-09
 train/discriminator,93700.0,7.12501890820505e-10
 train/discriminator,93750.0,2.734537707382856e-09
@@ -10660,6 +10731,7 @@ train/discriminator,100650.0,3.421403160785985e-10
 train/discriminator,100700.0,9.287651758782545e-10
 train/discriminator,100750.0,1.0255515325852116e-09
 train/discriminator,100800.0,2.1917236914248406e-09
+train/discriminator,100828.0,1.4188033118815064e-09
 train/discriminator,100850.0,2.074602711843454e-09
 train/discriminator,100900.0,1.1427609969416608e-09
 train/discriminator,100950.0,1.91412730110585e-09
@@ -10804,6 +10876,7 @@ train/discriminator,107850.0,6.876332281358088e-10
 train/discriminator,107900.0,6.554113363144154e-10
 train/discriminator,107950.0,4.364465455708455e-10
 train/discriminator,108000.0,1.9497718994898605e-09
+train/discriminator,108030.0,1.169946304147173e-09
 train/discriminator,108050.0,2.4065789361316092e-09
 train/discriminator,108100.0,1.3751639826864448e-09
 train/discriminator,108150.0,2.1347820733375045e-10
@@ -10948,6 +11021,7 @@ train/discriminator,115050.0,5.382532752840063e-10
 train/discriminator,115100.0,5.36317990018631e-10
 train/discriminator,115150.0,4.1452158372479175e-10
 train/discriminator,115200.0,1.0527231308898877e-09
+train/discriminator,115232.0,1.0287619659431042e-09
 train/discriminator,115250.0,5.035744043979662e-10
 train/discriminator,115300.0,2.468579507475255e-10
 train/discriminator,115350.0,6.787100881311403e-10
@@ -11092,6 +11166,7 @@ train/discriminator,122250.0,1.3512549967842347e-09
 train/discriminator,122300.0,1.40795086700507e-09
 train/discriminator,122350.0,5.584836593186537e-09
 train/discriminator,122400.0,2.741079363488552e-09
+train/discriminator,122434.0,9.543716705687422e-10
 train/discriminator,122450.0,4.811951392902358e-10
 train/discriminator,122500.0,1.6196377572441634e-10
 train/discriminator,122550.0,9.023410907360585e-10
@@ -11236,6 +11311,7 @@ train/discriminator,129450.0,5.073170217251288e-10
 train/discriminator,129500.0,1.2818077710363696e-09
 train/discriminator,129550.0,1.0062047861580936e-09
 train/discriminator,129600.0,4.738623382571916e-10
+train/discriminator,129636.0,9.186036200645428e-10
 train/discriminator,129650.0,1.7266620355727014e-09
 train/discriminator,129700.0,1.7466799118182053e-09
 train/discriminator,129750.0,3.1568692104855245e-10
@@ -11380,6 +11456,7 @@ train/discriminator,136650.0,9.904914666236664e-10
 train/discriminator,136700.0,4.408743925488068e-10
 train/discriminator,136750.0,1.0235025049709634e-09
 train/discriminator,136800.0,1.193405929633684e-09
+train/discriminator,136838.0,8.847382297312988e-10
 train/discriminator,136850.0,1.5044797629926165e-09
 train/discriminator,136900.0,8.827175101977502e-10
 train/discriminator,136950.0,3.257859537697527e-10
@@ -11524,6 +11601,7 @@ train/discriminator,143850.0,1.779444147587128e-09
 train/discriminator,143900.0,4.827206967483733e-10
 train/discriminator,143950.0,7.106835675507739e-10
 train/discriminator,144000.0,2.148332178819601e-09
+train/discriminator,144040.0,8.311429105031859e-10
 train/discriminator,144050.0,9.252068000620284e-10
 train/discriminator,144100.0,2.757387651541876e-10
 train/discriminator,144150.0,5.40744560240114e-10
@@ -11668,6 +11746,7 @@ train/discriminator,151050.0,6.337353974927851e-10
 train/discriminator,151100.0,1.283259387641067e-09
 train/discriminator,151150.0,4.438427125830202e-10
 train/discriminator,151200.0,4.1299783037906934e-10
+train/discriminator,151242.0,8.027415294308061e-10
 train/discriminator,151250.0,4.500660399919809e-10
 train/discriminator,151300.0,6.910458871800529e-10
 train/discriminator,151350.0,3.193326436612409e-10
@@ -11812,6 +11891,7 @@ train/discriminator,158250.0,4.362540328983755e-10
 train/discriminator,158300.0,1.1269551958292823e-09
 train/discriminator,158350.0,5.095655009057509e-10
 train/discriminator,158400.0,1.1154852597172749e-09
+train/discriminator,158444.0,8.007681847166861e-10
 train/discriminator,158450.0,7.680378555363632e-10
 train/discriminator,158500.0,9.377318921366395e-10
 train/discriminator,158550.0,7.770988852406902e-10
@@ -11956,6 +12036,7 @@ train/discriminator,165450.0,1.8161007142580843e-09
 train/discriminator,165500.0,5.356849408499897e-10
 train/discriminator,165550.0,3.8279948655350893e-10
 train/discriminator,165600.0,7.767337328878909e-10
+train/discriminator,165646.0,7.82699250977787e-10
 train/discriminator,165650.0,3.9653158534491695e-10
 train/discriminator,165700.0,4.686921406538147e-10
 train/discriminator,165750.0,9.235498477089266e-10
@@ -12100,6 +12181,7 @@ train/discriminator,172650.0,8.132645112901571e-10
 train/discriminator,172700.0,5.894019161623021e-10
 train/discriminator,172750.0,5.633413180383684e-10
 train/discriminator,172800.0,4.0073389051542563e-10
+train/discriminator,172848.0,7.624047859882985e-10
 train/discriminator,172850.0,6.112956807413639e-10
 train/discriminator,172900.0,2.0051427185308057e-09
 train/discriminator,172950.0,4.065927594609775e-10
@@ -12389,6 +12471,7 @@ train/discriminator,187100.0,1.9185560085066555e-10
 train/discriminator,187150.0,4.3334497101810143e-10
 train/discriminator,187200.0,6.166256949491355e-10
 train/discriminator,187250.0,3.091102929175804e-10
+train/discriminator,187252.0,7.453445081487084e-10
 train/discriminator,187300.0,4.476786719109782e-10
 train/discriminator,187350.0,2.44568337803841e-10
 train/discriminator,187400.0,3.872889231537613e-10
@@ -12533,6 +12616,7 @@ train/discriminator,194300.0,3.324794883852178e-10
 train/discriminator,194350.0,6.07085159920473e-10
 train/discriminator,194400.0,8.886991698098257e-10
 train/discriminator,194450.0,8.731336764711273e-10
+train/discriminator,194454.0,7.375107721642512e-10
 train/discriminator,194500.0,2.2206673999658477e-10
 train/discriminator,194550.0,5.161124860819655e-10
 train/discriminator,194600.0,6.090468129826832e-10
@@ -12677,6 +12761,7 @@ train/discriminator,201500.0,5.748025388996325e-10
 train/discriminator,201550.0,9.95877158516123e-10
 train/discriminator,201600.0,3.48416517859107e-10
 train/discriminator,201650.0,2.8235017102140603e-10
+train/discriminator,201656.0,7.380493115462395e-10
 train/discriminator,201700.0,8.831096964811991e-10
 train/discriminator,201750.0,1.0179712628399784e-09
 train/discriminator,201800.0,2.2886756934070718e-09
@@ -12821,6 +12906,7 @@ train/discriminator,208700.0,1.7218970693733127e-09
 train/discriminator,208750.0,1.2035143992505937e-09
 train/discriminator,208800.0,4.580466284043183e-10
 train/discriminator,208850.0,7.121420120270727e-10
+train/discriminator,208858.0,7.127892255250438e-10
 train/discriminator,208900.0,1.385853987123653e-09
 train/discriminator,208950.0,2.5215859955629583e-10
 train/discriminator,209000.0,2.498799223094039e-10
@@ -12965,6 +13051,7 @@ train/discriminator,215900.0,1.4474178522405623e-09
 train/discriminator,215950.0,4.3039630193142386e-10
 train/discriminator,216000.0,2.199204429675916e-10
 train/discriminator,216050.0,6.990352741098604e-10
+train/discriminator,216060.0,6.998375454855534e-10
 train/discriminator_grad_norm,1.0,7.51000452041626
 train/discriminator_grad_norm,50.0,0.0
 train/discriminator_grad_norm,100.0,0.0
@@ -13110,6 +13197,7 @@ train/discriminator_grad_norm,7050.0,0.0
 train/discriminator_grad_norm,7100.0,0.0
 train/discriminator_grad_norm,7150.0,0.0
 train/discriminator_grad_norm,7200.0,0.0
+train/discriminator_grad_norm,7202.0,0.008209400614737464
 train/discriminator_grad_norm,7250.0,0.0
 train/discriminator_grad_norm,7300.0,0.0
 train/discriminator_grad_norm,7350.0,0.0
@@ -13254,6 +13342,7 @@ train/discriminator_grad_norm,14250.0,0.0
 train/discriminator_grad_norm,14300.0,0.0
 train/discriminator_grad_norm,14350.0,0.0
 train/discriminator_grad_norm,14400.0,0.0
+train/discriminator_grad_norm,14404.0,5.1030503697452174e-05
 train/discriminator_grad_norm,14450.0,0.0
 train/discriminator_grad_norm,14500.0,0.0
 train/discriminator_grad_norm,14550.0,0.0
@@ -13398,6 +13487,7 @@ train/discriminator_grad_norm,21450.0,0.0
 train/discriminator_grad_norm,21500.0,0.0
 train/discriminator_grad_norm,21550.0,0.0
 train/discriminator_grad_norm,21600.0,0.0
+train/discriminator_grad_norm,21606.0,1.4487878522838687e-05
 train/discriminator_grad_norm,21650.0,0.0
 train/discriminator_grad_norm,21700.0,0.0
 train/discriminator_grad_norm,21750.0,0.0
@@ -13542,6 +13632,7 @@ train/discriminator_grad_norm,28650.0,0.0
 train/discriminator_grad_norm,28700.0,0.0
 train/discriminator_grad_norm,28750.0,0.0
 train/discriminator_grad_norm,28800.0,0.0
+train/discriminator_grad_norm,28808.0,5.0684819577156305e-06
 train/discriminator_grad_norm,28850.0,0.0
 train/discriminator_grad_norm,28900.0,0.0
 train/discriminator_grad_norm,28950.0,0.0
@@ -13686,6 +13777,7 @@ train/discriminator_grad_norm,35850.0,0.0
 train/discriminator_grad_norm,35900.0,0.0
 train/discriminator_grad_norm,35950.0,0.0
 train/discriminator_grad_norm,36000.0,0.0
+train/discriminator_grad_norm,36010.0,1.95983155473277e-06
 train/discriminator_grad_norm,36050.0,0.0
 train/discriminator_grad_norm,36100.0,0.0
 train/discriminator_grad_norm,36150.0,0.0
@@ -13830,6 +13922,7 @@ train/discriminator_grad_norm,43050.0,0.0
 train/discriminator_grad_norm,43100.0,0.0
 train/discriminator_grad_norm,43150.0,0.0
 train/discriminator_grad_norm,43200.0,0.0
+train/discriminator_grad_norm,43212.0,7.753136522992396e-07
 train/discriminator_grad_norm,43250.0,0.0
 train/discriminator_grad_norm,43300.0,0.0
 train/discriminator_grad_norm,43350.0,0.0
@@ -13974,6 +14067,7 @@ train/discriminator_grad_norm,50250.0,0.0
 train/discriminator_grad_norm,50300.0,0.0
 train/discriminator_grad_norm,50350.0,0.0
 train/discriminator_grad_norm,50400.0,0.0
+train/discriminator_grad_norm,50414.0,3.2826408081208795e-07
 train/discriminator_grad_norm,50450.0,0.0
 train/discriminator_grad_norm,50500.0,0.0
 train/discriminator_grad_norm,50550.0,0.0
@@ -14118,6 +14212,7 @@ train/discriminator_grad_norm,57450.0,0.0
 train/discriminator_grad_norm,57500.0,0.0
 train/discriminator_grad_norm,57550.0,0.0
 train/discriminator_grad_norm,57600.0,0.0
+train/discriminator_grad_norm,57616.0,1.4280000524758964e-07
 train/discriminator_grad_norm,57650.0,0.0
 train/discriminator_grad_norm,57700.0,0.0
 train/discriminator_grad_norm,57750.0,0.0
@@ -14262,6 +14357,7 @@ train/discriminator_grad_norm,64650.0,0.0
 train/discriminator_grad_norm,64700.0,0.0
 train/discriminator_grad_norm,64750.0,0.0
 train/discriminator_grad_norm,64800.0,0.0
+train/discriminator_grad_norm,64818.0,6.282674395886207e-08
 train/discriminator_grad_norm,64850.0,0.0
 train/discriminator_grad_norm,64900.0,0.0
 train/discriminator_grad_norm,64950.0,0.0
@@ -14406,6 +14502,7 @@ train/discriminator_grad_norm,71850.0,0.0
 train/discriminator_grad_norm,71900.0,0.0
 train/discriminator_grad_norm,71950.0,0.0
 train/discriminator_grad_norm,72000.0,0.0
+train/discriminator_grad_norm,72020.0,3.213114064975072e-08
 train/discriminator_grad_norm,72050.0,0.0
 train/discriminator_grad_norm,72100.0,0.0
 train/discriminator_grad_norm,72150.0,0.0
@@ -14550,6 +14647,7 @@ train/discriminator_grad_norm,79050.0,0.0
 train/discriminator_grad_norm,79100.0,0.0
 train/discriminator_grad_norm,79150.0,0.0
 train/discriminator_grad_norm,79200.0,0.0
+train/discriminator_grad_norm,79222.0,1.5337957401585723e-08
 train/discriminator_grad_norm,79250.0,0.0
 train/discriminator_grad_norm,79300.0,0.0
 train/discriminator_grad_norm,79350.0,0.0
@@ -14694,6 +14792,7 @@ train/discriminator_grad_norm,86250.0,0.0
 train/discriminator_grad_norm,86300.0,0.0
 train/discriminator_grad_norm,86350.0,0.0
 train/discriminator_grad_norm,86400.0,0.0
+train/discriminator_grad_norm,86424.0,8.57719037267993e-09
 train/discriminator_grad_norm,86450.0,0.0
 train/discriminator_grad_norm,86500.0,0.0
 train/discriminator_grad_norm,86550.0,0.0
@@ -14838,6 +14937,7 @@ train/discriminator_grad_norm,93450.0,0.0
 train/discriminator_grad_norm,93500.0,0.0
 train/discriminator_grad_norm,93550.0,0.0
 train/discriminator_grad_norm,93600.0,0.0
+train/discriminator_grad_norm,93626.0,5.2348620048138215e-09
 train/discriminator_grad_norm,93650.0,0.0
 train/discriminator_grad_norm,93700.0,0.0
 train/discriminator_grad_norm,93750.0,0.0
@@ -14982,6 +15082,7 @@ train/discriminator_grad_norm,100650.0,0.0
 train/discriminator_grad_norm,100700.0,0.0
 train/discriminator_grad_norm,100750.0,0.0
 train/discriminator_grad_norm,100800.0,0.0
+train/discriminator_grad_norm,100828.0,3.656179274521595e-09
 train/discriminator_grad_norm,100850.0,0.0
 train/discriminator_grad_norm,100900.0,0.0
 train/discriminator_grad_norm,100950.0,0.0
@@ -15126,6 +15227,7 @@ train/discriminator_grad_norm,107850.0,0.0
 train/discriminator_grad_norm,107900.0,0.0
 train/discriminator_grad_norm,107950.0,0.0
 train/discriminator_grad_norm,108000.0,0.0
+train/discriminator_grad_norm,108030.0,2.670392255303786e-09
 train/discriminator_grad_norm,108050.0,0.0
 train/discriminator_grad_norm,108100.0,0.0
 train/discriminator_grad_norm,108150.0,0.0
@@ -15270,6 +15372,7 @@ train/discriminator_grad_norm,115050.0,0.0
 train/discriminator_grad_norm,115100.0,0.0
 train/discriminator_grad_norm,115150.0,0.0
 train/discriminator_grad_norm,115200.0,0.0
+train/discriminator_grad_norm,115232.0,1.4560762784586093e-09
 train/discriminator_grad_norm,115250.0,0.0
 train/discriminator_grad_norm,115300.0,0.0
 train/discriminator_grad_norm,115350.0,0.0
@@ -15414,6 +15517,7 @@ train/discriminator_grad_norm,122250.0,0.0
 train/discriminator_grad_norm,122300.0,0.0
 train/discriminator_grad_norm,122350.0,0.0
 train/discriminator_grad_norm,122400.0,0.0
+train/discriminator_grad_norm,122434.0,1.2698505697237897e-09
 train/discriminator_grad_norm,122450.0,0.0
 train/discriminator_grad_norm,122500.0,0.0
 train/discriminator_grad_norm,122550.0,0.0
@@ -15558,6 +15662,7 @@ train/discriminator_grad_norm,129450.0,0.0
 train/discriminator_grad_norm,129500.0,0.0
 train/discriminator_grad_norm,129550.0,0.0
 train/discriminator_grad_norm,129600.0,0.0
+train/discriminator_grad_norm,129636.0,8.666258456618933e-10
 train/discriminator_grad_norm,129650.0,0.0
 train/discriminator_grad_norm,129700.0,0.0
 train/discriminator_grad_norm,129750.0,0.0
@@ -15702,6 +15807,7 @@ train/discriminator_grad_norm,136650.0,0.0
 train/discriminator_grad_norm,136700.0,0.0
 train/discriminator_grad_norm,136750.0,0.0
 train/discriminator_grad_norm,136800.0,0.0
+train/discriminator_grad_norm,136838.0,5.825532505023291e-10
 train/discriminator_grad_norm,136850.0,0.0
 train/discriminator_grad_norm,136900.0,0.0
 train/discriminator_grad_norm,136950.0,0.0
@@ -15846,6 +15952,7 @@ train/discriminator_grad_norm,143850.0,0.0
 train/discriminator_grad_norm,143900.0,0.0
 train/discriminator_grad_norm,143950.0,0.0
 train/discriminator_grad_norm,144000.0,0.0
+train/discriminator_grad_norm,144040.0,1.1554855742779995e-09
 train/discriminator_grad_norm,144050.0,0.0
 train/discriminator_grad_norm,144100.0,0.0
 train/discriminator_grad_norm,144150.0,0.0
@@ -15990,6 +16097,7 @@ train/discriminator_grad_norm,151050.0,0.0
 train/discriminator_grad_norm,151100.0,0.0
 train/discriminator_grad_norm,151150.0,0.0
 train/discriminator_grad_norm,151200.0,0.0
+train/discriminator_grad_norm,151242.0,4.6222143990054537e-10
 train/discriminator_grad_norm,151250.0,0.0
 train/discriminator_grad_norm,151300.0,0.0
 train/discriminator_grad_norm,151350.0,0.0
@@ -16134,6 +16242,7 @@ train/discriminator_grad_norm,158250.0,0.0
 train/discriminator_grad_norm,158300.0,0.0
 train/discriminator_grad_norm,158350.0,0.0
 train/discriminator_grad_norm,158400.0,0.0
+train/discriminator_grad_norm,158444.0,4.0161220771189124e-10
 train/discriminator_grad_norm,158450.0,0.0
 train/discriminator_grad_norm,158500.0,0.0
 train/discriminator_grad_norm,158550.0,0.0
@@ -16278,6 +16387,7 @@ train/discriminator_grad_norm,165450.0,0.0
 train/discriminator_grad_norm,165500.0,0.0
 train/discriminator_grad_norm,165550.0,0.0
 train/discriminator_grad_norm,165600.0,0.0
+train/discriminator_grad_norm,165646.0,5.318268663094731e-10
 train/discriminator_grad_norm,165650.0,0.0
 train/discriminator_grad_norm,165700.0,0.0
 train/discriminator_grad_norm,165750.0,0.0
@@ -16422,6 +16532,7 @@ train/discriminator_grad_norm,172650.0,0.0
 train/discriminator_grad_norm,172700.0,0.0
 train/discriminator_grad_norm,172750.0,0.0
 train/discriminator_grad_norm,172800.0,0.0
+train/discriminator_grad_norm,172848.0,5.019028289252387e-10
 train/discriminator_grad_norm,172850.0,0.0
 train/discriminator_grad_norm,172900.0,0.0
 train/discriminator_grad_norm,172950.0,0.0
@@ -16711,6 +16822,7 @@ train/discriminator_grad_norm,187100.0,0.0
 train/discriminator_grad_norm,187150.0,0.0
 train/discriminator_grad_norm,187200.0,0.0
 train/discriminator_grad_norm,187250.0,0.0
+train/discriminator_grad_norm,187252.0,4.6046684743756273e-10
 train/discriminator_grad_norm,187300.0,0.0
 train/discriminator_grad_norm,187350.0,0.0
 train/discriminator_grad_norm,187400.0,0.0
@@ -16855,6 +16967,7 @@ train/discriminator_grad_norm,194300.0,0.0
 train/discriminator_grad_norm,194350.0,0.0
 train/discriminator_grad_norm,194400.0,0.0
 train/discriminator_grad_norm,194450.0,0.0
+train/discriminator_grad_norm,194454.0,2.7147292526138173e-10
 train/discriminator_grad_norm,194500.0,0.0
 train/discriminator_grad_norm,194550.0,0.0
 train/discriminator_grad_norm,194600.0,0.0
@@ -16999,6 +17112,7 @@ train/discriminator_grad_norm,201500.0,0.0
 train/discriminator_grad_norm,201550.0,0.0
 train/discriminator_grad_norm,201600.0,0.0
 train/discriminator_grad_norm,201650.0,0.0
+train/discriminator_grad_norm,201656.0,3.9397141865863524e-10
 train/discriminator_grad_norm,201700.0,0.0
 train/discriminator_grad_norm,201750.0,0.0
 train/discriminator_grad_norm,201800.0,0.0
@@ -17143,6 +17257,7 @@ train/discriminator_grad_norm,208700.0,0.0
 train/discriminator_grad_norm,208750.0,0.0
 train/discriminator_grad_norm,208800.0,0.0
 train/discriminator_grad_norm,208850.0,0.0
+train/discriminator_grad_norm,208858.0,4.0442513152447287e-10
 train/discriminator_grad_norm,208900.0,0.0
 train/discriminator_grad_norm,208950.0,0.0
 train/discriminator_grad_norm,209000.0,0.0
@@ -17287,6 +17402,7 @@ train/discriminator_grad_norm,215900.0,0.0
 train/discriminator_grad_norm,215950.0,0.0
 train/discriminator_grad_norm,216000.0,0.0
 train/discriminator_grad_norm,216050.0,0.0
+train/discriminator_grad_norm,216060.0,2.2452593286320792e-10
 train/generator_grad_norm,1.0,7.400620460510254
 train/generator_grad_norm,50.0,3.1055586338043213
 train/generator_grad_norm,100.0,5.984144687652588
@@ -17432,6 +17548,7 @@ train/generator_grad_norm,7050.0,0.000415110494941473
 train/generator_grad_norm,7100.0,0.0002409962471574545
 train/generator_grad_norm,7150.0,0.0001661960268393159
 train/generator_grad_norm,7200.0,0.00038865397800691426
+train/generator_grad_norm,7202.0,125.2602752535131
 train/generator_grad_norm,7250.0,0.00026097596855834126
 train/generator_grad_norm,7300.0,8.079302642727271e-05
 train/generator_grad_norm,7350.0,7.052510045468807e-05
@@ -17576,6 +17693,7 @@ train/generator_grad_norm,14250.0,0.00026210982468910515
 train/generator_grad_norm,14300.0,0.00031015212880447507
 train/generator_grad_norm,14350.0,0.00019813000108115375
 train/generator_grad_norm,14400.0,0.0004911366268061101
+train/generator_grad_norm,14404.0,0.00043405441474353966
 train/generator_grad_norm,14450.0,8.238614100264385e-05
 train/generator_grad_norm,14500.0,0.0003380940470378846
 train/generator_grad_norm,14550.0,0.0012324389535933733
@@ -17720,6 +17838,7 @@ train/generator_grad_norm,21450.0,0.00014754732546862215
 train/generator_grad_norm,21500.0,0.00012939228327013552
 train/generator_grad_norm,21550.0,9.478129504714161e-05
 train/generator_grad_norm,21600.0,0.00034710660111159086
+train/generator_grad_norm,21606.0,0.0003717579174852106
 train/generator_grad_norm,21650.0,0.00027683741063810885
 train/generator_grad_norm,21700.0,0.00019686491577886045
 train/generator_grad_norm,21750.0,0.0005941218114458025
@@ -17864,6 +17983,7 @@ train/generator_grad_norm,28650.0,0.00014199638098943979
 train/generator_grad_norm,28700.0,0.00016639090608805418
 train/generator_grad_norm,28750.0,0.00021246279357001185
 train/generator_grad_norm,28800.0,0.00014703501074109226
+train/generator_grad_norm,28808.0,0.0002807695413782336
 train/generator_grad_norm,28850.0,0.00020764354849234223
 train/generator_grad_norm,28900.0,0.0004678337718360126
 train/generator_grad_norm,28950.0,0.0003900716546922922
@@ -18008,6 +18128,7 @@ train/generator_grad_norm,35850.0,4.835264553548768e-05
 train/generator_grad_norm,35900.0,0.0002370148285990581
 train/generator_grad_norm,35950.0,9.814274380914867e-05
 train/generator_grad_norm,36000.0,0.00012275530025362968
+train/generator_grad_norm,36010.0,0.0002246986570609038
 train/generator_grad_norm,36050.0,0.0002710293629206717
 train/generator_grad_norm,36100.0,0.0001313120301347226
 train/generator_grad_norm,36150.0,0.00014706092770211399
@@ -18152,6 +18273,7 @@ train/generator_grad_norm,43050.0,0.00016471721755806357
 train/generator_grad_norm,43100.0,0.0003258236974943429
 train/generator_grad_norm,43150.0,0.0002159003634005785
 train/generator_grad_norm,43200.0,0.00035289378138259053
+train/generator_grad_norm,43212.0,0.00019288886009474212
 train/generator_grad_norm,43250.0,0.0001482155203120783
 train/generator_grad_norm,43300.0,8.017468644538894e-05
 train/generator_grad_norm,43350.0,0.00018124468624591827
@@ -18296,6 +18418,7 @@ train/generator_grad_norm,50250.0,0.00047501837252639234
 train/generator_grad_norm,50300.0,0.00018556682334747165
 train/generator_grad_norm,50350.0,0.0002544554590713233
 train/generator_grad_norm,50400.0,8.09037228464149e-05
+train/generator_grad_norm,50414.0,0.00017697541105177712
 train/generator_grad_norm,50450.0,3.919348819181323e-05
 train/generator_grad_norm,50500.0,4.130559682380408e-05
 train/generator_grad_norm,50550.0,8.646374044474214e-05
@@ -18440,6 +18563,7 @@ train/generator_grad_norm,57450.0,0.00011060321412514895
 train/generator_grad_norm,57500.0,8.597357373218983e-05
 train/generator_grad_norm,57550.0,7.353627734119073e-05
 train/generator_grad_norm,57600.0,7.615148206241429e-05
+train/generator_grad_norm,57616.0,0.00014280299626828153
 train/generator_grad_norm,57650.0,3.555276998667978e-05
 train/generator_grad_norm,57700.0,2.5901563276420347e-05
 train/generator_grad_norm,57750.0,3.266776548116468e-05
@@ -18584,6 +18708,7 @@ train/generator_grad_norm,64650.0,5.041079566581175e-05
 train/generator_grad_norm,64700.0,5.406414857134223e-05
 train/generator_grad_norm,64750.0,9.510055679129437e-05
 train/generator_grad_norm,64800.0,2.4581899197073653e-05
+train/generator_grad_norm,64818.0,0.00012892128316494976
 train/generator_grad_norm,64850.0,9.208603296428919e-05
 train/generator_grad_norm,64900.0,0.00019116055045742542
 train/generator_grad_norm,64950.0,0.0002453982597216964
@@ -18728,6 +18853,7 @@ train/generator_grad_norm,71850.0,0.0002774320309981704
 train/generator_grad_norm,71900.0,0.0001383228664053604
 train/generator_grad_norm,71950.0,0.0001188760288641788
 train/generator_grad_norm,72000.0,0.00011067625018768013
+train/generator_grad_norm,72020.0,0.0001274002452694389
 train/generator_grad_norm,72050.0,1.869660809461493e-05
 train/generator_grad_norm,72100.0,6.572389247594401e-05
 train/generator_grad_norm,72150.0,3.2575317163718864e-05
@@ -18872,6 +18998,7 @@ train/generator_grad_norm,79050.0,0.00016034884902182966
 train/generator_grad_norm,79100.0,0.00010015549923991784
 train/generator_grad_norm,79150.0,6.999512697802857e-05
 train/generator_grad_norm,79200.0,6.250555452425033e-05
+train/generator_grad_norm,79222.0,0.00011362810293628865
 train/generator_grad_norm,79250.0,8.135654934449121e-05
 train/generator_grad_norm,79300.0,4.8846821300685406e-05
 train/generator_grad_norm,79350.0,0.0001376970758428797
@@ -19016,6 +19143,7 @@ train/generator_grad_norm,86250.0,5.73665602132678e-05
 train/generator_grad_norm,86300.0,3.336124791530892e-05
 train/generator_grad_norm,86350.0,3.601735079428181e-05
 train/generator_grad_norm,86400.0,3.841656507574953e-05
+train/generator_grad_norm,86424.0,0.00010717827929982801
 train/generator_grad_norm,86450.0,4.0011182136368006e-05
 train/generator_grad_norm,86500.0,9.841764403972775e-05
 train/generator_grad_norm,86550.0,6.542483606608585e-05
@@ -19160,6 +19288,7 @@ train/generator_grad_norm,93450.0,3.114905848633498e-05
 train/generator_grad_norm,93500.0,9.31338727241382e-05
 train/generator_grad_norm,93550.0,0.00015178637113422155
 train/generator_grad_norm,93600.0,0.00012150734255556017
+train/generator_grad_norm,93626.0,9.941361714418506e-05
 train/generator_grad_norm,93650.0,0.000161884498083964
 train/generator_grad_norm,93700.0,0.00011847347195725888
 train/generator_grad_norm,93750.0,0.00011467667354736477
@@ -19304,6 +19433,7 @@ train/generator_grad_norm,100650.0,3.2342497434001416e-05
 train/generator_grad_norm,100700.0,8.074748620856553e-05
 train/generator_grad_norm,100750.0,0.00019949310808442533
 train/generator_grad_norm,100800.0,6.626710091950372e-05
+train/generator_grad_norm,100828.0,9.987970102437957e-05
 train/generator_grad_norm,100850.0,0.00033771415473893285
 train/generator_grad_norm,100900.0,0.00012591110134962946
 train/generator_grad_norm,100950.0,9.152243728749454e-05
@@ -19448,6 +19578,7 @@ train/generator_grad_norm,107850.0,3.666419070214033e-05
 train/generator_grad_norm,107900.0,4.761858508572914e-05
 train/generator_grad_norm,107950.0,0.00012958476145286113
 train/generator_grad_norm,108000.0,9.118452726397663e-05
+train/generator_grad_norm,108030.0,9.140693621532689e-05
 train/generator_grad_norm,108050.0,5.950430568191223e-05
 train/generator_grad_norm,108100.0,0.00013356737326830626
 train/generator_grad_norm,108150.0,0.00027056768885813653
@@ -19592,6 +19723,7 @@ train/generator_grad_norm,115050.0,6.91962632117793e-05
 train/generator_grad_norm,115100.0,6.281083915382624e-05
 train/generator_grad_norm,115150.0,9.137599408859387e-05
 train/generator_grad_norm,115200.0,4.2182986362604424e-05
+train/generator_grad_norm,115232.0,9.374802255305386e-05
 train/generator_grad_norm,115250.0,2.378197132202331e-05
 train/generator_grad_norm,115300.0,7.489475683541968e-05
 train/generator_grad_norm,115350.0,0.00011628343781922013
@@ -19736,6 +19868,7 @@ train/generator_grad_norm,122250.0,4.197940506855957e-05
 train/generator_grad_norm,122300.0,2.9430042559397407e-05
 train/generator_grad_norm,122350.0,3.8618254620814696e-05
 train/generator_grad_norm,122400.0,8.420296217082068e-05
+train/generator_grad_norm,122434.0,8.649897003595642e-05
 train/generator_grad_norm,122450.0,5.97761245444417e-05
 train/generator_grad_norm,122500.0,9.173759463010356e-05
 train/generator_grad_norm,122550.0,4.716736657428555e-05
@@ -19880,6 +20013,7 @@ train/generator_grad_norm,129450.0,0.00023024730035103858
 train/generator_grad_norm,129500.0,0.00012310103920754045
 train/generator_grad_norm,129550.0,5.835103365825489e-05
 train/generator_grad_norm,129600.0,6.350040348479524e-05
+train/generator_grad_norm,129636.0,8.216245574495229e-05
 train/generator_grad_norm,129650.0,4.0622009692015126e-05
 train/generator_grad_norm,129700.0,0.0001180623730760999
 train/generator_grad_norm,129750.0,0.00015501680900342762
@@ -20024,6 +20158,7 @@ train/generator_grad_norm,136650.0,5.817387136630714e-05
 train/generator_grad_norm,136700.0,7.470609125448391e-05
 train/generator_grad_norm,136750.0,5.398183930083178e-05
 train/generator_grad_norm,136800.0,8.866400457918644e-05
+train/generator_grad_norm,136838.0,8.148252625155335e-05
 train/generator_grad_norm,136850.0,6.322442641248927e-05
 train/generator_grad_norm,136900.0,0.0001244794693775475
 train/generator_grad_norm,136950.0,4.377933873911388e-05
@@ -20168,6 +20303,7 @@ train/generator_grad_norm,143850.0,3.626011675805785e-05
 train/generator_grad_norm,143900.0,3.919404116459191e-05
 train/generator_grad_norm,143950.0,7.393066334770992e-05
 train/generator_grad_norm,144000.0,0.00010819899762282148
+train/generator_grad_norm,144040.0,7.679447107474021e-05
 train/generator_grad_norm,144050.0,5.856714051333256e-05
 train/generator_grad_norm,144100.0,0.00010052102152258158
 train/generator_grad_norm,144150.0,6.494123226730153e-05
@@ -20312,6 +20448,7 @@ train/generator_grad_norm,151050.0,2.978652082674671e-05
 train/generator_grad_norm,151100.0,7.416955486405641e-05
 train/generator_grad_norm,151150.0,8.517500100424513e-05
 train/generator_grad_norm,151200.0,6.0626116464845836e-05
+train/generator_grad_norm,151242.0,7.629750185882382e-05
 train/generator_grad_norm,151250.0,0.00011204882321180776
 train/generator_grad_norm,151300.0,0.0001011841231957078
 train/generator_grad_norm,151350.0,5.53895442862995e-05
@@ -20456,6 +20593,7 @@ train/generator_grad_norm,158250.0,7.815021672286093e-05
 train/generator_grad_norm,158300.0,8.794018503976986e-05
 train/generator_grad_norm,158350.0,5.7259054301539436e-05
 train/generator_grad_norm,158400.0,6.49226494715549e-05
+train/generator_grad_norm,158444.0,7.781464412042683e-05
 train/generator_grad_norm,158450.0,6.0618251154664904e-05
 train/generator_grad_norm,158500.0,5.579999924520962e-05
 train/generator_grad_norm,158550.0,6.362304702633992e-05
@@ -20600,6 +20738,7 @@ train/generator_grad_norm,165450.0,0.00013281403516884893
 train/generator_grad_norm,165500.0,6.547237717313692e-05
 train/generator_grad_norm,165550.0,4.303842069930397e-05
 train/generator_grad_norm,165600.0,8.899810200091451e-05
+train/generator_grad_norm,165646.0,7.33700210287853e-05
 train/generator_grad_norm,165650.0,0.00014772129361517727
 train/generator_grad_norm,165700.0,7.070621359162033e-05
 train/generator_grad_norm,165750.0,7.963981624925509e-05
@@ -20744,6 +20883,7 @@ train/generator_grad_norm,172650.0,5.449465606943704e-05
 train/generator_grad_norm,172700.0,9.282075188821182e-05
 train/generator_grad_norm,172750.0,9.516449790680781e-05
 train/generator_grad_norm,172800.0,5.6475964811397716e-05
+train/generator_grad_norm,172848.0,6.96376641656163e-05
 train/generator_grad_norm,172850.0,5.3154235502006486e-05
 train/generator_grad_norm,172900.0,5.603160025202669e-05
 train/generator_grad_norm,172950.0,4.876677121501416e-05
@@ -21033,6 +21173,7 @@ train/generator_grad_norm,187100.0,7.338874274864793e-05
 train/generator_grad_norm,187150.0,5.27461088495329e-05
 train/generator_grad_norm,187200.0,3.909699080395512e-05
 train/generator_grad_norm,187250.0,4.3056752474512905e-05
+train/generator_grad_norm,187252.0,6.614973348401793e-05
 train/generator_grad_norm,187300.0,5.279359902488068e-05
 train/generator_grad_norm,187350.0,7.226574962260202e-05
 train/generator_grad_norm,187400.0,4.608223753166385e-05
@@ -21177,6 +21318,7 @@ train/generator_grad_norm,194300.0,6.478546129073948e-05
 train/generator_grad_norm,194350.0,4.886468741460703e-05
 train/generator_grad_norm,194400.0,3.906025449396111e-05
 train/generator_grad_norm,194450.0,5.8339734096080065e-05
+train/generator_grad_norm,194454.0,6.77532522448668e-05
 train/generator_grad_norm,194500.0,9.896468691295013e-05
 train/generator_grad_norm,194550.0,5.362718729884364e-05
 train/generator_grad_norm,194600.0,9.499821317149326e-05
@@ -21321,6 +21463,7 @@ train/generator_grad_norm,201500.0,4.11712535424158e-05
 train/generator_grad_norm,201550.0,6.250668957363814e-05
 train/generator_grad_norm,201600.0,6.319133535725996e-05
 train/generator_grad_norm,201650.0,3.8467424019472674e-05
+train/generator_grad_norm,201656.0,7.36436223986405e-05
 train/generator_grad_norm,201700.0,5.224797860137187e-05
 train/generator_grad_norm,201750.0,7.123741670511663e-05
 train/generator_grad_norm,201800.0,5.9495941968634725e-05
@@ -21465,6 +21608,7 @@ train/generator_grad_norm,208700.0,4.884160080109723e-05
 train/generator_grad_norm,208750.0,3.274372284067795e-05
 train/generator_grad_norm,208800.0,4.471865395316854e-05
 train/generator_grad_norm,208850.0,2.330001734662801e-05
+train/generator_grad_norm,208858.0,7.222688727693442e-05
 train/generator_grad_norm,208900.0,2.7012411010218784e-05
 train/generator_grad_norm,208950.0,3.320784890092909e-05
 train/generator_grad_norm,209000.0,3.743097840924747e-05
@@ -21609,6 +21753,7 @@ train/generator_grad_norm,215900.0,6.010655124555342e-05
 train/generator_grad_norm,215950.0,5.406012132880278e-05
 train/generator_grad_norm,216000.0,4.362115214462392e-05
 train/generator_grad_norm,216050.0,5.451918696053326e-05
+train/generator_grad_norm,216060.0,6.312189277270014e-05
 train/input_mesh,1.0,0.0
 train/input_mesh,50.0,0.0
 train/input_mesh,100.0,0.0
@@ -21754,6 +21899,7 @@ train/input_mesh,7050.0,2.0328790734103208e-20
 train/input_mesh,7100.0,0.0
 train/input_mesh,7150.0,0.0
 train/input_mesh,7200.0,0.0
+train/input_mesh,7202.0,1.4710362078434744e-12
 train/input_mesh,7250.0,0.0
 train/input_mesh,7300.0,0.0
 train/input_mesh,7350.0,0.0
@@ -21898,6 +22044,7 @@ train/input_mesh,14250.0,0.0
 train/input_mesh,14300.0,0.0
 train/input_mesh,14350.0,0.0
 train/input_mesh,14400.0,9.012430558785756e-19
+train/input_mesh,14404.0,4.1042403990202537e-20
 train/input_mesh,14450.0,0.0
 train/input_mesh,14500.0,0.0
 train/input_mesh,14550.0,1.2197274440461925e-19
@@ -22042,6 +22189,7 @@ train/input_mesh,21450.0,2.0599841277224584e-18
 train/input_mesh,21500.0,3.0086610286472748e-18
 train/input_mesh,21550.0,1.2536087619363645e-18
 train/input_mesh,21600.0,5.082197683525802e-19
+train/input_mesh,21606.0,1.2298128049588487e-18
 train/input_mesh,21650.0,2.72405795836983e-18
 train/input_mesh,21700.0,4.0657581468206416e-20
 train/input_mesh,21750.0,1.6737371037744975e-18
@@ -22186,6 +22334,7 @@ train/input_mesh,28650.0,1.7143946852427039e-18
 train/input_mesh,28700.0,5.624298769768554e-19
 train/input_mesh,28750.0,1.8566962203814263e-18
 train/input_mesh,28800.0,1.1926223897340549e-18
+train/input_mesh,28808.0,1.6202420687852273e-18
 train/input_mesh,28850.0,3.042542346537447e-18
 train/input_mesh,28900.0,1.6601845766184287e-18
 train/input_mesh,28950.0,1.3010426069826053e-18
@@ -22330,6 +22479,7 @@ train/input_mesh,35850.0,2.642742795433417e-19
 train/input_mesh,35900.0,2.5275463146068322e-18
 train/input_mesh,35950.0,2.303929616531697e-19
 train/input_mesh,36000.0,2.168404344971009e-19
+train/input_mesh,36010.0,1.7446780536851666e-18
 train/input_mesh,36050.0,4.87890977618477e-19
 train/input_mesh,36100.0,3.0560948736935156e-18
 train/input_mesh,36150.0,8.131516293641283e-20
@@ -22474,6 +22624,7 @@ train/input_mesh,43050.0,2.1074179727686992e-18
 train/input_mesh,43100.0,2.0735366548785272e-18
 train/input_mesh,43150.0,8.470329472543003e-19
 train/input_mesh,43200.0,2.4123498337802474e-18
+train/input_mesh,43212.0,1.7712223397256424e-18
 train/input_mesh,43250.0,1.8770250111155296e-18
 train/input_mesh,43300.0,1.6398557858843255e-18
 train/input_mesh,43350.0,9.147955830346444e-19
@@ -22618,6 +22769,7 @@ train/input_mesh,50250.0,6.776263578034403e-19
 train/input_mesh,50300.0,2.3852447794681098e-18
 train/input_mesh,50350.0,1.111307226797642e-18
 train/input_mesh,50400.0,1.2739375526704677e-18
+train/input_mesh,50414.0,1.5238219161956953e-18
 train/input_mesh,50450.0,5.170289110040249e-18
 train/input_mesh,50500.0,2.541098841762901e-18
 train/input_mesh,50550.0,4.87890977618477e-19
@@ -22762,6 +22914,7 @@ train/input_mesh,57450.0,7.792703114739563e-19
 train/input_mesh,57500.0,2.690176640479658e-18
 train/input_mesh,57550.0,1.7957098481791167e-18
 train/input_mesh,57600.0,1.0638733817514012e-18
+train/input_mesh,57616.0,1.4322567372333026e-18
 train/input_mesh,57650.0,4.153849573335089e-18
 train/input_mesh,57700.0,2.2429432443293873e-18
 train/input_mesh,57750.0,2.55465136891897e-18
@@ -22906,6 +23059,7 @@ train/input_mesh,64650.0,2.337810934421869e-18
 train/input_mesh,64700.0,2.778268066994105e-19
 train/input_mesh,64750.0,1.212951180468158e-18
 train/input_mesh,64800.0,1.3688052427629493e-18
+train/input_mesh,64818.0,1.6038358332936713e-18
 train/input_mesh,64850.0,3.0560948736935156e-18
 train/input_mesh,64900.0,2.100641709190665e-18
 train/input_mesh,64950.0,1.531435568635775e-18
@@ -23050,6 +23204,7 @@ train/input_mesh,71850.0,4.221612209115433e-18
 train/input_mesh,71900.0,2.459783678826488e-18
 train/input_mesh,71950.0,5.827586677109586e-19
 train/input_mesh,72000.0,1.0909784360635388e-18
+train/input_mesh,72020.0,1.665704756903395e-18
 train/input_mesh,72050.0,2.0328790734103208e-20
 train/input_mesh,72100.0,1.2807138162485021e-18
 train/input_mesh,72150.0,3.1170812458958252e-19
@@ -23194,6 +23349,7 @@ train/input_mesh,79050.0,2.4530074152484538e-18
 train/input_mesh,79100.0,3.7608262858090935e-18
 train/input_mesh,79150.0,8.402566836762659e-19
 train/input_mesh,79200.0,7.724940478959219e-19
+train/input_mesh,79222.0,1.6573393362601981e-18
 train/input_mesh,79250.0,6.911788849595091e-19
 train/input_mesh,79300.0,0.0
 train/input_mesh,79350.0,1.98544522836408e-18
@@ -23338,6 +23494,7 @@ train/input_mesh,86250.0,6.437450399132683e-19
 train/input_mesh,86300.0,5.027987574901527e-18
 train/input_mesh,86350.0,1.5517643593698782e-18
 train/input_mesh,86400.0,4.7704895589362195e-18
+train/input_mesh,86424.0,1.7300011673266884e-18
 train/input_mesh,86450.0,3.2526065174565133e-18
 train/input_mesh,86500.0,1.5178830414797062e-18
 train/input_mesh,86550.0,3.1848438816761693e-19
@@ -23482,6 +23639,7 @@ train/input_mesh,93450.0,6.708500942254059e-19
 train/input_mesh,93500.0,2.5614276324970042e-18
 train/input_mesh,93550.0,1.0232158002831948e-18
 train/input_mesh,93600.0,1.9109063290057016e-18
+train/input_mesh,93626.0,1.7303304775533355e-18
 train/input_mesh,93650.0,1.2197274440461925e-19
 train/input_mesh,93700.0,1.5111067779016718e-18
 train/input_mesh,93750.0,5.624298769768554e-19
@@ -23626,6 +23784,7 @@ train/input_mesh,100650.0,0.0
 train/input_mesh,100700.0,0.0
 train/input_mesh,100750.0,3.2526065174565133e-19
 train/input_mesh,100800.0,0.0
+train/input_mesh,100828.0,1.0510585095030217e-18
 train/input_mesh,100850.0,0.0
 train/input_mesh,100900.0,2.710505431213761e-20
 train/input_mesh,100950.0,0.0
@@ -23770,6 +23929,7 @@ train/input_mesh,107850.0,0.0
 train/input_mesh,107900.0,0.0
 train/input_mesh,107950.0,0.0
 train/input_mesh,108000.0,0.0
+train/input_mesh,108030.0,6.280604642612502e-20
 train/input_mesh,108050.0,0.0
 train/input_mesh,108100.0,0.0
 train/input_mesh,108150.0,0.0
@@ -23914,6 +24074,7 @@ train/input_mesh,115050.0,0.0
 train/input_mesh,115100.0,1.0842021724855044e-19
 train/input_mesh,115150.0,0.0
 train/input_mesh,115200.0,0.0
+train/input_mesh,115232.0,1.0793660165856021e-19
 train/input_mesh,115250.0,0.0
 train/input_mesh,115300.0,0.0
 train/input_mesh,115350.0,0.0
@@ -24058,6 +24219,7 @@ train/input_mesh,122250.0,0.0
 train/input_mesh,122300.0,0.0
 train/input_mesh,122350.0,0.0
 train/input_mesh,122400.0,0.0
+train/input_mesh,122434.0,5.999655974964478e-20
 train/input_mesh,122450.0,0.0
 train/input_mesh,122500.0,8.402566836762659e-19
 train/input_mesh,122550.0,0.0
@@ -24202,6 +24364,7 @@ train/input_mesh,129450.0,0.0
 train/input_mesh,129500.0,0.0
 train/input_mesh,129550.0,2.9815559743351372e-18
 train/input_mesh,129600.0,2.168404344971009e-19
+train/input_mesh,129636.0,1.4809269069590126e-19
 train/input_mesh,129650.0,0.0
 train/input_mesh,129700.0,0.0
 train/input_mesh,129750.0,0.0
@@ -24346,6 +24509,7 @@ train/input_mesh,136650.0,0.0
 train/input_mesh,136700.0,0.0
 train/input_mesh,136750.0,0.0
 train/input_mesh,136800.0,0.0
+train/input_mesh,136838.0,1.545565800018019e-19
 train/input_mesh,136850.0,0.0
 train/input_mesh,136900.0,0.0
 train/input_mesh,136950.0,0.0
@@ -24490,6 +24654,7 @@ train/input_mesh,143850.0,0.0
 train/input_mesh,143900.0,0.0
 train/input_mesh,143950.0,0.0
 train/input_mesh,144000.0,0.0
+train/input_mesh,144040.0,5.58961769847081e-20
 train/input_mesh,144050.0,0.0
 train/input_mesh,144100.0,0.0
 train/input_mesh,144150.0,0.0
@@ -24634,6 +24799,7 @@ train/input_mesh,151050.0,0.0
 train/input_mesh,151100.0,0.0
 train/input_mesh,151150.0,0.0
 train/input_mesh,151200.0,0.0
+train/input_mesh,151242.0,6.84438375063225e-20
 train/input_mesh,151250.0,0.0
 train/input_mesh,151300.0,0.0
 train/input_mesh,151350.0,5.421010862427522e-20
@@ -24778,6 +24944,7 @@ train/input_mesh,158250.0,0.0
 train/input_mesh,158300.0,0.0
 train/input_mesh,158350.0,0.0
 train/input_mesh,158400.0,0.0
+train/input_mesh,158444.0,1.4659009517602888e-19
 train/input_mesh,158450.0,0.0
 train/input_mesh,158500.0,0.0
 train/input_mesh,158550.0,8.131516293641283e-20
@@ -24922,6 +25089,7 @@ train/input_mesh,165450.0,0.0
 train/input_mesh,165500.0,0.0
 train/input_mesh,165550.0,0.0
 train/input_mesh,165600.0,0.0
+train/input_mesh,165646.0,1.2481045767195495e-19
 train/input_mesh,165650.0,0.0
 train/input_mesh,165700.0,0.0
 train/input_mesh,165750.0,0.0
@@ -25066,6 +25234,7 @@ train/input_mesh,172650.0,0.0
 train/input_mesh,172700.0,0.0
 train/input_mesh,172750.0,0.0
 train/input_mesh,172800.0,0.0
+train/input_mesh,172848.0,9.851832917645463e-20
 train/input_mesh,172850.0,0.0
 train/input_mesh,172900.0,8.131516293641283e-20
 train/input_mesh,172950.0,0.0
@@ -25355,6 +25524,7 @@ train/input_mesh,187100.0,0.0
 train/input_mesh,187150.0,0.0
 train/input_mesh,187200.0,0.0
 train/input_mesh,187250.0,0.0
+train/input_mesh,187252.0,4.216488141988805e-20
 train/input_mesh,187300.0,0.0
 train/input_mesh,187350.0,0.0
 train/input_mesh,187400.0,0.0
@@ -25499,6 +25669,7 @@ train/input_mesh,194300.0,0.0
 train/input_mesh,194350.0,0.0
 train/input_mesh,194400.0,0.0
 train/input_mesh,194450.0,0.0
+train/input_mesh,194454.0,9.726883208791955e-20
 train/input_mesh,194500.0,0.0
 train/input_mesh,194550.0,0.0
 train/input_mesh,194600.0,0.0
@@ -25643,6 +25814,7 @@ train/input_mesh,201500.0,0.0
 train/input_mesh,201550.0,0.0
 train/input_mesh,201600.0,0.0
 train/input_mesh,201650.0,0.0
+train/input_mesh,201656.0,5.0164297268325775e-20
 train/input_mesh,201700.0,0.0
 train/input_mesh,201750.0,0.0
 train/input_mesh,201800.0,0.0
@@ -25787,6 +25959,7 @@ train/input_mesh,208700.0,0.0
 train/input_mesh,208750.0,0.0
 train/input_mesh,208800.0,0.0
 train/input_mesh,208850.0,0.0
+train/input_mesh,208858.0,1.768866360275573e-20
 train/input_mesh,208900.0,0.0
 train/input_mesh,208950.0,0.0
 train/input_mesh,209000.0,0.0
@@ -25931,6 +26104,7 @@ train/input_mesh,215900.0,0.0
 train/input_mesh,215950.0,0.0
 train/input_mesh,216000.0,0.0
 train/input_mesh,216050.0,0.0
+train/input_mesh,216060.0,1.3940172337150475e-20
 train/loss,1.0,1.0901798009872437
 train/loss,50.0,1.017136812210083
 train/loss,100.0,1.14030921459198
@@ -26076,6 +26250,7 @@ train/loss,7050.0,7.8126935958862305
 train/loss,7100.0,8.14156723022461
 train/loss,7150.0,7.784111976623535
 train/loss,7200.0,7.899819374084473
+train/loss,7202.0,7.405574353620248
 train/loss,7250.0,8.012349128723145
 train/loss,7300.0,7.6843342781066895
 train/loss,7350.0,8.168100357055664
@@ -26220,6 +26395,7 @@ train/loss,14250.0,8.083523750305176
 train/loss,14300.0,7.522563934326172
 train/loss,14350.0,8.04375171661377
 train/loss,14400.0,7.856111526489258
+train/loss,14404.0,7.8769013486746715
 train/loss,14450.0,7.57723331451416
 train/loss,14500.0,8.077672004699707
 train/loss,14550.0,8.094385147094727
@@ -26364,6 +26540,7 @@ train/loss,21450.0,7.810457229614258
 train/loss,21500.0,7.596042633056641
 train/loss,21550.0,7.974205017089844
 train/loss,21600.0,8.102169036865234
+train/loss,21606.0,7.880521522035734
 train/loss,21650.0,7.750955581665039
 train/loss,21700.0,7.886002540588379
 train/loss,21750.0,7.840841770172119
@@ -26508,6 +26685,7 @@ train/loss,28650.0,8.10147762298584
 train/loss,28700.0,7.691286563873291
 train/loss,28750.0,7.770986557006836
 train/loss,28800.0,7.960648536682129
+train/loss,28808.0,7.886154861739529
 train/loss,28850.0,8.085552215576172
 train/loss,28900.0,7.794843673706055
 train/loss,28950.0,8.136638641357422
@@ -26652,6 +26830,7 @@ train/loss,35850.0,7.687937259674072
 train/loss,35900.0,7.617979049682617
 train/loss,35950.0,7.7015228271484375
 train/loss,36000.0,8.12263298034668
+train/loss,36010.0,7.8839653304668635
 train/loss,36050.0,7.9196672439575195
 train/loss,36100.0,7.689203262329102
 train/loss,36150.0,8.123306274414062
@@ -26796,6 +26975,7 @@ train/loss,43050.0,7.725325584411621
 train/loss,43100.0,8.408476829528809
 train/loss,43150.0,8.162617683410645
 train/loss,43200.0,7.722346305847168
+train/loss,43212.0,7.889657968118832
 train/loss,43250.0,7.898027420043945
 train/loss,43300.0,8.287853240966797
 train/loss,43350.0,7.912266731262207
@@ -26940,6 +27120,7 @@ train/loss,50250.0,8.417264938354492
 train/loss,50300.0,7.627110004425049
 train/loss,50350.0,7.763358116149902
 train/loss,50400.0,7.867838382720947
+train/loss,50414.0,7.8886050981834375
 train/loss,50450.0,7.8714280128479
 train/loss,50500.0,7.975655555725098
 train/loss,50550.0,7.55895471572876
@@ -27084,6 +27265,7 @@ train/loss,57450.0,8.190103530883789
 train/loss,57500.0,7.719301223754883
 train/loss,57550.0,7.788300514221191
 train/loss,57600.0,8.0836181640625
+train/loss,57616.0,7.892871291397082
 train/loss,57650.0,7.588355541229248
 train/loss,57700.0,7.954205513000488
 train/loss,57750.0,8.280633926391602
@@ -27228,6 +27410,7 @@ train/loss,64650.0,7.871773719787598
 train/loss,64700.0,8.123763084411621
 train/loss,64750.0,8.075630187988281
 train/loss,64800.0,7.7960896492004395
+train/loss,64818.0,7.88678012614911
 train/loss,64850.0,7.584502696990967
 train/loss,64900.0,7.728316307067871
 train/loss,64950.0,7.8580451011657715
@@ -27372,6 +27555,7 @@ train/loss,71850.0,7.8636393547058105
 train/loss,71900.0,8.037537574768066
 train/loss,71950.0,7.854526042938232
 train/loss,72000.0,7.973934173583984
+train/loss,72020.0,7.886823541023638
 train/loss,72050.0,8.319341659545898
 train/loss,72100.0,7.997269630432129
 train/loss,72150.0,8.099164009094238
@@ -27516,6 +27700,7 @@ train/loss,79050.0,7.93973445892334
 train/loss,79100.0,8.107580184936523
 train/loss,79150.0,7.840238094329834
 train/loss,79200.0,7.829833030700684
+train/loss,79222.0,7.890338670459267
 train/loss,79250.0,7.717055320739746
 train/loss,79300.0,7.231996059417725
 train/loss,79350.0,7.653008460998535
@@ -27660,6 +27845,7 @@ train/loss,86250.0,8.458979606628418
 train/loss,86300.0,8.33134937286377
 train/loss,86350.0,8.158491134643555
 train/loss,86400.0,8.010368347167969
+train/loss,86424.0,7.893208605618783
 train/loss,86450.0,7.706644058227539
 train/loss,86500.0,8.317869186401367
 train/loss,86550.0,7.706081390380859
@@ -27804,6 +27990,7 @@ train/loss,93450.0,7.766438007354736
 train/loss,93500.0,7.696897506713867
 train/loss,93550.0,7.759722709655762
 train/loss,93600.0,7.639955520629883
+train/loss,93626.0,7.896616679534287
 train/loss,93650.0,7.726659774780273
 train/loss,93700.0,7.5976691246032715
 train/loss,93750.0,7.6590657234191895
@@ -27948,6 +28135,7 @@ train/loss,100650.0,7.886533737182617
 train/loss,100700.0,7.595268249511719
 train/loss,100750.0,8.032005310058594
 train/loss,100800.0,8.012466430664062
+train/loss,100828.0,7.899528579310026
 train/loss,100850.0,7.996052265167236
 train/loss,100900.0,8.025959014892578
 train/loss,100950.0,7.6154632568359375
@@ -28092,6 +28280,7 @@ train/loss,107850.0,8.118170738220215
 train/loss,107900.0,7.585075378417969
 train/loss,107950.0,7.56548547744751
 train/loss,108000.0,7.901423454284668
+train/loss,108030.0,7.900877939118706
 train/loss,108050.0,7.9098310470581055
 train/loss,108100.0,7.929115295410156
 train/loss,108150.0,8.03579330444336
@@ -28236,6 +28425,7 @@ train/loss,115050.0,7.835583686828613
 train/loss,115100.0,8.084904670715332
 train/loss,115150.0,7.818578720092773
 train/loss,115200.0,7.873289108276367
+train/loss,115232.0,7.903051330228211
 train/loss,115250.0,8.161011695861816
 train/loss,115300.0,7.757989406585693
 train/loss,115350.0,8.024984359741211
@@ -28380,6 +28570,7 @@ train/loss,122250.0,7.943072319030762
 train/loss,122300.0,8.091140747070312
 train/loss,122350.0,7.897178649902344
 train/loss,122400.0,7.491860866546631
+train/loss,122434.0,7.905135634027564
 train/loss,122450.0,7.690269470214844
 train/loss,122500.0,7.833042144775391
 train/loss,122550.0,7.837840557098389
@@ -28524,6 +28715,7 @@ train/loss,129450.0,7.93173885345459
 train/loss,129500.0,7.760689735412598
 train/loss,129550.0,8.01456356048584
 train/loss,129600.0,7.953134536743164
+train/loss,129636.0,7.90762837831592
 train/loss,129650.0,7.911422252655029
 train/loss,129700.0,8.135018348693848
 train/loss,129750.0,8.370022773742676
@@ -28668,6 +28860,7 @@ train/loss,136650.0,7.909626007080078
 train/loss,136700.0,7.775472640991211
 train/loss,136750.0,7.817185401916504
 train/loss,136800.0,7.899264812469482
+train/loss,136838.0,7.909325429629167
 train/loss,136850.0,7.821568489074707
 train/loss,136900.0,7.94235897064209
 train/loss,136950.0,8.196338653564453
@@ -28812,6 +29005,7 @@ train/loss,143850.0,7.9902753829956055
 train/loss,143900.0,7.764286518096924
 train/loss,143950.0,8.287795066833496
 train/loss,144000.0,8.026261329650879
+train/loss,144040.0,7.91022658558297
 train/loss,144050.0,7.84201717376709
 train/loss,144100.0,7.8572187423706055
 train/loss,144150.0,7.558119773864746
@@ -28956,6 +29150,7 @@ train/loss,151050.0,7.661188125610352
 train/loss,151100.0,7.56472635269165
 train/loss,151150.0,7.8534770011901855
 train/loss,151200.0,7.504175186157227
+train/loss,151242.0,7.911008238858629
 train/loss,151250.0,7.949959754943848
 train/loss,151300.0,7.640796184539795
 train/loss,151350.0,7.724165916442871
@@ -29100,6 +29295,7 @@ train/loss,158250.0,7.742834568023682
 train/loss,158300.0,8.314312934875488
 train/loss,158350.0,7.747632026672363
 train/loss,158400.0,8.326787948608398
+train/loss,158444.0,7.912562110562418
 train/loss,158450.0,7.863448619842529
 train/loss,158500.0,7.963998317718506
 train/loss,158550.0,7.736386299133301
@@ -29244,6 +29440,7 @@ train/loss,165450.0,8.1617431640625
 train/loss,165500.0,7.606713771820068
 train/loss,165550.0,8.072709083557129
 train/loss,165600.0,7.629730701446533
+train/loss,165646.0,7.913054752783522
 train/loss,165650.0,7.857705116271973
 train/loss,165700.0,8.023710250854492
 train/loss,165750.0,7.786820888519287
@@ -29388,6 +29585,7 @@ train/loss,172650.0,8.140247344970703
 train/loss,172700.0,7.498164653778076
 train/loss,172750.0,7.908543109893799
 train/loss,172800.0,8.18654727935791
+train/loss,172848.0,7.913978070045504
 train/loss,172850.0,7.713923931121826
 train/loss,172900.0,8.053574562072754
 train/loss,172950.0,7.753251075744629
@@ -29677,6 +29875,7 @@ train/loss,187100.0,7.7462615966796875
 train/loss,187150.0,7.918769836425781
 train/loss,187200.0,7.694726467132568
 train/loss,187250.0,8.06112289428711
+train/loss,187252.0,7.916040553943345
 train/loss,187300.0,7.803065776824951
 train/loss,187350.0,7.975294589996338
 train/loss,187400.0,8.08389663696289
@@ -29821,6 +30020,7 @@ train/loss,194300.0,8.316658020019531
 train/loss,194350.0,7.68226432800293
 train/loss,194400.0,7.806912899017334
 train/loss,194450.0,7.856751918792725
+train/loss,194454.0,7.916757921499201
 train/loss,194500.0,7.7490739822387695
 train/loss,194550.0,7.782979488372803
 train/loss,194600.0,7.798962593078613
@@ -29965,6 +30165,7 @@ train/loss,201500.0,7.8626203536987305
 train/loss,201550.0,8.17434310913086
 train/loss,201600.0,7.81332540512085
 train/loss,201650.0,7.734887599945068
+train/loss,201656.0,7.917877474234389
 train/loss,201700.0,7.991578102111816
 train/loss,201750.0,7.832796096801758
 train/loss,201800.0,8.098627090454102
@@ -30109,6 +30310,7 @@ train/loss,208700.0,8.098600387573242
 train/loss,208750.0,8.041756629943848
 train/loss,208800.0,7.834197044372559
 train/loss,208850.0,7.949277877807617
+train/loss,208858.0,7.917718337314455
 train/loss,208900.0,7.725217342376709
 train/loss,208950.0,7.717743873596191
 train/loss,209000.0,8.108158111572266
@@ -30253,6 +30455,7 @@ train/loss,215900.0,8.094722747802734
 train/loss,215950.0,7.8813300132751465
 train/loss,216000.0,7.9926300048828125
 train/loss,216050.0,8.11689567565918
+train/loss,216060.0,7.918150798359436
 train/reconstruction,1.0,0.09221720695495605
 train/reconstruction,50.0,0.0916784405708313
 train/reconstruction,100.0,0.0931956022977829
@@ -30398,6 +30601,7 @@ train/reconstruction,7050.0,0.7480298280715942
 train/reconstruction,7100.0,0.7743628025054932
 train/reconstruction,7150.0,0.7400429844856262
 train/reconstruction,7200.0,0.7427773475646973
+train/reconstruction,7202.0,0.7004821998578251
 train/reconstruction,7250.0,0.7681756019592285
 train/reconstruction,7300.0,0.7270309329032898
 train/reconstruction,7350.0,0.7813256978988647
@@ -30542,6 +30746,7 @@ train/reconstruction,14250.0,0.7725290060043335
 train/reconstruction,14300.0,0.714573323726654
 train/reconstruction,14350.0,0.7656775712966919
 train/reconstruction,14400.0,0.7429825663566589
+train/reconstruction,14404.0,0.7466745492928527
 train/reconstruction,14450.0,0.7193936109542847
 train/reconstruction,14500.0,0.7720045447349548
 train/reconstruction,14550.0,0.7613574862480164
@@ -30686,6 +30891,7 @@ train/reconstruction,21450.0,0.7412327527999878
 train/reconstruction,21500.0,0.7187662720680237
 train/reconstruction,21550.0,0.7628475427627563
 train/reconstruction,21600.0,0.7737742066383362
+train/reconstruction,21606.0,0.7471111951847436
 train/reconstruction,21650.0,0.7373440861701965
 train/reconstruction,21700.0,0.7516553997993469
 train/reconstruction,21750.0,0.7446267604827881
@@ -30830,6 +31036,7 @@ train/reconstruction,28650.0,0.7725010514259338
 train/reconstruction,28700.0,0.7294864654541016
 train/reconstruction,28750.0,0.7232084274291992
 train/reconstruction,28800.0,0.7608321905136108
+train/reconstruction,28808.0,0.7477277291235709
 train/reconstruction,28850.0,0.7546933889389038
 train/reconstruction,28900.0,0.7220832109451294
 train/reconstruction,28950.0,0.7794907093048096
@@ -30974,6 +31181,7 @@ train/reconstruction,35850.0,0.7251320481300354
 train/reconstruction,35900.0,0.7202656269073486
 train/reconstruction,35950.0,0.7340555191040039
 train/reconstruction,36000.0,0.774164080619812
+train/reconstruction,36010.0,0.7475495839642009
 train/reconstruction,36050.0,0.7535910606384277
 train/reconstruction,36100.0,0.724568784236908
 train/reconstruction,36150.0,0.7699036598205566
@@ -31118,6 +31326,7 @@ train/reconstruction,43050.0,0.7289289236068726
 train/reconstruction,43100.0,0.7999250888824463
 train/reconstruction,43150.0,0.7679046988487244
 train/reconstruction,43200.0,0.733328104019165
+train/reconstruction,43212.0,0.748080571951493
 train/reconstruction,43250.0,0.7513589859008789
 train/reconstruction,43300.0,0.7929959297180176
 train/reconstruction,43350.0,0.7543554902076721
@@ -31262,6 +31471,7 @@ train/reconstruction,50250.0,0.8014127612113953
 train/reconstruction,50300.0,0.7261121273040771
 train/reconstruction,50350.0,0.7178826928138733
 train/reconstruction,50400.0,0.7515378594398499
+train/reconstruction,50414.0,0.7477919133677479
 train/reconstruction,50450.0,0.7496131658554077
 train/reconstruction,50500.0,0.7552796602249146
 train/reconstruction,50550.0,0.7142261862754822
@@ -31406,6 +31616,7 @@ train/reconstruction,57450.0,0.782762885093689
 train/reconstruction,57500.0,0.7288200855255127
 train/reconstruction,57550.0,0.7360885143280029
 train/reconstruction,57600.0,0.7664283514022827
+train/reconstruction,57616.0,0.7479442435295275
 train/reconstruction,57650.0,0.7219519019126892
 train/reconstruction,57700.0,0.7450056076049805
 train/reconstruction,57750.0,0.7950066924095154
@@ -31550,6 +31761,7 @@ train/reconstruction,64650.0,0.7377633452415466
 train/reconstruction,64700.0,0.7759413719177246
 train/reconstruction,64750.0,0.7695833444595337
 train/reconstruction,64800.0,0.7423243522644043
+train/reconstruction,64818.0,0.7469696051042068
 train/reconstruction,64850.0,0.7189210653305054
 train/reconstruction,64900.0,0.7317027449607849
 train/reconstruction,64950.0,0.7313998937606812
@@ -31694,6 +31906,7 @@ train/reconstruction,71850.0,0.7439548969268799
 train/reconstruction,71900.0,0.7682961225509644
 train/reconstruction,71950.0,0.7480185031890869
 train/reconstruction,72000.0,0.7566701769828796
+train/reconstruction,72020.0,0.7465328983062507
 train/reconstruction,72050.0,0.796718418598175
 train/reconstruction,72100.0,0.7535953521728516
 train/reconstruction,72150.0,0.7757419943809509
@@ -31838,6 +32051,7 @@ train/reconstruction,79050.0,0.7525049448013306
 train/reconstruction,79100.0,0.7688522338867188
 train/reconstruction,79150.0,0.743208646774292
 train/reconstruction,79200.0,0.7351173162460327
+train/reconstruction,79222.0,0.7464779499805461
 train/reconstruction,79250.0,0.7276247143745422
 train/reconstruction,79300.0,0.688660740852356
 train/reconstruction,79350.0,0.7235386967658997
@@ -31982,6 +32196,7 @@ train/reconstruction,86250.0,0.8097366690635681
 train/reconstruction,86300.0,0.788287878036499
 train/reconstruction,86350.0,0.7762537002563477
 train/reconstruction,86400.0,0.7530270218849182
+train/reconstruction,86424.0,0.7463418795470892
 train/reconstruction,86450.0,0.7244884371757507
 train/reconstruction,86500.0,0.7866178154945374
 train/reconstruction,86550.0,0.7219067215919495
@@ -32126,6 +32341,7 @@ train/reconstruction,93450.0,0.7398858666419983
 train/reconstruction,93500.0,0.727085530757904
 train/reconstruction,93550.0,0.7209999561309814
 train/reconstruction,93600.0,0.7147356867790222
+train/reconstruction,93626.0,0.7463199293793853
 train/reconstruction,93650.0,0.717399001121521
 train/reconstruction,93700.0,0.7200711965560913
 train/reconstruction,93750.0,0.706609845161438
@@ -32270,6 +32486,7 @@ train/reconstruction,100650.0,0.7439438104629517
 train/reconstruction,100700.0,0.7176378965377808
 train/reconstruction,100750.0,0.761029064655304
 train/reconstruction,100800.0,0.7610602378845215
+train/reconstruction,100828.0,0.7463251425740091
 train/reconstruction,100850.0,0.7569332718849182
 train/reconstruction,100900.0,0.7643340826034546
 train/reconstruction,100950.0,0.7217846512794495
@@ -32414,6 +32631,7 @@ train/reconstruction,107850.0,0.7720081210136414
 train/reconstruction,107900.0,0.7203831076622009
 train/reconstruction,107950.0,0.7149849534034729
 train/reconstruction,108000.0,0.7502890825271606
+train/reconstruction,108030.0,0.7463194764540183
 train/reconstruction,108050.0,0.7354772686958313
 train/reconstruction,108100.0,0.7345566749572754
 train/reconstruction,108150.0,0.7649165987968445
@@ -32558,6 +32776,7 @@ train/reconstruction,115050.0,0.7441737651824951
 train/reconstruction,115100.0,0.7641170024871826
 train/reconstruction,115150.0,0.7295033931732178
 train/reconstruction,115200.0,0.7357025146484375
+train/reconstruction,115232.0,0.7463200203319187
 train/reconstruction,115250.0,0.7761393189430237
 train/reconstruction,115300.0,0.7185092568397522
 train/reconstruction,115350.0,0.7644481658935547
@@ -32702,6 +32921,7 @@ train/reconstruction,122250.0,0.7534644603729248
 train/reconstruction,122300.0,0.7625539898872375
 train/reconstruction,122350.0,0.748507022857666
 train/reconstruction,122400.0,0.7074554562568665
+train/reconstruction,122434.0,0.7463198540149315
 train/reconstruction,122450.0,0.7299767732620239
 train/reconstruction,122500.0,0.7265897989273071
 train/reconstruction,122550.0,0.7367269992828369
@@ -32846,6 +33066,7 @@ train/reconstruction,129450.0,0.7424052953720093
 train/reconstruction,129500.0,0.7346524000167847
 train/reconstruction,129550.0,0.7371392250061035
 train/reconstruction,129600.0,0.7530812621116638
+train/reconstruction,129636.0,0.7463210598130883
 train/reconstruction,129650.0,0.7474765181541443
 train/reconstruction,129700.0,0.7686076164245605
 train/reconstruction,129750.0,0.7972278594970703
@@ -32990,6 +33211,7 @@ train/reconstruction,136650.0,0.751137375831604
 train/reconstruction,136700.0,0.7368037104606628
 train/reconstruction,136750.0,0.7355569005012512
 train/reconstruction,136800.0,0.7474651336669922
+train/reconstruction,136838.0,0.746320083849101
 train/reconstruction,136850.0,0.7274191975593567
 train/reconstruction,136900.0,0.7530773878097534
 train/reconstruction,136950.0,0.7674522995948792
@@ -33134,6 +33356,7 @@ train/reconstruction,143850.0,0.7586253881454468
 train/reconstruction,143900.0,0.7318440675735474
 train/reconstruction,143950.0,0.7890082597732544
 train/reconstruction,144000.0,0.7591156959533691
+train/reconstruction,144040.0,0.7463184798162734
 train/reconstruction,144050.0,0.7423022985458374
 train/reconstruction,144100.0,0.748571515083313
 train/reconstruction,144150.0,0.7131009101867676
@@ -33278,6 +33501,7 @@ train/reconstruction,151050.0,0.7259746193885803
 train/reconstruction,151100.0,0.7155008912086487
 train/reconstruction,151150.0,0.7386234998703003
 train/reconstruction,151200.0,0.711455762386322
+train/reconstruction,151242.0,0.7463196453883296
 train/reconstruction,151250.0,0.7445822954177856
 train/reconstruction,151300.0,0.7185380458831787
 train/reconstruction,151350.0,0.7317172884941101
@@ -33422,6 +33646,7 @@ train/reconstruction,158250.0,0.7184610962867737
 train/reconstruction,158300.0,0.7940983176231384
 train/reconstruction,158350.0,0.7262166738510132
 train/reconstruction,158400.0,0.7970663905143738
+train/reconstruction,158444.0,0.7463199175424591
 train/reconstruction,158450.0,0.7435728311538696
 train/reconstruction,158500.0,0.7549469470977783
 train/reconstruction,158550.0,0.7340555191040039
@@ -33566,6 +33791,7 @@ train/reconstruction,165450.0,0.7698804140090942
 train/reconstruction,165500.0,0.7152103185653687
 train/reconstruction,165550.0,0.7678958773612976
 train/reconstruction,165600.0,0.7246682047843933
+train/reconstruction,165646.0,0.7463212261031781
 train/reconstruction,165650.0,0.7414542436599731
 train/reconstruction,165700.0,0.7543214559555054
 train/reconstruction,165750.0,0.7375550866127014
@@ -33710,6 +33936,7 @@ train/reconstruction,172650.0,0.7790746688842773
 train/reconstruction,172700.0,0.7023336887359619
 train/reconstruction,172750.0,0.7464126944541931
 train/reconstruction,172800.0,0.7737722992897034
+train/reconstruction,172848.0,0.7463232767280689
 train/reconstruction,172850.0,0.7195953726768494
 train/reconstruction,172900.0,0.7550223469734192
 train/reconstruction,172950.0,0.731242835521698
@@ -33999,6 +34226,7 @@ train/reconstruction,187100.0,0.7150830626487732
 train/reconstruction,187150.0,0.749147891998291
 train/reconstruction,187200.0,0.714559018611908
 train/reconstruction,187250.0,0.7580817937850952
+train/reconstruction,187252.0,0.7463202409899358
 train/reconstruction,187300.0,0.7370904088020325
 train/reconstruction,187350.0,0.7545479536056519
 train/reconstruction,187400.0,0.7706289887428284
@@ -34143,6 +34371,7 @@ train/reconstruction,194300.0,0.7874221205711365
 train/reconstruction,194350.0,0.7199136018753052
 train/reconstruction,194400.0,0.7416592836380005
 train/reconstruction,194450.0,0.7436460852622986
+train/reconstruction,194454.0,0.746324991154045
 train/reconstruction,194500.0,0.7338293194770813
 train/reconstruction,194550.0,0.7292100787162781
 train/reconstruction,194600.0,0.7441568970680237
@@ -34287,6 +34516,7 @@ train/reconstruction,201500.0,0.7482803463935852
 train/reconstruction,201550.0,0.7671679258346558
 train/reconstruction,201600.0,0.7379288673400879
 train/reconstruction,201650.0,0.7276415228843689
+train/reconstruction,201656.0,0.7463201522554036
 train/reconstruction,201700.0,0.7577195167541504
 train/reconstruction,201750.0,0.744328498840332
 train/reconstruction,201800.0,0.7649416923522949
@@ -34431,6 +34661,7 @@ train/reconstruction,208700.0,0.7667385339736938
 train/reconstruction,208750.0,0.7634435892105103
 train/reconstruction,208800.0,0.7225083112716675
 train/reconstruction,208850.0,0.7506775259971619
+train/reconstruction,208858.0,0.7463219463204517
 train/reconstruction,208900.0,0.7274755239486694
 train/reconstruction,208950.0,0.7202866077423096
 train/reconstruction,209000.0,0.772500216960907
@@ -34575,6 +34806,7 @@ train/reconstruction,215900.0,0.7662774324417114
 train/reconstruction,215950.0,0.736106812953949
 train/reconstruction,216000.0,0.7580320835113525
 train/reconstruction,216050.0,0.7589573860168457
+train/reconstruction,216060.0,0.7463198027381365
 train/registered_ssim,1.0,0.19929638504981995
 train/registered_ssim,50.0,0.09413964301347733
 train/registered_ssim,100.0,0.32514488697052
@@ -34720,6 +34952,7 @@ train/registered_ssim,7050.0,0.5727493166923523
 train/registered_ssim,7100.0,0.7021273970603943
 train/registered_ssim,7150.0,0.6693411469459534
 train/registered_ssim,7200.0,0.8543701171875
+train/registered_ssim,7202.0,0.7027117380190878
 train/registered_ssim,7250.0,0.560966968536377
 train/registered_ssim,7300.0,0.7311258912086487
 train/registered_ssim,7350.0,0.6163036823272705
@@ -34864,6 +35097,7 @@ train/registered_ssim,14250.0,0.6182007789611816
 train/registered_ssim,14300.0,0.6545407176017761
 train/registered_ssim,14350.0,0.6850844621658325
 train/registered_ssim,14400.0,0.7414875030517578
+train/registered_ssim,14404.0,0.7253298550354802
 train/registered_ssim,14450.0,0.687248945236206
 train/registered_ssim,14500.0,0.6064879298210144
 train/registered_ssim,14550.0,0.8566407561302185
@@ -35008,6 +35242,7 @@ train/registered_ssim,21450.0,0.6900579333305359
 train/registered_ssim,21500.0,0.7307004332542419
 train/registered_ssim,21550.0,0.5970983505249023
 train/registered_ssim,21600.0,0.6296105980873108
+train/registered_ssim,21606.0,0.7254215959383555
 train/registered_ssim,21650.0,0.6609134078025818
 train/registered_ssim,21700.0,0.6480759382247925
 train/registered_ssim,21750.0,0.7051631212234497
@@ -35152,6 +35387,7 @@ train/registered_ssim,28650.0,0.6513716578483582
 train/registered_ssim,28700.0,0.7004354000091553
 train/registered_ssim,28750.0,0.962691605091095
 train/registered_ssim,28800.0,0.603701114654541
+train/registered_ssim,28808.0,0.7256330660442436
 train/registered_ssim,28850.0,0.9838525056838989
 train/registered_ssim,28900.0,1.0514655113220215
 train/registered_ssim,28950.0,0.5944734215736389
@@ -35296,6 +35532,7 @@ train/registered_ssim,35850.0,0.7711824178695679
 train/registered_ssim,35900.0,0.7444635629653931
 train/registered_ssim,35950.0,0.6373409032821655
 train/registered_ssim,36000.0,0.6640847325325012
+train/registered_ssim,36010.0,0.7255737574776817
 train/registered_ssim,36050.0,0.6809655427932739
 train/registered_ssim,36100.0,0.7979187965393066
 train/registered_ssim,36150.0,0.7602824568748474
@@ -35440,6 +35677,7 @@ train/registered_ssim,43050.0,0.7951674461364746
 train/registered_ssim,43100.0,0.741547703742981
 train/registered_ssim,43150.0,0.8669215440750122
 train/registered_ssim,43200.0,0.6935361623764038
+train/registered_ssim,43212.0,0.725720928319778
 train/registered_ssim,43250.0,0.6739029288291931
 train/registered_ssim,43300.0,0.6220375299453735
 train/registered_ssim,43350.0,0.6420859098434448
@@ -35584,6 +35822,7 @@ train/registered_ssim,50250.0,0.7121596336364746
 train/registered_ssim,50300.0,0.6290721893310547
 train/registered_ssim,50350.0,1.0740910768508911
 train/registered_ssim,50400.0,0.6078736186027527
+train/registered_ssim,50414.0,0.7256318744674985
 train/registered_ssim,50450.0,0.656841516494751
 train/registered_ssim,50500.0,0.7704010605812073
 train/registered_ssim,50550.0,0.7341423630714417
@@ -35728,6 +35967,7 @@ train/registered_ssim,57450.0,0.640597403049469
 train/registered_ssim,57500.0,0.749652087688446
 train/registered_ssim,57550.0,0.7590059041976929
 train/registered_ssim,57600.0,0.7389388084411621
+train/registered_ssim,57616.0,0.7257554657187636
 train/registered_ssim,57650.0,0.6423358917236328
 train/registered_ssim,57700.0,0.8975808024406433
 train/registered_ssim,57750.0,0.5694592595100403
@@ -35872,6 +36112,7 @@ train/registered_ssim,64650.0,0.8831773996353149
 train/registered_ssim,64700.0,0.595763087272644
 train/registered_ssim,64750.0,0.6466794610023499
 train/registered_ssim,64800.0,0.6177627444267273
+train/registered_ssim,64818.0,0.7255223781217065
 train/registered_ssim,64850.0,0.6904256343841553
 train/registered_ssim,64900.0,0.7125931978225708
 train/registered_ssim,64950.0,0.9658999443054199
@@ -36016,6 +36257,7 @@ train/registered_ssim,71850.0,0.7336786985397339
 train/registered_ssim,71900.0,0.6147921085357666
 train/registered_ssim,71950.0,0.6267335414886475
 train/registered_ssim,72000.0,0.687145471572876
+train/registered_ssim,72020.0,0.7254212026877944
 train/registered_ssim,72050.0,0.5893234014511108
 train/registered_ssim,72100.0,0.8111821413040161
 train/registered_ssim,72150.0,0.5855875015258789
@@ -36160,6 +36402,7 @@ train/registered_ssim,79050.0,0.7143796682357788
 train/registered_ssim,79100.0,0.7178751826286316
 train/registered_ssim,79150.0,0.669818639755249
 train/registered_ssim,79200.0,0.8326864838600159
+train/registered_ssim,79222.0,0.7253235120739796
 train/registered_ssim,79250.0,0.7251225709915161
 train/registered_ssim,79300.0,0.5506395697593689
 train/registered_ssim,79350.0,0.724770188331604
@@ -36304,6 +36547,7 @@ train/registered_ssim,86250.0,0.614339292049408
 train/registered_ssim,86300.0,0.7509458065032959
 train/registered_ssim,86350.0,0.6361467838287354
 train/registered_ssim,86400.0,0.8173738121986389
+train/registered_ssim,86424.0,0.725340611351585
 train/registered_ssim,86450.0,0.7980318665504456
 train/registered_ssim,86500.0,0.7533588409423828
 train/registered_ssim,86550.0,0.8347470760345459
@@ -36448,6 +36692,7 @@ train/registered_ssim,93450.0,0.5974631309509277
 train/registered_ssim,93500.0,0.7228109836578369
 train/registered_ssim,93550.0,0.9475911259651184
 train/registered_ssim,93600.0,0.8526290655136108
+train/registered_ssim,93626.0,0.7253414272806805
 train/registered_ssim,93650.0,0.9627613425254822
 train/registered_ssim,93700.0,0.6579276323318481
 train/registered_ssim,93750.0,1.0484834909439087
@@ -36592,6 +36837,7 @@ train/registered_ssim,100650.0,0.7313483357429504
 train/registered_ssim,100700.0,0.6668794751167297
 train/registered_ssim,100750.0,0.6768027544021606
 train/registered_ssim,100800.0,0.6377134919166565
+train/registered_ssim,100828.0,0.7253348444165074
 train/registered_ssim,100850.0,0.7183071374893188
 train/registered_ssim,100900.0,0.5933616757392883
 train/registered_ssim,100950.0,0.6528996825218201
@@ -36736,6 +36982,7 @@ train/registered_ssim,107850.0,0.6543330550193787
 train/registered_ssim,107900.0,0.6272343993186951
 train/registered_ssim,107950.0,0.6740450263023376
 train/registered_ssim,108000.0,0.6417921185493469
+train/registered_ssim,108030.0,0.725344547162166
 train/registered_ssim,108050.0,0.9497166275978088
 train/registered_ssim,108100.0,1.013777256011963
 train/registered_ssim,108150.0,0.65484619140625
@@ -36880,6 +37127,7 @@ train/registered_ssim,115050.0,0.649263322353363
 train/registered_ssim,115100.0,0.7561202645301819
 train/registered_ssim,115150.0,0.8808297514915466
 train/registered_ssim,115200.0,0.8698083162307739
+train/registered_ssim,115232.0,0.725353610349655
 train/registered_ssim,115250.0,0.6017274260520935
 train/registered_ssim,115300.0,0.9905204176902771
 train/registered_ssim,115350.0,0.6115900278091431
@@ -37024,6 +37272,7 @@ train/registered_ssim,122250.0,0.6335055828094482
 train/registered_ssim,122300.0,0.7173346877098083
 train/registered_ssim,122350.0,0.6574689149856567
 train/registered_ssim,122400.0,0.6629821062088013
+train/registered_ssim,122434.0,0.7253724248760643
 train/registered_ssim,122450.0,0.6513646245002747
 train/registered_ssim,122500.0,0.9538694620132446
 train/registered_ssim,122550.0,0.7641393542289734
@@ -37168,6 +37417,7 @@ train/registered_ssim,129450.0,0.8666908740997314
 train/registered_ssim,129500.0,0.6889268755912781
 train/registered_ssim,129550.0,1.1297248601913452
 train/registered_ssim,129600.0,0.6802143454551697
+train/registered_ssim,129636.0,0.7253381270190042
 train/registered_ssim,129650.0,0.688744306564331
 train/registered_ssim,129700.0,0.7301592230796814
 train/registered_ssim,129750.0,0.628496527671814
@@ -37312,6 +37562,7 @@ train/registered_ssim,136650.0,0.6036332845687866
 train/registered_ssim,136700.0,0.6613069176673889
 train/registered_ssim,136750.0,0.7359766960144043
 train/registered_ssim,136800.0,0.6822345852851868
+train/registered_ssim,136838.0,0.7253438899737834
 train/registered_ssim,136850.0,0.9405781030654907
 train/registered_ssim,136900.0,0.655933678150177
 train/registered_ssim,136950.0,0.8541772365570068
@@ -37456,6 +37707,7 @@ train/registered_ssim,143850.0,0.642271876335144
 train/registered_ssim,143900.0,0.7325113415718079
 train/registered_ssim,143950.0,0.6349012851715088
 train/registered_ssim,144000.0,0.6700125932693481
+train/registered_ssim,144040.0,0.7253389060195173
 train/registered_ssim,144050.0,0.675634503364563
 train/registered_ssim,144100.0,0.5855364203453064
 train/registered_ssim,144150.0,0.651340663433075
@@ -37600,6 +37852,7 @@ train/registered_ssim,151050.0,0.636623203754425
 train/registered_ssim,151100.0,0.642433226108551
 train/registered_ssim,151150.0,0.7667595744132996
 train/registered_ssim,151200.0,0.6231068968772888
+train/registered_ssim,151242.0,0.7253449042272582
 train/registered_ssim,151250.0,0.8488501906394958
 train/registered_ssim,151300.0,0.7824138402938843
 train/registered_ssim,151350.0,0.6524875164031982
@@ -37744,6 +37997,7 @@ train/registered_ssim,158250.0,0.8828046917915344
 train/registered_ssim,158300.0,0.5657505989074707
 train/registered_ssim,158350.0,0.8058916330337524
 train/registered_ssim,158400.0,0.5308519601821899
+train/registered_ssim,158444.0,0.7253358769209046
 train/registered_ssim,158450.0,0.6772176623344421
 train/registered_ssim,158500.0,0.6588923335075378
 train/registered_ssim,158550.0,0.6413929462432861
@@ -37888,6 +38142,7 @@ train/registered_ssim,165450.0,0.7710922360420227
 train/registered_ssim,165500.0,0.7422277927398682
 train/registered_ssim,165550.0,0.6114749312400818
 train/registered_ssim,165600.0,0.6215658783912659
+train/registered_ssim,165646.0,0.7253390983380169
 train/registered_ssim,165650.0,0.7015107870101929
 train/registered_ssim,165700.0,0.7542047500610352
 train/registered_ssim,165750.0,0.6189267039299011
@@ -38032,6 +38287,7 @@ train/registered_ssim,172650.0,0.563380241394043
 train/registered_ssim,172700.0,0.7885216474533081
 train/registered_ssim,172750.0,0.7417372465133667
 train/registered_ssim,172800.0,0.7110018134117126
+train/registered_ssim,172848.0,0.7253387588679643
 train/registered_ssim,172850.0,0.8910425305366516
 train/registered_ssim,172900.0,0.831043004989624
 train/registered_ssim,172950.0,0.709770143032074
@@ -38321,6 +38577,7 @@ train/registered_ssim,187100.0,0.9799243211746216
 train/registered_ssim,187150.0,0.6448642611503601
 train/registered_ssim,187200.0,0.9075980186462402
 train/registered_ssim,187250.0,0.7635878324508667
+train/registered_ssim,187252.0,0.7253396516486296
 train/registered_ssim,187300.0,0.6812174320220947
 train/registered_ssim,187350.0,0.6892197728157043
 train/registered_ssim,187400.0,0.5821164846420288
@@ -38465,6 +38722,7 @@ train/registered_ssim,194300.0,0.6912702322006226
 train/registered_ssim,194350.0,0.7846148610115051
 train/registered_ssim,194400.0,0.5982668399810791
 train/registered_ssim,194450.0,0.6154845356941223
+train/registered_ssim,194454.0,0.7253377884572562
 train/registered_ssim,194500.0,0.6543248891830444
 train/registered_ssim,194550.0,0.7888864874839783
 train/registered_ssim,194600.0,0.5690353512763977
@@ -38609,6 +38867,7 @@ train/registered_ssim,201500.0,0.5779932737350464
 train/registered_ssim,201550.0,0.8437068462371826
 train/registered_ssim,201600.0,0.6954663991928101
 train/registered_ssim,201650.0,0.7096688151359558
+train/registered_ssim,201656.0,0.7253392678144144
 train/registered_ssim,201700.0,0.6439511179924011
 train/registered_ssim,201750.0,0.5920106768608093
 train/registered_ssim,201800.0,0.6945630311965942
@@ -38753,6 +39012,7 @@ train/registered_ssim,208700.0,0.684817373752594
 train/registered_ssim,208750.0,0.6588802337646484
 train/registered_ssim,208800.0,1.0663723945617676
 train/registered_ssim,208850.0,0.6872515678405762
+train/registered_ssim,208858.0,0.725338170801769
 train/registered_ssim,208900.0,0.6897429823875427
 train/registered_ssim,208950.0,0.8464056849479675
 train/registered_ssim,209000.0,0.5712433457374573
@@ -38897,6 +39157,7 @@ train/registered_ssim,215900.0,0.6673636436462402
 train/registered_ssim,215950.0,0.8912315964698792
 train/registered_ssim,216000.0,0.6357751488685608
 train/registered_ssim,216050.0,0.8792283535003662
+train/registered_ssim,216060.0,0.7253525981093474
 train/registration_calibration,1.0,0.0
 train/registration_calibration,50.0,0.0
 train/registration_calibration,100.0,0.0
@@ -39042,6 +39303,7 @@ train/registration_calibration,7050.0,5.791662260890007e-09
 train/registration_calibration,7100.0,2.5247572921216488e-09
 train/registration_calibration,7150.0,1.0250005288980901e-09
 train/registration_calibration,7200.0,2.5756889954209328e-09
+train/registration_calibration,7202.0,1.3238491583617311e-08
 train/registration_calibration,7250.0,1.4370016288012266e-09
 train/registration_calibration,7300.0,3.8744474295526743e-10
 train/registration_calibration,7350.0,4.001776687800884e-10
@@ -39186,6 +39448,7 @@ train/registration_calibration,14250.0,1.318767317570746e-09
 train/registration_calibration,14300.0,1.940861693583429e-09
 train/registration_calibration,14350.0,1.0695657692849636e-09
 train/registration_calibration,14400.0,4.678440745919943e-09
+train/registration_calibration,14404.0,2.2814739787897784e-09
 train/registration_calibration,14450.0,7.803464541211724e-10
 train/registration_calibration,14500.0,3.383320290595293e-09
 train/registration_calibration,14550.0,8.891220204532146e-09
@@ -39330,6 +39593,7 @@ train/registration_calibration,21450.0,1.2114469427615404e-09
 train/registration_calibration,21500.0,8.403731044381857e-10
 train/registration_calibration,21550.0,7.039488991722465e-10
 train/registration_calibration,21600.0,8.831193554215133e-10
+train/registration_calibration,21606.0,1.8466338688197592e-09
 train/registration_calibration,21650.0,8.185452315956354e-10
 train/registration_calibration,21700.0,8.258211892098188e-10
 train/registration_calibration,21750.0,7.683411240577698e-09
@@ -39474,6 +39738,7 @@ train/registration_calibration,28650.0,1.1514202924445271e-09
 train/registration_calibration,28700.0,1.0913936421275139e-09
 train/registration_calibration,28750.0,2.219167072325945e-09
 train/registration_calibration,28800.0,1.735315890982747e-09
+train/registration_calibration,28808.0,1.7592695751434624e-09
 train/registration_calibration,28850.0,7.512426236644387e-10
 train/registration_calibration,28900.0,1.3151293387636542e-09
 train/registration_calibration,28950.0,2.5647750589996576e-09
@@ -39618,6 +39883,7 @@ train/registration_calibration,35850.0,4.18367562815547e-10
 train/registration_calibration,35900.0,1.899024937301874e-09
 train/registration_calibration,35950.0,7.185008144006133e-10
 train/registration_calibration,36000.0,1.1059455573558807e-09
+train/registration_calibration,36010.0,1.6592553239972353e-09
 train/registration_calibration,36050.0,2.179149305447936e-09
 train/registration_calibration,36100.0,2.576143742771819e-10
 train/registration_calibration,36150.0,2.623892214614898e-10
@@ -39762,6 +40028,7 @@ train/registration_calibration,43050.0,1.1295924196019769e-09
 train/registration_calibration,43100.0,2.7284841053187847e-09
 train/registration_calibration,43150.0,2.557499101385474e-09
 train/registration_calibration,43200.0,4.8603396862745285e-09
+train/registration_calibration,43212.0,1.466052799092606e-09
 train/registration_calibration,43250.0,1.6370904631912708e-09
 train/registration_calibration,43300.0,9.822542779147625e-10
 train/registration_calibration,43350.0,1.280568540096283e-09
@@ -39906,6 +40173,7 @@ train/registration_calibration,50250.0,8.458300726488233e-10
 train/registration_calibration,50300.0,2.535671228542924e-09
 train/registration_calibration,50350.0,3.3614924177527428e-09
 train/registration_calibration,50400.0,8.676579454913735e-10
+train/registration_calibration,50414.0,1.6742485057772097e-09
 train/registration_calibration,50450.0,2.9240254661999643e-10
 train/registration_calibration,50500.0,2.8967406251467764e-10
 train/registration_calibration,50550.0,5.70253178011626e-10
@@ -40050,6 +40318,7 @@ train/registration_calibration,57450.0,2.255546860396862e-09
 train/registration_calibration,57500.0,1.1514202924445271e-09
 train/registration_calibration,57550.0,9.149516699835658e-10
 train/registration_calibration,57600.0,6.293703336268663e-10
+train/registration_calibration,57616.0,1.2943377574569536e-09
 train/registration_calibration,57650.0,3.624336386565119e-10
 train/registration_calibration,57700.0,2.9604052542708814e-10
 train/registration_calibration,57750.0,2.660272002685815e-10
@@ -40194,6 +40463,7 @@ train/registration_calibration,64650.0,3.660716174636036e-10
 train/registration_calibration,64700.0,5.338733899407089e-10
 train/registration_calibration,64750.0,8.36735125631094e-10
 train/registration_calibration,64800.0,1.8326318240724504e-10
+train/registration_calibration,64818.0,1.2281656958153884e-09
 train/registration_calibration,64850.0,7.175913196988404e-10
 train/registration_calibration,64900.0,4.96947905048728e-09
 train/registration_calibration,64950.0,2.5756889954209328e-09
@@ -40338,6 +40608,7 @@ train/registration_calibration,71850.0,6.934897101018578e-10
 train/registration_calibration,71900.0,3.48791218129918e-10
 train/registration_calibration,71950.0,7.23048287909478e-10
 train/registration_calibration,72000.0,1.04046193882823e-09
+train/registration_calibration,72020.0,1.2051828565700367e-09
 train/registration_calibration,72050.0,1.7394086171407253e-10
 train/registration_calibration,72100.0,7.512426236644387e-10
 train/registration_calibration,72150.0,4.31100488640368e-10
@@ -40482,6 +40753,7 @@ train/registration_calibration,79050.0,1.4533725334331393e-09
 train/registration_calibration,79100.0,1.0422809282317758e-09
 train/registration_calibration,79150.0,4.5292836148291826e-10
 train/registration_calibration,79200.0,3.5061020753346384e-10
+train/registration_calibration,79222.0,1.129107948377095e-09
 train/registration_calibration,79250.0,3.942659532185644e-10
 train/registration_calibration,79300.0,2.2464519133791327e-10
 train/registration_calibration,79350.0,1.1823431123048067e-09
@@ -40626,6 +40898,7 @@ train/registration_calibration,86250.0,5.547917680814862e-10
 train/registration_calibration,86300.0,1.5484147297684103e-10
 train/registration_calibration,86350.0,2.3010215954855084e-10
 train/registration_calibration,86400.0,2.573870006017387e-10
+train/registration_calibration,86424.0,1.1655725989814767e-09
 train/registration_calibration,86450.0,2.837623469531536e-10
 train/registration_calibration,86500.0,4.5201886678114533e-10
 train/registration_calibration,86550.0,2.3101165425032377e-10
@@ -40770,6 +41043,7 @@ train/registration_calibration,93450.0,5.720721674151719e-10
 train/registration_calibration,93500.0,2.0445440895855427e-09
 train/registration_calibration,93550.0,1.1468728189356625e-09
 train/registration_calibration,93600.0,8.049028110690415e-10
+train/registration_calibration,93626.0,1.057003523759828e-09
 train/registration_calibration,93650.0,3.751665644813329e-10
 train/registration_calibration,93700.0,1.1550582712516189e-09
 train/registration_calibration,93750.0,1.1186784831807017e-09
@@ -40914,6 +41188,7 @@ train/registration_calibration,100650.0,3.306013240944594e-10
 train/registration_calibration,100700.0,1.3533281162381172e-09
 train/registration_calibration,100750.0,2.4410837795585394e-09
 train/registration_calibration,100800.0,6.248228601180017e-10
+train/registration_calibration,100828.0,1.0174823435133696e-09
 train/registration_calibration,100850.0,5.027686711400747e-09
 train/registration_calibration,100900.0,3.2159732654690742e-09
 train/registration_calibration,100950.0,5.384208634495735e-10
@@ -41058,6 +41333,7 @@ train/registration_calibration,107850.0,7.012204150669277e-10
 train/registration_calibration,107900.0,6.057234713807702e-10
 train/registration_calibration,107950.0,1.1896190699189901e-09
 train/registration_calibration,108000.0,2.0227162167429924e-09
+train/registration_calibration,108030.0,1.1042061424245584e-09
 train/registration_calibration,108050.0,6.72116584610194e-10
 train/registration_calibration,108100.0,1.4151737559586763e-09
 train/registration_calibration,108150.0,1.4097167877480388e-09
@@ -41202,6 +41478,7 @@ train/registration_calibration,115050.0,1.280568540096283e-09
 train/registration_calibration,115100.0,8.312781574204564e-10
 train/registration_calibration,115150.0,6.402842700481415e-10
 train/registration_calibration,115200.0,2.644355845404789e-10
+train/registration_calibration,115232.0,1.0858874390867105e-09
 train/registration_calibration,115250.0,2.637534635141492e-10
 train/registration_calibration,115300.0,4.561115929391235e-10
 train/registration_calibration,115350.0,8.103597792796791e-10
@@ -41346,6 +41623,7 @@ train/registration_calibration,122250.0,4.729372449219227e-10
 train/registration_calibration,122300.0,2.473825588822365e-10
 train/registration_calibration,122350.0,3.851710062008351e-10
 train/registration_calibration,122400.0,6.71207089908421e-10
+train/registration_calibration,122434.0,9.177470449490408e-10
 train/registration_calibration,122450.0,7.139533408917487e-10
 train/registration_calibration,122500.0,1.1104930308647454e-09
 train/registration_calibration,122550.0,3.0945557227823883e-10
@@ -41490,6 +41768,7 @@ train/registration_calibration,129450.0,2.9685907065868378e-09
 train/registration_calibration,129500.0,1.4606484910473228e-09
 train/registration_calibration,129550.0,7.10315362084657e-10
 train/registration_calibration,129600.0,6.093614501878619e-10
+train/registration_calibration,129636.0,9.75761894438476e-10
 train/registration_calibration,129650.0,3.688001015689224e-10
 train/registration_calibration,129700.0,1.2587406672537327e-09
 train/registration_calibration,129750.0,2.7193891583010554e-10
@@ -41634,6 +41913,7 @@ train/registration_calibration,136650.0,1.857642928371206e-10
 train/registration_calibration,136700.0,4.715730028692633e-10
 train/registration_calibration,136750.0,1.6632384358672425e-10
 train/registration_calibration,136800.0,6.430127541534603e-10
+train/registration_calibration,136838.0,9.516505254842465e-10
 train/registration_calibration,136850.0,4.488356353249401e-10
 train/registration_calibration,136900.0,1.1950760381296277e-09
 train/registration_calibration,136950.0,3.6288838600739837e-10
@@ -41778,6 +42058,7 @@ train/registration_calibration,143850.0,2.2168933355715126e-10
 train/registration_calibration,143900.0,3.3924152376130223e-10
 train/registration_calibration,143950.0,6.093614501878619e-10
 train/registration_calibration,144000.0,1.3133103493601084e-09
+train/registration_calibration,144040.0,9.031539928282688e-10
 train/registration_calibration,144050.0,4.5338310883380473e-10
 train/registration_calibration,144100.0,1.0695657692849636e-09
 train/registration_calibration,144150.0,6.684786058031023e-10
@@ -41922,6 +42203,7 @@ train/registration_calibration,151050.0,4.611138137988746e-10
 train/registration_calibration,151100.0,7.921698852442205e-10
 train/registration_calibration,151150.0,7.548806024715304e-10
 train/registration_calibration,151200.0,3.306013240944594e-10
+train/registration_calibration,151242.0,8.358618506528912e-10
 train/registration_calibration,151250.0,7.23048287909478e-10
 train/registration_calibration,151300.0,4.5065462472848594e-10
 train/registration_calibration,151350.0,5.07498043589294e-10
@@ -42066,6 +42348,7 @@ train/registration_calibration,158250.0,3.7471181713044643e-10
 train/registration_calibration,158300.0,4.05634636990726e-10
 train/registration_calibration,158350.0,4.1745806811377406e-10
 train/registration_calibration,158400.0,8.431015885435045e-10
+train/registration_calibration,158444.0,1.0214506802791405e-09
 train/registration_calibration,158450.0,3.3355718187522143e-10
 train/registration_calibration,158500.0,4.82032191939652e-10
 train/registration_calibration,158550.0,4.501998773775995e-10
@@ -42210,6 +42493,7 @@ train/registration_calibration,165450.0,2.142769517377019e-09
 train/registration_calibration,165500.0,5.329638952389359e-10
 train/registration_calibration,165550.0,4.893081495538354e-10
 train/registration_calibration,165600.0,1.0659277904778719e-09
+train/registration_calibration,165646.0,8.434368400096988e-10
 train/registration_calibration,165650.0,1.36969902087003e-09
 train/registration_calibration,165700.0,1.0822986951097846e-09
 train/registration_calibration,165750.0,9.194991434924304e-10
@@ -42354,6 +42638,7 @@ train/registration_calibration,172650.0,9.840732673183084e-10
 train/registration_calibration,172700.0,1.3660610420629382e-09
 train/registration_calibration,172750.0,9.140421752817929e-10
 train/registration_calibration,172800.0,9.62245394475758e-10
+train/registration_calibration,172848.0,8.602818765296713e-10
 train/registration_calibration,172850.0,4.802132025361061e-10
 train/registration_calibration,172900.0,5.002220859751105e-10
 train/registration_calibration,172950.0,9.576979209668934e-10
@@ -42643,6 +42928,7 @@ train/registration_calibration,187100.0,2.3783286451362073e-10
 train/registration_calibration,187150.0,3.9108272176235914e-10
 train/registration_calibration,187200.0,2.9831426218152046e-10
 train/registration_calibration,187250.0,2.398792275926098e-10
+train/registration_calibration,187252.0,9.370899085245142e-10
 train/registration_calibration,187300.0,3.4424374462105334e-10
 train/registration_calibration,187350.0,3.6834535421803594e-10
 train/registration_calibration,187400.0,2.3646862246096134e-10
@@ -42787,6 +43073,7 @@ train/registration_calibration,194300.0,3.115019353572279e-10
 train/registration_calibration,194350.0,2.1645973902195692e-10
 train/registration_calibration,194400.0,3.3242031349800527e-10
 train/registration_calibration,194450.0,5.675246939063072e-10
+train/registration_calibration,194454.0,7.879857770946329e-10
 train/registration_calibration,194500.0,1.025910023599863e-09
 train/registration_calibration,194550.0,8.840288501232862e-10
 train/registration_calibration,194600.0,3.774403012357652e-10
@@ -42931,6 +43218,7 @@ train/registration_calibration,201500.0,1.0368239600211382e-09
 train/registration_calibration,201550.0,7.703420124016702e-10
 train/registration_calibration,201600.0,1.1077645467594266e-09
 train/registration_calibration,201650.0,7.776179700158536e-10
+train/registration_calibration,201656.0,1.175321916128278e-09
 train/registration_calibration,201700.0,8.594724931754172e-10
 train/registration_calibration,201750.0,9.74978320300579e-10
 train/registration_calibration,201800.0,7.285052561201155e-10
@@ -43075,6 +43363,7 @@ train/registration_calibration,208700.0,1.165972207672894e-09
 train/registration_calibration,208750.0,3.906279744114727e-10
 train/registration_calibration,208800.0,3.2605385058559477e-10
 train/registration_calibration,208850.0,3.824425220955163e-10
+train/registration_calibration,208858.0,1.1066748808352091e-09
 train/registration_calibration,208900.0,3.2105162972584367e-10
 train/registration_calibration,208950.0,5.688889359589666e-10
 train/registration_calibration,209000.0,4.656612873077393e-10
@@ -43219,6 +43508,7 @@ train/registration_calibration,215900.0,1.2332748156040907e-09
 train/registration_calibration,215950.0,8.185452315956354e-10
 train/registration_calibration,216000.0,9.49512468650937e-10
 train/registration_calibration,216050.0,8.185452315956354e-10
+train/registration_calibration,216060.0,1.0669021002526364e-09
 train/registration_smooth,1.0,1.3998942449688911e-08
 train/registration_smooth,50.0,5.997717380523682e-06
 train/registration_smooth,100.0,1.2636184692382812e-05
@@ -43364,6 +43654,7 @@ train/registration_smooth,7050.0,8.570921750106208e-13
 train/registration_smooth,7100.0,6.128431095930864e-13
 train/registration_smooth,7150.0,4.876099524153688e-13
 train/registration_smooth,7200.0,3.8324898810060404e-13
+train/registration_smooth,7202.0,1.348794708929708e-06
 train/registration_smooth,7250.0,5.346834086594754e-13
 train/registration_smooth,7300.0,4.729550084903167e-13
 train/registration_smooth,7350.0,4.418687638008123e-13
@@ -43508,6 +43799,7 @@ train/registration_smooth,14250.0,5.240963218966499e-11
 train/registration_smooth,14300.0,2.788169695122633e-11
 train/registration_smooth,14350.0,3.488764832582092e-12
 train/registration_smooth,14400.0,2.651745489856694e-11
+train/registration_smooth,14404.0,5.418683005298529e-10
 train/registration_smooth,14450.0,3.197442310920451e-12
 train/registration_smooth,14500.0,4.524736141320318e-11
 train/registration_smooth,14550.0,1.3142198440618813e-09
@@ -43652,6 +43944,7 @@ train/registration_smooth,21450.0,1.8104628907167353e-11
 train/registration_smooth,21500.0,2.6204816094832495e-11
 train/registration_smooth,21550.0,2.2168933355715126e-11
 train/registration_smooth,21600.0,4.18367562815547e-10
+train/registration_smooth,21606.0,5.214219882025373e-10
 train/registration_smooth,21650.0,2.467004378559068e-10
 train/registration_smooth,21700.0,1.0277290130034089e-10
 train/registration_smooth,21750.0,6.861000656499527e-11
@@ -43796,6 +44089,7 @@ train/registration_smooth,28650.0,1.9761969838327786e-13
 train/registration_smooth,28700.0,4.723998969780041e-14
 train/registration_smooth,28750.0,1.9584334154387761e-13
 train/registration_smooth,28800.0,6.217248937900877e-12
+train/registration_smooth,28808.0,2.8866514983835764e-10
 train/registration_smooth,28850.0,1.382431946694851e-10
 train/registration_smooth,28900.0,7.621565600857139e-10
 train/registration_smooth,28950.0,1.101398083847016e-09
@@ -43940,6 +44234,7 @@ train/registration_smooth,35850.0,5.564437799421285e-13
 train/registration_smooth,35900.0,2.1813661987835076e-12
 train/registration_smooth,35950.0,1.3784529073745944e-12
 train/registration_smooth,36000.0,1.2306600183364935e-11
+train/registration_smooth,36010.0,2.209338772090821e-10
 train/registration_smooth,36050.0,2.396518539171666e-10
 train/registration_smooth,36100.0,1.1254996934439987e-10
 train/registration_smooth,36150.0,1.0948042472591624e-10
@@ -44084,6 +44379,7 @@ train/registration_smooth,43050.0,1.3062617654213682e-10
 train/registration_smooth,43100.0,2.0037305148434825e-11
 train/registration_smooth,43150.0,6.94910795573378e-12
 train/registration_smooth,43200.0,1.3216094885137863e-11
+train/registration_smooth,43212.0,1.6445444561434767e-10
 train/registration_smooth,43250.0,3.19033688356285e-12
 train/registration_smooth,43300.0,4.526157226791838e-12
 train/registration_smooth,43350.0,3.254285729781259e-11
@@ -44228,6 +44524,7 @@ train/registration_smooth,50250.0,1.0877556633204222e-09
 train/registration_smooth,50300.0,2.823981049004942e-10
 train/registration_smooth,50350.0,9.868017514236271e-11
 train/registration_smooth,50400.0,1.0558665053395089e-11
+train/registration_smooth,50414.0,1.8451431413038436e-10
 train/registration_smooth,50450.0,1.6129320101754274e-12
 train/registration_smooth,50500.0,4.769518113789672e-13
 train/registration_smooth,50550.0,8.675726803630823e-12
@@ -44372,6 +44669,7 @@ train/registration_smooth,57450.0,3.527134140313137e-11
 train/registration_smooth,57500.0,2.665956344571896e-11
 train/registration_smooth,57550.0,2.2538415578310378e-11
 train/registration_smooth,57600.0,4.206412995699793e-11
+train/registration_smooth,57616.0,1.1233772456188048e-10
 train/registration_smooth,57650.0,8.86757334228605e-12
 train/registration_smooth,57700.0,1.1954881529163686e-12
 train/registration_smooth,57750.0,2.4424906541753444e-13
@@ -44516,6 +44814,7 @@ train/registration_smooth,64650.0,2.0339285811132868e-12
 train/registration_smooth,64700.0,5.5635496210015845e-12
 train/registration_smooth,64750.0,9.066525308298878e-12
 train/registration_smooth,64800.0,4.924061158817494e-12
+train/registration_smooth,64818.0,1.5769873815615184e-10
 train/registration_smooth,64850.0,2.390976305832737e-12
 train/registration_smooth,64900.0,1.9486634528220748e-12
 train/registration_smooth,64950.0,3.078639565501362e-10
@@ -44660,6 +44959,7 @@ train/registration_smooth,71850.0,4.2246028897352517e-10
 train/registration_smooth,71900.0,1.673470251262188e-10
 train/registration_smooth,71950.0,4.5986325858393684e-11
 train/registration_smooth,72000.0,3.4425795547576854e-12
+train/registration_smooth,72020.0,1.366911763204161e-10
 train/registration_smooth,72050.0,3.5420555377640994e-12
 train/registration_smooth,72100.0,8.554934538551606e-12
 train/registration_smooth,72150.0,7.716494110354688e-12
@@ -44804,6 +45104,7 @@ train/registration_smooth,79050.0,2.9757529773632996e-11
 train/registration_smooth,79100.0,6.24140739091672e-11
 train/registration_smooth,79150.0,8.475353752146475e-11
 train/registration_smooth,79200.0,4.644107320928015e-11
+train/registration_smooth,79222.0,7.487300156280307e-11
 train/registration_smooth,79250.0,1.2164491636212915e-10
 train/registration_smooth,79300.0,3.26281224261038e-11
 train/registration_smooth,79350.0,2.298747858731076e-10
@@ -44948,6 +45249,7 @@ train/registration_smooth,86250.0,3.660716174636036e-11
 train/registration_smooth,86300.0,2.992806003021542e-11
 train/registration_smooth,86350.0,3.149125404888764e-11
 train/registration_smooth,86400.0,1.4509282664221246e-11
+train/registration_smooth,86424.0,9.797549694930886e-11
 train/registration_smooth,86450.0,2.7341684472048655e-11
 train/registration_smooth,86500.0,1.007265382213518e-10
 train/registration_smooth,86550.0,8.58335624798201e-11
@@ -45092,6 +45394,7 @@ train/registration_smooth,93450.0,2.063416104647331e-11
 train/registration_smooth,93500.0,6.80415723763872e-11
 train/registration_smooth,93550.0,1.8803802959155291e-10
 train/registration_smooth,93600.0,1.2209966371301562e-10
+train/registration_smooth,93626.0,8.896195428319666e-11
 train/registration_smooth,93650.0,2.85126589005813e-10
 train/registration_smooth,93700.0,7.082689990056679e-11
 train/registration_smooth,93750.0,1.0572875908110291e-10
@@ -45236,6 +45539,7 @@ train/registration_smooth,100650.0,3.1235458664014004e-11
 train/registration_smooth,100700.0,3.808509063674137e-11
 train/registration_smooth,100750.0,7.821654435247183e-11
 train/registration_smooth,100800.0,8.230927051045e-11
+train/registration_smooth,100828.0,1.3211364181974896e-10
 train/registration_smooth,100850.0,4.9681148084346205e-11
 train/registration_smooth,100900.0,1.1618794815149158e-10
 train/registration_smooth,100950.0,1.276703187613748e-10
@@ -45380,6 +45684,7 @@ train/registration_smooth,107850.0,4.092726157978177e-11
 train/registration_smooth,107900.0,5.525180313270539e-11
 train/registration_smooth,107950.0,9.663381206337363e-11
 train/registration_smooth,108000.0,7.196376827778295e-11
+train/registration_smooth,108030.0,2.59982703829216e-10
 train/registration_smooth,108050.0,8.412825991399586e-11
 train/registration_smooth,108100.0,2.473825588822365e-10
 train/registration_smooth,108150.0,1.014996087178588e-09
@@ -45524,6 +45829,7 @@ train/registration_smooth,115050.0,9.822542779147625e-11
 train/registration_smooth,115100.0,5.991296347929165e-11
 train/registration_smooth,115150.0,1.6052581486292183e-10
 train/registration_smooth,115200.0,1.2607870303327218e-10
+train/registration_smooth,115232.0,1.2621783207603376e-10
 train/registration_smooth,115250.0,6.127720553195104e-11
 train/registration_smooth,115300.0,8.43556335894391e-11
 train/registration_smooth,115350.0,2.2851054382044822e-10
@@ -45668,6 +45974,7 @@ train/registration_smooth,122250.0,5.803713065688498e-11
 train/registration_smooth,122300.0,7.51469997339882e-11
 train/registration_smooth,122350.0,1.0527401173021644e-10
 train/registration_smooth,122400.0,1.6211743059102446e-10
+train/registration_smooth,122434.0,1.5772180130789624e-10
 train/registration_smooth,122450.0,9.481482265982777e-11
 train/registration_smooth,122500.0,8.674305718159303e-11
 train/registration_smooth,122550.0,1.5688783605583012e-10
@@ -45812,6 +46119,7 @@ train/registration_smooth,129450.0,4.2746250983327627e-10
 train/registration_smooth,129500.0,4.2246028897352517e-10
 train/registration_smooth,129550.0,1.6655121726216748e-10
 train/registration_smooth,129600.0,3.7425706977955997e-10
+train/registration_smooth,129636.0,1.6686253798051595e-10
 train/registration_smooth,129650.0,2.1327650756575167e-10
 train/registration_smooth,129700.0,4.092726157978177e-10
 train/registration_smooth,129750.0,6.575646693818271e-10
@@ -45956,6 +46264,7 @@ train/registration_smooth,136650.0,2.34194885706529e-10
 train/registration_smooth,136700.0,3.728928277269006e-10
 train/registration_smooth,136750.0,2.2646418074145913e-10
 train/registration_smooth,136800.0,2.0168045011814684e-10
+train/registration_smooth,136838.0,2.62578536408004e-10
 train/registration_smooth,136850.0,3.115019353572279e-10
 train/registration_smooth,136900.0,4.374669515527785e-10
 train/registration_smooth,136950.0,1.5370460459962487e-10
@@ -46100,6 +46409,7 @@ train/registration_smooth,143850.0,2.0691004465334117e-10
 train/registration_smooth,143900.0,6.792788553866558e-11
 train/registration_smooth,143950.0,2.0554580260068178e-10
 train/registration_smooth,144000.0,1.8167156667914242e-10
+train/registration_smooth,144040.0,2.564779044826723e-10
 train/registration_smooth,144050.0,2.1964297047816217e-10
 train/registration_smooth,144100.0,1.9986146071460098e-10
 train/registration_smooth,144150.0,1.2028067430946976e-10
@@ -46244,6 +46554,7 @@ train/registration_smooth,151050.0,1.7689671949483454e-10
 train/registration_smooth,151100.0,1.1573320080060512e-10
 train/registration_smooth,151150.0,4.615685611497611e-10
 train/registration_smooth,151200.0,3.0968294595368207e-10
+train/registration_smooth,151242.0,2.8152580862042234e-10
 train/registration_smooth,151250.0,6.45741238258779e-10
 train/registration_smooth,151300.0,3.67435859516263e-10
 train/registration_smooth,151350.0,4.747562343254685e-10
@@ -46388,6 +46699,7 @@ train/registration_smooth,158250.0,5.620677256956697e-10
 train/registration_smooth,158300.0,4.538378561846912e-10
 train/registration_smooth,158350.0,2.582964953035116e-10
 train/registration_smooth,158400.0,3.7607605918310583e-10
+train/registration_smooth,158444.0,3.298966772256653e-10
 train/registration_smooth,158450.0,2.305569068994373e-10
 train/registration_smooth,158500.0,2.2805579646956176e-10
 train/registration_smooth,158550.0,2.864908310584724e-10
@@ -46532,6 +46844,7 @@ train/registration_smooth,165450.0,3.2741809263825417e-10
 train/registration_smooth,165500.0,3.815330273937434e-10
 train/registration_smooth,165550.0,2.2896529117133468e-10
 train/registration_smooth,165600.0,5.356923793442547e-10
+train/registration_smooth,165646.0,3.165367373934658e-10
 train/registration_smooth,165650.0,5.366018740460277e-10
 train/registration_smooth,165700.0,2.928572939708829e-10
 train/registration_smooth,165750.0,3.583409124985337e-10
@@ -46676,6 +46989,7 @@ train/registration_smooth,172650.0,2.594333636807278e-10
 train/registration_smooth,172700.0,2.332853910047561e-10
 train/registration_smooth,172750.0,3.838067641481757e-10
 train/registration_smooth,172800.0,2.751221472863108e-10
+train/registration_smooth,172848.0,3.1332153250074215e-10
 train/registration_smooth,172850.0,2.1304913389030844e-10
 train/registration_smooth,172900.0,4.6429704525507987e-10
 train/registration_smooth,172950.0,2.4874680093489587e-10
@@ -46965,6 +47279,7 @@ train/registration_smooth,187100.0,7.121343514882028e-10
 train/registration_smooth,187150.0,2.4374458007514477e-10
 train/registration_smooth,187200.0,2.942215360235423e-10
 train/registration_smooth,187250.0,2.639808371895924e-10
+train/registration_smooth,187252.0,3.21178039639267e-10
 train/registration_smooth,187300.0,3.587956598494202e-10
 train/registration_smooth,187350.0,4.197318048682064e-10
 train/registration_smooth,187400.0,5.57520252186805e-10
@@ -47109,6 +47424,7 @@ train/registration_smooth,194300.0,7.703420124016702e-10
 train/registration_smooth,194350.0,8.658389560878277e-10
 train/registration_smooth,194400.0,4.856701707467437e-10
 train/registration_smooth,194450.0,4.94765117764473e-10
+train/registration_smooth,194454.0,4.894192673089634e-10
 train/registration_smooth,194500.0,8.99490260053426e-10
 train/registration_smooth,194550.0,5.256879376247525e-10
 train/registration_smooth,194600.0,1.0113581083714962e-09
@@ -47253,6 +47569,7 @@ train/registration_smooth,201500.0,4.5702108764089644e-10
 train/registration_smooth,201550.0,7.112248567864299e-10
 train/registration_smooth,201600.0,6.421032594516873e-10
 train/registration_smooth,201650.0,6.220943760126829e-10
+train/registration_smooth,201656.0,7.112901439431469e-10
 train/registration_smooth,201700.0,7.948983693495393e-10
 train/registration_smooth,201750.0,6.493792170658708e-10
 train/registration_smooth,201800.0,4.6475179260596633e-10
@@ -47397,6 +47714,7 @@ train/registration_smooth,208700.0,7.676135282963514e-10
 train/registration_smooth,208750.0,3.6197889130562544e-10
 train/registration_smooth,208800.0,2.396518539171666e-10
 train/registration_smooth,208850.0,3.0263436201494187e-10
+train/registration_smooth,208858.0,7.082969979609157e-10
 train/registration_smooth,208900.0,2.7398527890909463e-10
 train/registration_smooth,208950.0,3.0831870390102267e-10
 train/registration_smooth,209000.0,3.9472070056945086e-10
@@ -47541,6 +47859,7 @@ train/registration_smooth,215900.0,3.1877789297141135e-10
 train/registration_smooth,215950.0,5.838955985382199e-10
 train/registration_smooth,216000.0,3.992681740783155e-10
 train/registration_smooth,216050.0,3.906279744114727e-10
+train/registration_smooth,216060.0,4.872989713309231e-10
 val/delta_e76,7202.0,153.9027557373047
 val/delta_e76,14404.0,153.9027557373047
 val/delta_e76,21606.0,153.9027557373047
