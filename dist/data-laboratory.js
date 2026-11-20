@@ -8,7 +8,7 @@ const $$=(s,root)=>[...root.querySelectorAll(s)];
 const states=new WeakMap();
 
 /** A comparison group retains metric protocol, sample size and manifest identity. */
-export function cohortKey(e,run=null){return JSON.stringify([e.dataset||'',e.marker||'',e.split||'',e.protocol,e.n,e.metric_protocol||'',e.manifest_sha256||'',e.crop_size??run?.crop_size??'']);}
+export function cohortKey(e,run=null){return JSON.stringify([e.dataset||'',e.marker||'',e.split||'',e.protocol,e.n,e.comparison_protocol||e.metric_protocol||'',e.manifest_sha256||'',e.crop_size??run?.crop_size??'']);}
 
 export function cohortRows(index,filters={}){
   const candidates=index.runs.flatMap(run=>(run.evaluations||[]).filter(e=>e.rankable&&!e.partial&&
@@ -20,7 +20,9 @@ export function cohortRows(index,filters={}){
   const key=filters.cohort_key||[...groups].sort((a,b)=>b[1].length-a[1].length||a[0].localeCompare(b[0]))[0]?.[0];
   return (groups.get(key)||[]).map(({run,evaluation})=>({id:run.id,model:run.model,name:run.name,
     label:run.name+(run.variant?' · '+run.variant:''),run,evaluation,
-    values:{...evaluation.metrics,training_hours:run.training_hours,gpu_hours:run.gpu_hours}}));
+    values:{...evaluation.metrics,
+      training_hours:run.compute_complete===false||run.compute_parent_run?undefined:run.training_hours,
+      gpu_hours:run.compute_complete===false||run.compute_parent_run?undefined:run.gpu_hours}}));
 }
 
 export function normalizeValue(value,min,max,direction){
@@ -133,7 +135,7 @@ function scatter(index,state,rows,keys){
     <div class="lab-switches"><label><input type="checkbox" data-lab-check="labels" ${state.labels?'checked':''}>Label all points</label><label><input type="checkbox" data-lab-check="size" ${state.size?'checked':''}>Bubble size indicates recorded GPU hours</label><label><input type="checkbox" data-lab-check="log" ${state.log?'checked':''} ${!logValid?'disabled':''}>Log horizontal axis</label><label><input type="checkbox" data-lab-check="pareto" ${state.pareto?'checked':''} ${!canPareto?'disabled':''}>Show Pareto frontier</label></div>
     <div class="lab-plot-wrap">${graph}</div><div class="lab-hover" id="lab-hover" role="status" aria-live="polite">Hover or focus a point to inspect it. Click to open its complete run.</div>
     <div class="lab-chart-notes"><span><strong>${valid.length}</strong> plotted / ${rows.length} cohort records; ${rows.length-valid.length} missing an axis measurement</span>${state.pareto&&canPareto?`<span><strong>${frontier.length}</strong> nondominated records among the plotted points</span>`:''}${state.size?'<span>Bubble area follows recorded allocation above a 3 px visibility floor; missing allocation uses the standard point size.</span>':''}</div>
-    <p class="visual-caption">Arrows show the recorded better direction. A Pareto record has no other plotted record at least as good on both axes and strictly better on one; this is a numerical trade-off, not a significance test. Connecting frontier points does not imply attainable intermediate models. Compute excludes unrecorded and parent allocations. ${state.labels?'Labels can overlap in a dense view; focus individual points for exact identification.':''}</p>
+    <p class="visual-caption">Arrows show the recorded better direction. A Pareto record has no other plotted record at least as good on both axes and strictly better on one; this is a numerical trade-off, not a significance test. Connecting frontier points does not imply attainable intermediate models. Compute axes and bubble sizes exclude incomplete allocation histories and continuations whose parent cost is missing. Recorded time remains available on the run page. ${state.labels?'Labels can overlap in a dense view; focus individual points for exact identification.':''}</p>
     ${resultTable(index,valid,[state.x,state.y],state)}`;
 }
 

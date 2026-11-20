@@ -179,7 +179,16 @@ for binding in proof['original_score_fingerprints']:
     assert hashlib.sha256(json.dumps(values,sort_keys=True,separators=(',',':')).encode()).hexdigest()==binding['metrics_sha256'], 'Original scored result changed'
 for task in (summary.get('coverage_balance') or {}).get('tasks',[]):
     registered=run_details.get('balance__'+task['id'])
-    if registered:assert not any(e.get('rankable') for e in registered['evaluations']), 'Queued balancing run acquired invented scores'
+    if registered:
+        scored=[e for e in registered['evaluations'] if e.get('rankable')]
+        assert task['evaluated']==any(e['split']=='test' for e in scored), 'Coverage task and result disagree'
+        assert task['last_step']==registered.get('last_step',0) and task['gate_passed']==registered.get('gate_passed',False)
+        if scored:
+            assert task['gate_passed'] and task['training_complete'], 'Coverage result lacks native resumed training proof'
+            assert {e['split'] for e in scored}=={'val','test'}
+            assert all(e['checkpoint_sha256'] and e['manifest_sha256'] and e['evidence']['sha256'] for e in scored)
+        else:
+            assert not task['evaluated'], 'Unfinished coverage task acquired invented scores'
 for source in summary['provenance']:
     assert re.fullmatch(r'[0-9a-f]{64}',source['sha256']), 'Malformed evidence fingerprint'
     if source.get('href'):

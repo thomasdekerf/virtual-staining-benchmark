@@ -1,4 +1,4 @@
-import {buildProfileCohorts, materializeProfileCohort} from './profile-data.js';
+import {buildProfileCohorts, materializeProfileCohort} from './profile-data.js?v=20261120-completed-results';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const number = value => Number(value || 0).toLocaleString('en-GB', {maximumFractionDigits: 0});
 const date = value => value ? new Date(value).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}) : 'Not recorded';
@@ -61,12 +61,19 @@ function familyCount(data,dataset,key='tested_model_families'){
 function balancePlan(data){
   const plan=data.coverage_balance;
   if(!plan)return '';
-  return `<section class="visual-panel balance-plan"><div class="visual-panel-heading"><div><div class="eyebrow">A focused expansion</div><h2>Closing the coverage gap</h2><p>${number(plan.task_count || plan.tasks?.length)} new runs add complementary model families across the breast and unstained datasets.</p></div><span class="chart-badge">${plan.job_id?'Array '+esc(plan.job_id):'New campaign'} · pending results</span></div><div class="table-wrap"><table><caption class="sr-only">Current tested model families and selected new training additions.</caption><thead><tr><th>Dataset</th><th class="number">Tested families now</th><th>Added families in this campaign</th><th class="number">Planned benchmark families</th></tr></thead><tbody>${(plan.datasets||[]).map(row=>{
+  const tasks=plan.tasks||[],total=plan.task_count||tasks.length,done=tasks.filter(t=>t.evaluated).length;
+  const failed=tasks.filter(t=>t.failed&&!t.evaluated).length;
+  return `<section class="visual-panel balance-plan"><div class="visual-panel-heading"><div><div class="eyebrow">A focused expansion</div><h2>Closing the coverage gap</h2><p>${number(total)} new runs add complementary model families across the breast and unstained datasets.</p></div><span class="chart-badge">${number(done)} / ${number(total)} fully evaluated</span></div><div class="balance-progress"><progress max="${total}" value="${done}" aria-label="New runs with full validation and test results">${done} of ${total}</progress><p><strong>${number(done)} completed</strong> · ${number(total-done-failed)} still in progress${failed?' · '+number(failed)+' need attention':''}<span>Full validation and test results are required to count as completed.</span></p></div><div class="table-wrap"><table><caption class="sr-only">Current tested model families and selected new training additions.</caption><thead><tr><th>Dataset</th><th class="number">Tested families now</th><th>Added families in this campaign</th><th class="number">Planned benchmark families</th></tr></thead><tbody>${(plan.datasets||[]).map(row=>{
     const dataset=data.datasets.find(d=>d.id===row.id)||row;
     const added=row.added_models||row.models||[];
     const names=added.map(m=>typeof m==='object'?m.name||m.id:plan.models?.find(model=>model.id===m)?.name||data.coverage.rows.find(model=>model.id===m)?.name||m);
     return `<tr><th scope="row">${esc(dataset.name||row.id)}</th><td class="number">${number(familyCount(data,dataset))}</td><td>${esc(names.join(', '))}${row.marker?`<small>${esc(row.marker)} anchor comparison</small>`:''}</td><td class="number">${number(row.target_model_families||row.target_families||familyCount(data,dataset)+added.length)}</td></tr>`;
-  }).join('')}</tbody></table></div><p class="visual-caption">Targets describe the model families covered once the selected runs finish. New runs are shown as queued, in a smoke check or training until full evaluations exist. Original breast additions target HER2; the other marker and pooling combinations are not duplicated.</p></section>`;
+  }).join('')}</tbody></table></div><details class="balance-task-details"><summary>Inspect all ${number(total)} new runs</summary><div class="table-wrap"><table><caption class="sr-only">Saved progress of each run in the coverage expansion.</caption><thead><tr><th>Model / dataset</th><th>Status</th><th class="number">Latest saved update</th><th>Evidence</th></tr></thead><tbody>${tasks.map(task=>{
+    const model=plan.models?.find(m=>m.id===task.model)?.name||task.model;
+    const dataset=(task.datasets||[]).map(id=>data.datasets.find(d=>d.id===id)?.short_name||data.datasets.find(d=>d.id===id)?.name||id).join(', ');
+    const state=task.evaluated?'Full validation + test complete':task.state||'Queued';
+    return `<tr><th scope="row"><a href="#/run/${encodeURIComponent('balance__'+task.id)}">${esc(model)}</a><small>${esc(dataset)} · ${esc(task.marker)}</small></th><td>${esc(state)}</td><td class="number">${task.last_step>0?number(task.last_step):'—'}</td><td>${task.evaluated?'Selected checkpoint evaluated':task.gate_passed?'Native training check passed':'Training check pending'}</td></tr>`;
+  }).join('')}</tbody></table></div></details><p class="visual-caption">Progress observed ${date(plan.snapshot||data.snapshot.activity)}${plan.job_id?' · training array '+esc(plan.job_id):''}. Targets describe the model families covered once the selected runs finish. Original breast additions target HER2; the other marker and pooling combinations are not duplicated.</p></section>`;
 }
 
 function coverage(data) {
@@ -244,7 +251,7 @@ export async function renderOverview(main, layout='atlas', index) {
     const cleanup=await module.renderLearningExplorer(container,index);
     if(sequence===renderSequence)explorerCleanup=cleanup;else if(typeof cleanup==='function')cleanup();
   }else if(['scatter','heatmap','parallel','correlation'].includes(layout)){
-    const module=await import('./data-laboratory.js');
+    const module=await import('./data-laboratory.js?v=20261120-completed-results');
     if(sequence!==renderSequence)return;
     const cleanup=await module.renderDataLaboratory(container,index,layout);
     if(sequence===renderSequence)explorerCleanup=cleanup;else if(typeof cleanup==='function')cleanup();

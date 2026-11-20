@@ -60,7 +60,13 @@ class VisualSummaryTests(unittest.TestCase):
         self.assertEqual(self.data['scale']['datasets_registered'],len(self.data['datasets']))
         for task in self.data.get('coverage_balance',{}).get('tasks',[]):
             run=next((r for r in index['runs'] if r['id']=='balance__'+task['id']),None)
-            if run:self.assertFalse(any(e.get('rankable') for e in run['evaluations']))
+            if run:
+                scored=[e for e in run['evaluations'] if e.get('rankable')]
+                self.assertEqual(task['evaluated'],any(e['split']=='test' for e in scored))
+                if scored:
+                    self.assertTrue(task['gate_passed'] and task['training_complete'])
+                    self.assertEqual({e['split'] for e in scored},{'val','test'})
+                    self.assertTrue(all(e.get('checkpoint_sha256') and e.get('manifest_sha256') and e.get('evidence',{}).get('sha256') for e in scored))
 
     def test_research_full_validation_never_becomes_a_monitor_curve_point(self):
         for model in ['eqm','nvg','lrdm']:

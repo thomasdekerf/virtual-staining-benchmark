@@ -13,6 +13,7 @@ import json
 import math
 from pathlib import Path
 import re
+from snapshot_evidence import current_cluster_snapshot,current_campaign_snapshot
 
 
 DEFAULT_RUNS = ['finland__unet_seed42', 'finland__nafnet_seed42', 'finland__restormer_seed42']
@@ -140,9 +141,9 @@ def activity(workspace, names):
         source_list.append(source_record(overlay_path, 'Later read-only activity refresh', activity_stamp))
         for source in overlay['source_hashes']:
             source_list.append({'label': source['label'], 'sha256': source['sha256'], 'as_of': activity_stamp})
-    current_path=workspace/'artifacts/coverage_balance_20261119/live_audit/cluster_snapshot.json'
-    if current_path.exists():
-        live=read_json(current_path);activity_stamp=live['captured_utc']
+    current_path,live=current_cluster_snapshot(workspace)
+    if current_path:
+        activity_stamp=live['captured_utc']
         source_list.append(source_record(current_path,'Current read-only production and recovery audit',activity_stamp))
         for row in rows:
             files=live['her2match'][row['id']]['files'];saved=files.get('status.json',{}).get('data',{});final=files.get('final_evaluation.json',{}).get('data')
@@ -157,6 +158,16 @@ def activity(workspace, names):
                 files=live['recovery'][row['id']]['files'];saved=files['status.json']['data'];complete=bool(files.get('evaluation_v1/complete.json'))
                 row.update(step=saved['step'],complete=saved.get('complete',False),state='complete' if complete else 'training complete / evaluation' if saved.get('complete') else 'training',metric_status='Full benchmark complete' if complete else 'Full benchmark pending',observed_utc=activity_stamp)
                 if complete:row['note']='Numerical recovery and full image/foundation-model/four-detector benchmark evaluation completed; parent evidence retained.'
+    campaign_path,campaign_live=current_campaign_snapshot(workspace)
+    if campaign_path:
+        activity_stamp=max(activity_stamp,campaign_live['snapshot_utc'])
+        source_list.append(source_record(campaign_path,'Latest checkpoint and corrected campaign scheduling audit',campaign_live['snapshot_utc']))
+    final_path=workspace/'benchmark-site/.source-cache/research/itarflow_evaluation/complete.json'
+    if final_path.exists():
+        final=read_json(final_path)
+        row=next(r for r in recoveries if r['id']=='itarflow768')
+        row.update(state='training complete / study validation evaluated',metric_status='Original 512-field study validation complete',note='Selected 25k checkpoint evaluated on the original disjoint 512-field validation study. The 128-field selection monitor and native full benchmark remain separate. Original quality-success criterion was not met.',observed_utc=activity_stamp)
+        source_list.append(source_record(final_path,'Verified terminal 512-field study evaluation receipt',activity_stamp))
     return dict(observed_utc=activity_stamp, her2match=rows, recoveries=recoveries, evaluators=evaluators), source_list
 
 
@@ -225,7 +236,9 @@ def build(dist, workspace):
         public_tasks=[]
         for task in plan['tasks']:
             scope=['her2match' if d=='HER2Match' else d for d in task.get('datasets',[task['dataset']])]
-            public_tasks.append(dict(id=task['id'],model=task['model'],datasets=scope,marker=task['marker'],state=task.get('state','prepared'),job_id=task.get('job_id')))
+            actual=next((r for r in entries if r['id']=='balance__'+task['id']),{})
+            evaluated=any(e.get('rankable') and e['split']=='test' for e in actual.get('evaluations',[]))
+            public_tasks.append(dict(id=task['id'],model=task['model'],name=names.get(task['model'],task['model']),datasets=scope,marker=task['marker'],state=actual.get('state',task.get('state','prepared')),job_id=actual.get('training_job',task.get('job_id')),last_step=actual.get('last_step',0),max_steps=actual.get('max_steps'),gate_passed=bool(actual.get('gate_passed')),training_complete=bool(actual.get('training_complete')),evaluated=evaluated,observed_utc=actual.get('status_as_of')))
         table=[]
         for d in datasets:
             additions=sorted({t['model'] for t in public_tasks if d['id'] in t['datasets']})
@@ -233,7 +246,8 @@ def build(dist, workspace):
             current_models={r['model'] for r in entries if d['id'] in r['datasets'] and trained(r) and '__research_' not in r['id']}
             table.append(dict(id=d['id'],name=d['name'],added_models=additions,target_model_families=len(current_models|set(additions)),target_kind='planned benchmark families'))
         submission=read_json(workspace/'artifacts/coverage_balance_20261119/submission.json') if (workspace/'artifacts/coverage_balance_20261119/submission.json').exists() else {}
-        balance=dict(task_count=len(public_tasks),job_id=submission.get('array_job_id',submission.get('job_id')),snapshot=plan.get('created'),models=[dict(id=m,name=names.get(m,m)) for m in sorted({t['model'] for t in public_tasks})],tasks=public_tasks,datasets=table,target_note='Targets count task-specific benchmark families after the new runs finish. Research validation-only families are not counted as completed benchmark targets.')
+        _,campaign_live=current_campaign_snapshot(workspace);migration=campaign_live.get('operational_migration',{})
+        balance=dict(task_count=len(public_tasks),job_id=migration.get('replacement_array',submission.get('array_job_id',submission.get('job_id'))),original_job_id=submission.get('array_job_id'),snapshot=data['snapshot'],evaluated_count=sum(t['evaluated'] for t in public_tasks),training_complete_count=sum(t['training_complete'] for t in public_tasks),gate_passed_count=sum(t['gate_passed'] for t in public_tasks),models=[dict(id=m,name=names.get(m,m)) for m in sorted({t['model'] for t in public_tasks})],tasks=public_tasks,datasets=table,target_note='Targets count task-specific benchmark families after the new runs finish. Research validation-only families are not counted as completed benchmark targets.')
     cohort_entries = [(run, evaluation) for run in entries for evaluation in run['evaluations']
                       if evaluation.get('rankable') and evaluation['dataset'] == 'finland'
                       and evaluation['split'] == 'test' and evaluation['protocol'] == 'Full production evaluation']

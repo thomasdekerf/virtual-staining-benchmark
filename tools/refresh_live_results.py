@@ -5,11 +5,13 @@ separately, and an old scored value cannot be silently replaced by a different
 checkpoint or metric value. No training, selection or evaluation is performed.
 """
 from __future__ import annotations
-import argparse,csv,copy,hashlib,json,math,re
+import argparse,csv,copy,hashlib,json,math,re,subprocess
 from datetime import datetime,timezone
 from pathlib import Path
 import numpy as np
 import yaml
+from snapshot_evidence import current_cluster_snapshot,current_campaign_snapshot
+from protocol_compatibility import attach_reviewed_protocols
 
 NAMES={'hemit':'HEMIT','implicitstainer':'ImplicitStainer','miphei_vit':'MiPHEI-ViT','bbdm':'BBDM','eqm':'EqM','nvg':'NVG','lrdm':'LRDM','itarflow':'Conditional iTARFlow','asp':'ASP','histdist':'HistDiST','pd_unist':'PD-UNIST','unet':'U-Net','pix2pix':'Pix2Pix','pyramid':'Pyramid Pix2Pix','pspstain':'PSPStain','cut':'CUT','cyclegan':'CycleGAN','nafnet':'NAFNet','restormer':'Restormer','cssp2p':'CSSP2P-GAN'}
 DETECTORS={'stardist','stardist2x','hovernet','cellpose_sam'}
@@ -48,8 +50,11 @@ def refresh(site,workspace):
     baseline=read(baseline_path)
     baseline_pairs={(r['id'],e['id']) for r in baseline['runs'] for e in r['evaluations'] if e.get('rankable')}
     data=copy.deepcopy(current);runs={r['id']:read(out/'data/runs'/f'{r["id"]}.json') for r in current['runs']}
-    models={m['id']:m for m in data['models']};snapshot=read(workspace/'artifacts/coverage_balance_20261119/live_audit/cluster_snapshot.json',{})
+    published=json.loads(subprocess.check_output(['git','-C',str(site),'show','HEAD:dist/data/index.json']))
+    previous_evals={(r['id'],e['id']):copy.deepcopy(e) for r in published['runs'] for e in r['evaluations'] if e.get('rankable')}
+    models={m['id']:m for m in data['models']};snapshot_path,snapshot=current_cluster_snapshot(workspace)
     captured=snapshot.get('captured_utc') or datetime.now(timezone.utc).isoformat()
+    campaign_path,campaign_snapshot=current_campaign_snapshot(workspace)
     sources=[];changes=[];touched=set()
     def source(path,label):
         p=Path(path);row={'file':str(p.relative_to(workspace)),'sha256':sha(p),'label':label,'observed_utc':captured}
@@ -64,6 +69,7 @@ def refresh(site,workspace):
         if not s:return
         source(p,'Current saved training status')
         run['live_status']=s;run['last_step']=s.get('step',s.get('global_step'));run['status_as_of']=captured
+        run['training_complete']=bool(s.get('complete') or s.get('state')=='complete');run['max_steps']=s.get('max_steps')
         run['state']='Training completed / evaluation pending' if s.get('complete') or s.get('state')=='complete' else 'Paused for continuation' if s.get('budget_pause') or s.get('state')=='paused' else 'Training snapshot'
         run['scheduler_status']=run['state']
         run['stop_reason']='Validation plateau' if s.get('early_stop') else 'Configured schedule completed' if s.get('complete') else None
@@ -111,15 +117,15 @@ def refresh(site,workspace):
         if not full:return
         complete=(obj.get('benchmark_profile_complete') is True and obj.get('production_result') is True and obj.get('core_metrics_complete') is True) if kind=='unstained' else (kind=='her2match' or obj.get('all_literature_metrics_complete',True))
         if kind=='unstained' and not complete:return
-        if kind=='her2match':
-            assert obj.get('evaluation_scope')=='in_domain_HER2Match' and set(full)=={'val','test'}
+        if kind in {'her2match','coverage_her2match'}:
+            assert obj.get('evaluation_scope')==('in_domain_HER2Match' if kind=='her2match' else 'in_domain_frozen_split') and set(full)=={'val','test'}
             assert {k:v['n'] for k,v in full.items()}=={'val':3582,'test':5980}
         assert obj.get('checkpoint_sha256'),f'Unbound checkpoint: {path}'
         receipt=source(path,'Complete selected-checkpoint evaluation')
         before={e['id']:copy.deepcopy(e) for e in run['evaluations'] if e.get('rankable')}
         for split,record in full.items():
-            if kind=='her2match':
-                v=record['per_dataset']['HER2Match'];vals=metrics(v['metrics']);dab=v['dab'];vals.update(dab_od_mae=dab['mean_absolute_error'],dab_correlation=dab['correlation'],dab_pred_mean=dab['mean_pred'],dab_target_mean=dab['mean_target']);coverage={k:record['n'] for k in vals};protocol='FP32 · 0.46 µm/px · center256 · full HER2Match split';extra={'dab_samples':dab['samples']}
+            if kind in {'her2match','coverage_her2match','coverage_breast'}:
+                v=record['per_dataset']['HER2Match' if dataset=='her2match' else dataset];vals=metrics(v['metrics']);dab=v['dab'];vals.update(dab_od_mae=dab['mean_absolute_error'],dab_correlation=dab['correlation'],dab_pred_mean=dab['mean_pred'],dab_target_mean=dab['mean_target']);coverage={k:record['n'] for k in vals};protocol='FP32 · 0.46 µm/px · center256 · full HER2Match split' if dataset=='her2match' else f'Box SSIM · 256px · n={record["n"]:,}';extra={'dab_samples':dab['samples']}
             else:
                 if kind=='unstained':assert set(record.get('learned_nuclei',{}))==DETECTORS
                 vals=metrics(record['metrics']);coverage={}
@@ -142,7 +148,7 @@ def refresh(site,workspace):
                 old=before[eid];assert old.get('checkpoint_sha256') in [None,e['checkpoint_sha256']],f'Changed old selected checkpoint {run["id"]}'
                 for key,value in old['metrics'].items():assert key in vals and abs(vals[key]-value)<1e-9,f'Changed original scored metric {run["id"]}: {key}'
             run['evaluations']=[x for x in run['evaluations'] if x['id']!=eid]+[e]
-            changes.append(dict(run=run['id'],evaluation=eid,dataset=dataset,split=split,new_evaluation=(run['id'],eid) not in baseline_pairs,source_sha256=receipt['sha256']))
+            changes.append(dict(run=run['id'],evaluation=eid,dataset=dataset,split=split,new_evaluation=(run['id'],eid) not in baseline_pairs,new_since_previous_snapshot=(run['id'],eid) not in previous_evals,source_sha256=receipt['sha256']))
         run.update(state='Evaluated',scheduler_status='Complete',checkpoint_sha256=obj['checkpoint_sha256'],selection=obj.get('selection'),position=obj.get('position'),evaluation_source={'file':receipt['file'],'sha256':receipt['sha256']},remaining_metrics=obj.get('remaining_metrics',{}))
         for key in ['training_hours','gpu_hours','source_sha256','evaluation_seconds','time_definition']:
             if obj.get(key) is not None:run[key]=obj[key]
@@ -228,6 +234,24 @@ def refresh(site,workspace):
             best=selection.get('lpips')
             if finite(best):run['evaluations']=[dict(id=evaluation_id(rid,'finland','monitor',proto,128),dataset='finland',marker='H&E',split='monitor',n=128,protocol=proto,metrics={'lpips':best},rankable=False,position=selection['step'],checkpoint_sha256=selection.get('checkpoint_sha256'),evidence={'file':str(mp.relative_to(workspace)),'sha256':sha(mp)},as_of=captured)]
         touched.add(rid)
+        completed=cache/'research/itarflow_evaluation/complete.json'
+        report=cache/'research/itarflow_evaluation/evaluation_v1/direct_rgb768/zeros/summary.json'
+        if completed.exists():
+            receipt=read(completed);summary=read(report)
+            assert receipt['schema']=='scaled_itarflow_recovery_VAL512_complete_v1' and receipt['n']==512 and receipt['split']=='val' and receipt['test_used'] is False
+            assert receipt['summary_sha256']==sha(report) and receipt['selected_checkpoint_sha256']==run['checkpoint_sha256']==summary['core']['provenance']['checkpoint_sha256']
+            assert receipt['selected_step']==selection['step'] and receipt['readout']=='zeros' and receipt['denoise_steps']==10
+            source(completed,'Completed original 512-field study validation');binding=source(report,'Selected-checkpoint 512-field study validation report')
+            vals=metrics(summary['core']['candidate']['tile_mean']);vals['dists']=summary['dists']['candidate_minus_parent']['candidate_tile_mean'];coverage={k:512 for k in vals}
+            assert summary['core']['candidate']['n_tiles']==512 and set(summary['nuclei'])==DETECTORS
+            for detector,record in summary['nuclei'].items():
+                assert record['n_tiles']==512
+                for key,value in record['candidate'].items():
+                    if isinstance(value,dict) and finite(value.get('mean')):
+                        vals[detector+'_'+key]=value['mean'];coverage[detector+'_'+key]=value['valid_tiles']
+            proto='Study validation · disjoint 512 native fields · zero prior · 10 steps'
+            run['evaluations'].append(dict(id=evaluation_id(rid,'finland','val',proto,512),dataset='finland',marker='H&E',split='val',n=512,protocol=proto,metrics=vals,rankable=False,coverage=coverage,checkpoint_sha256=receipt['selected_checkpoint_sha256'],reported_indices_sha256=receipt['reported_indices_sha256'],position={'global_step':receipt['selected_step']},evidence={'file':binding['file'],'sha256':binding['sha256']},quality_success=summary['quality_success'],as_of=captured))
+            run['state']='Training complete / study validation evaluated';run['notes']='Selected 25k recovery checkpoint evaluated on the original disjoint 512-field validation study. This is separate from the 128-field selection monitor and the native 5,979-field validation / 5,179-field test benchmark. The original quality-success criterion was not met.'
     for child in runs.values():
         if child.get('parent_run') in runs:
             parent=runs[child['parent_run']]
@@ -243,17 +267,76 @@ def refresh(site,workspace):
             dataset='her2match' if task['dataset']=='HER2Match' else task['dataset']
             rid='balance__'+task['id'];model=task['model']
             run=register(runs.get(rid) or fresh_run(rid,model,dataset,task='ihc' if dataset in {'BCI','MIST','IHC4BC','her2match'} else 'unstained',marker=task['marker'],variant='Coverage balancing · '+task['selected_marker_scope']+' · seed 42',notes='Accepted production task; real-data resume gate and complete selected-checkpoint evaluation required before reporting scores.'))
-            run['state']=task.get('state','Queued');run['training_job']=task['job_id'];run['source_sha256']=task.get('source_sha256');run['config_sha256']=task.get('config_sha256');run['status_as_of']=datetime.fromtimestamp(plan_path.stat().st_mtime,timezone.utc).isoformat()
-            run['registered_only']=True;run['last_step']=0
+            run['state']=task.get('state','Queued');run['training_job']=task['job_id'];run['source_sha256']=task.get('source_sha256');run['config_sha256']=task.get('config_sha256');run['status_as_of']=captured
+            directory=cache/'coverage_balance'/task['id']
+            balance_snapshot=snapshot.get('coverage_balance',{})
+            live=balance_snapshot.get('runs',{}).get(task['id'],balance_snapshot.get(task['id'],{}))
+            smoke_record=balance_snapshot.get('smokes',{}).get(task['id'],live.get('smoke',{}))
+            smoke=smoke_record.get('receipts',{}).get('smoke_receipt.json',smoke_record.get('receipt',{})).get('data',{})
+            campaign_row=next((row for row in campaign_snapshot.get('tasks',[]) if row['task']['id']==task['id']),{})
+            if campaign_row:smoke=campaign_row.get('smoke_receipt') or smoke
+            run['gate_passed']=bool(smoke.get('passed') and smoke.get('world_size')==4 and smoke.get('validation_tiles_recomputed')==9 and smoke.get('resumed_step',0)>smoke.get('first_leg_step',0) and smoke.get('source_sha256')==task['source_sha256'])
+            run['last_step']=0;status(run,directory);history(run,directory,force=True)
+            run['registered_only']=not bool(run.get('last_step'))
+            run['evaluation_complete']=False
+            launch=read(directory/'launch_state.json',{})
+            if launch:
+                source(directory/'launch_state.json','Current coverage campaign execution phase')
+                run['execution_phase']=launch.get('phase');run['training_job']=launch.get('job_id',run['training_job'])
+            final=directory/('evaluation_v1/complete.json' if task['evaluation_kind']=='unstained_full' else 'final_evaluation.json')
+            if final.exists():
+                assert run['gate_passed'],f'Native resume gate required: {task["id"]}'
+                result=read(final);assert result.get('checkpoint_sha256') and set(result.get('full_splits',{}))=={'val','test'}
+                if task['evaluation_kind']!='unstained_full':
+                    assert result['source_sha256']==task['source_sha256']
+                    cfg=yaml.safe_load((directory/'config.yml').read_text());expected=cfg['breast_protocol']['manifest_sha256']
+                    assert all(record['manifest_sha256']==expected[split] for split,record in result['full_splits'].items())
+                    dataset_record=next(d for d in data['datasets'] if d['id']==dataset)
+                    expected_counts={split:(dataset_record['counts'][split] if dataset=='her2match' else dataset_record['counts'][split][task['marker']]) for split in ('val','test')}
+                    assert result['full_split_counts']==expected_counts
+                    assert all(record['n']==expected_counts[split] and set(record['per_dataset'])=={task['dataset']} and record['per_dataset'][task['dataset']]['n']==expected_counts[split] for split,record in result['full_splits'].items()), 'Incomplete coverage evaluation cohort'
+                ingest(run,final,dataset,'unstained' if task['evaluation_kind']=='unstained_full' else 'coverage_her2match' if dataset=='her2match' else 'coverage_breast')
+                run['notes']='Native four-GPU pause/resume gate and complete selected-checkpoint validation/test evaluation verified. HER2 additions cover this marker only; test never selected weights.'
+                run['evaluation_complete']=True
+            elif live.get('files',{}).get('failure.json'):
+                run['state']='Failed / recovery required';run['scheduler_status']=run['state']
+            elif not run.get('training_complete'):
+                for line in snapshot.get('queue',{}).get('stdout','').splitlines():
+                    parts=[part.strip() for part in line.split('|')]
+                    if len(parts)>2 and parts[0]==run['training_job']:
+                        run['scheduler_status']=parts[2]
+                        if parts[2]=='RUNNING':run['state']='Training'
+                        elif parts[2]=='PENDING':run['state']='Checkpointed / queued' if run.get('last_step') else 'Queued'
+            if snapshot_path and live:
+                receipt=source(snapshot_path,'Dated coverage campaign gate and execution audit')
+                run['gate_evidence']={'file':receipt['file'],'sha256':receipt['sha256']}
+            if finite(run.get('training_hours')):
+                run['compute_complete']=False
+                run['time_definition']='Sum of recorded completed allocation segments. Interrupted allocations may be absent after the original array requeue fault; this is a lower bound, not total training time.'
+            if campaign_row:
+                saved=campaign_row.get('status') or {}
+                run['last_step']=saved.get('step',saved.get('global_step',run.get('last_step')))
+                run['training_complete']=bool(saved.get('complete'));run['registered_only']=not bool(run.get('last_step'))
+                run['status_as_of']=campaign_snapshot['snapshot_utc']
+                migration=campaign_snapshot.get('operational_migration',{})
+                if migration and task['index']>=12:
+                    run['original_training_job']=task['job_id'];run['training_job']=str(migration['replacement_array'])+'_'+str(task['index'])
+                    run['state']='Checkpointed / queued';run['scheduler_status']='PENDING';run['execution_phase']='Resuming under corrected task-local requeue wrapper'
+                binding=source(campaign_path,'Latest source-bound campaign checkpoint and migration audit')
+                run['sources'].append({'file':binding['file'],'sha256':binding['sha256']})
             binding={'file':str(plan_path.relative_to(workspace)),'sha256':sha(plan_path)}
             if binding not in run['sources']:run['sources'].append(binding)
             touched.add(rid)
+    attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.
     baseline_evals={(r['id'],e['id']):e for r in baseline['runs'] for e in r['evaluations'] if e.get('rankable')}
     for (rid,eid),old in baseline_evals.items():
         current_eval=next((e for e in runs[rid]['evaluations'] if e['id']==eid),None);assert current_eval,f'Removed original score: {rid}'
         for key,value in old['metrics'].items():assert current_eval['metrics'].get(key)==value,f'Changed original workbook-era score: {rid}/{key}'
+    for (rid,eid),old in previous_evals.items():
+        current_eval=next((e for e in runs[rid]['evaluations'] if e['id']==eid),None)
+        assert current_eval and current_eval['metrics']==old['metrics'],f'Changed previously published score: {rid}/{eid}'
     keys=set(data['metrics'])
     for run in runs.values():
         for e in run['evaluations']:keys.update(e['metrics'])
@@ -269,9 +352,10 @@ def refresh(site,workspace):
         index_runs.append(row)
     for model in models.values():
         mine=[r for r in index_runs if r['model']==model['id']];model['runs']=len(mine);model['evaluated_runs']=sum(any(e.get('rankable') and e['split']=='test' for e in r['evaluations']) for r in mine);model['datasets']=sorted({e['dataset'] for r in mine for e in r['evaluations'] if e.get('rankable')})
-    now=datetime.now(timezone.utc).isoformat();data.update(snapshot=captured,runs=index_runs,models=list(models.values()))
+    now=datetime.now(timezone.utc).isoformat();data.update(snapshot=max(captured,campaign_snapshot.get('snapshot_utc',captured)),runs=index_runs,models=list(models.values()))
     audit=data['audit'];audit['original_workbook_snapshot']=baseline['snapshot'];audit['refresh_observed_utc']=captured;audit['original_ranked_rows_preserved']=len(baseline_evals)
     audit['fresh_result_rows_verified']=sum(c['new_evaluation'] for c in changes);audit['current_unstained_result_rows_verified']=sum(e.get('rankable') and r['task']=='unstained' for r in index_runs for e in r['evaluations'])
+    audit['previous_published_ranked_rows_preserved']=len(previous_evals);audit['new_rows_since_previous_snapshot']=sum(c['new_since_previous_snapshot'] for c in changes)
     audit['unstained_result_rows_verified']=audit['current_unstained_result_rows_verified'];audit['new_result_reconciliation']='data/refresh-provenance.json'
     audit['notes']=[n for n in audit.get('notes',[]) if not n.startswith('Cluster evaluation')]+['Original workbook-era scored means were checked and retained unchanged. New result rows are reconciled independently to complete source reports and checkpoint/manifest hashes. Current unfinished runs remain unscored.']
     write(out/'data/index.json',data)

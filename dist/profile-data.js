@@ -7,13 +7,13 @@ export function buildProfileCohorts(index) {
   for (const run of index.runs) for (const evaluation of run.evaluations) {
     if (!evaluation.rankable || evaluation.partial || ['pilot','monitor'].includes(evaluation.split)) continue;
     const identity = [evaluation.dataset,evaluation.marker || run.marker,evaluation.split,
-      evaluation.protocol,evaluation.n,evaluation.metric_protocol || '',evaluation.crop_size || run.crop_size || '',
+      evaluation.protocol,evaluation.n,evaluation.comparison_protocol || evaluation.metric_protocol || '',evaluation.crop_size || run.crop_size || '',
       evaluation.manifest_sha256 || ''];
     const id = JSON.stringify(identity);
     if (!groups.has(id)) {
       const name = index.datasets.find(d=>d.id===evaluation.dataset)?.name || evaluation.dataset;
       groups.set(id,{id,dataset:evaluation.dataset,dataset_name:name,marker:identity[1],split:evaluation.split,
-        protocol:evaluation.protocol,n:evaluation.n,metric_protocol:evaluation.metric_protocol,
+        protocol:evaluation.protocol,n:evaluation.n,metric_protocol:evaluation.comparison_protocol || evaluation.metric_protocol,
         manifest_sha256:evaluation.manifest_sha256,crop_size:identity[6],entries:[],
         label:`${name} · ${identity[1]} · ${evaluation.split} · ${evaluation.protocol} · ${Number(evaluation.n).toLocaleString('en-GB')} tiles`});
     }

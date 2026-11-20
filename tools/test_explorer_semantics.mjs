@@ -149,3 +149,40 @@ test('published exploratory rows remain confined to one scored cohort', async ()
   const groups=buildProfileCohorts(index);
   assert.ok(groups.some(g=>g.dataset==='BCI' && g.marker==='HER2' && g.split==='test'));
 });
+
+test('incomplete and continuation compute cannot become a complete cost axis', () => {
+  const index={runs:[run('complete',{training_hours:10,gpu_hours:40}),
+    run('partial',{training_hours:2,gpu_hours:8,compute_complete:false}),
+    run('child',{training_hours:1,gpu_hours:4,compute_parent_run:'parent'})]};
+  const rows=cohortRows(index,{dataset:'finland',split:'test'});
+  assert.equal(rows.find(r=>r.id==='complete').values.gpu_hours,40);
+  for(const id of ['partial','child']){
+    assert.equal(rows.find(r=>r.id===id).values.training_hours,undefined);
+    assert.equal(rows.find(r=>r.id===id).values.gpu_hours,undefined);
+  }
+  assert.deepEqual(paretoFront(rows,'gpu_hours','lpips','lower','lower').map(r=>r.id),['complete']);
+});
+
+test('reviewed wording aliases preserve every other scientific cohort boundary', () => {
+  const first=evaluation({metric_protocol:'reviewed original wording',comparison_protocol:'reviewed paired protocol',crop_size:256});
+  const second={...first,metric_protocol:'reviewed newer wording'};
+  assert.equal(cohortKey(first),cohortKey(second));
+  for(const [key,value] of Object.entries({dataset:'other',marker:'HER2',split:'val',protocol:'another measurement',n:11,manifest_sha256:'other-manifest',crop_size:512})){
+    assert.notEqual(cohortKey(first),cohortKey({...second,[key]:value}),key+' boundary was erased');
+  }
+  const {comparison_protocol:_,...rawFirst}=first;
+  const {comparison_protocol:__,...rawSecond}=second;
+  assert.notEqual(cohortKey(rawFirst),cohortKey(rawSecond),'unreviewed wording was silently normalized');
+});
+
+test('published breast comparisons include the new families while preserving raw protocols', async () => {
+  const index=JSON.parse(await readFile(new URL('../dist/data/index.json',import.meta.url),'utf8'));
+  const groups=buildProfileCohorts(index);
+  for(const dataset of ['BCI','MIST','IHC4BC','her2match']){
+    const group=groups.find(g=>g.dataset===dataset && g.marker==='HER2' && g.split==='test' && g.entries.some(e=>e.run.id.startsWith('balance__')));
+    assert.ok(group, dataset+' reviewed cohort missing');
+    assert.equal(new Set(group.entries.map(e=>e.run.model)).size,13,dataset+' lost eligible families');
+    assert.equal(new Set(group.entries.map(e=>e.evaluation.metric_protocol)).size,2,'raw source protocol descriptions changed');
+    assert.ok(group.entries.every(e=>e.evaluation.comparison_protocol_review_sha256 && e.evaluation.crop_size===256));
+  }
+});
