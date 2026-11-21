@@ -194,4 +194,9 @@ for source in summary['provenance']:
     if source.get('href'):
         path=root/source['href']
         assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==source['sha256'], 'Changed public chart source'
-print(json.dumps({'runs':len(ids),'evaluations':evaluations,'scalar_series':curves,'paired_fields':images,'workbook_cells_verified':index['audit']['verified_cells'],'overview_cohort_runs':cohort['models'],'overview_coverage_cells':sum(len(r['cells']) for r in summary['coverage']['rows']),'validation':'passed'}))
+# The matched gallery is independently bound to selected checkpoints and tissue fields.
+from validate_prediction_gallery import validate_gallery
+gallery_validation=validate_gallery(json.loads((root/'data/prediction-gallery.json').read_text()),root,index)
+for filename in ['prediction-gallery.js','prediction-gallery.css']:
+    assert (root/filename).is_file(), 'Missing gallery interface asset'
+print(json.dumps({'runs':len(ids),'evaluations':evaluations,'scalar_series':curves,'paired_fields':images,'matched_gallery_fields':gallery_validation['fields'],'matched_gallery_predictions':gallery_validation['predictions'],'workbook_cells_verified':index['audit']['verified_cells'],'overview_cohort_runs':cohort['models'],'overview_coverage_cells':sum(len(r['cells']) for r in summary['coverage']['rows']),'validation':'passed'}))

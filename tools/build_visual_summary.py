@@ -195,6 +195,7 @@ def build(dist, workspace):
         datasets_registered=len(data['datasets']) if any(d['id']=='her2match' for d in data['datasets']) else len(data['datasets'])+1, her2match_tasks=len(HER2_MODELS),
         original_breast_runs=data['audit']['breast_runs'], workbook_verified_cells=data['audit']['verified_cells'])
     recent, receipt_sources = activity(workspace, names)
+    recent['observed_utc']=max(recent['observed_utc'],data['snapshot'])
     sources = [source_record(index_path, 'Current reconciled benchmark inventory', data['snapshot'], 'data/index.json')]
     sources += receipt_sources
     def trained(run):
@@ -222,9 +223,11 @@ def build(dist, workspace):
             scored=[r for r in mine if any(e.get('rankable') and e['dataset']==dataset['id'] for e in r['evaluations'])]
             tests=[r for r in mine if any(e.get('rankable') and e['dataset']==dataset['id'] and e['split']=='test' for e in r['evaluations'])]
             state='evaluated' if scored else 'trained / unscored' if any(trained(r) for r in mine) else 'registered' if mine else 'none'
+            pending=[r for r in mine if not any(e.get('rankable') and e['dataset']==dataset['id'] for e in r['evaluations']) and r.get('training_job') and any(word in r.get('state','').lower() for word in ('queued','training','pending','paused'))]
+            if pending and not scored:state=pending[0]['state']
             if dataset['id']=='her2match' and not scored and model in HER2_MODELS:
                 state=next(r for r in recent['her2match'] if r['id']==model)['state']
-            row['cells'].append(dict(dataset=dataset['id'],runs=len(mine),evaluated_runs=len(scored),tested_runs=len(tests),
+            row['cells'].append(dict(dataset=dataset['id'],runs=len(mine),evaluated_runs=len(scored),tested_runs=len(tests),active_runs=len(pending),
                 score_rows=sum(bool(e.get('rankable')) and e['dataset']==dataset['id'] for r in mine for e in r['evaluations']),status=state))
         cells.append(row)
     coverage=dict(datasets=[dict(id=d['id'],name=d['name']) for d in datasets],rows=cells,
@@ -292,7 +295,7 @@ def build(dist, workspace):
         series=trajectory_series, note='Actual recorded values; no smoothing or extrapolation. Same BCI validation cohort. Training recipes differ; equal updates do not imply equal training compute. Validation trajectories do not use test scores.')
     return dict(schema='virtual-staining-visual-summary-v1', snapshot=dict(benchmark=data['snapshot'], activity=recent['observed_utc']),
         scale=scale, datasets=datasets, coverage=coverage, cohort=cohort, trajectories=trajectories,
-        activity=recent, provenance=sources,coverage_balance=balance,
+        activity=recent, provenance=sources,coverage_balance=balance,training_audit=data.get('training_audit'),followup_campaigns=data.get('followup_campaigns',[]),
         notes=['Current result inventory and activity retain explicit source and capture timestamps.',
             f'{len(entries)} run records include evaluated, deferred, continuation and unscored entries; they are not independently completed training experiments.',
             'Recorded GPU-hours sum available per-run evidence only. Missing allocations and parent compute are not estimated; a continuation is not total training compute.',

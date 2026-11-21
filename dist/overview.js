@@ -19,10 +19,11 @@ function cellStyle(cell) {
 }
 
 function miniature(data) {
-  return `<div class="atlas-mini" aria-hidden="true">${data.coverage.datasets.map(dataset => `<div class="atlas-mini-row"><span>${esc(dataset.short_name || dataset.name || dataset.id)}</span><div>${data.coverage.rows.map(row => {
+  return `<div class="atlas-mini" role="group" aria-label="Interactive experiment landscape" aria-describedby="landscape-help">${data.coverage.datasets.map((dataset,di) => `<div class="atlas-mini-row"><span>${esc(dataset.short_name || dataset.name || dataset.id)}</span><div>${data.coverage.rows.map((row,mi) => {
     const cell = row.cells.find(c => c.dataset === dataset.id) || {};
-    return `<i class="${cellStyle(cell)}"></i>`;
-  }).join('')}</div></div>`).join('')}</div>`;
+    const label=`${row.name} · ${dataset.name || dataset.id} · ${cell.evaluated_runs||0} scored of ${cell.runs||0} run records · ${cell.active_runs||0} unfinished · ${cell.status||'No recorded work'}`;
+    return `<a class="atlas-mini-cell ${cellStyle(cell)}" href="#/benchmark?dataset=${encodeURIComponent(dataset.id)}&model=${encodeURIComponent(row.id)}" tabindex="${di===0&&mi===0?'0':'-1'}" data-landscape-dataset="${esc(dataset.id)}" data-landscape-model="${esc(row.id)}" data-landscape-row="${di}" data-landscape-column="${mi}" title="${esc(label)}" aria-label="${esc(label)}"></a>`;
+  }).join('')}</div></div>`).join('')}</div><div class="landscape-legend"><span><i class="scored"></i>Scored evaluation</span><span><i class="active"></i>Training / pending scores</span><span><i class="recorded"></i>Other recorded work</span><span><i class="absent"></i>No record</span></div><p id="landscape-help" class="landscape-help">Hover or tap a rectangle to identify it. Arrow keys move through the grid; Enter opens matching runs.</p><div class="landscape-inspector" id="landscape-inspector" role="status" aria-live="polite"><strong>Explore a model and dataset</strong><span>Select a rectangle to see its model, dataset and saved evaluation status.</span></div>`;
 }
 
 function scaleCard(value, label, note) {
@@ -35,9 +36,9 @@ function header(data, layout) {
     <div class="research-hero-copy"><div class="research-kicker">Virtual staining / Research atlas</div>
       <h1 id="research-title">Virtual staining,<br>measured at scale.</h1>
       <p>A view across model families, tissue datasets and training recipes. Explore the breadth of the experiments, then follow each result back to its evidence.</p>
-      <div class="hero-links"><a class="hero-primary" href="#/benchmark">Explore the results <span aria-hidden="true">↗</span></a><a href="#activity">Latest campaign activity <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-links"><a class="hero-primary" href="#/benchmark">Explore the results <span aria-hidden="true">↗</span></a><a href="#/gallery">Compare tissue predictions</a><a href="#activity">Latest campaign activity <span aria-hidden="true">↓</span></a></div>
     </div><div class="research-hero-evidence"><div class="hero-evidence-top"><span>THE EXPERIMENT LANDSCAPE</span><span>${number(data.coverage.rows.length)} × ${number(data.coverage.datasets.length)}</span></div>
-      ${miniature(data)}<p>Each column is a model family.<br>Each row is a dataset. Filled cells have recorded work.</p>
+      ${miniature(data)}<p>Each column is a model family; each row is a dataset. Colours describe evaluation availability, rather than prediction quality.</p>
     </div>
   </section>
   <div class="scope-stats" aria-label="Research scale">
@@ -80,12 +81,12 @@ function coverage(data) {
   const datasets = data.coverage.datasets;
   const rows = data.coverage.rows;
   return `<div class="atlas-layout"><section class="visual-panel coverage-panel"><div class="visual-panel-heading"><div><div class="eyebrow">Example 01 / The scope of the programme</div><h2>The coverage atlas</h2><p>Model families × datasets. Numbers count run records, including separate stains and training recipes.</p></div><span class="chart-badge">${number(rows.length)} families · ${number(datasets.length)} datasets</span></div>
-    <div class="coverage-legend"><span><i class="scored"></i>Has scored evaluation</span><span><i class="recorded"></i>Recorded, unscored</span><span><i class="active"></i>Current campaign</span><span><i class="absent"></i>No record</span></div>
+    <div class="coverage-legend"><span><i class="scored"></i>Has scored evaluation</span><span><i class="recorded"></i>Other recorded work</span><span><i class="active"></i>Training / pending scores</span><span><i class="absent"></i>No record</span></div>
     <div class="coverage-scroll"><table class="coverage-table"><caption class="sr-only">Number of run records per model family and dataset. A pooled run can occur in several columns.</caption><thead><tr><th>Model family</th>${datasets.map(d=>`<th scope="col">${esc(d.short_name || d.name || d.id)}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr><th scope="row">${esc(row.name)}</th>${datasets.map(d=>{
       const c=row.cells.find(c=>c.dataset===d.id)||{};
       const style=cellStyle(c), runs=c.runs||0;
-      const label=`${row.name}, ${d.name || d.id}: ${runs} run records, ${c.evaluated_runs||0} with scored evaluations${style==='active'?', current campaign':''}`;
-      return `<td><a class="coverage-cell ${style}" href="${'#/benchmark?dataset='+encodeURIComponent(d.id)+'&model='+encodeURIComponent(row.id)}" aria-label="${esc(label)}"><span>${runs || '—'}</span><span class="cell-detail">${style==='scored'?'scored':style==='active'?'campaign':style==='recorded'?'recorded':''}</span></a></td>`;
+      const label=`${row.name}, ${d.name || d.id}: ${runs} run records, ${c.evaluated_runs||0} with scored evaluations; ${c.status||'no record'}`;
+      return `<td><a class="coverage-cell ${style}" href="${'#/benchmark?dataset='+encodeURIComponent(d.id)+'&model='+encodeURIComponent(row.id)}" aria-label="${esc(label)}" title="${esc(label)}"><span>${runs || '—'}</span><span class="cell-detail">${style==='scored'?'scored':style==='active'?'pending':style==='recorded'?'recorded':''}</span></a></td>`;
     }).join('')}</tr>`).join('')}</tbody></table></div>
     <p class="visual-caption">A record is not a claim that training or evaluation finished. Pooled runs appear in more than one dataset column; column totals must not be added as distinct runs.</p>
     </section><aside class="atlas-aside"><section class="visual-panel"><div class="eyebrow">Distinct families with held-out tests</div><h3>Model breadth by dataset</h3><p class="family-count-note">Each family counts once. Recipe variants do not increase these bars.</p><div class="dataset-bars">${data.datasets.map(d=>{
@@ -173,10 +174,17 @@ function radarView(data) {
   </section><div class="view-verdict horizontal"><span class="verdict-number">03</span><div><h3>Choose the arrangement that answers your question</h3><p>Overlay profiles to see intersections. Individual radars preserve the same reference scales while making every run inspectable. The metric heatmap and parallel coordinates offer additional views of larger selections.</p></div><div class="verdict-limit"><strong>Reference cohort stays fixed</strong><span>Dataset, stain, split, sample count, crop, manifest and metric protocol define the comparison.</span></div></div>`;
 }
 
+function trainingAudit(data){
+  const audit=data.training_audit;if(!audit)return '';
+  const counts=audit.counts||{},blocked=audit.blocked||{};
+  const blockedCount=blocked.total_run_records||((blocked.orion_runs||0)+(blocked.archived_original_breast_runs||0));
+  return `<section class="visual-panel training-audit"><div class="visual-panel-heading"><div><div class="eyebrow">Training completeness</div><h2>Which runs still need more training?</h2><p>${number(audit.run_records)} run records reviewed · ${number(audit.runs_with_training_evidence)} with training evidence · ${date(audit.snapshot)}</p></div><a href="${esc(audit.download||'data/training-audit.json')}" download>Download the run-by-run audit</a></div><div class="training-audit-counts"><div><strong>${number(counts.validation_patience_exhausted)}</strong><span>Stopped by validation patience</span></div><div><strong>${number(counts.hard_budget_with_sustained_validation_gain)}</strong><span>Budget ended while validation improved</span></div><div><strong>${number(counts.hard_budget_without_sustained_tail_gain)}</strong><span>Budget ended without sustained recent gain</span></div></div><p class="training-audit-note">${esc(audit.decision_metric)} Counts describe run records, including ablations and training variants.</p><div class="training-followups">${(data.followup_campaigns||[]).map(task=>`<article><span>${esc(task.kind)}</span><h3><a href="#/run/${encodeURIComponent(task.run_id)}">${esc(task.model)}</a> · ${esc(data.datasets.find(d=>d.id===task.dataset)?.name||task.dataset)}</h3><p>${esc(task.state)}</p><small>Job ${esc(task.job)}</small></article>`).join('')}</div>${blockedCount?`<p class="training-archive-note"><strong>${number(blockedCount)} further flagged records await archive access.</strong> ${esc(blocked.reason)}</p>`:''}<details><summary>How to interpret the audit</summary><ul>${(audit.limitations||[]).map(note=>`<li>${esc(note)}</li>`).join('')}</ul><a href="#/overview/curves">Inspect the recorded validation curves</a></details></section>`;
+}
+
 function activities(data) {
   const activity=data.activity;
   return `<section class="campaign-section" id="activity"><div class="visual-heading"><div><div class="eyebrow">Work continuing beyond the published scores</div><h2>The next chapter is already running.</h2></div><p>Activity observed ${date(activity.observed_utc || data.snapshot.activity)}<br>Saved evidence; this page does not poll the cluster.</p></div>
-    <div class="campaign-grid"><article class="visual-panel"><div class="visual-panel-heading"><div><h3>HER2Match / ${activity.her2match.length} models</h3><p>21,172 paired images · author case splits</p></div><span class="chart-badge">New dataset</span></div><div class="campaign-runs">${activity.her2match.map(r=>{
+    <div class="campaign-grid"><article class="visual-panel"><div class="visual-panel-heading"><div><h3>Original HER2Match campaign</h3><p>${activity.her2match.length} initial models · 21,172 paired images · author case splits</p></div><span class="chart-badge">New dataset</span></div><div class="campaign-runs">${activity.her2match.map(r=>{
       const progress=r.max_steps?Math.min(100,100*(r.step||0)/r.max_steps):0;
       return `<div class="campaign-run"><div><strong>${esc(r.name)}</strong><span>${esc(r.state)}</span></div><div class="campaign-progress"><i style="width:${progress}%"></i></div><small>${r.step?number(r.step)+' optimizer updates':r.production_started?'Production started':'Awaiting production'}${r.max_steps?' / '+number(r.max_steps):''}</small></div>`;
     }).join('')}</div><p class="visual-caption">Progress bars show the recorded update budget where available. Queued and unfinished runs carry no final scores.</p></article>
@@ -186,6 +194,31 @@ function activities(data) {
 }
 
 function bind(main, data, layout) {
+  const landscape=$('.atlas-mini',main),inspector=$('#landscape-inspector',main);
+  if(landscape&&inspector){
+    const cells=$$('[data-landscape-model]',landscape);
+    const inspect=element=>{
+      const row=data.coverage.rows.find(r=>r.id===element.dataset.landscapeModel);
+      const dataset=data.coverage.datasets.find(d=>d.id===element.dataset.landscapeDataset);
+      const cell=row?.cells.find(c=>c.dataset===dataset?.id)||{},style=cellStyle(cell);
+      const state=style==='scored'?'Scored evaluation available':style==='active'?'Training recorded or awaiting scores':style==='recorded'?'Recorded work; no scored evaluation':'No run recorded';
+      cells.forEach(c=>{c.classList.toggle('landscape-column-active',c.dataset.landscapeModel===row?.id);c.classList.toggle('landscape-cell-active',c===element);c.tabIndex=c===element?0:-1;});
+      inspector.innerHTML=`<strong>${esc(row?.name)} <span>· ${esc(dataset?.name||dataset?.id)}</span></strong><span>${esc(state)} · ${number(cell.runs)} run records · ${number(cell.evaluated_runs)} scored · ${number(cell.tested_runs)} with tests${cell.active_runs?' · '+number(cell.active_runs)+' unfinished':''}</span><small>${esc(cell.status||'No recorded work')}. <a href="${esc(element.getAttribute('href'))}">Open matching runs</a></small>`;
+    };
+    cells.forEach(element=>{
+      let pointerType;
+      element.onpointerenter=()=>inspect(element);element.onfocus=()=>inspect(element);
+      element.onpointerdown=event=>{pointerType=event.pointerType;};
+      element.onclick=event=>{if(event.detail>0&&(pointerType==='touch'||event.pointerType==='touch')){event.preventDefault();inspect(element);}pointerType=null;};
+      element.onkeydown=event=>{
+        const delta={ArrowLeft:[0,-1],ArrowRight:[0,1],ArrowUp:[-1,0],ArrowDown:[1,0]}[event.key];
+        if(!delta)return;event.preventDefault();
+        const r=Math.max(0,Math.min(data.coverage.datasets.length-1,Number(element.dataset.landscapeRow)+delta[0]));
+        const c=Math.max(0,Math.min(data.coverage.rows.length-1,Number(element.dataset.landscapeColumn)+delta[1]));
+        cells.find(x=>Number(x.dataset.landscapeRow)===r&&Number(x.dataset.landscapeColumn)===c)?.focus();
+      };
+    });
+  }
   const activityLink=$('a[href="#activity"]',main);
   if(activityLink)activityLink.onclick=e=>{e.preventDefault();$('#activity',main).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});};
   $$('a.coverage-cell[href="#activity"],.dataset-bar-row[href="#activity"]',main).forEach(a=>a.onclick=e=>{e.preventDefault();$('#activity',main).scrollIntoView({behavior:'auto'});});
@@ -242,7 +275,7 @@ export async function renderOverview(main, layout='atlas', index) {
   if(layout==='radar')data=prepareProfiles(data,index);
   activeSummary=data;
   const content=layout==='radar'?radarView(data):layout==='atlas'?coverage(data):'<div class="loading">Loading the visual explorer…</div>';
-  main.innerHTML=`<div class="research-overview">${header(data,layout)}<section class="visual-example" id="visual-example" aria-label="${layout} explorer">${content}</section>${balancePlan(data)}${activities(data)}</div>`;
+  main.innerHTML=`<div class="research-overview">${header(data,layout)}<section class="visual-example" id="visual-example" aria-label="${layout} explorer">${content}</section>${balancePlan(data)}${trainingAudit(data)}${activities(data)}</div>`;
   bind(main,data,layout);
   const container=$('#visual-example',main);
   if(layout==='curves'){

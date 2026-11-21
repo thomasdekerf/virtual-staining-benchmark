@@ -181,7 +181,9 @@ test('published breast comparisons include the new families while preserving raw
   for(const dataset of ['BCI','MIST','IHC4BC','her2match']){
     const group=groups.find(g=>g.dataset===dataset && g.marker==='HER2' && g.split==='test' && g.entries.some(e=>e.run.id.startsWith('balance__')));
     assert.ok(group, dataset+' reviewed cohort missing');
-    assert.equal(new Set(group.entries.map(e=>e.run.model)).size,13,dataset+' lost eligible families');
+    const expected=new Set(index.runs.filter(run=>run.evaluations.some(e=>e.rankable&&e.dataset===dataset&&e.marker==='HER2'&&e.split==='test'&&e.comparison_protocol===group.metric_protocol)).map(run=>run.model));
+    assert.ok(expected.size>=13,dataset+' lost the previously reviewed families');
+    assert.equal(new Set(group.entries.map(e=>e.run.model)).size,expected.size,dataset+' lost eligible families');
     assert.equal(new Set(group.entries.map(e=>e.evaluation.metric_protocol)).size,2,'raw source protocol descriptions changed');
     assert.ok(group.entries.every(e=>e.evaluation.comparison_protocol_review_sha256 && e.evaluation.crop_size===256));
   }

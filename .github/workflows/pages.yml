@@ -23,8 +23,9 @@ jobs:
         run: |
           python3 tools/validate_data.py
           python3 -m unittest discover -s tools -p 'test_pages_artifact.py'
+          python3 -m unittest discover -s tools -p 'test_prediction_gallery.py'
       - name: Check exploratory chart semantics
-        run: node --test tools/test_explorer_semantics.mjs
+        run: node --test tools/test_*semantics.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v5.0.0
         id: pages_artifact

@@ -13,7 +13,7 @@ import yaml
 from snapshot_evidence import current_cluster_snapshot,current_campaign_snapshot
 from protocol_compatibility import attach_reviewed_protocols
 
-NAMES={'hemit':'HEMIT','implicitstainer':'ImplicitStainer','miphei_vit':'MiPHEI-ViT','bbdm':'BBDM','eqm':'EqM','nvg':'NVG','lrdm':'LRDM','itarflow':'Conditional iTARFlow','asp':'ASP','histdist':'HistDiST','pd_unist':'PD-UNIST','unet':'U-Net','pix2pix':'Pix2Pix','pyramid':'Pyramid Pix2Pix','pspstain':'PSPStain','cut':'CUT','cyclegan':'CycleGAN','nafnet':'NAFNet','restormer':'Restormer','cssp2p':'CSSP2P-GAN'}
+NAMES={'swinir':'SwinIR','hemit':'HEMIT','implicitstainer':'ImplicitStainer','miphei_vit':'MiPHEI-ViT','bbdm':'BBDM','eqm':'EqM','nvg':'NVG','lrdm':'LRDM','itarflow':'Conditional iTARFlow','asp':'ASP','histdist':'HistDiST','pd_unist':'PD-UNIST','unet':'U-Net','pix2pix':'Pix2Pix','pyramid':'Pyramid Pix2Pix','pspstain':'PSPStain','cut':'CUT','cyclegan':'CycleGAN','nafnet':'NAFNet','restormer':'Restormer','cssp2p':'CSSP2P-GAN'}
 DETECTORS={'stardist','stardist2x','hovernet','cellpose_sam'}
 
 def read(path,default=None):
@@ -321,12 +321,65 @@ def refresh(site,workspace):
                 migration=campaign_snapshot.get('operational_migration',{})
                 if migration and task['index']>=12:
                     run['original_training_job']=task['job_id'];run['training_job']=str(migration['replacement_array'])+'_'+str(task['index'])
-                    run['state']='Checkpointed / queued';run['scheduler_status']='PENDING';run['execution_phase']='Resuming under corrected task-local requeue wrapper'
+                    if not run.get('evaluation_complete'):
+                        scheduler=None
+                        for line in campaign_snapshot.get('squeue',{}).get('stdout','').splitlines():
+                            fields=[v.strip() for v in line.split('|')] if '|' in line else line.split()
+                            if len(fields)>2 and fields[0]==run['training_job']:scheduler=fields[2]
+                        run['scheduler_status']=scheduler or ('Training complete / evaluation pending' if saved.get('complete') else 'Checkpointed; scheduler state not captured')
+                        run['state']='Training' if scheduler=='RUNNING' else 'Training complete / evaluation pending' if saved.get('complete') else 'Checkpointed / queued' if scheduler=='PENDING' else 'Checkpointed; scheduler state not captured'
+                        run['execution_phase']='Resuming under corrected task-local requeue wrapper'
                 binding=source(campaign_path,'Latest source-bound campaign checkpoint and migration audit')
                 run['sources'].append({'file':binding['file'],'sha256':binding['sha256']})
             binding={'file':str(plan_path.relative_to(workspace)),'sha256':sha(plan_path)}
             if binding not in run['sources']:run['sources'].append(binding)
             touched.add(rid)
+    # New integrations and continuations remain unscored until complete source
+    # reports arrive. Inherited checkpoints do not count as new optimizer work.
+    followups=[]
+    integration_root=workspace/'artifacts/experiment_audit_20261121/swinir_campaign'
+    integration_plan=read(integration_root/'prepared/campaign.json',{})
+    integration_submission=read(integration_root/'submission.json',{})
+    if integration_plan and integration_submission.get('array_job_id'):
+        captured=max(captured,integration_submission.get('released_utc',captured))
+        receipt=source(integration_root/'submission.json','Source-verified SwinIR training submission')
+        for task in integration_plan['tasks']:
+            dataset='her2match' if task['dataset']=='HER2Match' else task['dataset']
+            rid='missing__'+task['id']+'_20261121'
+            run=register(runs.get(rid) or fresh_run(rid,'swinir',dataset,task='ihc',marker=task['marker'],variant='Native SwinIR · paired RGB L1 · seed 42'))
+            run.update(state='Queued / native training check required',scheduler_status='PENDING',training_job=str(integration_submission['array_job_id'])+'_'+str(task['index']),source_sha256=task['source_sha256'],config_sha256=task['config_sha256'],status_as_of=integration_submission.get('released_utc'),registered_only=True,last_step=0,gate_passed=False,training_complete=False,crop_size=256,notes='Author-capacity same-resolution SwinIR, adapted with paired RGB L1. Actual four-rank pause/resume check required before production; no production updates observed at submission.')
+            config=integration_root/'prepared/configs'/(task['id']+'.yml')
+            if config.exists():run['configuration']=config.read_text()
+            run['sources'].append({'file':receipt['file'],'sha256':receipt['sha256']})
+            followups.append(dict(run_id=rid,model='SwinIR',dataset=dataset,job=run['training_job'],state=run['state'],kind='New model integration'))
+        models['swinir']['notes']='Native author-capacity same-resolution SwinIR is integrated and queued on BCI/HER2Match with paired RGB L1; real-data four-GPU checks precede production.'
+    audit_root=workspace/'artifacts/experiment_audit_20261121'
+    continuation=read(audit_root/'continuation_submission.json',{})
+    preparation=read(audit_root/'restormer_continuation_preparation.json',{})
+    if continuation.get('array_job_id') and preparation:
+        captured=max(captured,continuation['submitted_utc'])
+        rid='her2match__restormer_continuation_20261121'
+        run=register(runs.get(rid) or fresh_run(rid,'restormer','her2match',variant='Validation-guided continuation from 80,000 updates',parent_run='her2match__restormer_seed42',compute_parent_run='her2match__restormer_seed42'))
+        run.update(state='Queued / post-budget update check required',scheduler_status='PENDING',training_job=str(continuation['array_job_id'])+'_0',source_sha256=continuation['source_sha256'],status_as_of=continuation['submitted_utc'],registered_only=True,last_step=0,parent_step=preparation['parent_step'],new_optimizer_updates=0,training_complete=False,gate_passed=False,crop_size=256,notes='Original 80k checkpoint, optimizer, scheduler horizon, nonzero LR floor and validation patience retained. A real post-budget parameter-update check precedes continuation. Native historical worker augmentation RNG was not saved; bitwise replay is unavailable.')
+        receipt=source(audit_root/'continuation_submission.json','Native Restormer continuation submission')
+        run['sources'].append({'file':receipt['file'],'sha256':receipt['sha256']})
+        followups.append(dict(run_id=rid,model='Restormer',dataset='her2match',job=run['training_job'],state=run['state'],kind='Continue improving validation'))
+    eqm_submission=read(audit_root/'eqm_continuation_submission.json',{})
+    if eqm_submission.get('array_job_id'):
+        captured=max(captured,eqm_submission['submitted_utc'])
+        rid='finland__research_eqm_continuation_20261121'
+        run=register(runs.get(rid) or fresh_run(rid,'eqm','finland',variant='Native EqM research continuation from 30,000 updates',parent_run='finland__research_eqm_20261017',compute_parent_run='finland__research_eqm_20261017'))
+        run.update(state='Queued after Restormer / post-budget update check required',scheduler_status='PENDING',training_job=str(eqm_submission['array_job_id'])+'_0',training_dependency=eqm_submission['dependency'],source_inventory_sha256=eqm_submission['source_inventory_sha256'],status_as_of=eqm_submission['submitted_utc'],registered_only=True,last_step=0,parent_step=eqm_submission['parent_step'],new_optimizer_updates=0,training_complete=False,gate_passed=False,crop_size=256,notes='Original model, EMA, optimizer, constant learning rate, scheduler, saved RNG and sampler retained. Isolated operational budget extension; original fixed 256-field stopping monitor and separate full validation remain research-only and unranked.')
+        receipt=source(audit_root/'eqm_continuation_submission.json','Native EqM research continuation submission')
+        run['sources'].append({'file':receipt['file'],'sha256':receipt['sha256']})
+        followups.append(dict(run_id=rid,model='EqM',dataset='finland',job=run['training_job'],state=run['state'],kind='Continue improving research validation'))
+    data['followup_campaigns']=followups
+    public_audit=read(audit_root/'convergence_summary_public.json',{})
+    if public_audit:
+        captured=max(captured,public_audit['snapshot'])
+        write(out/'data/training-audit.json',public_audit)
+        data['training_audit']={k:v for k,v in public_audit.items() if k!='runs'}|{'download':'data/training-audit.json'}
+        source(audit_root/'convergence_summary_public.json','Training convergence audit; validation-based decisions')
     attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.
