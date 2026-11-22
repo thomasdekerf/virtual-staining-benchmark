@@ -1,5 +1,5 @@
-import {renderOverview,disposeOverview} from './overview.js?v=20261121-gallery';
-import {renderPredictionGallery,disposePredictionGallery} from './prediction-gallery.js?v=20261121-gallery';
+import {renderOverview,disposeOverview} from './overview.js?v=20261122-gpus';
+import {renderPredictionGallery,disposePredictionGallery} from './prediction-gallery.js?v=20261122-gpus';
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const esc = value => String(value ?? '').replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));

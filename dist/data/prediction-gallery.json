@@ -1,6 +1,6 @@
 {
   "schema": "matched-prediction-gallery-v1",
-  "snapshot": "2026-11-21T20:52:14.983018+00:00",
+  "snapshot": "2026-11-22T10:32:25.062652+00:00",
   "datasets": [
     {
       "id": "orion",
@@ -413,7 +413,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "45bf39027e203c544f019ec411c50af19fff8159a3329c938a85d09715c0d66f",
@@ -1152,7 +1152,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "801429c144235de37c4f9494719e64f7502bc9351eabce573c6a17a0fb3dbf3d",
@@ -1567,7 +1567,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "c2f0c5f07c71784ac15e3748cb587e3ecb93d1690d5c4c25157a49a69c8e84c6",
@@ -1982,7 +1982,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "d197864c0514fb49b09f938cd330bca1a141111008cc48fdf1546bb6138ee124",
@@ -2397,7 +2397,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "4a8657247777784eb286ebfe55efb8c69f50f14a9ed61cb37cf5952e061a34f7",
@@ -2960,7 +2960,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "f4ec85b2fca491208a7b50c55c804c8c6520aad18acee61de30ff00289797e2c",
@@ -3375,7 +3375,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "d0aaa7a05fa27b991651bc036438a54c2d2ab06306bce4fee8424da1846d7e59",
@@ -3790,7 +3790,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "055a3d68edd3dfee5afff090cfc366b5b86500b24d80b486e25dd6ee968090a9",
@@ -4205,7 +4205,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "fdd5074cb632bc889a04e7f098bc5c88f71351577c1a63a6f847398d956e9b1b",
@@ -4745,7 +4745,7 @@
           "group": "19510_C11_US_SCAN_OR_001__151039-registered.ome",
           "input": {
             "available": false,
-            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline"
+            "reason": "Original 17-channel ORION input bundle is archived; archive server is offline (archive access still unavailable on 22 November 2026)"
           },
           "target": {
             "sha256": "7906832d074c66dc563cd638ae1f2d18cd9941578ef56190e31b1f0a6830c0db",
@@ -5188,7 +5188,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pix2pix",
@@ -5199,7 +5199,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pyramid",
@@ -5210,7 +5210,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "asp",
@@ -5221,7 +5221,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pspstain",
@@ -5232,7 +5232,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cut",
@@ -5243,7 +5243,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cyclegan",
@@ -5254,7 +5254,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "nafnet",
@@ -5265,7 +5265,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "restormer",
@@ -5276,7 +5276,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cssp2p",
@@ -5287,7 +5287,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=977",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "hemit",
@@ -5337,12 +5337,13 @@
           "id": "swinir",
           "name": "SwinIR",
           "run_id": "missing__swinir_BCI_HER2_20261121",
-          "checkpoint_sha256": null,
-          "selected_step": null,
+          "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+          "selected_step": 2000,
           "protocol": null,
-          "status": "unavailable",
-          "available_fields": 0,
-          "reason": "New training run queued; selected-checkpoint images will be available after training"
+          "status": "available",
+          "available_fields": 10,
+          "reason": null,
+          "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f"
         }
       ],
       "fields": [
@@ -5376,70 +5377,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "0",
@@ -5506,11 +5507,24 @@
               "url": "images/gallery_20261121/BCI/0/bbdm.webp"
             },
             {
+              "field": "0",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "0",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "8233127f9d6bcf39f3728945a792884553b99101951aed98233bc34ec3b0bfe6",
+              "input_sha256": "e55ca66dbaa52ab829bb03633b24cca319cc87e948ee2d9c254f805d26db1c5d",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/0/swinir.webp",
+              "sha256": "5e1be12bb9b4cef90109745cdbd67be3629bddd0d509068bb91128bec6e04d00",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "135e22261d146817a66a2f5f740620dcbaef2ad375063af801b733d2b486abb3",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -5544,70 +5558,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "1",
@@ -5674,11 +5688,24 @@
               "url": "images/gallery_20261121/BCI/1/bbdm.webp"
             },
             {
+              "field": "1",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "1",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "ea2f85cdaf7fafab54ac9a83b543373ea32e44483b7c19042aa1986c73dd7a32",
+              "input_sha256": "11d04724abe242004bae22e823054767b62fbbc0d87433d16bf7bcbebd0976b8",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/1/swinir.webp",
+              "sha256": "00cfa5ef8832c89ec61d5a042f7c52680d8e857f57205ce6254974cecc91b78d",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "65cb36522e71d9711875ae0720faadcfabf2732768d760ec8072ffb13f2297e7",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -5712,70 +5739,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "2",
@@ -5842,11 +5869,24 @@
               "url": "images/gallery_20261121/BCI/2/bbdm.webp"
             },
             {
+              "field": "2",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "2",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "c20b90574726730ce6d0f7c04c00211d62fc899d172d651efde2395c29300314",
+              "input_sha256": "826b1d9a05a563c3009473876742bd5b7743e56616011da5f23ef7ab363c7481",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/2/swinir.webp",
+              "sha256": "d6b2fa065121a86628972f4c54815439384f5922c0bff24ec41762c3d67498b2",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "063618073c66e8c4de16066eec1c89cc42ab78c729f14580b0c55b76a2211045",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -5880,70 +5920,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "3",
@@ -6010,11 +6050,24 @@
               "url": "images/gallery_20261121/BCI/3/bbdm.webp"
             },
             {
+              "field": "3",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "3",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "a998e289114766e1d3858c9f46bcae320a5207fb903296167384cd46bece85e9",
+              "input_sha256": "a60cdec22fc8d569c1ddbc3e91f0dbd863bfaac0e983065c4d7e9e19e50b7a2f",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/3/swinir.webp",
+              "sha256": "68586ab8ae4e794301347ac49a346e1d794aab212556786fe94f5f85c941fa17",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "77fe08d7d899892e15852ad3164ffb938abd5c7bba8776d17382de9894386607",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -6048,70 +6101,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "4",
@@ -6178,11 +6231,24 @@
               "url": "images/gallery_20261121/BCI/4/bbdm.webp"
             },
             {
+              "field": "4",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "4",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "9b1d6e463fc2c75e7869b56def15121b43809fee3fb1695ec99dcd87a2666d62",
+              "input_sha256": "bc5c24cdff6d67674defbf68908483e630c68bb239f5f06405dde50d298b19d8",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/4/swinir.webp",
+              "sha256": "79f397a9b632999d70540d209bbb1afab7c8c54026dd83dbfc44039049fd9dd9",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "75e7ee0c902283d495c8fbebdfd278bee1ca42db3b4fbc521fc7bd8937d72be5",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -6216,70 +6282,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "5",
@@ -6346,11 +6412,24 @@
               "url": "images/gallery_20261121/BCI/5/bbdm.webp"
             },
             {
+              "field": "5",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "5",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "8c97199d800a698c2d7812d1b40513a46210d8092c01b3b99c5972ae91407bfe",
+              "input_sha256": "81be25d4f165612c2e0410f0206e7b9cd02afe3a8ce9041bd23e2b05f5a24313",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/5/swinir.webp",
+              "sha256": "255a11318b7b8dead1501367f0f2ae0fdf5526afd870b7910e1ffd914486c01a",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "2b82900e2ca717257845e93a41ec38e379be232843c28c82f82e19ebf3c13bc0",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -6384,70 +6463,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "6",
@@ -6514,11 +6593,24 @@
               "url": "images/gallery_20261121/BCI/6/bbdm.webp"
             },
             {
+              "field": "6",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "6",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "202ae3d74c8b0d9207a240e31d025f5f35bfb2249d4af6ecf7595863f69a52aa",
+              "input_sha256": "e6aa7348762d4ba3d99efecb68b81f0ce777bda93504284486d8736f3ceafa6f",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/6/swinir.webp",
+              "sha256": "76f70ba3572313846894ea9addf4a6e26d501295f2a78849e8aa2335f419e17a",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "d7fdd029bd3d090122096acc231d9297159783d29a4163b0ad5851f4513fa4ce",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -6552,70 +6644,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "7",
@@ -6682,11 +6774,24 @@
               "url": "images/gallery_20261121/BCI/7/bbdm.webp"
             },
             {
+              "field": "7",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "7",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "bda6b94ca08051e20a29bc8d7861911edc6e3b0277522daa18af278b008b818e",
+              "input_sha256": "827386c9af1539726f277e4ea0062afcc02756f75b5f66937e5fec79b1c8636f",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/7/swinir.webp",
+              "sha256": "941df668dedf20a99fc3b97ddf7de1f9c3804ccd12fc4308a0a2bf916b185b97",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "7560b1b51d3cecd2cf4f29bf87e4c21c74c0435439a8fcaefbd7884622689474",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -6720,70 +6825,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "8",
@@ -6850,11 +6955,24 @@
               "url": "images/gallery_20261121/BCI/8/bbdm.webp"
             },
             {
+              "field": "8",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "8",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "64a3b87505cfebce4d44204c3b1ef59b15ecb86cffde0bee69775a8cdd147223",
+              "input_sha256": "a2523acbf4232807d78580c44136cc5d0433ceffa0ec158e2f643093eaa70b6b",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/8/swinir.webp",
+              "sha256": "205153e33c072e24e642297d89c07b7ffb3366a03b7aae2a1b1dd0ec782045c0",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "1b6a8e9dfcf2d30f2e83480bc3b55b966320d4fc903e9b7b2e3862310fefec02",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -6888,70 +7006,70 @@
               "run_id": "unet_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_BCI_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "9",
@@ -7018,11 +7136,24 @@
               "url": "images/gallery_20261121/BCI/9/bbdm.webp"
             },
             {
+              "field": "9",
               "model": "swinir",
               "run_id": "missing__swinir_BCI_HER2_20261121",
               "field_id": "9",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "e5a17a1f02fad534e17b63215d3bab7f7a9434863ce4f5e43aff57bd113244a3",
+              "input_sha256": "c1ec0eb23aff7bbf49100aa9eef39d176513faff2a422f27864ee2ac53fe1071",
+              "available": true,
+              "checkpoint_sha256": "08ed921525ffd7dbd90b173d7c11607c77c36979676d59b9eeedaed2d1d54a91",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/BCI/9/swinir.webp",
+              "sha256": "869fd4b5bdd920400ca1e827d9e210bab69a83484e593a6f0dbfd6ab624770ca",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "1f25b4de3bbd5580bf5153a528287ab7ad004ea0e2f73e631a6b6caafdf46a67",
+              "selected_evaluation_sha256": "4daf60d7dfc70871142a83d5514bf6f668a52953b62422280d3ad41e7a739a3f",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         }
@@ -7063,7 +7194,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pix2pix",
@@ -7074,7 +7205,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pyramid",
@@ -7085,7 +7216,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "asp",
@@ -7096,7 +7227,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pspstain",
@@ -7107,7 +7238,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cut",
@@ -7118,7 +7249,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cyclegan",
@@ -7129,7 +7260,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "nafnet",
@@ -7140,7 +7271,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "restormer",
@@ -7151,7 +7282,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cssp2p",
@@ -7162,7 +7293,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=900",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "hemit",
@@ -7240,70 +7371,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "0",
@@ -7401,70 +7532,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "1",
@@ -7562,70 +7693,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "2",
@@ -7723,70 +7854,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "3",
@@ -7884,70 +8015,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "4",
@@ -8045,70 +8176,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "5",
@@ -8206,70 +8337,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "6",
@@ -8367,70 +8498,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "7",
@@ -8528,70 +8659,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "8",
@@ -8689,70 +8820,70 @@
               "run_id": "unet_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_MIST_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "9",
@@ -8857,7 +8988,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pix2pix",
@@ -8868,7 +8999,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pyramid",
@@ -8879,7 +9010,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "asp",
@@ -8890,7 +9021,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "pspstain",
@@ -8901,7 +9032,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cut",
@@ -8912,7 +9043,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cyclegan",
@@ -8923,7 +9054,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "nafnet",
@@ -8934,7 +9065,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "restormer",
@@ -8945,7 +9076,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "cssp2p",
@@ -8956,7 +9087,7 @@
           "protocol": "Box SSIM \u00b7 256px \u00b7 n=1,804",
           "status": "unavailable",
           "available_fields": 0,
-          "reason": "Archived selected checkpoint unavailable: archive server offline"
+          "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
         },
         {
           "id": "hemit",
@@ -9034,70 +9165,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "0",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "0",
@@ -9186,70 +9317,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "1",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "1",
@@ -9338,70 +9469,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "2",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "2",
@@ -9490,70 +9621,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "3",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "3",
@@ -9642,70 +9773,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "4",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "4",
@@ -9794,70 +9925,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "5",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "5",
@@ -9946,70 +10077,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "6",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "6",
@@ -10098,70 +10229,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "7",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "7",
@@ -10250,70 +10381,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "8",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "8",
@@ -10402,70 +10533,70 @@
               "run_id": "unet_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pix2pix",
               "run_id": "pix2pix_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pyramid",
               "run_id": "pyramid_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "asp",
               "run_id": "asp_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "pspstain",
               "run_id": "pspstain_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cut",
               "run_id": "cut_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cyclegan",
               "run_id": "cyclegan_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "nafnet",
               "run_id": "nafnet_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "restormer",
               "run_id": "restormer_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "model": "cssp2p",
               "run_id": "cssp2p_IHC4BC_HER2",
               "field_id": "9",
               "available": false,
-              "reason": "Archived selected checkpoint unavailable: archive server offline"
+              "reason": "Archived selected checkpoint unavailable: archive server offline (archive access still unavailable on 22 November 2026)"
             },
             {
               "field": "9",
@@ -20003,12 +20134,13 @@
           "id": "bbdm",
           "name": "BBDM",
           "run_id": "her2match__bbdm_seed42",
-          "checkpoint_sha256": null,
-          "selected_step": null,
+          "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+          "selected_step": 58000,
           "protocol": null,
-          "status": "unavailable",
-          "available_fields": 0,
-          "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+          "status": "available",
+          "available_fields": 10,
+          "reason": null,
+          "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9"
         },
         {
           "id": "cssp2p",
@@ -20146,12 +20278,13 @@
           "id": "swinir",
           "name": "SwinIR",
           "run_id": "missing__swinir_HER2Match_HER2_20261121",
-          "checkpoint_sha256": null,
-          "selected_step": null,
+          "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+          "selected_step": 2000,
           "protocol": null,
-          "status": "unavailable",
-          "available_fields": 0,
-          "reason": "New training run queued; selected-checkpoint images will be available after training"
+          "status": "available",
+          "available_fields": 10,
+          "reason": null,
+          "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3"
         }
       ],
       "fields": [
@@ -20197,11 +20330,24 @@
               "url": "images/gallery_20261121/her2match/0/asp.webp"
             },
             {
+              "field": "0",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "0",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "7fb432bfaffac2c4c1f2bfb049952344f6a4a5e90936321e3024e3a0f791c64e",
+              "input_sha256": "ed68780e002020635b26dca638d26cddfb0c2ecdfbecb0641af952a8bd632c30",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/0/bbdm.webp",
+              "sha256": "a480a98c60df7c2dd23729eed188fc9542325318b4f1967c68541a205ebeb685",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "45f9d81975d5de15465071cbbb01faacd3a15c71143ef635bd181bbb4578551b",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "0",
@@ -20396,11 +20542,24 @@
               "url": "images/gallery_20261121/her2match/0/miphei_vit.webp"
             },
             {
+              "field": "0",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "0",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "7fb432bfaffac2c4c1f2bfb049952344f6a4a5e90936321e3024e3a0f791c64e",
+              "input_sha256": "ed68780e002020635b26dca638d26cddfb0c2ecdfbecb0641af952a8bd632c30",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/0/swinir.webp",
+              "sha256": "e73fd8ad7dd0feda2f49d99108d8bf10a59bf3cb3f873bd6f331575ca7ee5388",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "bb9f63934fa26c92aab53eda959e8a076d8dc6030ce4feaff2c6d71d47bf5812",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -20446,11 +20605,24 @@
               "url": "images/gallery_20261121/her2match/1/asp.webp"
             },
             {
+              "field": "1",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "1",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "038c4ecf99ecc28cdad42d257ff63ba4b0beea64975b753fecf6b4206e378a24",
+              "input_sha256": "1bcb7a7bd1f859049693c3c9d7ce6a0c8109ae7dcb857fa2df2ecb311dbbf986",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/1/bbdm.webp",
+              "sha256": "4dcac3b8a5f45ebba0b1ed4130f1ef79acf7ff145635a5ef228740e1b870f0e7",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "4fc365225205954b2940935d4cf70832c66d8550a84d745f042b042b4327c3df",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "1",
@@ -20645,11 +20817,24 @@
               "url": "images/gallery_20261121/her2match/1/miphei_vit.webp"
             },
             {
+              "field": "1",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "1",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "038c4ecf99ecc28cdad42d257ff63ba4b0beea64975b753fecf6b4206e378a24",
+              "input_sha256": "1bcb7a7bd1f859049693c3c9d7ce6a0c8109ae7dcb857fa2df2ecb311dbbf986",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/1/swinir.webp",
+              "sha256": "4b92b2e78129f2d6d320cf632e83bd1faad1e659cd7860f3aeebea3c101f0c3e",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "0e686bb54e36aa520cd1d6ce628ecf4ce911e687dd4e731cd0cfc104e67897ea",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -20695,11 +20880,24 @@
               "url": "images/gallery_20261121/her2match/2/asp.webp"
             },
             {
+              "field": "2",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "2",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "5b0c5589c3155497feb5c7cde13fc43e0cd79d7efabe7abfc00c9acbc4d8c860",
+              "input_sha256": "4b514879933294f1beda75540b5c153f376d09f706e650614e73f341c325f909",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/2/bbdm.webp",
+              "sha256": "ee3b7058baf6bca970bece243f8fcf410ceaf81831a7ddb9ffbf3b402670c2ff",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "88568a939155787b728d8a83b680a216a78eab3278c75c48169524d10abe2026",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "2",
@@ -20894,11 +21092,24 @@
               "url": "images/gallery_20261121/her2match/2/miphei_vit.webp"
             },
             {
+              "field": "2",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "2",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "5b0c5589c3155497feb5c7cde13fc43e0cd79d7efabe7abfc00c9acbc4d8c860",
+              "input_sha256": "4b514879933294f1beda75540b5c153f376d09f706e650614e73f341c325f909",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/2/swinir.webp",
+              "sha256": "5fb1c0a8d64e9a837a4662d8f9a341d08984d3d186c844f69e789cf1f4063a81",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "c6eb31317f08b0167ac88ef003b3d3e5ebb360372b0c81a90405e600e3dc83ec",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -20944,11 +21155,24 @@
               "url": "images/gallery_20261121/her2match/3/asp.webp"
             },
             {
+              "field": "3",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "3",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "311ec587c67c71411173c86eb011beff95b887a43fc370a43eb11979ca7b28ec",
+              "input_sha256": "375a0a4cd7589b26c1e669564aa9a134b61ede502e23ed775dcbdfecc4d14d5d",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/3/bbdm.webp",
+              "sha256": "5110ab5338e3439eebf247c0ada5a604672c94f6a71146083afcbd40a9c33c03",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "f88c2be8a1221d4cc4758899599b69ef048529e657dd9bf18b0afe51b0e9a875",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "3",
@@ -21143,11 +21367,24 @@
               "url": "images/gallery_20261121/her2match/3/miphei_vit.webp"
             },
             {
+              "field": "3",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "3",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "311ec587c67c71411173c86eb011beff95b887a43fc370a43eb11979ca7b28ec",
+              "input_sha256": "375a0a4cd7589b26c1e669564aa9a134b61ede502e23ed775dcbdfecc4d14d5d",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/3/swinir.webp",
+              "sha256": "7288b9b41087da4797815393f10ca0c3e4337e8827a10a48e0fab3fbeb251411",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "3718e45083233d887ba3f6ec56c473031cefb3b4f483620c8e149349e26aa80b",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -21193,11 +21430,24 @@
               "url": "images/gallery_20261121/her2match/4/asp.webp"
             },
             {
+              "field": "4",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "4",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "241430a7f6aed69c26fd6099341e671975a9f7cbaa28367bdc8ecaf35d59a12a",
+              "input_sha256": "5c81d53d6505db469a38c7810b0f710661bf286570659e50c34b4d7fe38aa17c",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/4/bbdm.webp",
+              "sha256": "68bd3f49100c0b18f59d0fac0c7506216a9ee79a7244ff4766c9c3795eb003a1",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "1fba6910cac5b768eedb84e380595bb85ed819cad2c934c5ea6e93ac56a80f11",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "4",
@@ -21392,11 +21642,24 @@
               "url": "images/gallery_20261121/her2match/4/miphei_vit.webp"
             },
             {
+              "field": "4",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "4",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "241430a7f6aed69c26fd6099341e671975a9f7cbaa28367bdc8ecaf35d59a12a",
+              "input_sha256": "5c81d53d6505db469a38c7810b0f710661bf286570659e50c34b4d7fe38aa17c",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/4/swinir.webp",
+              "sha256": "33460ca6aa6aa7af98321e6e41d5f5599355d84bd9a41fe15f4807795960b844",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "7523f22c247c919e476f8372aa4cb07562182de24905c86e1900b4c9e5773dfe",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -21442,11 +21705,24 @@
               "url": "images/gallery_20261121/her2match/5/asp.webp"
             },
             {
+              "field": "5",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "5",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "01d660632c2a59ef6b9f0a3bf8d9185e3bb89ed9f4abc69fcb47e85f74ae8076",
+              "input_sha256": "7b30a512f53aaaef8908685b76d00bf4ac0784f8e0ee3239ea7a6a1963a8631b",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/5/bbdm.webp",
+              "sha256": "95be859ecaec291291f08fa2d936a126cd7e6099501742ce8467a1d4c63f9f4d",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "f973eeb60571ce3f99a235101a555edd76700132c63bff2b984912cf8aff3632",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "5",
@@ -21641,11 +21917,24 @@
               "url": "images/gallery_20261121/her2match/5/miphei_vit.webp"
             },
             {
+              "field": "5",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "5",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "01d660632c2a59ef6b9f0a3bf8d9185e3bb89ed9f4abc69fcb47e85f74ae8076",
+              "input_sha256": "7b30a512f53aaaef8908685b76d00bf4ac0784f8e0ee3239ea7a6a1963a8631b",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/5/swinir.webp",
+              "sha256": "8661f1fab496d3a623902dfe85ef0e90416106e1a9b7931693e75305d832ba5c",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "2e34dd166fbc734ccaac9cad2487f03e64518f4a2eef91f9cb41ea702638ca72",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -21691,11 +21980,24 @@
               "url": "images/gallery_20261121/her2match/6/asp.webp"
             },
             {
+              "field": "6",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "6",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "b252cdda6dbf802c70e7c957d78a82a5c65cdeafb6d547e70f2732a03331d9d5",
+              "input_sha256": "d4c7520e32899a2a5768694e04fafa866efdcf8b347cf554d0b308723d84e76d",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/6/bbdm.webp",
+              "sha256": "6e6a73bf7f4cbffc11127a10e9c2e1f358a5719fb82873d1b357cbe5483ae368",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "56759805edd838b043448e18ddaf4fc6bfa7efcdef849927e6a29528a4d148d9",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "6",
@@ -21890,11 +22192,24 @@
               "url": "images/gallery_20261121/her2match/6/miphei_vit.webp"
             },
             {
+              "field": "6",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "6",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "b252cdda6dbf802c70e7c957d78a82a5c65cdeafb6d547e70f2732a03331d9d5",
+              "input_sha256": "d4c7520e32899a2a5768694e04fafa866efdcf8b347cf554d0b308723d84e76d",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/6/swinir.webp",
+              "sha256": "4ce0b42d3d3ef9ee1668b229c0bb7cb517ebadbcd1aba09b854a223640d302b9",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "b5e37c2d1da6ebc88ed35cfac04f785c5e04fb1274f0db3fa65c22d05b88f1a1",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -21940,11 +22255,24 @@
               "url": "images/gallery_20261121/her2match/7/asp.webp"
             },
             {
+              "field": "7",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "7",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "ba043764960c770480cb3069f41652bd52263b7b8d1942d99fe7331aafa313d1",
+              "input_sha256": "21960147bb6a029ceef4400fb4a78d82f5d0e523ba4e9c0efe6b8e11b4ee3c6e",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/7/bbdm.webp",
+              "sha256": "26f3d866aa1dbb1d0c55c44a59765d6c670283d6c524d74ed062d0814e591640",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "75795a74e02196c10d08769b569a29c4c44e0f59fe62f6f1a190e995edde3ec9",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "7",
@@ -22139,11 +22467,24 @@
               "url": "images/gallery_20261121/her2match/7/miphei_vit.webp"
             },
             {
+              "field": "7",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "7",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "ba043764960c770480cb3069f41652bd52263b7b8d1942d99fe7331aafa313d1",
+              "input_sha256": "21960147bb6a029ceef4400fb4a78d82f5d0e523ba4e9c0efe6b8e11b4ee3c6e",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/7/swinir.webp",
+              "sha256": "c37cc23b78518912d61c497b9f010204fc1dbf01e0bdf9d7fb09219928c0f142",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "98f8637cf34649fb1e61f264f06e43bc76a39997f6042836721b145aa340da50",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -22189,11 +22530,24 @@
               "url": "images/gallery_20261121/her2match/8/asp.webp"
             },
             {
+              "field": "8",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "8",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "724b0ce719d9c4a7b42742ebc242c09c606dfd938d89999225e8f1430771dacb",
+              "input_sha256": "54679aedaa7c02244593df96ccfcb2fa3a5ac53d5174290c7fb90f4c2b860263",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/8/bbdm.webp",
+              "sha256": "a0a55efd5b4de24fe1220bc996b56bef59541c0364f04fbe13f0aa06931893a4",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "2ec500549fe730e18675c6d5d83b7ea5b1de9282f08196d56c55e1312e34ec3c",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "8",
@@ -22388,11 +22742,24 @@
               "url": "images/gallery_20261121/her2match/8/miphei_vit.webp"
             },
             {
+              "field": "8",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "8",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "724b0ce719d9c4a7b42742ebc242c09c606dfd938d89999225e8f1430771dacb",
+              "input_sha256": "54679aedaa7c02244593df96ccfcb2fa3a5ac53d5174290c7fb90f4c2b860263",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/8/swinir.webp",
+              "sha256": "256a3ebea2b3f04f5eb0dda8a4f271d43582fc5297526e889d93df7d0fa71387",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "7628f3755c0125889de69e3fbe0f6532d15c904deb30e7f913df98ac56f48901",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         },
@@ -22438,11 +22805,24 @@
               "url": "images/gallery_20261121/her2match/9/asp.webp"
             },
             {
+              "field": "9",
               "model": "bbdm",
               "run_id": "her2match__bbdm_seed42",
               "field_id": "9",
-              "available": false,
-              "reason": "Training or complete held-out checkpoint evaluation is unavailable"
+              "target_sha256": "8b5386580b0fdc7452b1ba8519c275cb461c32d6a902510e76e30e82bb962e1f",
+              "input_sha256": "634c8ae4c0905df33dab5bbc9b2c1d700ea2e0f4fd5d768cf9c07573fb4b87ce",
+              "available": true,
+              "checkpoint_sha256": "1b606cf10c3ab1ff354f7f9ec1d55321926561e2358d343ed3e919ceff239286",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/9/bbdm.webp",
+              "sha256": "085e089807fc8aff1f8f1158fe5ea065fce73ae261f7e84299ad6a0080d266b0",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "744913f83164d12b48252aa01321df2058645e22436bdeea510b8de5beb97a02",
+              "selected_evaluation_sha256": "5398eccfe9e30b64f122a844f2e10a2cb23899a255593e6c866607e7508a72a9",
+              "inference_weights": "ema",
+              "training_source_sha256": "e64501f48a8142c14a52a193d10c850f4d0c497af45b05cb4463816131987306",
+              "gallery_export_job_id": "1650536"
             },
             {
               "field": "9",
@@ -22637,11 +23017,24 @@
               "url": "images/gallery_20261121/her2match/9/miphei_vit.webp"
             },
             {
+              "field": "9",
               "model": "swinir",
               "run_id": "missing__swinir_HER2Match_HER2_20261121",
               "field_id": "9",
-              "available": false,
-              "reason": "New training run queued; selected-checkpoint images will be available after training"
+              "target_sha256": "8b5386580b0fdc7452b1ba8519c275cb461c32d6a902510e76e30e82bb962e1f",
+              "input_sha256": "634c8ae4c0905df33dab5bbc9b2c1d700ea2e0f4fd5d768cf9c07573fb4b87ce",
+              "available": true,
+              "checkpoint_sha256": "74db64d247f39dc5945f89ab236b8f2f120e5259b07345e4719666b89799ce6c",
+              "source": "Fresh FP32 inference from the validation-selected checkpoint",
+              "url": "images/gallery_20261122/her2match/9/swinir.webp",
+              "sha256": "e2a97a3b608a4a4876218a555e055ad8f7910e7ba77b20efe8572bf3440bf6c0",
+              "width": 256,
+              "height": 256,
+              "pixels_sha256": "5257197a7e79a08cf433549a63723c7045da29432ca6770a262de0117e5b0b0e",
+              "selected_evaluation_sha256": "5aab2d6d284dea02bb888a4dcb4bc1139e8faf7b07a2fec7a0c0b870b63a96a3",
+              "inference_weights": "online",
+              "training_source_sha256": "9c1882646bccfdde8ae6ecfd145cb72ab3f783d65c1d91c4e645a189b867dd62",
+              "gallery_export_job_id": "1650536"
             }
           ]
         }

@@ -188,3 +188,15 @@ test('published breast comparisons include the new families while preserving raw
     assert.ok(group.entries.every(e=>e.evaluation.comparison_protocol_review_sha256 && e.evaluation.crop_size===256));
   }
 });
+
+test('completed SwinIR joins the source-reviewed native comparison cohorts', async () => {
+  const index=JSON.parse(await readFile(new URL('../dist/data/index.json',import.meta.url),'utf8'));
+  const groups=buildProfileCohorts(index);
+  for(const run of index.runs.filter(r=>r.model==='swinir'))for(const e of run.evaluations.filter(e=>e.rankable&&e.split==='test')){
+    assert.ok(e.comparison_protocol_review_sha256,'SwinIR metric source equivalence is unbound');
+    const group=groups.find(g=>g.entries.some(entry=>entry.run.id===run.id&&entry.evaluation.id===e.id));
+    assert.ok(group,'SwinIR was isolated from its compatible cohort');
+    const models=new Set(group.entries.map(entry=>entry.run.model));
+    for(const baseline of ['unet','hemit','bbdm'])assert.ok(models.has(baseline),'SwinIR lost the '+baseline+' matched baseline');
+  }
+});

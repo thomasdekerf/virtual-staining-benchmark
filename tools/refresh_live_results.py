@@ -10,8 +10,9 @@ from datetime import datetime,timezone
 from pathlib import Path
 import numpy as np
 import yaml
-from snapshot_evidence import current_cluster_snapshot,current_campaign_snapshot
+from snapshot_evidence import current_cluster_snapshot,current_campaign_snapshot,current_followup_snapshot
 from protocol_compatibility import attach_reviewed_protocols
+from followup_results import apply_live_execution,new_research_validation,verify_completed_integration,verify_native_gate
 
 NAMES={'swinir':'SwinIR','hemit':'HEMIT','implicitstainer':'ImplicitStainer','miphei_vit':'MiPHEI-ViT','bbdm':'BBDM','eqm':'EqM','nvg':'NVG','lrdm':'LRDM','itarflow':'Conditional iTARFlow','asp':'ASP','histdist':'HistDiST','pd_unist':'PD-UNIST','unet':'U-Net','pix2pix':'Pix2Pix','pyramid':'Pyramid Pix2Pix','pspstain':'PSPStain','cut':'CUT','cyclegan':'CycleGAN','nafnet':'NAFNet','restormer':'Restormer','cssp2p':'CSSP2P-GAN'}
 DETECTORS={'stardist','stardist2x','hovernet','cellpose_sam'}
@@ -55,6 +56,9 @@ def refresh(site,workspace):
     models={m['id']:m for m in data['models']};snapshot_path,snapshot=current_cluster_snapshot(workspace)
     captured=snapshot.get('captured_utc') or datetime.now(timezone.utc).isoformat()
     campaign_path,campaign_snapshot=current_campaign_snapshot(workspace)
+    followup_path,followup_snapshot=current_followup_snapshot(workspace)
+    followup_records=followup_snapshot.get('records',{})
+    captured=max(captured,followup_snapshot.get('captured_utc',captured))
     sources=[];changes=[];touched=set()
     def source(path,label):
         p=Path(path);row={'file':str(p.relative_to(workspace)),'sha256':sha(p),'label':label,'observed_utc':captured}
@@ -349,10 +353,27 @@ def refresh(site,workspace):
             run=register(runs.get(rid) or fresh_run(rid,'swinir',dataset,task='ihc',marker=task['marker'],variant='Native SwinIR · paired RGB L1 · seed 42'))
             run.update(state='Queued / native training check required',scheduler_status='PENDING',training_job=str(integration_submission['array_job_id'])+'_'+str(task['index']),source_sha256=task['source_sha256'],config_sha256=task['config_sha256'],status_as_of=integration_submission.get('released_utc'),registered_only=True,last_step=0,gate_passed=False,training_complete=False,crop_size=256,notes='Author-capacity same-resolution SwinIR, adapted with paired RGB L1. Actual four-rank pause/resume check required before production; no production updates observed at submission.')
             config=integration_root/'prepared/configs'/(task['id']+'.yml')
-            if config.exists():run['configuration']=config.read_text()
+            if config.exists():
+                assert sha(config)==task['config_sha256'],'Prepared SwinIR config changed'
+                run['configuration']=config.read_text()
             run['sources'].append({'file':receipt['file'],'sha256':receipt['sha256']})
+            directory=cache/'followups/swinir'/task['id']
+            status(run,directory);history(run,directory,force=True)
+            live=followup_records.get(rid,{})
+            smoke=read(cache/'followups/swinir_smokes'/task['id']/'smoke_receipt.json',{})
+            final=directory/'final_evaluation.json'
+            if final.exists():
+                cfg=yaml.safe_load(config.read_text())
+                verify_native_gate(smoke,task['source_sha256'],cfg)
+                dataset_record=next(d for d in data['datasets'] if d['id']==dataset)
+                expected_counts={split:(dataset_record['counts'][split] if dataset=='her2match' else dataset_record['counts'][split][task['marker']]) for split in ('val','test')}
+                verify_completed_integration(read(final),cfg,task,expected_counts)
+                ingest(run,final,dataset,'coverage_her2match' if dataset=='her2match' else 'coverage_breast')
+                run.update(evaluation_complete=True,gate_passed=True,training_complete=True,registered_only=False,notes='Author-capacity SwinIR completed its actual four-rank pause/resume check and complete selected-checkpoint validation/test evaluation.')
+                source(cache/'followups/swinir_smokes'/task['id']/'smoke_receipt.json','Actual native SwinIR pause/resume proof')
+            if live:apply_live_execution(run,live,followup_snapshot['captured_utc'])
             followups.append(dict(run_id=rid,model='SwinIR',dataset=dataset,job=run['training_job'],state=run['state'],kind='New model integration'))
-        models['swinir']['notes']='Native author-capacity same-resolution SwinIR is integrated and queued on BCI/HER2Match with paired RGB L1; real-data four-GPU checks precede production.'
+        models['swinir']['notes']='Native author-capacity same-resolution SwinIR is integrated on BCI/HER2Match with paired RGB L1. Completed results require verified four-GPU resume checks and full selected-checkpoint held-out evaluations.'
     audit_root=workspace/'artifacts/experiment_audit_20261121'
     continuation=read(audit_root/'continuation_submission.json',{})
     preparation=read(audit_root/'restormer_continuation_preparation.json',{})
@@ -363,6 +384,10 @@ def refresh(site,workspace):
         run.update(state='Queued / post-budget update check required',scheduler_status='PENDING',training_job=str(continuation['array_job_id'])+'_0',source_sha256=continuation['source_sha256'],status_as_of=continuation['submitted_utc'],registered_only=True,last_step=0,parent_step=preparation['parent_step'],new_optimizer_updates=0,training_complete=False,gate_passed=False,crop_size=256,notes='Original 80k checkpoint, optimizer, scheduler horizon, nonzero LR floor and validation patience retained. A real post-budget parameter-update check precedes continuation. Native historical worker augmentation RNG was not saved; bitwise replay is unavailable.')
         receipt=source(audit_root/'continuation_submission.json','Native Restormer continuation submission')
         run['sources'].append({'file':receipt['file'],'sha256':receipt['sha256']})
+        live=followup_records.get(rid,{})
+        if live:
+            apply_live_execution(run,live,followup_snapshot['captured_utc'])
+            run['notes']='Native continuation retains its optimizer, scheduler horizon, positive LR floor and validation patience. Startup time-budget fault repaired; actual completed updates and queue state are recorded separately. Native historical worker augmentation RNG was not saved.'
         followups.append(dict(run_id=rid,model='Restormer',dataset='her2match',job=run['training_job'],state=run['state'],kind='Continue improving validation'))
     eqm_submission=read(audit_root/'eqm_continuation_submission.json',{})
     if eqm_submission.get('array_job_id'):
@@ -372,6 +397,21 @@ def refresh(site,workspace):
         run.update(state='Queued after Restormer / post-budget update check required',scheduler_status='PENDING',training_job=str(eqm_submission['array_job_id'])+'_0',training_dependency=eqm_submission['dependency'],source_inventory_sha256=eqm_submission['source_inventory_sha256'],status_as_of=eqm_submission['submitted_utc'],registered_only=True,last_step=0,parent_step=eqm_submission['parent_step'],new_optimizer_updates=0,training_complete=False,gate_passed=False,crop_size=256,notes='Original model, EMA, optimizer, constant learning rate, scheduler, saved RNG and sampler retained. Isolated operational budget extension; original fixed 256-field stopping monitor and separate full validation remain research-only and unranked.')
         receipt=source(audit_root/'eqm_continuation_submission.json','Native EqM research continuation submission')
         run['sources'].append({'file':receipt['file'],'sha256':receipt['sha256']})
+        live=followup_records.get(rid,{})
+        if live:apply_live_execution(run,live,followup_snapshot['captured_utc'])
+        validation_path=cache/'followups/eqm/validation.jsonl'
+        if validation_path.exists():
+            checks=new_research_validation(validation_path.read_text(),run['parent_step'])
+            if checks:
+                binding=source(validation_path,'Actual post-budget EqM selection-monitor checks')
+                protocol='EqM continuation · fixed 256-crop selection monitor'
+                run['evaluations']=[e for e in run['evaluations'] if e.get('protocol')!=protocol]
+                latest=checks[-1]
+                run['evaluations'].append(dict(id=evaluation_id(rid,'finland','monitor',protocol,256),dataset='finland',marker='H&E',split='monitor',n=256,protocol=protocol,metrics=latest['metrics'],rankable=False,position=latest['step'],as_of=captured,evidence={'file':binding['file'],'sha256':binding['sha256']}))
+                run['curves']={('val/'+key):[[c['step'],c['metrics'][key]] for c in checks if key in c['metrics']] for key in latest['metrics']}
+                run['curve_counts']={key:len(points) for key,points in run['curves'].items()}
+                run['curve_protocol']=dict(split='training selection monitor',n=256,stage='main',parent_history_run=run['parent_run'])
+                write_csv(out/'downloads'/f'{rid}_curves.csv',['tag','step_or_epoch','value'],([tag,x,y] for tag,points in run['curves'].items() for x,y in points))
         followups.append(dict(run_id=rid,model='EqM',dataset='finland',job=run['training_job'],state=run['state'],kind='Continue improving research validation'))
     data['followup_campaigns']=followups
     public_audit=read(audit_root/'convergence_summary_public.json',{})
@@ -380,7 +420,30 @@ def refresh(site,workspace):
         write(out/'data/training-audit.json',public_audit)
         data['training_audit']={k:v for k,v in public_audit.items() if k!='runs'}|{'download':'data/training-audit.json'}
         source(audit_root/'convergence_summary_public.json','Training convergence audit; validation-based decisions')
-    attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json')
+    capacity_candidates=[]
+    for path in (workspace/'artifacts').glob('archives_resume_*/resource_capacity_public.json'):
+        record=read(path,{})
+        if record.get('snapshot'):capacity_candidates.append((record['snapshot'],path,record))
+    if capacity_candidates:
+        _,capacity_path,capacity=max(capacity_candidates,key=lambda entry:entry[0])
+        captured=max(captured,capacity['snapshot'])
+        write(out/'data/gpu-activity.json',capacity)
+        data['gpu_activity']=copy.deepcopy(capacity)|{'download':'data/gpu-activity.json'}
+        deferred_path=capacity_path.parent/'prepared/campaign.json'
+        deferred=read(deferred_path,{})
+        if deferred:
+            public_deferred=dict(snapshot=capacity['snapshot'],submitted=False,run_records=deferred['task_count'],readiness_groups=deferred['readiness_groups'],runs=[dict(id=t['id'],model=t['model'],datasets=t['datasets'],saved_step=(t.get('parent_position') or {}).get('global_step'),gpus=t['per_task_gpus'],readiness=t['readiness'],selection_metric=t['scientific_selection_metric'],checkpoint_available=bool(t.get('parent_checkpoint_sha256'))) for t in deferred['tasks']])
+            write(out/'data/deferred-training.json',public_deferred)
+            data['gpu_activity']['blocked'].update(readiness_groups=deferred['readiness_groups'],plan_download='data/deferred-training.json')
+            source(deferred_path,'Concrete deferred native training plans; no submissions without original data')
+        write(out/'data/gpu-activity.json',data['gpu_activity'])
+        source(capacity_path,'Actual shared GPU capacity and runnable training queue')
+    if followup_path:
+        receipt=source(followup_path,'Current follow-up gate, update and scheduler observations')
+        for rid in followup_records:
+            if rid in runs:runs[rid]['sources'].append({'file':receipt['file'],'sha256':receipt['sha256']})
+    source(out/'data/swinir-protocol-review.json','SwinIR metric and data code equivalence review')
+    attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json',out/'data/swinir-protocol-review.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.
     baseline_evals={(r['id'],e['id']):e for r in baseline['runs'] for e in r['evaluations'] if e.get('rankable')}

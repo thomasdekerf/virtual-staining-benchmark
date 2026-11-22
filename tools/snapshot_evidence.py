@@ -26,3 +26,14 @@ def current_campaign_snapshot(workspace):
     if not candidates:return None,{}
     _,path,value=max(candidates,key=lambda item:item[0])
     return path,value
+
+
+def current_followup_snapshot(workspace):
+    candidates=[]
+    for path in (workspace/'artifacts').glob('archives_resume_*/live_audit/followups_snapshot.json'):
+        try:value=json.loads(path.read_text())
+        except (OSError,ValueError):continue
+        if value.get('captured_utc'):candidates.append((value['captured_utc'],path,value))
+    if not candidates:return None,{}
+    _,path,value=max(candidates,key=lambda item:item[0])
+    return path,value

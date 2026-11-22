@@ -24,6 +24,7 @@ jobs:
           python3 tools/validate_data.py
           python3 -m unittest discover -s tools -p 'test_pages_artifact.py'
           python3 -m unittest discover -s tools -p 'test_prediction_gallery.py'
+          python3 -m unittest discover -s tools -p 'test_followup_results.py'
       - name: Check exploratory chart semantics
         run: node --test tools/test_*semantics.mjs
       - uses: actions/configure-pages@v5

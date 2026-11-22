@@ -295,7 +295,7 @@ def build(dist, workspace):
         series=trajectory_series, note='Actual recorded values; no smoothing or extrapolation. Same BCI validation cohort. Training recipes differ; equal updates do not imply equal training compute. Validation trajectories do not use test scores.')
     return dict(schema='virtual-staining-visual-summary-v1', snapshot=dict(benchmark=data['snapshot'], activity=recent['observed_utc']),
         scale=scale, datasets=datasets, coverage=coverage, cohort=cohort, trajectories=trajectories,
-        activity=recent, provenance=sources,coverage_balance=balance,training_audit=data.get('training_audit'),followup_campaigns=data.get('followup_campaigns',[]),
+        activity=recent, provenance=sources,coverage_balance=balance,training_audit=data.get('training_audit'),followup_campaigns=data.get('followup_campaigns',[]),gpu_activity=data.get('gpu_activity'),
         notes=['Current result inventory and activity retain explicit source and capture timestamps.',
             f'{len(entries)} run records include evaluated, deferred, continuation and unscored entries; they are not independently completed training experiments.',
             'Recorded GPU-hours sum available per-run evidence only. Missing allocations and parent compute are not estimated; a continuation is not total training compute.',

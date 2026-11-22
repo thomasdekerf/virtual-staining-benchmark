@@ -1,5 +1,6 @@
 """Validate scientific snapshot consistency and static references before deployment."""
 import hashlib, json, math, re
+from followup_results import verify_gpu_snapshot
 from datetime import datetime
 from pathlib import Path
 
@@ -94,6 +95,10 @@ assert summary['snapshot']['benchmark']==index['snapshot'], 'Overview uses a dif
 assert datetime.fromisoformat(summary['snapshot']['activity'])>=datetime.fromisoformat(index['snapshot'])
 assert not re.search(r'/(?:Users|sofia|user|home|mnt)/',summary_path.read_text()), 'Private filesystem path in public chart data'
 entries=index['runs']
+if index.get('gpu_activity'):
+    verify_gpu_snapshot(index['gpu_activity'])
+    assert summary.get('gpu_activity')==index['gpu_activity'], 'GPU overview uses stale execution data'
+    assert json.loads((root/'data/gpu-activity.json').read_text())==index['gpu_activity'], 'GPU download differs from the shown snapshot'
 ranked=lambda r: any(e.get('rankable') for e in r['evaluations'])
 tested=lambda r: any(e.get('rankable') and e['split']=='test' for e in r['evaluations'])
 scale=summary['scale']
