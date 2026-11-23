@@ -13,8 +13,10 @@ import yaml
 from snapshot_evidence import current_cluster_snapshot,current_campaign_snapshot,current_followup_snapshot
 from protocol_compatibility import attach_reviewed_protocols
 from followup_results import apply_live_execution,new_research_validation,verify_completed_integration,verify_native_gate
+from architecture_catalog import augment_catalog,create_run
 
 NAMES={'swinir':'SwinIR','hemit':'HEMIT','implicitstainer':'ImplicitStainer','miphei_vit':'MiPHEI-ViT','bbdm':'BBDM','eqm':'EqM','nvg':'NVG','lrdm':'LRDM','itarflow':'Conditional iTARFlow','asp':'ASP','histdist':'HistDiST','pd_unist':'PD-UNIST','unet':'U-Net','pix2pix':'Pix2Pix','pyramid':'Pyramid Pix2Pix','pspstain':'PSPStain','cut':'CUT','cyclegan':'CycleGAN','nafnet':'NAFNet','restormer':'Restormer','cssp2p':'CSSP2P-GAN'}
+NAMES.update(pix2pixhd='Pix2PixHD',uformer='Uformer-B',dclgan='DCLGAN',i2sb='I²SB')
 DETECTORS={'stardist','stardist2x','hovernet','cellpose_sam'}
 
 def read(path,default=None):
@@ -33,7 +35,8 @@ def clean(obj):
 
 def write(path,obj):Path(path).write_text(json.dumps(clean(obj),separators=(',',':'),ensure_ascii=False,allow_nan=False)+'\n')
 def evaluation_id(rid,dataset,split,protocol,n):return hashlib.sha256(f'{rid}|{dataset}|{split}|{protocol}|{n}'.encode()).hexdigest()[:12]
-def fresh_run(rid,model,dataset,**kw):return dict(id=rid,model=model,name=NAMES.get(model,model),variant='Production · seed 42',datasets=[dataset],task='ihc' if dataset=='her2match' else 'unstained',marker='HER2' if dataset=='her2match' else 'H&E',state='Registered',seed=42,evaluations=[],sources=[],curves={},gallery=[],distributions={},curve_counts={},curve_axis='step') | kw
+def fresh_run(rid,model,dataset,**kw):
+    return create_run(rid,model,dataset,NAMES,**kw)
 
 def write_csv(path,header,rows):
     ending='\r\n' if path.exists() and b'\r\n' in path.read_bytes() else '\n'
@@ -52,7 +55,7 @@ def refresh(site,workspace):
     if not baseline_path.exists():write(baseline_path,current)
     baseline=read(baseline_path)
     baseline_pairs={(r['id'],e['id']) for r in baseline['runs'] if is_published_run(r,publication_policy) for e in r['evaluations'] if e.get('rankable')}
-    data=copy.deepcopy(current);runs={r['id']:read(out/'data/runs'/f'{r["id"]}.json') for r in current['runs']}
+    data=augment_catalog(copy.deepcopy(current));runs={r['id']:read(out/'data/runs'/f'{r["id"]}.json') for r in current['runs']}
     published=json.loads(subprocess.check_output(['git','-C',str(site),'show','HEAD:dist/data/index.json']))
     previous_evals={(r['id'],e['id']):copy.deepcopy(e) for r in published['runs'] if is_published_run(r,publication_policy) for e in r['evaluations'] if e.get('rankable')}
     models={m['id']:m for m in data['models']};snapshot_path,snapshot=current_cluster_snapshot(workspace)
@@ -451,7 +454,7 @@ def refresh(site,workspace):
     _,her2_observed=current_her2_snapshot(workspace)
     if her2_observed:
         captured=max(captured,her2_observed['captured_utc'])
-        integrate_her2(site,workspace,data,runs,register,fresh_run,status,history,ingest,source,write)
+        integrate_her2(site,workspace,data,runs,register,fresh_run,status,history,ingest,source,write,previous_evals)
     attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json',out/'data/swinir-protocol-review.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.

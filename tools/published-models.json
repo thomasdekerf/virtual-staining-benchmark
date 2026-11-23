@@ -469,6 +469,39 @@
       "provenance_urls": [
         "https://doi.org/10.1016/j.crmeth.2025.101074"
       ]
+    },
+    "pix2pixhd": {
+      "title": "High-Resolution Image Synthesis and Semantic Manipulation With Conditional GANs",
+      "url": "https://openaccess.thecvf.com/content_cvpr_2018/html/Wang_High-Resolution_Image_Synthesis_CVPR_2018_paper.html",
+      "code_url": "https://github.com/NVIDIA/pix2pixHD",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "provenance_urls": [
+        "https://openaccess.thecvf.com/content_cvpr_2018/html/Wang_High-Resolution_Image_Synthesis_CVPR_2018_paper.html",
+        "https://github.com/NVIDIA/pix2pixHD"
+      ]
+    },
+    "dclgan": {
+      "title": "Dual Contrastive Learning for Unsupervised Image-to-Image Translation",
+      "url": "https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/html/Han_Dual_Contrastive_Learning_for_Unsupervised_Image-to-Image_Translation_CVPRW_2021_paper.html",
+      "code_url": "https://github.com/JunlinHan/DCLGAN",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "provenance_urls": [
+        "https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/html/Han_Dual_Contrastive_Learning_for_Unsupervised_Image-to-Image_Translation_CVPRW_2021_paper.html",
+        "https://github.com/JunlinHan/DCLGAN"
+      ]
+    },
+    "i2sb": {
+      "title": "I²SB: Image-to-Image Schrödinger Bridge",
+      "url": "https://proceedings.mlr.press/v202/liu23ai.html",
+      "code_url": "https://github.com/NVlabs/I2SB",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "provenance_urls": [
+        "https://proceedings.mlr.press/v202/liu23ai.html",
+        "https://github.com/NVlabs/I2SB"
+      ]
     }
   },
   "eligible_run_ids": [
@@ -748,7 +781,15 @@
     "unet_MIST_PR",
     "unet_l1_job1320937",
     "unpaired_cut_job1373367",
-    "unpaired_stable_job1373368"
+    "unpaired_stable_job1373368",
+    "her2match_complete__pix2pixhd_20261123",
+    "architecture__pix2pixhd_BCI_HER2_20261123",
+    "her2match_complete__uformer_20261123",
+    "architecture__uformer_BCI_HER2_20261123",
+    "her2match_complete__dclgan_20261123",
+    "architecture__dclgan_BCI_HER2_20261123",
+    "her2match_complete__i2sb_20261123",
+    "architecture__i2sb_BCI_HER2_20261123"
   ],
   "excluded_runs": {
     "priority_pyramid_orion_production_job1383267": {
@@ -1112,7 +1153,8 @@
     "research_exclusion_reason": "These upstream papers exist, but the current local runs are substantial independent research adaptations, not conventional published benchmark model recipes. Do not describe upstream methods themselves as unpublished.",
     "her2match_20261123": "Canonical HER2Match campaign configs and disclosed native budget continuations reviewed; strict actual source/config/manifest/tensor-update/resume gates bind training evidence. BCIStainer remains unscored and blocked without genuine tile grades. All87 original unpublished recipes stay excluded.",
     "dgr_rgb_rescue_20261123": "Separate fresh seed42 numerical rescue after source-verified colour collapse; unchanged six original DGR model/vendor files, original RGB author1e-5FP32 preset, native per-network0.5gradient clipping, constantLR and full-validation patience. Mandatory104-step four-rank resumed G/RegGT/RegX/D learned-weight and optimizer proof. Old failure and scores remain visible; no test selection or claimed repair success from submission.",
-    "mcs_fp32_recovery_20261123": "Separate fresh seed42 numerical recovery after four-case validation-only white-collapse diagnosis: FP32, original author G-first/D-second update order and12-check validation patience. Original shared RGB architecture, native semantic/identity/GAN objectives, Adam and learning rate retained. Poor original complete evaluation remains visible; submission/startup checks do not establish repair quality."
+    "mcs_fp32_recovery_20261123": "Historical fresh seed42 repair attempt restored FP32 and G-first/D-second order but still failed the constant-white-output gate before production. Later author-code audit identified semantic Cellpose BatchNorm-mode and adversarial scale-reduction discrepancies that this attempt did not correct. Its original source, failure and earlier poor full evaluation remain preserved. Separate short author-contract diagnostic controls are private and unranked; no successful repair claim follows from source changes or submission.",
+    "architecture_expansion_20261123": "Published Pix2PixHD (CVPR2018), Uformer-B (CVPR2022), DCLGAN (CVPRW/NTIRE2021), and I2SB (ICML2023) are conventional RGB staining adaptations on frozen HER2Match and BCI HER2 fields. Full native author capacities and defining objectives are retained; actual four-GPU positive-LR learned-update/resume proofs and nine-field independent validation are mandatory. DCL requires both G/D/projection directions and three optimizers; I2SB requires online+EMA updates and verified initialization; Pix2PixHD requires fixed verified VGG19. Queued or merely registered recipes carry no invented score. Diagnostic controls and additional variants are not approved implicitly."
   },
   "reviewed_date": "2026-11-23",
   "schema": "published-model-policy-v1"

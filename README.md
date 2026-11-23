@@ -20,6 +20,32 @@ The [searchable, sortable benchmark table](https://thomasdekerf.github.io/virtua
 
 The 19 November refresh preserves every previously published ranked result and adds the verified current results: nine completed HER2Match models, three newly completed Finland families and recovered skin ASP. This gives 19 complete Finland test profiles and 21 for skin. Separately dated campaign cards show unfinished training, evaluations and the focused 17-run expansion. The expansion adds HEMIT, ImplicitStainer and MiPHEI-ViT to the breast HER2 anchor comparisons, plus BBDM across the original breast anchors, Finland and skin. Original breast and HER2Match target 14 benchmark families; Finland and skin target 22. These are planned targets until the runs and full evaluations finish. The small `dist/data/visual-summary.json` records source fingerprints and scope notes.
 
+## Published architecture expansion
+
+The 23 November expansion adds full author-capacity **Pix2PixHD**, **Uformer-B**,
+**DCLGAN** and **I²SB** implementations for the HER2Match and BCI HER2 comparisons.
+Their papers cover multiscale conditional GANs, restoration Transformers, dual
+contrastive unpaired translation and paired diffusion bridges. The paper
+catalogue now contains 46 methods; the implemented HER2Match landscape targets 34
+families. These are conventional staining adaptations with pinned author code,
+explicit objectives and per-dataset manifests, rather than scores reproduced
+from the authors' original datasets.
+
+Queued work carries no fabricated training updates or test scores. Each new
+recipe requires its actual full-capacity four-GPU positive-LR checkpoint/resume
+check and independent nine-field validation recomputation. Additional checks bind
+DCLGAN's six learned networks and three optimizers, I²SB's online/EMA models and
+pretrained initialization, and Pix2PixHD's frozen VGG19 feature network. Complete
+validation/test measurements remain necessary for scored publication. Shared
+metric/data code is explicitly reviewed before newly published scores join an
+existing comparison cohort; old scientific records and gallery bindings remain
+exact.
+
+Existing MCS-Stain failures are flagged on their actual selected checkpoints:
+white collapse on ORION, skin and HER2Match, and purple/cyan artifacts in Finland.
+These diagnoses preserve the real historical results and distinguish completed
+evaluation from useful prediction quality.
+
 ## Evidence and coverage
 
 The complete local evidence ledger reconciles every model-priority entry and ORION run row in `Virtual_Staining_Model_Priorities.xlsx`, all 130 completed breast runs, all 360 breast dataset/split result rows, the separate 24-patch pathology pilot, and saved cluster runs absent from the workbook. Historical reconciliation totals retain that original scope. The website, gallery, downloads and visible counts contain only the reviewed published-method subset, documented in `dist/data/publication-policy.json`. Removing a public entry does not delete its original research evidence or checkpoint.

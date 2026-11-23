@@ -3,7 +3,8 @@ import copy
 import unittest
 
 from her2_campaigns import (campaign_summary,digest,scheduler_state,verify_continuation_gate,
-                            verify_final_report,verify_parent_reuse,verify_resume_gate,preparation_summary,TARGET_MODELS)
+                            verify_final_report,verify_parent_reuse,verify_resume_gate,preparation_summary,TARGET_MODELS,
+                            apply_checkpoint_bound_mcs_findings,build_capacity)
 from followup_results import verify_gpu_snapshot
 
 
@@ -22,6 +23,87 @@ def result(cfg):
 
 class Her2CampaignTests(unittest.TestCase):
     def setUp(self):self.cfg=config();self.task=dict(model='dgr',source_sha256='d'*64)
+
+    def test_draining_existing_allocations_remain_in_actual_capacity(self):
+        nodes=[dict(name='draining',gpus=8,allocated_gpus=8,free_gpus=0,usable=False),
+               dict(name='usable',gpus=8,allocated_gpus=5,free_gpus=3,usable=True),
+               dict(name='down',gpus=8,allocated_gpus=0,free_gpus=0,usable=False)]
+        record=build_capacity(dict(records={},parsed_nodes=nodes,captured_utc='2026-11-23T21:35:22Z'),{}, {})
+        self.assertEqual(record['partition']['schedulable_gpus'],16)
+        self.assertEqual(record['partition']['allocated_on_draining_nodes'],8)
+        verify_gpu_snapshot(record)
+
+    def test_cross_dataset_quality_findings_require_the_exact_mcs_checkpoint(self):
+        rid='skin__mcs_stain_seed42'
+        runs={rid:dict(id=rid,model='mcs_stain',datasets=['skin'],checkpoint_sha256='a'*64)}
+        audit=dict(source_files_unchanged=True,scope='Read-only selected-checkpoint audit',
+                   full_evaluation_receipts=dict(skin=dict(checkpoint_sha256='a'*64)))
+        self.assertEqual(apply_checkpoint_bound_mcs_findings(runs,audit),[rid])
+        self.assertTrue(runs[rid]['quality_failure'])
+        self.assertNotIn('evaluations',runs[rid])
+        audit['full_evaluation_receipts']['skin']['checkpoint_sha256']='b'*64
+        with self.assertRaises(ValueError):apply_checkpoint_bound_mcs_findings(runs,audit)
+
+    def test_dclgan_requires_each_native_direction_to_resume_learned_updates(self):
+        task=self.task|dict(model='dclgan')
+        def item(name,step,letter):return dict(max_optimizer_step=step,min_optimizer_step=step,
+            parameter_states=8,parameters=11_378_179 if name.startswith('G_') else 2_764_737 if name.startswith('D_') else 493_568,
+            learning_rates=[.001 if name.startswith('F') else .0002],
+            betas=[[.9,.999] if name.startswith('F') else [.5,.999]],weight_decays=[0.],learned_parameters_sha256=letter*64)
+        prior=dict(native_architecture_evidence={name:item(name,2,'a') for name in ['G_A','G_B','D_A','D_B','F1','F2']})
+        passed=receipt(self.cfg)|dict(native_architecture_evidence={name:item(name,4,'b') for name in prior['native_architecture_evidence']})
+        self.assertTrue(verify_resume_gate(passed,self.cfg,task,prior))
+        for name in prior['native_architecture_evidence']:
+            broken=copy.deepcopy(passed)
+            broken['native_architecture_evidence'][name]['learned_parameters_sha256']='a'*64
+            with self.subTest(direction=name),self.assertRaises(ValueError):verify_resume_gate(broken,self.cfg,task,prior)
+        broken=copy.deepcopy(passed);del broken['native_architecture_evidence']['F2']
+        with self.assertRaises(ValueError):verify_resume_gate(broken,self.cfg,task,prior)
+
+    @staticmethod
+    def native_system(step,letter,count):
+        return dict(max_optimizer_step=step,min_optimizer_step=step,parameter_states=8,
+                    parameters=count,learning_rates=[.0001],betas=[[.9,.999]],weight_decays=[0.],learned_parameters_sha256=letter*64)
+
+    def test_uformer_gate_requires_actual_full_b_capacity_and_adam_updates(self):
+        cfg=copy.deepcopy(self.cfg);cfg['train'].update(betas=[.9,.999],weight_decay=0.)
+        task=self.task|dict(model='uformer');r=receipt(cfg)
+        before=dict(native_architecture_evidence=dict(generator=self.native_system(2,'a',50_880_946)))
+        r['native_architecture_evidence']=dict(generator=self.native_system(4,'b',50_880_946))
+        for state in [before,r]:
+            state['native_architecture_evidence']['generator']['rng_resume']=dict(
+                scheme='stateless_epoch_rank_rng_v1',world_size=4,rank_states=4,loader_states=4)
+        self.assertTrue(verify_resume_gate(r,cfg,task,before))
+        broken=copy.deepcopy(r);del broken['native_architecture_evidence']['generator']['rng_resume']
+        with self.assertRaises(ValueError):verify_resume_gate(broken,cfg,task,before)
+        r['native_architecture_evidence']['generator']['parameters']=1_000_000
+        with self.assertRaises(ValueError):verify_resume_gate(r,cfg,task,before)
+
+    def test_i2sb_gate_requires_independent_online_ema_and_native_initialization(self):
+        cfg=copy.deepcopy(self.cfg);cfg['model']['adm_sha256']='9'*64
+        task=self.task|dict(model='i2sb',pretrained_assets=[dict(sha256='9'*64)])
+        before=dict(native_architecture_evidence=dict(online=self.native_system(2,'a',552_814_083),
+            ema=dict(learned_parameters_sha256='a'*64,ema_updates=2,decay=.99),pretrained_asset_sha256='9'*64))
+        r=receipt(cfg)|dict(native_architecture_evidence=dict(online=self.native_system(4,'b',552_814_083),
+            ema=dict(learned_parameters_sha256='b'*64,ema_updates=4,decay=.99),pretrained_asset_sha256='9'*64))
+        self.assertTrue(verify_resume_gate(r,cfg,task,before))
+        for key,value in [('learned_parameters_sha256','a'*64),('ema_updates',2),('decay',.999)]:
+            broken=copy.deepcopy(r);broken['native_architecture_evidence']['ema'][key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):verify_resume_gate(broken,cfg,task,before)
+        with self.assertRaises(ValueError):verify_resume_gate(r,cfg,dict(task,pretrained_assets=[]),before)
+
+    def test_pix2pixhd_gate_requires_both_native_networks_and_unchanged_vgg(self):
+        cfg=copy.deepcopy(self.cfg);cfg['pix2pixhd']=dict(vgg19=dict(sha256='9'*64))
+        task=self.task|dict(model='pix2pixhd',pretrained_assets=[dict(sha256='9'*64)])
+        teacher=dict(parameters_frozen=True,training=False,checkpoint_sha256='9'*64,
+                     initial_parameters_sha256='e'*64,parameters_sha256='e'*64)
+        before=dict(native_architecture_evidence=dict(generator=self.native_system(2,'a',182_443_267),
+            discriminator=self.native_system(2,'a',5_535_618),fixed_feature_teacher=copy.deepcopy(teacher)))
+        r=receipt(cfg)|dict(native_architecture_evidence=dict(generator=self.native_system(4,'b',182_443_267),
+            discriminator=self.native_system(4,'b',5_535_618),fixed_feature_teacher=copy.deepcopy(teacher)))
+        self.assertTrue(verify_resume_gate(r,cfg,task,before))
+        r['native_architecture_evidence']['fixed_feature_teacher']['parameters_sha256']='f'*64
+        with self.assertRaises(ValueError):verify_resume_gate(r,cfg,task,before)
 
     def test_actual_native_gate_requires_changed_tensors_and_positive_lr(self):
         self.assertTrue(verify_resume_gate(receipt(self.cfg),self.cfg,self.task))

@@ -207,9 +207,9 @@ if index.get('her2match_campaign'):
     campaign=index['her2match_campaign']
     assert campaign==summary.get('her2match_campaign'), 'HER2 campaign overview is stale'
     assert campaign==json.loads((root/'data/her2match-campaign.json').read_text()), 'HER2 campaign download differs'
-    assert set(campaign['target_models'])==set(TARGET_MODELS) and len(campaign['rows'])==30
-    assert len({row['model'] for row in campaign['rows']})==30
-    assert sum(campaign['counts'].values())==30 and campaign['clinical_score_evaluation'] is False
+    assert set(campaign['target_models'])==set(TARGET_MODELS) and len(campaign['rows'])==len(TARGET_MODELS)
+    assert len({row['model'] for row in campaign['rows']})==len(TARGET_MODELS)
+    assert sum(campaign['counts'].values())==len(TARGET_MODELS) and campaign['clinical_score_evaluation'] is False
     for row in campaign['rows']:
         mine=[run for run in entries if run['model']==row['model'] and 'her2match' in run['datasets']]
         tested=any(e.get('rankable') and e['dataset']=='her2match' and e['split']=='test' for run in mine for e in run['evaluations'])
@@ -217,7 +217,7 @@ if index.get('her2match_campaign'):
         if row['run_id']:assert row['run_id'] in run_details
         if row['status']=='blocked':assert row['reason'] and not tested
     for run in entries:
-        if run['id'].startswith(('her2match_complete__','continuation__')) and any(e.get('rankable') for e in run['evaluations']):
+        if run['id'].startswith(('her2match_complete__','continuation__','architecture__')) and any(e.get('rankable') for e in run['evaluations']):
             assert run['gate_passed'] and run['training_complete'], 'New campaign result bypassed native gate'
             assert run['native_gate_evidence']['world_size']==4
             assert run['native_gate_evidence']['actual_tensor_update'] and run['native_gate_evidence']['positive_learning_rate']

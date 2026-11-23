@@ -1,5 +1,5 @@
-import {renderOverview,disposeOverview} from './overview.js?v=20261123-her2-complete';
-import {renderPredictionGallery,disposePredictionGallery} from './prediction-gallery.js?v=20261123-her2-complete';
+import {renderOverview,disposeOverview} from './overview.js?v=20261123-architecture-expansion';
+import {renderPredictionGallery,disposePredictionGallery} from './prediction-gallery.js?v=20261123-architecture-expansion';
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const esc = value => String(value ?? '').replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
@@ -95,7 +95,7 @@ async function detail(id,eid){
   document.title=`${run.name} · Virtual Staining Benchmark`;
   main.innerHTML=`<div class="breadcrumbs"><a href="#/benchmark">Benchmark</a><span>/</span><span>${esc(e?dsName(e.dataset):run.datasets.map(dsName).join(' + '))}</span><span>/</span><span>${esc(run.name)}</span></div>
   <div class="detail-heading"><div><div class="eyebrow">${esc(DATA.datasets.find(d=>d.id===run.datasets[0])?.direction||'Virtual staining')}</div><h1>${esc(run.name)}</h1><p class="muted">${esc(run.variant)} · ${esc(run.marker)} · trained on ${run.datasets.map(dsName).join(' + ')}</p><div class="run-id muted">${esc(run.id)}</div></div><div>${status(run.state)}<div style="margin-top:12px"><a href="data/runs/${encodeURIComponent(run.id)}.json" download class="small">Download run data</a></div></div></div>
-  ${run.quality_warning?`<div class="callout" role="note"><strong>Quality warning.</strong> ${esc(run.quality_warning)}</div>`:''}
+  ${run.quality_warning?`<div class="callout" role="note"><strong>Quality warning.</strong> ${esc(run.quality_warning)}${run.quality_replacement_run_id?` <a href="#/run/${encodeURIComponent(run.quality_replacement_run_id)}">Inspect the completed corrected run</a>.`:''}</div>`:''}
   ${run.evaluations.length?`<div class="gallery-controls" style="margin-top:20px"><label class="field">Result to inspect<select id="evaluation">${run.evaluations.map(ev=>option(ev.id,`${dsName(ev.dataset)} · ${ev.marker} · ${ev.split==='monitor'?'latest validation':ev.split} · ${ev.protocol}`,e?.id)).join('')}</select></label><span class="muted small">${count(e?.n)} tiles${e?.rankable?' · frozen evaluation':' · provisional / unranked'}</span></div>`:''}
   ${metricStrip(e)}
   <div class="detail-nav" role="tablist" aria-label="Run detail">${[['overview','Overview'],['curves','Training curves'],['tissue','Tissue comparisons'],['distribution','Metric distributions'],['provenance','Recipe & evidence']].map(([key,label])=>`<button role="tab" aria-selected="${detailTab===key}" class="${detailTab===key?'active':''}" data-detail="${key}">${label}</button>`).join('')}</div><div id="detail-content"></div>`;
