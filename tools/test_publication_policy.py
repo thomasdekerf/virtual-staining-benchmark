@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from publication_policy import is_published_run
+from publication_policy import is_published_run,scope_record_counts
 from publication_validation import validate_publication_scope
 
 
@@ -62,6 +62,15 @@ class PublicationPolicyTests(unittest.TestCase):
 
     def validate(self):
         return validate_publication_scope(self.root, self.index, self.policy)
+
+    def test_new_approved_runs_do_not_shrink_the_previous_exclusion_count(self):
+        excluded={f'experimental-{i}' for i in range(87)}
+        before=scope_record_counts({f'published-{i}' for i in range(256)},set(),excluded)
+        after=scope_record_counts({f'published-{i}' for i in range(274)},set(),excluded)
+        self.assertEqual(before,dict(unfiltered_run_records=343,removed_run_records=87))
+        self.assertEqual(after,dict(unfiltered_run_records=361,removed_run_records=87))
+        self.policy['excluded_runs']={'unet_reference':{'reason':'Unreviewed composite'}}
+        self.assertFalse(is_published_run(self.run,self.policy))
 
     def test_reviewed_published_baseline_and_its_exact_assets_pass(self):
         self.assertTrue(is_published_run(self.run, self.policy))

@@ -131,7 +131,7 @@ def refresh(site,workspace):
         before={e['id']:copy.deepcopy(e) for e in run['evaluations'] if e.get('rankable')}
         for split,record in full.items():
             if kind in {'her2match','coverage_her2match','coverage_breast'}:
-                v=record['per_dataset']['HER2Match' if dataset=='her2match' else dataset];vals=metrics(v['metrics']);dab=v['dab'];vals.update(dab_od_mae=dab['mean_absolute_error'],dab_correlation=dab['correlation'],dab_pred_mean=dab['mean_pred'],dab_target_mean=dab['mean_target']);coverage={k:record['n'] for k in vals};protocol='FP32 · 0.46 µm/px · center256 · full HER2Match split' if dataset=='her2match' else f'Box SSIM · 256px · n={record["n"]:,}';extra={'dab_samples':dab['samples']}
+                v=record['per_dataset']['HER2Match' if dataset=='her2match' else dataset];vals=metrics(v['metrics']);dab=v['dab'];vals.update({k:v for k,v in dict(dab_od_mae=dab['mean_absolute_error'],dab_correlation=dab['correlation'],dab_pred_mean=dab['mean_pred'],dab_target_mean=dab['mean_target']).items() if finite(v)});coverage={k:record['n'] for k in vals};coverage.update({'dab_correlation':0} if dab['correlation'] is None else {});protocol='FP32 · 0.46 µm/px · center256 · full HER2Match split' if dataset=='her2match' else f'Box SSIM · 256px · n={record["n"]:,}';extra={'dab_samples':dab['samples'],**({'undefined_metrics':{'dab_correlation':'Undefined in the source DAB correlation accumulation; no numeric substitute is published.'}} if dab['correlation'] is None else {})}
             else:
                 if kind=='unstained':assert set(record.get('learned_nuclei',{}))==DETECTORS
                 vals=metrics(record['metrics']);coverage={}
@@ -445,6 +445,13 @@ def refresh(site,workspace):
         for rid in followup_records:
             if rid in runs:runs[rid]['sources'].append({'file':receipt['file'],'sha256':receipt['sha256']})
     source(out/'data/swinir-protocol-review.json','SwinIR metric and data code equivalence review')
+    # New campaigns share one strict adapter; held-out results require native
+    # source/data/config/update gates rather than merely a scheduler submission.
+    from her2_campaigns import current_snapshot as current_her2_snapshot, integrate as integrate_her2
+    _,her2_observed=current_her2_snapshot(workspace)
+    if her2_observed:
+        captured=max(captured,her2_observed['captured_utc'])
+        integrate_her2(site,workspace,data,runs,register,fresh_run,status,history,ingest,source,write)
     attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json',out/'data/swinir-protocol-review.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.

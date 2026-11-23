@@ -45,3 +45,16 @@
 @media(max-width:700px){.gpu-activity .visual-panel-heading{display:block}.gpu-activity .visual-panel-heading>a{display:block;margin-top:12px}.gpu-activity table{min-width:680px}.gpu-activity .table-wrap th:nth-child(2),.gpu-activity .table-wrap td:nth-child(2){position:static;box-shadow:none}}
 
 .gpu-deferred-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px;margin:17px 0;font-size:12px;line-height:1.7;color:#536580}.gpu-deferred-groups strong{color:#273a62;font-family:'IBM Plex Mono',monospace;margin-right:5px}.gpu-deferred-download{font-size:13px}@media(max-width:700px){.gpu-deferred-groups{grid-template-columns:1fr}}
+
+/* Published HER2Match completion states retain independent scientific meaning. */
+.her2-completion-counts{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.her2-completion-counts>span{padding:7px 11px;border-radius:6px;font-size:14px}
+.her2-completion-counts strong{margin-right:4px}
+.her2-completion-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:20px 0}
+.her2-completion-card{display:flex;flex-direction:column;gap:7px;padding:15px;border:1px solid #dce3ef;border-radius:8px;color:#26364f;min-width:0}
+.her2-completion-card strong{font-size:15px}.her2-completion-card>span{font-size:14px;font-weight:600}.her2-completion-card small{font-size:13px;line-height:1.45}
+.her2-status-evaluated{background:#e9eeff;color:#344baa}.her2-status-training,.her2-status-queued{background:#fff3df;color:#845215}.her2-status-blocked{background:#f2edf8;color:#694686}.her2-status-prepared{background:#f1f4f8;color:#52627b}
+@media(max-width:1100px){.her2-completion-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.her2-completion-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.her2-completion-card{padding:12px}}
+
+.her2-completion-card.has-quality-warning{border:2px solid #b94d40}.her2-quality-label{color:#a8342b}.her2-quality-note{border-left:3px solid #b94d40;background:#fff2ef;padding:12px 15px;line-height:1.65}.atlas-mini-cell.quality-warning{outline:2px solid #bf4a3c;outline-offset:-1px}.landscape-legend i.quality-warning{background:#fff2ef;border:2px solid #bf4a3c}.gpu-preparation{margin:24px 0}.gpu-preparation p{font-size:14px;line-height:1.65}

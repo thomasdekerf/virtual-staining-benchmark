@@ -35,7 +35,14 @@ def is_published_run(run, policy=None):
     policy = policy if policy is not None else load_policy()
     paper = policy['models'].get(run.get('model'))
     return bool(paper and paper.get('title') and paper.get('url', '').startswith('https://')
-                and run.get('id') in policy['eligible_run_ids'])
+                and run.get('id') in policy['eligible_run_ids']
+                and run.get('id') not in policy.get('excluded_runs',{}))
+
+
+def scope_record_counts(kept_ids,observed_excluded_ids,reviewed_excluded_ids):
+    kept=set(kept_ids);removed=set(observed_excluded_ids)|set(reviewed_excluded_ids)
+    if kept&removed:raise ValueError('Reviewed experimental recipes cannot be reintroduced')
+    return dict(unfiltered_run_records=len(kept)+len(removed),removed_run_records=len(removed))
 
 
 def filter_activity(activity, index):
@@ -100,9 +107,8 @@ def apply_policy(dist, policy=None, archive=None):
     scope = dict(type='published-models', policy_sha256=hashlib.sha256(canonical).hexdigest(),
                  reviewed_date=policy['reviewed_date'], model_count=len(models), run_records=len(runs),
                  rankable_evaluations=sum(bool(e.get('rankable')) for r in runs for e in r['evaluations']),
-                 unfiltered_run_records=before.get('unfiltered_run_records', len(all_runs)),
+                 **scope_record_counts(ids,excluded,policy.get('excluded_runs',{})),
                  note='Only reviewed methods with a paper reference and conventional dataset adaptations are shown. Unpublished local research recipes and ablations are omitted. These are local benchmark results, not scores reported by the papers.')
-    scope['removed_run_records'] = scope['unfiltered_run_records'] - len(runs)
     index.update(runs=runs, models=models, publication_scope=scope)
     for dataset in index['datasets']:
         if dataset['id'] == 'orion':
@@ -193,7 +199,13 @@ def apply_policy(dist, policy=None, archive=None):
     gpu = index.get('gpu_activity')
     if gpu:
         gpu['jobs'] = [j for j in gpu['jobs'] if j['model'] in policy['models']]
-        running = [j for j in gpu['jobs'] if j['status'] == 'RUNNING']
+        running = [j for j in gpu['jobs'] if j['status'] == 'RUNNING' and j.get('kind') != 'held-out evaluation']
+        evaluating = [j for j in gpu['jobs'] if j['status'] == 'RUNNING' and j.get('kind') == 'held-out evaluation']
+        gpu['own_evaluation_gpus'] = sum(j['gpus'] for j in evaluating)
+        gpu['own_running_evaluation_jobs'] = len(evaluating)
+        if 'preparation_jobs' in gpu:
+            gpu['preparation_jobs'] = [j for j in gpu['preparation_jobs'] if j['model'] in policy['models']]
+            gpu['own_preparation_gpus'] = sum(j['gpus'] for j in gpu['preparation_jobs'] if j['status']=='RUNNING')
         gpu['own_training_gpus'] = sum(j['gpus'] for j in running)
         gpu['own_running_training_jobs'] = len(running)
         gpu['limits'].pop('independent_eqm_dependency_removed', None)

@@ -233,7 +233,7 @@ def build(dist, workspace):
             if dataset['id']=='her2match' and not scored and model in HER2_MODELS:
                 state=next(r for r in recent['her2match'] if r['id']==model)['state']
             row['cells'].append(dict(dataset=dataset['id'],runs=len(mine),evaluated_runs=len(scored),tested_runs=len(tests),active_runs=len(pending),
-                score_rows=sum(bool(e.get('rankable')) and e['dataset']==dataset['id'] for r in mine for e in r['evaluations']),status=state))
+                score_rows=sum(bool(e.get('rankable')) and e['dataset']==dataset['id'] for r in mine for e in r['evaluations']),status=state,quality_warning=next((r['quality_warning'] for r in mine if r.get('quality_failure')),None)))
         cells.append(row)
     coverage=dict(datasets=[dict(id=d['id'],name=d['name']) for d in datasets],rows=cells,
         note='Cells count reviewed published-method run records; pooled records occur in each applicable dataset. Dataset bars use distinct model families with full held-out tests. Local experimental recipes are omitted.')
@@ -300,7 +300,7 @@ def build(dist, workspace):
         series=trajectory_series, note='Actual recorded values; no smoothing or extrapolation. Same BCI validation cohort. Training recipes differ; equal updates do not imply equal training compute. Validation trajectories do not use test scores.')
     return dict(schema='virtual-staining-visual-summary-v1', snapshot=dict(benchmark=data['snapshot'], activity=recent['observed_utc']),
         scale=scale, datasets=datasets, coverage=coverage, cohort=cohort, trajectories=trajectories,publication_scope=data.get('publication_scope'),
-        activity=recent, provenance=sources,coverage_balance=balance,training_audit=data.get('training_audit'),followup_campaigns=data.get('followup_campaigns',[]),gpu_activity=data.get('gpu_activity'),
+        activity=recent, provenance=sources,coverage_balance=balance,training_audit=data.get('training_audit'),followup_campaigns=data.get('followup_campaigns',[]),gpu_activity=data.get('gpu_activity'),her2match_campaign=data.get('her2match_campaign'),
         notes=['Current result inventory and activity retain explicit source and capture timestamps.',
             f'{len(entries)} run records include evaluated, deferred, continuation and unscored entries; they are not independently completed training experiments.',
             'Recorded GPU-hours sum available per-run evidence only. Missing allocations and parent compute are not estimated; a continuation is not total training compute.',

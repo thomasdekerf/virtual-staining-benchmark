@@ -91,15 +91,23 @@ def new_research_validation(text,parent_step,expected_n=256):
 
 
 def verify_gpu_snapshot(record):
-    running=[job for job in record['jobs'] if job['status']=='RUNNING']
+    running=[job for job in record['jobs'] if job['status']=='RUNNING' and job.get('kind')!='held-out evaluation']
+    evaluating=[job for job in record['jobs'] if job['status']=='RUNNING' and job.get('kind')=='held-out evaluation']
     if (sum(job['gpus'] for job in running)!=record['own_training_gpus']
             or len(running)!=record['own_running_training_jobs']):
         raise ValueError('Allocated training GPUs must count only running training jobs')
+    if sum(job['gpus'] for job in evaluating)!=record.get('own_evaluation_gpus',0):
+        raise ValueError('Held-out evaluation GPUs must be identified separately from training')
     partition=record['partition']
     if not (0<=record['own_training_gpus']<=partition['allocated_gpus']<=partition['schedulable_gpus']<=partition['physical_gpus']
             and partition['allocated_gpus']+partition['free_schedulable_gpus']==partition['schedulable_gpus']
             and 0<=partition['largest_free_gpus_per_node']<=partition['free_schedulable_gpus']):
         raise ValueError('GPU availability snapshot is inconsistent')
+    preparing=[job for job in record.get('preparation_jobs',[]) if job['status']=='RUNNING']
+    if sum(job['gpus'] for job in preparing)!=record.get('own_preparation_gpus',0):
+        raise ValueError('Data-preparation GPUs must not be called model-training GPUs')
+    if record['own_training_gpus']+record.get('own_preparation_gpus',0)+record.get('own_evaluation_gpus',0)>partition['allocated_gpus']:
+        raise ValueError('Training plus preparation exceeds actual allocated partition GPUs')
     blocked=record.get('blocked',{})
     if blocked.get('readiness_groups') and sum(blocked['readiness_groups'].values())!=blocked['run_records']:
         raise ValueError('Deferred readiness groups must describe every blocked record once')

@@ -201,6 +201,32 @@ for source in summary['provenance']:
     if source.get('href'):
         path=root/source['href']
         assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==source['sha256'], 'Changed public chart source'
+# Submitted/queued training can fill a coverage entry, but never a scored cell.
+if index.get('her2match_campaign'):
+    from her2_campaigns import TARGET_MODELS
+    campaign=index['her2match_campaign']
+    assert campaign==summary.get('her2match_campaign'), 'HER2 campaign overview is stale'
+    assert campaign==json.loads((root/'data/her2match-campaign.json').read_text()), 'HER2 campaign download differs'
+    assert set(campaign['target_models'])==set(TARGET_MODELS) and len(campaign['rows'])==30
+    assert len({row['model'] for row in campaign['rows']})==30
+    assert sum(campaign['counts'].values())==30 and campaign['clinical_score_evaluation'] is False
+    for row in campaign['rows']:
+        mine=[run for run in entries if run['model']==row['model'] and 'her2match' in run['datasets']]
+        tested=any(e.get('rankable') and e['dataset']=='her2match' and e['split']=='test' for run in mine for e in run['evaluations'])
+        assert row['test_score_available']==tested and (row['status']=='evaluated')==tested
+        if row['run_id']:assert row['run_id'] in run_details
+        if row['status']=='blocked':assert row['reason'] and not tested
+    for run in entries:
+        if run['id'].startswith(('her2match_complete__','continuation__')) and any(e.get('rankable') for e in run['evaluations']):
+            assert run['gate_passed'] and run['training_complete'], 'New campaign result bypassed native gate'
+            assert run['native_gate_evidence']['world_size']==4
+            assert run['native_gate_evidence']['actual_tensor_update'] and run['native_gate_evidence']['positive_learning_rate']
+            assert re.fullmatch('[0-9a-f]{64}',run['native_gate_evidence']['sha256'])
+        if run.get('evaluation_reuses_parent'):
+            assert not any(e.get('rankable') for e in run['evaluations']), 'Unchanged selected parent was ranked twice'
+            parent=run_details[run['evaluation_reference_run']]
+            assert any(e.get('rankable') and e.get('checkpoint_sha256')==run['checkpoint_sha256'] for e in parent['evaluations'])
+
 # The matched gallery is independently bound to selected checkpoints and tissue fields.
 from validate_prediction_gallery import validate_gallery
 gallery_validation=validate_gallery(json.loads((root/'data/prediction-gallery.json').read_text()),root,index)
