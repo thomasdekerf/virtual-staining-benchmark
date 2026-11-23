@@ -68,16 +68,16 @@ class VisualSummaryTests(unittest.TestCase):
                     self.assertEqual({e['split'] for e in scored},{'val','test'})
                     self.assertTrue(all(e.get('checkpoint_sha256') and e.get('manifest_sha256') and e.get('evidence',{}).get('sha256') for e in scored))
 
-    def test_research_full_validation_never_becomes_a_monitor_curve_point(self):
+    def test_local_research_recipes_are_absent_from_public_explorers(self):
+        index=summary.read_json(HERE.parent/'dist/data/index.json')
+        excluded={'eqm','nvg','lrdm','itarflow','mmt','flow','vae','other'}
+        self.assertFalse(excluded & {run['model'] for run in index['runs']})
+        self.assertFalse(excluded & {model['id'] for model in index['models']})
+        self.assertFalse(excluded & {row['id'] for row in self.data['coverage']['rows']})
+        self.assertTrue(all('__research_' not in run['id'] for run in index['runs']))
+        self.assertTrue(all('itarflow' not in row['id'] for row in self.data['activity']['recoveries']))
         for model in ['eqm','nvg','lrdm']:
-            run=summary.read_json(HERE.parent/'dist/data/runs'/f'finland__research_{model}_20261017.json')
-            scope=run['curve_protocol']
-            self.assertEqual(scope['n'],256)
-            self.assertEqual(scope['separate_full_validation_n'],5979)
-            full=next(e for e in run['evaluations'] if e['split']=='val')
-            self.assertEqual(full['n'],5979)
-            self.assertFalse(full['rankable'])
-            self.assertTrue(all(points[i][0]<points[i+1][0] for points in run['curves'].values() for i in range(len(points)-1)))
+            self.assertFalse((HERE.parent/'dist/data/runs'/f'finland__research_{model}_20261017.json').exists())
 
     def test_bci_trajectories_have_actual_shared_update_axis_and_selected_markers(self):
         chart = self.data['trajectories']

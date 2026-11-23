@@ -45,14 +45,16 @@ def has_training(run):
     return bool(any(e.get('rankable') for e in run['evaluations']) or sum(run.get('curve_counts',{}).values()) or (run.get('last_step') or state.get('step') or state.get('global_step') or 0)>0)
 
 def refresh(site,workspace):
+    from publication_policy import apply_policy, is_published_run, load_policy
+    publication_policy = load_policy()
     out=site/'dist';cache=site/'.source-cache';baseline_path=cache/'published_baseline_20261119.json'
     current=read(out/'data/index.json');assert current
     if not baseline_path.exists():write(baseline_path,current)
     baseline=read(baseline_path)
-    baseline_pairs={(r['id'],e['id']) for r in baseline['runs'] for e in r['evaluations'] if e.get('rankable')}
+    baseline_pairs={(r['id'],e['id']) for r in baseline['runs'] if is_published_run(r,publication_policy) for e in r['evaluations'] if e.get('rankable')}
     data=copy.deepcopy(current);runs={r['id']:read(out/'data/runs'/f'{r["id"]}.json') for r in current['runs']}
     published=json.loads(subprocess.check_output(['git','-C',str(site),'show','HEAD:dist/data/index.json']))
-    previous_evals={(r['id'],e['id']):copy.deepcopy(e) for r in published['runs'] for e in r['evaluations'] if e.get('rankable')}
+    previous_evals={(r['id'],e['id']):copy.deepcopy(e) for r in published['runs'] if is_published_run(r,publication_policy) for e in r['evaluations'] if e.get('rankable')}
     models={m['id']:m for m in data['models']};snapshot_path,snapshot=current_cluster_snapshot(workspace)
     captured=snapshot.get('captured_utc') or datetime.now(timezone.utc).isoformat()
     campaign_path,campaign_snapshot=current_campaign_snapshot(workspace)
@@ -446,7 +448,7 @@ def refresh(site,workspace):
     attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json',out/'data/swinir-protocol-review.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.
-    baseline_evals={(r['id'],e['id']):e for r in baseline['runs'] for e in r['evaluations'] if e.get('rankable')}
+    baseline_evals={(r['id'],e['id']):e for r in baseline['runs'] if is_published_run(r,publication_policy) for e in r['evaluations'] if e.get('rankable')}
     for (rid,eid),old in baseline_evals.items():
         current_eval=next((e for e in runs[rid]['evaluations'] if e['id']==eid),None);assert current_eval,f'Removed original score: {rid}'
         for key,value in old['metrics'].items():assert current_eval['metrics'].get(key)==value,f'Changed original workbook-era score: {rid}/{key}'
@@ -479,7 +481,8 @@ def refresh(site,workspace):
     reconciliation=read(out/'data/reconciliation.json');reconciliation['audit']=audit;reconciliation['new_result_rows']=[c for c in changes if c['new_evaluation']];write(out/'data/reconciliation.json',reconciliation)
     metric_keys=sorted(keys)
     write_csv(out/'downloads/results.csv',['run_id','model','dataset','marker','split','protocol','tiles','rankable','training_hours']+metric_keys,([r['id'],r['name'],e['dataset'],e['marker'],e['split'],e['protocol'],e['n'],e['rankable'],r.get('training_hours')]+[e['metrics'].get(k) for k in metric_keys] for r in index_runs for e in r['evaluations']))
-    return dict(runs=len(index_runs),datasets=len(data['datasets']),fresh_result_rows=audit['fresh_result_rows_verified'],preserved_ranked_rows=len(baseline_evals),snapshot=now)
+    scope=apply_policy(out,publication_policy)
+    return dict(runs=scope['run_records'],datasets=len(data['datasets']),fresh_result_rows=audit['fresh_result_rows_verified'],preserved_ranked_rows=len(baseline_evals),snapshot=now,publication_scope=scope)
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--workspace',type=Path,default=Path(__file__).resolve().parents[2]);args=parser.parse_args();print(json.dumps(refresh(Path(__file__).resolve().parents[1],args.workspace.resolve()),indent=2))

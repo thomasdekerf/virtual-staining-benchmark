@@ -590,6 +590,8 @@ audit['unstained_metric_cells_verified']=len(unstained_reconciliation)*len(unsta
 workbook_date=datetime.fromtimestamp(workbook_path.stat().st_mtime,timezone.utc).date().isoformat()
 write_json(OUT/'data/index.json',{'snapshot':snapshot,'workbook_date':workbook_date,'runs':index_runs,'datasets':datasets,'models':list(models.values()),'metrics':glossary,'audit':audit})
 write_json(OUT/'data/reconciliation.json',{'audit':audit,'dataset_rows':reconciliation,'unstained_rows':unstained_reconciliation,'orion_rows':[{'sheet':'ORION runs','row':row,'run':rid} for row,rid in orion_sheet]})
+from publication_policy import apply_policy
+apply_policy(OUT)
 with (OUT/'downloads/results.csv').open('w',newline='') as fp:
     writer=csv.writer(fp);metric_keys=sorted(all_metric_keys)
     writer.writerow(['run_id','model','dataset','marker','split','protocol','tiles','rankable','training_hours']+metric_keys)

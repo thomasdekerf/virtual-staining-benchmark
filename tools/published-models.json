@@ -1,0 +1,1095 @@
+{
+  "schema_version": 1,
+  "policy": "Only named methods with a primary paper and reviewed conventional benchmark adaptations. Public papers/preprints count as paper-backed and are labelled honestly. Custom local architectures, novel composite objectives and research variants are excluded even when inspired by a published family. A paper link does not claim reproduction of its reported results. Unknown future runs fail closed until explicitly reviewed.",
+  "models": {
+    "pyramid": {
+      "title": "BCI: Breast Cancer Immunohistochemical Image Generation through Pyramid Pix2pix",
+      "url": "https://arxiv.org/abs/2204.11425",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/bupt-ai-cz/BCI",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2204.11425",
+        "https://github.com/bupt-ai-cz/BCI"
+      ]
+    },
+    "tdkstain": {
+      "title": "Advancing H&E-to-IHC Virtual Staining with Task-Specific Domain Knowledge for HER2 Scoring",
+      "url": "https://papers.miccai.org/miccai-2024/051-Paper3227.html",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/balball/TDKstain",
+      "provenance_urls": [
+        "https://papers.miccai.org/miccai-2024/051-Paper3227.html",
+        "https://github.com/balball/TDKstain"
+      ]
+    },
+    "asp": {
+      "title": "Adaptive Supervised PatchNCE Loss for Learning H&E-to-IHC Stain Translation with Inconsistent Groundtruth Image Pairs",
+      "url": "https://arxiv.org/abs/2303.06193",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/lifangda01/AdaptiveSupervisedPatchNCE",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2303.06193",
+        "https://github.com/lifangda01/AdaptiveSupervisedPatchNCE"
+      ]
+    },
+    "pspstain": {
+      "title": "Pathological Semantics-Preserving Learning for H&E-to-IHC Virtual Staining",
+      "url": "https://arxiv.org/abs/2407.03655",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/ccitachi/PSPStain",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2407.03655",
+        "https://github.com/ccitachi/PSPStain"
+      ]
+    },
+    "histdist": {
+      "title": "HistDiST: Histopathological Diffusion-based Stain Transfer",
+      "url": "https://arxiv.org/abs/2505.06793",
+      "status": "paper_verified",
+      "publication_type": "preprint",
+      "code_url": "https://github.com/ErikGro/HistDiST",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2505.06793",
+        "https://github.com/ErikGro/HistDiST"
+      ]
+    },
+    "dvst": {
+      "title": "D-VST: Diffusion Transformer for Pathology-Correct Tone-Controllable Cross-Dye Virtual Staining of Whole Slide Images",
+      "url": "https://openreview.net/forum?id=jl0O0MYLyh",
+      "status": "paper_verified",
+      "publication_type": "paper",
+      "code_url": "https://github.com/yangshurong/D-VST",
+      "provenance_urls": [
+        "https://openreview.net/forum?id=jl0O0MYLyh",
+        "https://github.com/yangshurong/D-VST"
+      ],
+      "verification_note": "Primary author repository supplies the titled paper and OpenReview PDF; acceptance venue was not independently established by this audit."
+    },
+    "mcs_stain": {
+      "title": "MCS-Stain: Boosting FFPE-to-HE Virtual Staining With Multiple Cell Semantics",
+      "url": "https://doi.org/10.1109/TMI.2025.3628174",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/huyihuang/MCS-Stain",
+      "provenance_urls": [
+        "https://doi.org/10.1109/TMI.2025.3628174",
+        "https://github.com/huyihuang/MCS-Stain"
+      ]
+    },
+    "dgr": {
+      "title": "Generative AI for misalignment-resistant virtual staining to accelerate histopathology workflows",
+      "url": "https://www.nature.com/articles/s41467-026-71038-2",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/birkhoffkiki/DTR",
+      "provenance_urls": [
+        "https://www.nature.com/articles/s41467-026-71038-2",
+        "https://github.com/birkhoffkiki/DTR"
+      ]
+    },
+    "hemit": {
+      "title": "HEMIT: H&E to Multiplex-immunohistochemistry Image Translation with Dual-Branch Pix2pix Generator",
+      "url": "https://arxiv.org/abs/2403.18501",
+      "status": "paper_verified",
+      "publication_type": "preprint",
+      "code_url": "https://github.com/BianChang/Pix2pix_DualBranch",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2403.18501",
+        "https://github.com/BianChang/Pix2pix_DualBranch"
+      ]
+    },
+    "diffvs": {
+      "title": "Virtual Multiplex Staining for Histological Images Using a Marker-Wise Conditioned Diffusion Model",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/37764",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/hvcl/DiffVS",
+      "provenance_urls": [
+        "https://ojs.aaai.org/index.php/AAAI/article/view/37764",
+        "https://github.com/hvcl/DiffVS"
+      ]
+    },
+    "miphei_vit": {
+      "title": "MIPHEI-ViT: Multiplex Immunofluorescence Prediction from H&E Images using ViT Foundation Models",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0010482526001277",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/Sanofi-Public/MIPHEI-ViT",
+      "provenance_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0010482526001277",
+        "https://github.com/Sanofi-Public/MIPHEI-ViT"
+      ]
+    },
+    "unet": {
+      "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+      "url": "https://arxiv.org/abs/1505.04597",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://arxiv.org/abs/1505.04597",
+      "provenance_urls": [
+        "https://arxiv.org/abs/1505.04597"
+      ]
+    },
+    "pix2pix": {
+      "title": "Image-to-Image Translation with Conditional Adversarial Networks",
+      "url": "https://arxiv.org/abs/1611.07004",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix",
+      "provenance_urls": [
+        "https://arxiv.org/abs/1611.07004",
+        "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix"
+      ]
+    },
+    "cyclegan": {
+      "title": "Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks",
+      "url": "https://arxiv.org/abs/1703.10593",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix",
+      "provenance_urls": [
+        "https://arxiv.org/abs/1703.10593",
+        "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix"
+      ]
+    },
+    "cut": {
+      "title": "Contrastive Learning for Unpaired Image-to-Image Translation",
+      "url": "https://arxiv.org/abs/2007.15651",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/taesungp/contrastive-unpaired-translation",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2007.15651",
+        "https://github.com/taesungp/contrastive-unpaired-translation"
+      ]
+    },
+    "bcistainer": {
+      "title": "Breast Cancer Immunohistochemical Image Generation: a Benchmark Dataset and Challenge Review",
+      "url": "https://arxiv.org/abs/2305.03546",
+      "status": "paper_verified",
+      "publication_type": "preprint",
+      "code_url": "https://github.com/quqixun/BCIStainer",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2305.03546",
+        "https://github.com/quqixun/BCIStainer"
+      ]
+    },
+    "pgvms": {
+      "title": "PGVMS: A Prompt-Guided Unified Framework for Virtual Multiplex IHC Staining with Pathological Semantic Learning",
+      "url": "https://doi.org/10.1109/TMI.2026.3663755",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/ccitachi/PGVMS",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2602.23292",
+        "https://github.com/ccitachi/PGVMS",
+        "https://doi.org/10.1109/TMI.2026.3663755"
+      ]
+    },
+    "unistainnet": {
+      "title": "UNIStainNet: Foundation-Model-Guided Virtual Staining of H&E to IHC",
+      "url": "https://arxiv.org/abs/2603.12716",
+      "status": "paper_verified",
+      "publication_type": "preprint",
+      "code_url": "https://github.com/facevoid/UNIStainNet",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2603.12716",
+        "https://github.com/facevoid/UNIStainNet"
+      ]
+    },
+    "pd_unist": {
+      "title": "PD-UniST: Prompt-Driven Universal Model for Unpaired H&E-to-IHC Stain Translation",
+      "url": "https://papers.miccai.org/miccai-2025/0685-Paper1617.html",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/chujie-zhang/PD-UniST",
+      "provenance_urls": [
+        "https://papers.miccai.org/miccai-2025/0685-Paper1617.html",
+        "https://github.com/chujie-zhang/PD-UniST"
+      ]
+    },
+    "stainexpert": {
+      "title": "StainExpert: A Unified Multi-Expert Diffusion Framework for Multi-Target Pathological Stain Translation",
+      "url": "https://ieeexplore.ieee.org/document/11284894",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/Rowerliu/StainExpert",
+      "provenance_urls": [
+        "https://ieeexplore.ieee.org/document/11284894",
+        "https://github.com/Rowerliu/StainExpert"
+      ]
+    },
+    "cssp2p": {
+      "title": "Leveraging Adversarial Learning for Pathological Fidelity in Virtual Staining",
+      "url": "https://arxiv.org/abs/2511.18946",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/Jose-Miguel-Teixeira/CSSP2P-GAN",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2511.18946",
+        "https://github.com/Jose-Miguel-Teixeira/CSSP2P-GAN"
+      ]
+    },
+    "implicitstainer": {
+      "title": "IMPLICITSTAINER: Resolution Agnostic Data-Efficient Virtual Staining Using Neural Implicit Functions",
+      "url": "https://arxiv.org/abs/2505.09831",
+      "status": "paper_verified",
+      "publication_type": "preprint",
+      "code_url": "https://github.com/tushaarkataria/ImplicitStainer",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2505.09831",
+        "https://github.com/tushaarkataria/ImplicitStainer"
+      ]
+    },
+    "oda_gan": {
+      "title": "ODA-GAN: Orthogonal Decoupling Alignment GAN Assisted by Weakly-supervised Learning for Virtual Immunohistochemistry Staining",
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_ODA-GAN_Orthogonal_Decoupling_Alignment_GAN_Assisted_by_Weakly-supervised_Learning_for_CVPR_2025_paper.pdf",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/ittong/ODA-GAN",
+      "provenance_urls": [
+        "https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_ODA-GAN_Orthogonal_Decoupling_Alignment_GAN_Assisted_by_Weakly-supervised_Learning_for_CVPR_2025_paper.pdf",
+        "https://github.com/ittong/ODA-GAN"
+      ]
+    },
+    "nafnet": {
+      "title": "Simple Baselines for Image Restoration",
+      "url": "https://arxiv.org/abs/2204.04676",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/megvii-research/NAFNet",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2204.04676",
+        "https://github.com/megvii-research/NAFNet"
+      ]
+    },
+    "restormer": {
+      "title": "Restormer: Efficient Transformer for High-Resolution Image Restoration",
+      "url": "https://arxiv.org/abs/2111.09881",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/swz30/Restormer",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2111.09881",
+        "https://github.com/swz30/Restormer"
+      ]
+    },
+    "dsff_gan": {
+      "title": "DSFF-GAN: A novel stain transfer network for generating immunohistochemical image of endometrial cancer",
+      "url": "https://doi.org/10.1016/j.compbiomed.2024.108046",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/YihaoMa0512/DSFF-GAN",
+      "provenance_urls": [
+        "https://doi.org/10.1016/j.compbiomed.2024.108046",
+        "https://github.com/YihaoMa0512/DSFF-GAN"
+      ]
+    },
+    "registain": {
+      "title": "Virtual histological staining of unlabeled autopsy tissue",
+      "url": "https://www.nature.com/articles/s41467-024-46077-2",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/liyuzhu1998/Autopsy-Virtual-Staining",
+      "provenance_urls": [
+        "https://www.nature.com/articles/s41467-024-46077-2",
+        "https://github.com/liyuzhu1998/Autopsy-Virtual-Staining"
+      ]
+    },
+    "swinir": {
+      "title": "SwinIR: Image Restoration Using Swin Transformer",
+      "url": "https://arxiv.org/abs/2108.10257",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/JingyunLiang/SwinIR",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2108.10257",
+        "https://github.com/JingyunLiang/SwinIR"
+      ]
+    },
+    "uformer": {
+      "title": "Uformer: A General U-Shaped Transformer for Image Restoration",
+      "url": "https://arxiv.org/abs/2106.03106",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/ZhendongWang6/Uformer",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2106.03106",
+        "https://github.com/ZhendongWang6/Uformer"
+      ]
+    },
+    "hat": {
+      "title": "Activating More Pixels in Image Super-Resolution Transformer",
+      "url": "https://arxiv.org/abs/2205.04437",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/XPixelGroup/HAT",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2205.04437",
+        "https://github.com/XPixelGroup/HAT"
+      ]
+    },
+    "munit": {
+      "title": "Multimodal Unsupervised Image-to-Image Translation",
+      "url": "https://arxiv.org/abs/1804.04732",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/NVlabs/MUNIT",
+      "provenance_urls": [
+        "https://arxiv.org/abs/1804.04732",
+        "https://github.com/NVlabs/MUNIT"
+      ]
+    },
+    "u_gat_it": {
+      "title": "U-GAT-IT: Unsupervised Generative Attentional Networks with Adaptive Layer-Instance Normalization for Image-to-Image Translation",
+      "url": "https://arxiv.org/abs/1907.10830",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/taki0112/UGATIT",
+      "provenance_urls": [
+        "https://arxiv.org/abs/1907.10830",
+        "https://github.com/taki0112/UGATIT"
+      ]
+    },
+    "stargan_v2": {
+      "title": "StarGAN v2: Diverse Image Synthesis for Multiple Domains",
+      "url": "https://arxiv.org/abs/1912.01865",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/clovaai/stargan-v2",
+      "provenance_urls": [
+        "https://arxiv.org/abs/1912.01865",
+        "https://github.com/clovaai/stargan-v2"
+      ]
+    },
+    "u_frame": {
+      "title": "Exceeding the limit for microscopic image translation with a deep learning-based unified framework",
+      "url": "https://academic.oup.com/pnasnexus/article/3/4/pgae133/7637348",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/ckchanbq-2027/U-Frame",
+      "provenance_urls": [
+        "https://academic.oup.com/pnasnexus/article/3/4/pgae133/7637348",
+        "https://github.com/ckchanbq-2027/U-Frame"
+      ]
+    },
+    "pst_diff": {
+      "title": "PST-Diff: Achieving High-Consistency Stain Transfer by Diffusion Models With Pathological and Structural Constraints",
+      "url": "https://doi.org/10.1109/TMI.2024.3430825",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "Not verified",
+      "provenance_urls": [
+        "https://doi.org/10.1109/TMI.2024.3430825"
+      ]
+    },
+    "staindiffuser": {
+      "title": "StainDiffuser: MultiTask Dual Diffusion Model for Virtual Staining",
+      "url": "https://arxiv.org/abs/2403.11340",
+      "status": "paper_verified",
+      "publication_type": "preprint",
+      "code_url": "Not verified",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2403.11340"
+      ]
+    },
+    "pasb": {
+      "title": "PASB: Pathology-aware Schrödinger bridge for virtual immunohistochemical staining",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1361841525004153",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "Not verified",
+      "provenance_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S1361841525004153"
+      ]
+    },
+    "super_resolved_virtual_staining": {
+      "title": "Pixel super-resolved virtual staining of label-free tissue using diffusion models",
+      "url": "https://doi.org/10.1038/s41467-025-60387-z",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/Yijie-Zhang/Super-resolved-virtual-staining",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2410.20073",
+        "https://github.com/Yijie-Zhang/Super-resolved-virtual-staining",
+        "https://doi.org/10.1038/s41467-025-60387-z"
+      ]
+    },
+    "semcg_stain": {
+      "title": "Pathology-aware Virtual H&E Staining of Section-free Thick Tissues with Semantic Contrastive Guidance",
+      "url": "https://papers.miccai.org/miccai-2025/0674-Paper5132.html",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/commashy/SemCG-Stain",
+      "provenance_urls": [
+        "https://papers.miccai.org/miccai-2025/0674-Paper5132.html",
+        "https://github.com/commashy/SemCG-Stain"
+      ]
+    },
+    "bbdm": {
+      "title": "BBDM: Image-to-Image Translation With Brownian Bridge Diffusion Models",
+      "url": "https://openaccess.thecvf.com/content/CVPR2023/html/Li_BBDM_Image-to-Image_Translation_With_Brownian_Bridge_Diffusion_Models_CVPR_2023_paper.html",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/xuekt98/BBDM",
+      "provenance_urls": [
+        "https://openaccess.thecvf.com/content/CVPR2023/html/Li_BBDM_Image-to-Image_Translation_With_Brownian_Bridge_Diffusion_Models_CVPR_2023_paper.html"
+      ]
+    },
+    "i2imamba": {
+      "title": "I2I-Mamba: Multi-modal medical image synthesis via selective state space modeling",
+      "url": "https://arxiv.org/abs/2405.14022",
+      "status": "paper_verified",
+      "publication_type": "preprint",
+      "code_url": "https://github.com/icon-lab/I2I-Mamba",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2405.14022"
+      ]
+    },
+    "palette": {
+      "title": "Palette: Image-to-Image Diffusion Models",
+      "url": "https://arxiv.org/abs/2111.05826",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/Janspiry/Palette-Image-to-Image-Diffusion-Models",
+      "provenance_urls": [
+        "https://arxiv.org/abs/2111.05826"
+      ]
+    },
+    "stable": {
+      "title": "Preserving Spatial and Quantitative Information in Unpaired Biomedical Image-to-Image Translation",
+      "url": "https://doi.org/10.1016/j.crmeth.2025.101074",
+      "status": "paper_verified",
+      "publication_type": "peer_reviewed",
+      "code_url": "https://github.com/NICALab/STABLE",
+      "provenance_urls": [
+        "https://doi.org/10.1016/j.crmeth.2025.101074"
+      ]
+    }
+  },
+  "eligible_run_ids": [
+    "asp_BCI_HER2",
+    "asp_BCI_MIST_IHC4BC_HER2",
+    "asp_IHC4BC_ER",
+    "asp_IHC4BC_HER2",
+    "asp_IHC4BC_Ki67",
+    "asp_IHC4BC_PR",
+    "asp_MIST_ER",
+    "asp_MIST_HER2",
+    "asp_MIST_IHC4BC_ER",
+    "asp_MIST_IHC4BC_Ki67",
+    "asp_MIST_IHC4BC_PR",
+    "asp_MIST_Ki67",
+    "asp_MIST_PR",
+    "asp_job1381340",
+    "balance__bbdm_BCI_HER2",
+    "balance__bbdm_IHC4BC_HER2",
+    "balance__bbdm_MIST_HER2",
+    "balance__bbdm_finland_HE",
+    "balance__bbdm_skin_HE",
+    "balance__hemit_BCI_HER2",
+    "balance__hemit_HER2Match_HER2",
+    "balance__hemit_IHC4BC_HER2",
+    "balance__hemit_MIST_HER2",
+    "balance__implicitstainer_BCI_HER2",
+    "balance__implicitstainer_HER2Match_HER2",
+    "balance__implicitstainer_IHC4BC_HER2",
+    "balance__implicitstainer_MIST_HER2",
+    "balance__miphei_vit_BCI_HER2",
+    "balance__miphei_vit_HER2Match_HER2",
+    "balance__miphei_vit_IHC4BC_HER2",
+    "balance__miphei_vit_MIST_HER2",
+    "cssp2p_BCI_HER2",
+    "cssp2p_BCI_MIST_IHC4BC_HER2",
+    "cssp2p_IHC4BC_ER",
+    "cssp2p_IHC4BC_HER2",
+    "cssp2p_IHC4BC_Ki67",
+    "cssp2p_IHC4BC_PR",
+    "cssp2p_MIST_ER",
+    "cssp2p_MIST_HER2",
+    "cssp2p_MIST_IHC4BC_ER",
+    "cssp2p_MIST_IHC4BC_Ki67",
+    "cssp2p_MIST_IHC4BC_PR",
+    "cssp2p_MIST_Ki67",
+    "cssp2p_MIST_PR",
+    "cut_BCI_HER2",
+    "cut_BCI_MIST_IHC4BC_HER2",
+    "cut_IHC4BC_ER",
+    "cut_IHC4BC_HER2",
+    "cut_IHC4BC_Ki67",
+    "cut_IHC4BC_PR",
+    "cut_MIST_ER",
+    "cut_MIST_HER2",
+    "cut_MIST_IHC4BC_ER",
+    "cut_MIST_IHC4BC_Ki67",
+    "cut_MIST_IHC4BC_PR",
+    "cut_MIST_Ki67",
+    "cut_MIST_PR",
+    "cyclegan_BCI_HER2",
+    "cyclegan_BCI_MIST_IHC4BC_HER2",
+    "cyclegan_IHC4BC_ER",
+    "cyclegan_IHC4BC_HER2",
+    "cyclegan_IHC4BC_Ki67",
+    "cyclegan_IHC4BC_PR",
+    "cyclegan_MIST_ER",
+    "cyclegan_MIST_HER2",
+    "cyclegan_MIST_IHC4BC_ER",
+    "cyclegan_MIST_IHC4BC_Ki67",
+    "cyclegan_MIST_IHC4BC_PR",
+    "cyclegan_MIST_Ki67",
+    "cyclegan_MIST_PR",
+    "finland__asp_seed42",
+    "finland__bcistainer",
+    "finland__cssp2p_seed42",
+    "finland__cut_seed42",
+    "finland__cyclegan_seed42",
+    "finland__dgr_seed42",
+    "finland__diffvs_seed42",
+    "finland__dvst_seed42",
+    "finland__hemit_seed42",
+    "finland__histdist_recovery_20261118",
+    "finland__histdist_seed42",
+    "finland__implicitstainer_seed42",
+    "finland__mcs_stain_seed42",
+    "finland__miphei_vit_seed42",
+    "finland__nafnet_seed42",
+    "finland__pd_unist_recovery_20261118",
+    "finland__pd_unist_seed42",
+    "finland__pgvms",
+    "finland__pix2pix_seed42",
+    "finland__pspstain_seed42",
+    "finland__pyramid_seed42",
+    "finland__restormer_seed42",
+    "finland__stainexpert_seed42",
+    "finland__tdkstain",
+    "finland__unet_seed42",
+    "finland__unistainnet_seed42",
+    "hat_l_charbonnier_job1353400",
+    "hat_l_charbonnier_lpips_job1353400",
+    "hat_l_charbonnier_lpips_long128_job1356114",
+    "hat_l_charbonnier_lpips_long256_job1356129",
+    "hat_l_l1_job1353400",
+    "hat_l_l1_long128_job1356114",
+    "hat_l_l1_long256_job1356129",
+    "her2match__asp_seed42",
+    "her2match__bbdm_seed42",
+    "her2match__cssp2p_seed42",
+    "her2match__cut_seed42",
+    "her2match__cyclegan_seed42",
+    "her2match__nafnet_seed42",
+    "her2match__pix2pix_seed42",
+    "her2match__pspstain_seed42",
+    "her2match__pyramid_seed42",
+    "her2match__restormer_continuation_20261121",
+    "her2match__restormer_seed42",
+    "her2match__unet_seed42",
+    "histdist_reference_job1382601",
+    "i2imamba_direct_job1364937",
+    "inventory_bcistainer_26",
+    "inventory_pgvms_27",
+    "inventory_tdkstain_10",
+    "missing__swinir_BCI_HER2_20261121",
+    "missing__swinir_HER2Match_HER2_20261121",
+    "nafnet_BCI_HER2",
+    "nafnet_BCI_MIST_IHC4BC_HER2",
+    "nafnet_IHC4BC_ER",
+    "nafnet_IHC4BC_HER2",
+    "nafnet_IHC4BC_Ki67",
+    "nafnet_IHC4BC_PR",
+    "nafnet_MIST_ER",
+    "nafnet_MIST_HER2",
+    "nafnet_MIST_IHC4BC_ER",
+    "nafnet_MIST_IHC4BC_Ki67",
+    "nafnet_MIST_IHC4BC_PR",
+    "nafnet_MIST_Ki67",
+    "nafnet_MIST_PR",
+    "palette_all17_job1375955",
+    "palette_reference_job1376952",
+    "pix2pix_BCI_HER2",
+    "pix2pix_BCI_MIST_IHC4BC_HER2",
+    "pix2pix_IHC4BC_ER",
+    "pix2pix_IHC4BC_HER2",
+    "pix2pix_IHC4BC_Ki67",
+    "pix2pix_IHC4BC_PR",
+    "pix2pix_MIST_ER",
+    "pix2pix_MIST_HER2",
+    "pix2pix_MIST_IHC4BC_ER",
+    "pix2pix_MIST_IHC4BC_Ki67",
+    "pix2pix_MIST_IHC4BC_PR",
+    "pix2pix_MIST_Ki67",
+    "pix2pix_MIST_PR",
+    "pix2pix_job1320940",
+    "priority_asp_reference_production_job1383267",
+    "priority_cssp2p_orion_production_job1383267",
+    "priority_cssp2p_reference_production_job1383267",
+    "priority_cut_reference_production_job1383267",
+    "priority_cyclegan_reference_production_job1383267",
+    "priority_dgr_orion_production_job1383267",
+    "priority_diffvs_orion_production_job1383267",
+    "priority_dvst_orion_production_job1383267",
+    "priority_hemit_reference_production_job1383267",
+    "priority_histdist_reference_production_job1383267",
+    "priority_implicitstainer_orion_production_job1383267",
+    "priority_implicitstainer_reference_production_job1383267",
+    "priority_mcs_stain_orion_production_job1383267",
+    "priority_miphei_vit_orion_production_job1383267",
+    "priority_nafnet_reference_production_job1383267",
+    "priority_pd_unist_orion_production_job1383267",
+    "priority_pix2pix_reference_production_job1383267",
+    "priority_pspstain_reference_production_job1383267",
+    "priority_pyramid_reference_production_job1383267",
+    "priority_restormer_reference_production_job1383267",
+    "priority_stainexpert_orion_production_job1383267",
+    "priority_unet_reference_production_job1383267",
+    "priority_unistainnet_orion_production_job1383267",
+    "pspstain_BCI_HER2",
+    "pspstain_BCI_MIST_IHC4BC_HER2",
+    "pspstain_IHC4BC_ER",
+    "pspstain_IHC4BC_HER2",
+    "pspstain_IHC4BC_Ki67",
+    "pspstain_IHC4BC_PR",
+    "pspstain_MIST_ER",
+    "pspstain_MIST_HER2",
+    "pspstain_MIST_IHC4BC_ER",
+    "pspstain_MIST_IHC4BC_Ki67",
+    "pspstain_MIST_IHC4BC_PR",
+    "pspstain_MIST_Ki67",
+    "pspstain_MIST_PR",
+    "pspstain_he_job1381924",
+    "pyramid_BCI_HER2",
+    "pyramid_BCI_MIST_IHC4BC_HER2",
+    "pyramid_IHC4BC_ER",
+    "pyramid_IHC4BC_HER2",
+    "pyramid_IHC4BC_Ki67",
+    "pyramid_IHC4BC_PR",
+    "pyramid_MIST_ER",
+    "pyramid_MIST_HER2",
+    "pyramid_MIST_IHC4BC_ER",
+    "pyramid_MIST_IHC4BC_Ki67",
+    "pyramid_MIST_IHC4BC_PR",
+    "pyramid_MIST_Ki67",
+    "pyramid_MIST_PR",
+    "pyramid_reference_job1378084",
+    "restormer_BCI_HER2",
+    "restormer_BCI_MIST_IHC4BC_HER2",
+    "restormer_IHC4BC_ER",
+    "restormer_IHC4BC_HER2",
+    "restormer_IHC4BC_Ki67",
+    "restormer_IHC4BC_PR",
+    "restormer_MIST_ER",
+    "restormer_MIST_HER2",
+    "restormer_MIST_IHC4BC_ER",
+    "restormer_MIST_IHC4BC_Ki67",
+    "restormer_MIST_IHC4BC_PR",
+    "restormer_MIST_Ki67",
+    "restormer_MIST_PR",
+    "skin__asp_recovery_20261118",
+    "skin__asp_seed42",
+    "skin__bcistainer",
+    "skin__cssp2p_seed42",
+    "skin__cut_seed42",
+    "skin__cyclegan_seed42",
+    "skin__dgr_seed42",
+    "skin__diffvs_seed42",
+    "skin__dvst_seed42",
+    "skin__hemit_seed42",
+    "skin__histdist_seed42",
+    "skin__implicitstainer_seed42",
+    "skin__mcs_stain_seed42",
+    "skin__miphei_vit_seed42",
+    "skin__nafnet_seed42",
+    "skin__pd_unist_seed42",
+    "skin__pgvms",
+    "skin__pix2pix_seed42",
+    "skin__pspstain_seed42",
+    "skin__pyramid_seed42",
+    "skin__restormer_seed42",
+    "skin__stainexpert_seed42",
+    "skin__tdkstain",
+    "skin__unet_seed42",
+    "skin__unistainnet_seed42",
+    "unet_BCI_HER2",
+    "unet_BCI_MIST_IHC4BC_HER2",
+    "unet_IHC4BC_ER",
+    "unet_IHC4BC_HER2",
+    "unet_IHC4BC_Ki67",
+    "unet_IHC4BC_PR",
+    "unet_MIST_ER",
+    "unet_MIST_HER2",
+    "unet_MIST_IHC4BC_ER",
+    "unet_MIST_IHC4BC_Ki67",
+    "unet_MIST_IHC4BC_PR",
+    "unet_MIST_Ki67",
+    "unet_MIST_PR",
+    "unet_l1_job1320937",
+    "unpaired_cut_job1373367",
+    "unpaired_stable_job1373368"
+  ],
+  "excluded_runs": {
+    "priority_pyramid_orion_production_job1383267": {
+      "model": "pyramid",
+      "reason": "Custom U-Net pyramid generator, hinge GAN, EMA and perceptual recipe replace the paper reference."
+    },
+    "priority_histdist_orion_production_job1383267": {
+      "model": "histdist",
+      "reason": "Custom marker_adapter=true convolutional source adapter."
+    },
+    "priority_unet_orion_production_job1383267": {
+      "model": "unet",
+      "reason": "Custom gated_unet model; paper U-Net reference is retained."
+    },
+    "priority_oda_gan_orion_production_job1383267": {
+      "model": "oda_gan",
+      "reason": "Only an explicitly inspired approximation or unavailable placeholder; no faithful paper-model implementation."
+    },
+    "priority_nafnet_orion_production_job1383267": {
+      "model": "nafnet",
+      "reason": "Custom marker_gating=true input architecture."
+    },
+    "priority_restormer_orion_production_job1383267": {
+      "model": "restormer",
+      "reason": "Custom regional marker-context blocks; paper Restormer reference is retained."
+    },
+    "pyramid_mif_job1378084": {
+      "model": "pyramid",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "pyramid_mif_no_gan_job1379136": {
+      "model": "pyramid",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "asp_sp_control_job1381340": {
+      "model": "asp",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "pspstain_backbone_job1381924": {
+      "model": "pspstain",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "histdist_markers_job1382601": {
+      "model": "histdist",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "unet_multiscale_perceptual_job1322680": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "pix2pix_stabilized_job1322680": {
+      "model": "pix2pix",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "registration_cycle_resnet9_job1372269": {
+      "model": "cyclegan",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "registration_cycle_unet_job1372269": {
+      "model": "cyclegan",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "unpaired_cut_spatial_job1373367": {
+      "model": "cut",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "study_restormer_curriculum_job1356457": {
+      "model": "restormer",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "restormer_marker_regions_job1358034": {
+      "model": "restormer",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "restormer_long_control_job1358034": {
+      "model": "restormer",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "restormer_xl_depth_job1358035": {
+      "model": "restormer",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "restormer_global_context_job1358034": {
+      "model": "restormer",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "restormer_deterministic_refiner_job1358036": {
+      "model": "restormer",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "finland__oda_gan": {
+      "model": "oda_gan",
+      "reason": "Only an explicitly inspired approximation or unavailable placeholder; no faithful paper-model implementation."
+    },
+    "skin__oda_gan": {
+      "model": "oda_gan",
+      "reason": "Only an explicitly inspired approximation or unavailable placeholder; no faithful paper-model implementation."
+    },
+    "mmt_unet_baseline_job1354466": {
+      "model": "mmt",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "multiscale_pix2pix_perceptual_job1321421": {
+      "model": "pix2pix",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "panel_all17_seed42_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "panel_probe_seed42_job1364918": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_curriculum_256_job1355413": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_recipe_gated_job1353418": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "registration_paired_shift10_job1372270": {
+      "model": "other",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "panel_hoechst_seed42_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "study_fusion_ordinary_job1356461": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "dit_latent_job1321436": {
+      "model": "dit",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "study_unet_curriculum_job1356456": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "vae_he_4x_job1321435": {
+      "model": "vae",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "gated_pix2pix_structural_job1320936": {
+      "model": "pix2pix",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "panel_rescue5_seed42_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "gated_unet_structural_job1320939": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_recipe_separate_job1353418": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "study_fusion_query_job1356461": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "panel_rescue3_seed42_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "registration_paired_aligned_job1372270": {
+      "model": "other",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "i2imamba_marker_global_job1364937": {
+      "model": "i2imamba",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "palette_velocity_x0_job1376952": {
+      "model": "palette",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "i2imamba_marker_spatial_job1364937": {
+      "model": "i2imamba",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "marker_hat_l_charbonnier_lpips_job1353400": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "panel_all17_seed1042_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "flow_direct_job1367098": {
+      "model": "flow",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "mmt_unet_conv_control_job1354466": {
+      "model": "mmt",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "dit_residual_job1321433": {
+      "model": "dit",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "panel_rescue5_seed1042_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "palette_scaled_gamma_job1376952": {
+      "model": "palette",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_perceptual_control_256_job1355413": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "multiscale_pix2pix_perceptual_job1321425": {
+      "model": "pix2pix",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_recipe_direct_job1353418": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_pretrained_separate_job1353405": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_refine_control_job1353419": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "registration_paired_shift05_job1372270": {
+      "model": "other",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "panel_rescue3_seed1042_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "gated_unet_l1_job1320938": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_xl_perceptual_256_job1355414": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "mmt_unet_density_job1354466": {
+      "model": "mmt",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "panel_mean5_seed42_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_curriculum_128_job1355412": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "mmt_unet_transport_job1354466": {
+      "model": "mmt",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "hat_l_pretrained_gated_job1353405": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_mixed_direct_job1353418": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_pretrained_direct_job1353405": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "hat_l_refine_recipe_job1353419": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "dit_direct_job1321434": {
+      "model": "dit",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "hat_xl_charbonnier_lpips_job1353400": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "study_fusion_baseline_job1356461": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "panel_mean5_seed1042_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "panel_random5_seed42_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "flow_direct_perceptual_job1367098": {
+      "model": "flow",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "panel_hoechst_seed1042_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "panel_random5_seed1042_job1364919": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "study_refine_deterministic_job1356462": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "palette_velocity_job1376952": {
+      "model": "palette",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "marker_hat_l_dropout_charbonnier_lpips_job1353400": {
+      "model": "hat",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "study_refine_diffusion_job1356463": {
+      "model": "unet",
+      "reason": "Unpublished local architecture, objective, fusion, panel, refinement, scaling, or ablation recipe; published canonical baseline retained separately."
+    },
+    "finland__research_eqm_20261017": {
+      "model": "eqm",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "finland__research_lrdm_20261017": {
+      "model": "lrdm",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "finland__research_nvg_20261017": {
+      "model": "nvg",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "finland__research_itarflow768_recovery_20261118": {
+      "model": "itarflow",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    },
+    "finland__research_eqm_continuation_20261121": {
+      "model": "eqm",
+      "reason": "Local research method or custom composite without a reviewed canonical paper-model recipe."
+    }
+  },
+  "review_notes": {
+    "source_audit": "artifacts/published_models_20261123/audit_sources/readme_extraction.json",
+    "historical_baselines": "HAT-L original capacity with conventional L1/Charbonnier/LPIPS losses and bounded training-length changes retained. HAT-XL is custom scaling and excluded. Palette epsilon/reference retained; gamma/velocity variants excluded. I2I-Mamba direct published backbone adaptation retained; marker-fusion variants excluded. STABLE channels corrected to input/target widths while native objectives retained.",
+    "research_papers_exist": {
+      "eqm": "https://github.com/raywang4/EqM",
+      "nvg": "https://arxiv.org/abs/2508.12811",
+      "lrdm": "https://openaccess.thecvf.com/content/CVPR2026/html/Tan_Low-Rank_Residual_Diffusion_Models_CVPR_2026_paper.html",
+      "itarflow": "https://arxiv.org/abs/2604.20041"
+    },
+    "research_exclusion_reason": "These upstream papers exist, but the current local runs are substantial independent research adaptations, not conventional published benchmark model recipes. Do not describe upstream methods themselves as unpublished."
+  },
+  "reviewed_date": "2026-11-23",
+  "schema": "published-model-policy-v1"
+}

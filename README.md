@@ -4,7 +4,7 @@
 
 A static benchmark for delivered virtual staining models across ORION CRC, BCI, MIST, IHC4BC, Finland mouse prostate, DermaRepo human skin and HER2Match.
 
-The first view is a visual research atlas. Its current snapshot has 339 run records, 596 scored evaluation rows and seven datasets. The dataset bars count distinct model families with held-out test evidence, once per family; recipe variants stay visible as separate run records. Training and planned coverage remain separate from completed test scores.
+The first view is a visual atlas of reviewed, paper-backed methods across seven datasets. Every catalog method links to its paper; preprints are labelled. Conventional dataset adaptations remain, while unpublished local gates, fusion modules, refiners, marker-panel studies and other research recipes are omitted. The dataset bars count distinct model families with held-out test evidence, once per family. Training and planned coverage remain separate from completed test scores.
 
 Seven interactive views are available:
 
@@ -22,7 +22,9 @@ The 19 November refresh preserves every previously published ranked result and a
 
 ## Evidence and coverage
 
-The snapshot reconciles every model-priority entry and ORION run row in `Virtual_Staining_Model_Priorities.xlsx`, all 130 completed breast runs, all 360 breast dataset/split result rows, the separate 24-patch pathology pilot, and saved cluster runs absent from the workbook. Deferred and excluded methods retain their reasons without invented scores. Details and the workbook fingerprint are in `dist/data/reconciliation.json`.
+The complete local evidence ledger reconciles every model-priority entry and ORION run row in `Virtual_Staining_Model_Priorities.xlsx`, all 130 completed breast runs, all 360 breast dataset/split result rows, the separate 24-patch pathology pilot, and saved cluster runs absent from the workbook. Historical reconciliation totals retain that original scope. The website, gallery, downloads and visible counts contain only the reviewed published-method subset, documented in `dist/data/publication-policy.json`. Removing a public entry does not delete its original research evidence or checkpoint.
+
+`tools/published-models.json` is the explicit paper and recipe registry. A published backbone alone does not approve a custom composite: each visible run ID must also be reviewed. New or unknown runs remain excluded until reviewed. Both snapshot exporters apply this policy, and deployment validates every public inventory, direct run JSON, CSV download and image asset against it.
 
 Held-out results, selected-checkpoint validation, latest training measurements and pilot evaluations stay separate. Legacy and matched FP32 scikit-image protocols are also separate. Unstained results enter the ranking only from `complete.json`, after the core profile and StarDist, StarDist 2×, HoVerNet and Cellpose-SAM evaluations finish. Metrics still outside this profile remain explicitly pending. A single numeric advantage is not statistical superiority, and image similarity does not establish diagnostic equivalence.
 

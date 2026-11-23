@@ -172,6 +172,7 @@ def activity(workspace, names):
 
 
 def build(dist, workspace):
+    from publication_policy import filter_activity
     index_path = dist / 'data/index.json'
     data = read_json(index_path)
     entries = data['runs']
@@ -195,6 +196,10 @@ def build(dist, workspace):
         datasets_registered=len(data['datasets']) if any(d['id']=='her2match' for d in data['datasets']) else len(data['datasets'])+1, her2match_tasks=len(HER2_MODELS),
         original_breast_runs=data['audit']['breast_runs'], workbook_verified_cells=data['audit']['verified_cells'])
     recent, receipt_sources = activity(workspace, names)
+    if data.get('publication_scope'):
+        recent = filter_activity(recent, data)
+        receipt_sources = [s for s in receipt_sources if not any(word in s['label'].lower() for word in ['itarflow','eqm','lrdm','nvg'])]
+        scale['her2match_tasks'] = len(recent['her2match'])
     recent['observed_utc']=max(recent['observed_utc'],data['snapshot'])
     sources = [source_record(index_path, 'Current reconciled benchmark inventory', data['snapshot'], 'data/index.json')]
     sources += receipt_sources
@@ -231,7 +236,7 @@ def build(dist, workspace):
                 score_rows=sum(bool(e.get('rankable')) and e['dataset']==dataset['id'] for r in mine for e in r['evaluations']),status=state))
         cells.append(row)
     coverage=dict(datasets=[dict(id=d['id'],name=d['name']) for d in datasets],rows=cells,
-        note='Cells count run records; pooled records occur in each applicable dataset. Dataset bars use distinct model families with full held-out tests. Trained research families with other protocols remain separate from the native benchmark targets.')
+        note='Cells count reviewed published-method run records; pooled records occur in each applicable dataset. Dataset bars use distinct model families with full held-out tests. Local experimental recipes are omitted.')
     balance=None
     plan_path=workspace/'artifacts/coverage_balance_20261119/prepared/campaign.json'
     if plan_path.exists():
@@ -294,7 +299,7 @@ def build(dist, workspace):
         protocol='Box SSIM · 256px · n=585', x_label='Optimizer updates', y_label='Validation LPIPS ↓',
         series=trajectory_series, note='Actual recorded values; no smoothing or extrapolation. Same BCI validation cohort. Training recipes differ; equal updates do not imply equal training compute. Validation trajectories do not use test scores.')
     return dict(schema='virtual-staining-visual-summary-v1', snapshot=dict(benchmark=data['snapshot'], activity=recent['observed_utc']),
-        scale=scale, datasets=datasets, coverage=coverage, cohort=cohort, trajectories=trajectories,
+        scale=scale, datasets=datasets, coverage=coverage, cohort=cohort, trajectories=trajectories,publication_scope=data.get('publication_scope'),
         activity=recent, provenance=sources,coverage_balance=balance,training_audit=data.get('training_audit'),followup_campaigns=data.get('followup_campaigns',[]),gpu_activity=data.get('gpu_activity'),
         notes=['Current result inventory and activity retain explicit source and capture timestamps.',
             f'{len(entries)} run records include evaluated, deferred, continuation and unscored entries; they are not independently completed training experiments.',

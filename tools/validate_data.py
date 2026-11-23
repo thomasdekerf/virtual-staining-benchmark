@@ -1,11 +1,13 @@
 """Validate scientific snapshot consistency and static references before deployment."""
 import hashlib, json, math, re
 from followup_results import verify_gpu_snapshot
+from publication_validation import validate_publication_scope
 from datetime import datetime
 from pathlib import Path
 
 root=Path(__file__).resolve().parents[1]/'dist'
 index=json.loads((root/'data/index.json').read_text())
+publication_validation=validate_publication_scope(root,index)
 ids=[r['id'] for r in index['runs']]
 assert len(ids)==len(set(ids)), 'Duplicate run IDs'
 assert {d['id'] for d in index['datasets']}=={'orion','BCI','MIST','IHC4BC','finland','skin','her2match'}, 'Missing registered dataset'
@@ -65,8 +67,8 @@ unet=json.loads((root/'data/runs/unet_l1_job1320937.json').read_text())
 matched=next(e for e in unet['evaluations'] if e['split']=='test' and e['protocol'].startswith('Matched FP32'))
 assert abs(matched['metrics']['psnr']-23.7402681356641)<1e-10
 assert not any(e['split']=='test' and e['protocol'].startswith('Box SSIM') for e in unet['evaluations'])
-pilot=next(e for e in json.loads((root/'data/runs/priority_nafnet_orion_production_job1383267.json').read_text())['evaluations'] if e['split']=='pilot')
-assert abs(pilot['metrics']['psnr']-23.186044288262085)<1e-10 and pilot['n']==24
+pilot=next(e for e in json.loads((root/'data/runs/priority_implicitstainer_orion_production_job1383267.json').read_text())['evaluations'] if e['split']=='pilot')
+assert abs(pilot['metrics']['psnr']-22.67256396994569)<1e-10 and pilot['n']==24
 
 # The overview must validate from checked-in public data only: CI has no private
 # training workspace, SSH access, evaluator checkpoints or activity receipts.
@@ -204,4 +206,4 @@ from validate_prediction_gallery import validate_gallery
 gallery_validation=validate_gallery(json.loads((root/'data/prediction-gallery.json').read_text()),root,index)
 for filename in ['prediction-gallery.js','prediction-gallery.css']:
     assert (root/filename).is_file(), 'Missing gallery interface asset'
-print(json.dumps({'runs':len(ids),'evaluations':evaluations,'scalar_series':curves,'paired_fields':images,'matched_gallery_fields':gallery_validation['fields'],'matched_gallery_predictions':gallery_validation['predictions'],'workbook_cells_verified':index['audit']['verified_cells'],'overview_cohort_runs':cohort['models'],'overview_coverage_cells':sum(len(r['cells']) for r in summary['coverage']['rows']),'validation':'passed'}))
+print(json.dumps({'runs':len(ids),'evaluations':evaluations,'scalar_series':curves,'paired_fields':images,'matched_gallery_fields':gallery_validation['fields'],'matched_gallery_predictions':gallery_validation['predictions'],'workbook_cells_verified':index['audit']['verified_cells'],'overview_cohort_runs':cohort['models'],'overview_coverage_cells':sum(len(r['cells']) for r in summary['coverage']['rows']),'published_models':publication_validation['models'],'validation':'passed'}))
