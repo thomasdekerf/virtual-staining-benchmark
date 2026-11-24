@@ -1,5 +1,5 @@
-import {renderOverview,disposeOverview} from './overview.js?v=20261123-architecture-expansion';
-import {renderPredictionGallery,disposePredictionGallery} from './prediction-gallery.js?v=20261123-architecture-expansion';
+import {renderOverview,disposeOverview} from './overview.js?v=20261124-run-update';
+import {renderPredictionGallery,disposePredictionGallery} from './prediction-gallery.js?v=20261124-run-update';
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const esc = value => String(value ?? '').replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));

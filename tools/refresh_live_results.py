@@ -455,6 +455,24 @@ def refresh(site,workspace):
     if her2_observed:
         captured=max(captured,her2_observed['captured_utc'])
         integrate_her2(site,workspace,data,runs,register,fresh_run,status,history,ingest,source,write,previous_evals)
+    archive_observations=[]
+    for path in (workspace/'artifacts').glob('run_update_*/site/archive_readiness_public.json'):
+        observation=read(path,{})
+        if observation.get('snapshot'):archive_observations.append((observation['snapshot'],path,observation))
+    if archive_observations:
+        from archive_readiness import apply_archive_observation
+        _,path,observation=max(archive_observations,key=lambda item:item[0])
+        gallery_path=out/'data/prediction-gallery.json'
+        write(gallery_path,apply_archive_observation(read(gallery_path),observation))
+        write(out/'data/archive-readiness.json',observation)
+        data['gpu_activity']['archive_availability']=copy.deepcopy(observation)
+        data['gpu_activity']['blocked']['reason']='Archive server reachable; its 26 TB archive volume is unmounted. Original data or archived parent state is still required for these published-method runs'
+        write(out/'data/gpu-activity.json',data['gpu_activity'])
+        deferred=read(out/'data/deferred-training.json',{})
+        if deferred:
+            deferred['archive_availability']=copy.deepcopy(observation)
+            write(out/'data/deferred-training.json',deferred)
+        source(path,'Read-only archive reachability and unmounted-volume observation; no recovered assets claimed')
     attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json',out/'data/swinir-protocol-review.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.
