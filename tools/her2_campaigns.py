@@ -253,9 +253,9 @@ def apply_checkpoint_bound_mcs_findings(runs,audit):
     return affected
 
 
-def review_new_campaign_protocol(run,task,plan_path,site,reference,published_evaluations,parent=None):
+def review_new_campaign_protocol(run,task,plan_path,site,reference,published_evaluations,parent=None,source_code_dir=None):
     """Review common metric/data code while retaining every old evaluation payload."""
-    candidate=plan_path.parent/'code'
+    candidate=Path(source_code_dir) if source_code_dir else plan_path.parent/'code'
     files={'src/virtual_staining/metrics.py':reference['source_hashes']['shared_validation_metrics'],
            'src/virtual_staining/breast_data.py':reference['source_hashes']['her2match_dataset']}
     loss_path=candidate/'src/virtual_staining/losses.py'
@@ -358,7 +358,9 @@ def build_capacity(snapshot,runs,previous):
 
 def current_snapshot(workspace):
     candidates=[]
-    for path in (workspace/'artifacts').glob('her2match_complete_*/live_audit/site_snapshot.json'):
+    paths=list((workspace/'artifacts').glob('her2match_complete_*/live_audit/site_snapshot.json'))
+    paths+=list((workspace/'artifacts').glob('run_update_*/site_evidence/fresh_campaign_snapshot.json'))
+    for path in paths:
         value=read(path,{})
         if value.get('captured_utc'):candidates.append((value['captured_utc'],path,value))
     if not candidates:return None,{}

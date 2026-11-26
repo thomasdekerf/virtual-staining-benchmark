@@ -473,6 +473,12 @@ def refresh(site,workspace):
             deferred['archive_availability']=copy.deepcopy(observation)
             write(out/'data/deferred-training.json',deferred)
         source(path,'Read-only archive reachability and unmounted-volume observation; no recovered assets claimed')
+    from runnable_results import integrate as integrate_runnable
+    runnable=integrate_runnable(site,workspace,data,runs,register,fresh_run,status,history,ingest,source,write,previous_evals)
+    if runnable:captured=max(captured,runnable['snapshot'])
+    from hemit_dataset_results import integrate as integrate_hemit
+    hemit=integrate_hemit(site,workspace,data,runs,register,fresh_run,source,write,changes,previous_evals)
+    if hemit:captured=max(captured,hemit['snapshot'])
     attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json',out/'data/swinir-protocol-review.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.

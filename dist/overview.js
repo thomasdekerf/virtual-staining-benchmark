@@ -1,4 +1,4 @@
-import {buildProfileCohorts, materializeProfileCohort} from './profile-data.js?v=20261120-completed-results';
+import {buildProfileCohorts, materializeProfileCohort} from './profile-data.js?v=20261126-hemit-results';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const number = value => Number(value || 0).toLocaleString('en-GB', {maximumFractionDigits: 0});
 const date = value => value ? new Date(value).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}) : 'Not recorded';
@@ -295,12 +295,12 @@ export async function renderOverview(main, layout='atlas', index) {
   bind(main,data,layout);
   const container=$('#visual-example',main);
   if(layout==='curves'){
-    const module=await import('./learning-explorer.js');
+    const module=await import('./learning-explorer.js?v=20261126-hemit-results');
     if(sequence!==renderSequence)return;
     const cleanup=await module.renderLearningExplorer(container,index);
     if(sequence===renderSequence)explorerCleanup=cleanup;else if(typeof cleanup==='function')cleanup();
   }else if(['scatter','heatmap','parallel','correlation'].includes(layout)){
-    const module=await import('./data-laboratory.js?v=20261120-completed-results');
+    const module=await import('./data-laboratory.js?v=20261126-hemit-results');
     if(sequence!==renderSequence)return;
     const cleanup=await module.renderDataLaboratory(container,index,layout);
     if(sequence===renderSequence)explorerCleanup=cleanup;else if(typeof cleanup==='function')cleanup();

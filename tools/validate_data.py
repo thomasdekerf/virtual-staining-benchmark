@@ -10,7 +10,7 @@ index=json.loads((root/'data/index.json').read_text())
 publication_validation=validate_publication_scope(root,index)
 ids=[r['id'] for r in index['runs']]
 assert len(ids)==len(set(ids)), 'Duplicate run IDs'
-assert {d['id'] for d in index['datasets']}=={'orion','BCI','MIST','IHC4BC','finland','skin','her2match'}, 'Missing registered dataset'
+assert {d['id'] for d in index['datasets']}=={'orion','BCI','MIST','IHC4BC','finland','skin','her2match','hemit_dataset'}, 'Missing registered dataset'
 assert index['audit']['model_priority_rows']==39, 'Workbook model inventory changed; reconcile coverage'
 assert index['audit']['workbook_orion_rows_accounted'], 'Unaccounted workbook ORION rows'
 assert index['audit']['breast_runs']==130, 'Incomplete breast campaign'
@@ -61,6 +61,49 @@ for entry in index['runs']:
 
 unstained_rows=sum(e['rankable'] and r['task']=='unstained' for r in index['runs'] for e in r['evaluations'])
 assert unstained_rows==index['audit']['unstained_result_rows_verified'], 'Unreconciled unstained scores'
+
+# Numerical H&E-to-mIF is a separate task from ORION's reverse translation.
+from hemit_dataset_results import CHANNELS, COUNTS, FINAL_MODELS, MODELS
+hemit=[r for r in index['runs'] if 'hemit_dataset' in r['datasets']]
+assert len(hemit)==len(MODELS) and {r['model'] for r in hemit}==set(MODELS)
+assert {r['model'] for r in hemit if r['evaluation_complete']}==set(FINAL_MODELS)
+for entry in hemit:
+    r=run_details[entry['id']]
+    assert r['task']=='he_to_mif' and r['target_channels']==list(CHANNELS)
+    assert r['normalization']['physical_intensity_calibration'] is False
+    assert r['normalization']['canonical_reindex']==[2,1,0]
+    assert not r['gallery'] and not r['distributions']
+    assert r['curves'] and r['curve_protocol']['inherited_parent_deduplicated']
+    assert r['clinical_score_evaluation'] is False
+    if r['model'] not in FINAL_MODELS:
+        assert not r['evaluations'] and not r['training_complete']
+    else:
+        assert r['native_adequacy_verified'] and len(r['evaluations'])==2
+        if r['curve_axis']=='epoch':assert r['selected_completed_epoch']==r['position']['epoch']+1
+    for e in r['evaluations']:
+        assert e['rankable'] and e['n']==COUNTS[e['split']] and e['target_space']=='mif'
+        assert all(k.startswith('mif_') for k in e['metrics'])
+        assert e['checkpoint_sha256']==r['checkpoint_sha256'] and e['manifest_sha256']
+        for channel in CHANNELS:
+            row=e['fluorescence_channels'][channel];key=f'mif_{channel}_pcc'
+            assert row['pcc_total_tiles']==e['n']
+            assert row['pcc_defined_tiles']+row['pcc_undefined_tiles']==e['n']
+            assert e['coverage'][key]==row['pcc_defined_tiles']
+            if key in e['metrics']:assert e['metrics'][key]==row['pcc_mean_defined_tiles']
+assert all(not row['active_objective'] and row['state']=='user_deferred' for row in index['deferred_datasets'])
+extension=run_details['continuation__bbdm_finland_HE_20261125']
+assert extension['parent_run']=='balance__bbdm_finland_HE' and extension['gate_passed']
+assert not extension['evaluations'] and not extension['training_complete']
+assert extension['new_optimizer_updates']==extension['last_step']-100000>0
+assert all(x>100000 for points in extension['curves'].values() for x,y in points)
+bci_new=[r for r in index['runs'] if r['id'].startswith('bci_published__')]
+assert len(bci_new)==6 and sum(bool(r['evaluation_complete']) for r in bci_new)==5
+for r in bci_new:
+    assert r['datasets']==['BCI'] and r['task']=='ihc' and r['marker']=='HER2' and r['gate_passed']
+    for e in r['evaluations']:
+        if e.get('rankable'):
+            assert e['n']=={'val':585,'test':977}[e['split']]
+            assert e.get('comparison_protocol_review_sha256'), 'New BCI result lacks common-code equivalence review'
 
 # Independent published-reference anchors catch protocol mixing and rounded values.
 unet=json.loads((root/'data/runs/unet_l1_job1320937.json').read_text())

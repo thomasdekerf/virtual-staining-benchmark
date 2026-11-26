@@ -789,7 +789,22 @@
     "her2match_complete__dclgan_20261123",
     "architecture__dclgan_BCI_HER2_20261123",
     "her2match_complete__i2sb_20261123",
-    "architecture__i2sb_BCI_HER2_20261123"
+    "architecture__i2sb_BCI_HER2_20261123",
+    "hemit_dataset__unet_seed42",
+    "hemit_dataset__pix2pix_seed42",
+    "hemit_dataset__nafnet_seed42",
+    "hemit_dataset__hemit_seed42",
+    "hemit_dataset__cut_seed42",
+    "hemit_dataset__uformer_seed42",
+    "hemit_dataset__bbdm_seed42",
+    "hemit_dataset__i2sb_seed42",
+    "bci_published__hat_HER2_20261125",
+    "bci_published__i2imamba_HER2_20261125",
+    "bci_published__pd_unist_HER2_20261125",
+    "bci_published__stable_HER2_20261125",
+    "bci_published__histdist_HER2_20261125",
+    "bci_published__dvst_HER2_20261125",
+    "continuation__bbdm_finland_HE_20261125"
   ],
   "excluded_runs": {
     "priority_pyramid_orion_production_job1383267": {
@@ -1154,8 +1169,10 @@
     "her2match_20261123": "Canonical HER2Match campaign configs and disclosed native budget continuations reviewed; strict actual source/config/manifest/tensor-update/resume gates bind training evidence. BCIStainer remains unscored and blocked without genuine tile grades. All87 original unpublished recipes stay excluded.",
     "dgr_rgb_rescue_20261123": "Separate fresh seed42 numerical rescue after source-verified colour collapse; unchanged six original DGR model/vendor files, original RGB author1e-5FP32 preset, native per-network0.5gradient clipping, constantLR and full-validation patience. Mandatory104-step four-rank resumed G/RegGT/RegX/D learned-weight and optimizer proof. Old failure and scores remain visible; no test selection or claimed repair success from submission.",
     "mcs_fp32_recovery_20261123": "Historical fresh seed42 repair attempt restored FP32 and G-first/D-second order but still failed the constant-white-output gate before production. Later author-code audit identified semantic Cellpose BatchNorm-mode and adversarial scale-reduction discrepancies that this attempt did not correct. Its original source, failure and earlier poor full evaluation remain preserved. Separate short author-contract diagnostic controls are private and unranked; no successful repair claim follows from source changes or submission.",
-    "architecture_expansion_20261123": "Published Pix2PixHD (CVPR2018), Uformer-B (CVPR2022), DCLGAN (CVPRW/NTIRE2021), and I2SB (ICML2023) are conventional RGB staining adaptations on frozen HER2Match and BCI HER2 fields. Full native author capacities and defining objectives are retained; actual four-GPU positive-LR learned-update/resume proofs and nine-field independent validation are mandatory. DCL requires both G/D/projection directions and three optimizers; I2SB requires online+EMA updates and verified initialization; Pix2PixHD requires fixed verified VGG19. Queued or merely registered recipes carry no invented score. Diagnostic controls and additional variants are not approved implicitly."
+    "architecture_expansion_20261123": "Published Pix2PixHD (CVPR2018), Uformer-B (CVPR2022), DCLGAN (CVPRW/NTIRE2021), and I2SB (ICML2023) are conventional RGB staining adaptations on frozen HER2Match and BCI HER2 fields. Full native author capacities and defining objectives are retained; actual four-GPU positive-LR learned-update/resume proofs and nine-field independent validation are mandatory. DCL requires both G/D/projection directions and three optimizers; I2SB requires online+EMA updates and verified initialization; Pix2PixHD requires fixed verified VGG19. Queued or merely registered recipes carry no invented score. Diagnostic controls and additional variants are not approved implicitly.",
+    "hemit_numerical_dataset_20261126": "Eight explicitly named conventional H&E-to-numerical-mIF adaptations on frozen HEMIT author fields. Separate from ORION reverse translation and the HEMIT model identity. Four-GPU full-width positive-LR update/resume gates, source/config/checkpoint/manifest hashes and native-horizon plus fresh patience proof required. Six selected-checkpoint full VAL630/TEST945 reports are final; BBDM/I2SB remain unranked. Canonical DAPI/CD3/panCK uint8/255 storage normalization is not physical calibration; no patient-disjoint, RGB Lab/DAB, clinical, per-tile distribution or uncertainty claims. Parent first-pass results are replaced only by qualified final child records with deduplicated parent history and allocations. PRECISE is user-deferred and not an active objective.",
+    "bci_coverage_and_finland_plateau_20261126": "Six explicit BCI HER2 author-model adaptations inherit unchanged frozen source and native scientific configurations from reviewed HER2Match implementations; each requires its own actual BCI four-GPU learned-update/resume gate. Five complete full585VAL/977TEST selected-checkpoint reports are source/manifest/checkpoint bound; HAT remains unranked. Separately record the unfinished original constant-LR Finland BBDM continuation after100k, binding real online/EMA/optimizer resume and original selected checkpoint preservation. Its parent full profile is scored separately; an unfinished extension has no inferred score."
   },
-  "reviewed_date": "2026-11-23",
+  "reviewed_date": "2026-11-26",
   "schema": "published-model-policy-v1"
 }

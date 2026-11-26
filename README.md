@@ -2,9 +2,15 @@
 
 [Open the benchmark](https://thomasdekerf.github.io/virtual-staining-benchmark/)
 
-A static benchmark for delivered virtual staining models across ORION CRC, BCI, MIST, IHC4BC, Finland mouse prostate, DermaRepo human skin and HER2Match.
+A static benchmark for delivered virtual staining models across ORION CRC, BCI, MIST, IHC4BC, Finland mouse prostate, DermaRepo human skin, HER2Match and HEMIT.
 
-The first view is a visual atlas of reviewed, paper-backed methods across seven datasets. Every catalog method links to its paper; preprints are labelled. Conventional dataset adaptations remain, while unpublished local gates, fusion modules, refiners, marker-panel studies and other research recipes are omitted. The dataset bars count distinct model families with held-out test evidence, once per family. Training and planned coverage remain separate from completed test scores.
+The 26 November 2026 snapshot contains **300 public run records and 622 ranked
+dataset/split results across eight datasets**. All 596 previously published
+ranked rows retain their exact means, checkpoints, manifests and comparison
+protocols. The 26 new rows come from six HEMIT methods, HER2Match HAT, Finland
+BBDM and five BCI methods. Unfinished training remains unranked.
+
+The first view is a visual atlas of reviewed, paper-backed methods across eight datasets. Every catalog method links to its paper; preprints are labelled. Conventional dataset adaptations remain, while unpublished local gates, fusion modules, refiners, marker-panel studies and other research recipes are omitted. The dataset bars count distinct model families with held-out test evidence, once per family. Training and planned coverage remain separate from completed test scores.
 
 Seven interactive views are available:
 
@@ -21,6 +27,24 @@ The [searchable, sortable benchmark table](https://thomasdekerf.github.io/virtua
 The 19 November refresh preserves every previously published ranked result and adds the verified current results: nine completed HER2Match models, three newly completed Finland families and recovered skin ASP. This gives 19 complete Finland test profiles and 21 for skin. Separately dated campaign cards show unfinished training, evaluations and the focused 17-run expansion. The expansion adds HEMIT, ImplicitStainer and MiPHEI-ViT to the breast HER2 anchor comparisons, plus BBDM across the original breast anchors, Finland and skin. Original breast and HER2Match target 14 benchmark families; Finland and skin target 22. These are planned targets until the runs and full evaluations finish. The small `dist/data/visual-summary.json` records source fingerprints and scope notes.
 
 ## Published architecture expansion
+
+The 26 November refresh adds the **HEMIT dataset**, separate from the HEMIT
+model and ORION's reverse translation task. Six native-horizon-qualified methods
+have complete 630-field validation and 945-field test results; BBDM and I²SB
+retain unranked progress. All eight include full deduplicated parent/continuation
+histories. Numerical DAPI/CD3/panCK channels use exact released uint8/255 storage
+scaling, without physical fluorescence calibration or a patient-disjoint claim.
+Channel PCC exposes its defined/total field counts. This cohort excludes RGB
+Lab/DAB and clinical scores; LPIPS is an operational feature distance. CUT's poor
+correspondence and Uformer's weak CD3 correspondence are explicitly flagged.
+Per-field predictions and score distributions are unavailable in this snapshot.
+PRECISE is user-deferred, with no active objective.
+
+The same refresh adds the newly completed HER2Match HAT, original Finland BBDM,
+and five BCI HER2 full profiles (I2I-Mamba, PD-UNIST, STABLE, HistDiST and D-VST),
+while retaining all previous scored means exactly. BCI HAT and the separate
+Finland BBDM plateau continuation remain unranked. A completed parent result does
+not imply that its continuing training stage is final.
 
 The 23 November expansion adds full author-capacity **Pix2PixHD**, **Uformer-B**,
 **DCLGAN** and **I²SB** implementations for the HER2Match and BCI HER2 comparisons.

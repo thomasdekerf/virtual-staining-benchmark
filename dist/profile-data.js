@@ -1,6 +1,6 @@
 // Pure cohort/normalization helpers shared by the interactive profile explorer.
 const finite = value => typeof value === 'number' && Number.isFinite(value);
-const preferredMetrics = ['psnr','ssim','lpips','dists','conch_cosine','mae','delta_e76'];
+const preferredMetrics = ['mif_psnr','mif_ssim','mif_lpips','mif_mae','psnr','ssim','lpips','dists','conch_cosine','mae','delta_e76'];
 
 export function buildProfileCohorts(index) {
   const groups = new Map();

@@ -69,6 +69,8 @@ function availableGroups(index,state){
   return [...groups.values()].sort((a,b)=>(a.e.protocol==='Full production evaluation'?-1:0)-(b.e.protocol==='Full production evaluation'?-1:0)||b.n-a.n||a.key.localeCompare(b.key));
 }
 
+const suggestedMetrics=keys=>['mif_psnr','mif_ssim','mif_lpips','mif_mae','mif_DAPI_ssim','psnr','ssim','lpips','dists','conch_cosine'].filter(k=>keys.includes(k)).slice(0,5);
+
 function prepare(index,state){
   const datasets=index.datasets.filter(d=>index.runs.some(r=>r.evaluations.some(e=>e.rankable&&e.dataset===d.id)));
   if(!datasets.some(d=>d.id===state.dataset))state.dataset=datasets[0]?.id;
@@ -80,8 +82,10 @@ function prepare(index,state){
   if(!groups.some(g=>g.key===state.cohort_key))state.cohort_key=groups[0]?.key;
   const rows=cohortRows(index,state);
   const keys=[...new Set(rows.flatMap(r=>Object.keys(r.values).filter(k=>finite(r.values[k]))))].sort((a,b)=>metadata(index,a).label.localeCompare(metadata(index,b).label));
-  if(!keys.includes(state.x))state.x=keys.includes('psnr')?'psnr':keys[0];
-  if(!keys.includes(state.y))state.y=keys.includes('lpips')?'lpips':keys[1]||keys[0];
+  if(!keys.includes(state.x))state.x=['mif_psnr','psnr'].find(k=>keys.includes(k))||keys[0];
+  if(!keys.includes(state.y))state.y=['mif_lpips','lpips'].find(k=>keys.includes(k))||keys[1]||keys[0];
+  const metricScope=keys.includes('mif_psnr')?'fluorescence':'stained_rgb';
+  if(state.metricScope!==metricScope){state.metrics=suggestedMetrics(keys);state.sort=state.y;state.metricScope=metricScope;}
   return {datasets,markers,splits,groups,rows,keys};
 }
 
@@ -130,7 +134,7 @@ function scatter(index,state,rows,keys){
       return `<a class="lab-point" href="${runHref(row)}" data-run="${esc(row.id)}" aria-label="${esc(title)}"><circle cx="${x(row.values[state.x])}" cy="${y(row.values[state.y])}" r="${radius}" fill="${rowColor(index,rows,row,state)}" fill-opacity=".78" stroke="${better?'#17253e':'white'}" stroke-width="${better?2.5:1.5}"><title>${esc(title)}</title></circle>${state.labels?`<text class="lab-point-label" x="${x(row.values[state.x])+radius+4}" y="${y(row.values[state.y])-radius-3}">${esc(row.name)}</text>`:''}</a>`;
     }).join('')}<text class="lab-axis-label" x="${(left+w-right)/2}" y="${h-20}" text-anchor="middle">${esc(xmeta.label)} ${xmeta.direction}${state.log?' (log scale)':''}</text><text class="lab-axis-label" x="${left}" y="18">${esc(ymeta.label)} ${ymeta.direction}</text></svg>`;
   }
-  return `<div class="lab-presets"><span>Try a question</span><button data-preset="quality">Pixel error vs perception</button><button data-preset="compute">Quality vs compute</button><button data-preset="embedding">Structure vs embedding</button><button data-preset="nuclei">Perception vs nuclei</button></div>
+  return `<div class="lab-presets"><span>Try a question</span><button data-preset="quality">Pixel error vs perception</button><button data-preset="compute">Quality vs compute</button>${keys.includes('mif_psnr')?'<button data-preset="channels">DAPI vs CD3 SSIM</button><button data-preset="markers">CD3 vs panCK error</button>':'<button data-preset="embedding">Structure vs embedding</button><button data-preset="nuclei">Perception vs nuclei</button>'}</div>
     <div class="lab-axis-controls"><label class="field">Horizontal axis<select data-lab="x">${keys.map(k=>option(k,axisLabel(index,k),state.x)).join('')}</select></label><label class="field">Vertical axis<select data-lab="y">${keys.map(k=>option(k,axisLabel(index,k),state.y)).join('')}</select></label><label class="field">Colour<select data-lab="color">${option('family','Model family',state.color)}${option('recipe','Separate / pooled training',state.color)}</select></label></div>
     <div class="lab-switches"><label><input type="checkbox" data-lab-check="labels" ${state.labels?'checked':''}>Label all points</label><label><input type="checkbox" data-lab-check="size" ${state.size?'checked':''}>Bubble size indicates recorded GPU hours</label><label><input type="checkbox" data-lab-check="log" ${state.log?'checked':''} ${!logValid?'disabled':''}>Log horizontal axis</label><label><input type="checkbox" data-lab-check="pareto" ${state.pareto?'checked':''} ${!canPareto?'disabled':''}>Show Pareto frontier</label></div>
     <div class="lab-plot-wrap">${graph}</div><div class="lab-hover" id="lab-hover" role="status" aria-live="polite">Hover or focus a point to inspect it. Click to open its complete run.</div>
@@ -216,11 +220,12 @@ export function renderDataLaboratory(container,index,mode='scatter'){
     $$('[data-lab]',container).forEach(el=>el.onchange=()=>{state[el.dataset.lab]=el.value;if(['dataset','marker','split'].includes(el.dataset.lab))state.cohort_key='';draw();});
     $$('[data-lab-check]',container).forEach(el=>el.onchange=()=>{state[el.dataset.labCheck]=el.checked;draw();});
     $$('[data-preset]',container).forEach(el=>el.onclick=()=>{
-      const pair={quality:['psnr','lpips'],compute:['gpu_hours','lpips'],embedding:['ssim','conch_cosine'],nuclei:['lpips',context.keys.includes('hovernet_nuclei_f1')?'hovernet_nuclei_f1':'nuclei_f1']}[el.dataset.preset];
+      const mif=context.keys.includes('mif_psnr');
+      const pair={quality:mif?['mif_psnr','mif_lpips']:['psnr','lpips'],compute:['gpu_hours',mif?'mif_lpips':'lpips'],channels:['mif_DAPI_ssim','mif_CD3_ssim'],markers:['mif_CD3_mae','mif_panCK_mae'],embedding:['ssim','conch_cosine'],nuclei:['lpips',context.keys.includes('hovernet_nuclei_f1')?'hovernet_nuclei_f1':'nuclei_f1']}[el.dataset.preset];
       if(pair.every(k=>context.keys.includes(k))){[state.x,state.y]=pair;state.log=false;draw();}else $('#lab-hover',container).textContent='This comparison needs measurements that are absent in the chosen cohort. Choose another dataset or preset.';
     });
     $$('[data-lab-metric]',container).forEach(el=>el.onchange=()=>{state.metrics=el.checked?[...state.metrics,el.dataset.labMetric]:state.metrics.filter(k=>k!==el.dataset.labMetric);draw();const details=$('.lab-metric-picker',container);if(details)details.open=true;});
-    $$('[data-metrics]',container).forEach(el=>el.onclick=()=>{state.metrics=el.dataset.metrics==='all'?[...context.keys]:el.dataset.metrics==='clear'?[]:['psnr','ssim','lpips','dists','conch_cosine'].filter(k=>context.keys.includes(k));draw();const details=$('.lab-metric-picker',container);if(details)details.open=true;});
+    $$('[data-metrics]',container).forEach(el=>el.onclick=()=>{state.metrics=el.dataset.metrics==='all'?[...context.keys]:el.dataset.metrics==='clear'?[]:suggestedMetrics(context.keys);draw();const details=$('.lab-metric-picker',container);if(details)details.open=true;});
     const search=$('#lab-metric-search',container);if(search)search.oninput=()=>{const q=search.value.toLowerCase();$$('[data-metric-option]',container).forEach(el=>el.hidden=!el.dataset.metricOption.includes(q));};
     $$('.lab-point,.lab-series',container).forEach(el=>{
       const inspect=()=>{const row=context.rows.find(r=>r.id===el.dataset.run);if(!row)return;const keys=mode==='scatter'?[state.x,state.y]:state.metrics;$('#lab-hover',container).textContent=row.label+' · '+keys.map(k=>metadata(index,k).label+': '+format(row.values[k])).join(' · ');};

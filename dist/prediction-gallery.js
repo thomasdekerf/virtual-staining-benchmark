@@ -57,6 +57,11 @@ export async function renderPredictionGallery(main,index,query=new URLSearchPara
   if(sequence!==generation||!location.hash.startsWith('#/gallery'))return;
   if(!Array.isArray(data.datasets)||!data.datasets.length)throw Error('No gallery dataset evidence is available.');
   const requested=query.get('dataset')||state.dataset;
+  const withoutImages=index.datasets.find(d=>d.id===requested&&!data.datasets.some(g=>g.id===d.id));
+  if(withoutImages){
+    main.innerHTML=`<div class="prediction-gallery"><div class="intro"><div><div class="eyebrow">Matched tissue comparisons</div><h1>${esc(withoutImages.name)} prediction images</h1></div></div><section class="panel empty"><h2>Prediction images are not yet available</h2><p>No verified input, reference and prediction fields have been exported for this dataset yet. Its completed scores and training curves are available in the benchmark.</p><p><a href="#/benchmark?dataset=${encodeURIComponent(withoutImages.id)}">View ${esc(withoutImages.name)} results</a> · <a href="#/gallery">Browse available tissue images</a></p></section></div>`;
+    return;
+  }
   const populated=dataset=>dataset.fields?.some(field=>field.input?.url&&field.target?.url&&field.predictions?.some(p=>p.available!==false&&p.url));
   const initial=data.datasets.find(d=>d.id==='her2match'&&populated(d))||data.datasets.find(populated)||data.datasets[0];
   state.dataset=data.datasets.some(d=>d.id===requested)?requested:initial.id;

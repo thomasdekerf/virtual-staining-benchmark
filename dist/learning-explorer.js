@@ -19,7 +19,7 @@ export function learningAxisKind(run) {
   // The audited breast campaign exports global optimizer-step trajectories.
   // Some unstained epoch trainers were historically exported as "step" despite
   // recording epoch indices; their raw values must remain unconverted.
-  if (run.task === 'ihc' && run.curve_axis === 'step') return 'updates';
+  if (['ihc','he_to_mif'].includes(run.task) && run.curve_axis === 'step') return 'updates';
   if (run.curve_axis === 'epoch') return 'epoch';
   return 'recorded';
 }
@@ -48,7 +48,7 @@ function scopeLabel(key, index) {
 
 function selectedPosition(run, kind) {
   if (kind === 'updates') return run.position?.global_step;
-  if (kind === 'epoch') return run.position?.epoch;
+  if (kind === 'epoch') return run.task === 'he_to_mif' ? run.selected_completed_epoch ?? run.position?.epoch : run.position?.epoch;
   return null;
 }
 
@@ -119,14 +119,14 @@ export async function renderLearningExplorer(container, index) {
   const markers = () => [...new Set(baseRuns().map(r=>r.marker))].sort();
   const scopes = () => [...new Set(baseRuns().filter(r=>r.marker===state.marker).map(learningScopeKey))].sort((a,b)=>a.split('|').length-b.split('|').length || a.localeCompare(b));
   const scopeRuns = () => baseRuns().filter(r=>r.marker===state.marker && (state.scope==='all' || learningScopeKey(r)===state.scope));
-  const tags = () => [...new Set(scopeRuns().flatMap(r=>Object.keys(r.curve_counts || {})))].sort((a,b)=>{const score=x=>x==='val/lpips'?0:x.startsWith('val/')?1:2;return score(a)-score(b)||a.localeCompare(b);});
+  const tags = () => [...new Set(scopeRuns().flatMap(r=>Object.keys(r.curve_counts || {})))].sort((a,b)=>{const score=x=>['val/lpips','val/mif_lpips'].includes(x)?0:x.startsWith('val/')?1:2;return score(a)-score(b)||a.localeCompare(b);});
   const eligible = () => scopeRuns().filter(r=>(r.curve_counts?.[state.tag] || 0)>0).sort((a,b)=>a.name.localeCompare(b.name)||a.id.localeCompare(b.id));
   const visible = () => eligible().filter(r=>(r.name+' '+r.variant+' '+r.id).toLowerCase().includes(state.search.toLowerCase()));
   function repairFilters(reset=false) {
     if(!datasets.some(d=>d.id===state.dataset))state.dataset=datasets[0]?.id;
     if(!markers().includes(state.marker))state.marker=markers()[0];
     if(state.scope!=='all' && !scopes().includes(state.scope))state.scope=scopes()[0];
-    if(!tags().includes(state.tag))state.tag=tags().includes('val/lpips')?'val/lpips':tags()[0];
+    if(!tags().includes(state.tag))state.tag=['val/mif_lpips','val/lpips'].find(t=>tags().includes(t))||tags()[0];
     const ids=new Set(eligible().map(r=>r.id));
     state.selected=new Set([...state.selected].filter(id=>ids.has(id)));
     if(reset && !state.selected.size)state.selected=new Set(eligible().slice(0,3).map(r=>r.id));

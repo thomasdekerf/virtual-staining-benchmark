@@ -29,6 +29,8 @@ jobs:
           python3 -m unittest discover -s tools -p 'test_architecture_catalog.py'
           python3 -m unittest discover -s tools -p 'test_archive_readiness.py'
           python3 -m unittest discover -s tools -p 'test_publication_policy.py'
+          python3 -m unittest discover -s tools -p 'test_hemit_dataset_results.py'
+          python3 -m unittest discover -s tools -p 'test_runnable_results.py'
       - name: Check exploratory chart semantics
         run: node --test tools/test_*semantics.mjs
       - uses: actions/configure-pages@v5
