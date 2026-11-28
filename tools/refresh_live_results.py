@@ -479,6 +479,9 @@ def refresh(site,workspace):
     from hemit_dataset_results import integrate as integrate_hemit
     hemit=integrate_hemit(site,workspace,data,runs,register,fresh_run,source,write,changes,previous_evals)
     if hemit:captured=max(captured,hemit['snapshot'])
+    from hemit_expansion_results import integrate as integrate_hemit_expansion
+    expansion=integrate_hemit_expansion(site,workspace,data,runs,register,fresh_run,source,write)
+    if expansion:captured=max(captured,expansion['snapshot'])
     attach_reviewed_protocols(runs,out/'data/protocol-compatibility.json',out/'data/swinir-protocol-review.json')
     # Preserve the original reconciled workbook rows as anchors; newly scored
     # rows are reconciled to the fresh canonical files instead of rewriting Excel.

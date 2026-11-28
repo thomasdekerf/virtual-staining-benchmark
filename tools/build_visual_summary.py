@@ -220,7 +220,8 @@ def build(dist, workspace):
         datasets.append(dict(id='her2match',name='HER2Match',runs=11,evaluated_runs=0,rankable_evaluations=0,tested_model_families=0,trained_model_families=0,registered_model_families=11,pairs=21172,counts=dict(train=11610,val=3582,test=5980)))
     else:next(d for d in datasets if d['id']=='her2match')['pairs']=21172
     cells=[]
-    model_ids=sorted({r['model'] for r in entries}|{'bbdm'},key=lambda k:names.get(k,k).casefold())
+    hemit_decisions={r['model']:r for r in data.get('hemit_campaign',{}).get('rows',[])}
+    model_ids=sorted({r['model'] for r in entries}|{'bbdm'}|set(hemit_decisions),key=lambda k:names.get(k,k).casefold())
     for model in model_ids:
         row=dict(id=model,name=names.get(model,'BBDM' if model=='bbdm' else model),cells=[])
         for dataset in datasets:
@@ -230,10 +231,14 @@ def build(dist, workspace):
             state='evaluated' if scored else 'trained / unscored' if any(trained(r) for r in mine) else 'registered' if mine else 'none'
             pending=[r for r in mine if not any(e.get('rankable') and e['dataset']==dataset['id'] for e in r['evaluations']) and r.get('training_job') and any(word in r.get('state','').lower() for word in ('queued','training','pending','paused'))]
             if pending and not scored:state=pending[0]['state']
+            decision=hemit_decisions.get(model) if dataset['id']=='hemit_dataset' else None
+            if decision and not scored:state=decision['status']
             if dataset['id']=='her2match' and not scored and model in HER2_MODELS:
                 state=next(r for r in recent['her2match'] if r['id']==model)['state']
             row['cells'].append(dict(dataset=dataset['id'],runs=len(mine),evaluated_runs=len(scored),tested_runs=len(tests),active_runs=len(pending),
-                score_rows=sum(bool(e.get('rankable')) and e['dataset']==dataset['id'] for r in mine for e in r['evaluations']),status=state,quality_warning=next((r['quality_warning'] for r in mine if r.get('quality_failure')),None)))
+                score_rows=sum(bool(e.get('rankable')) and e['dataset']==dataset['id'] for r in mine for e in r['evaluations']),status=state,
+                reason=decision.get('reason') if decision else None,
+                quality_warning=next((r['quality_warning'] for r in mine if r.get('quality_failure')),None)))
         cells.append(row)
     coverage=dict(datasets=[dict(id=d['id'],name=d['name']) for d in datasets],rows=cells,
         note='Cells count reviewed published-method run records; pooled records occur in each applicable dataset. Dataset bars use distinct model families with full held-out tests. Local experimental recipes are omitted.')

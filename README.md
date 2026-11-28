@@ -4,11 +4,11 @@
 
 A static benchmark for delivered virtual staining models across ORION CRC, BCI, MIST, IHC4BC, Finland mouse prostate, DermaRepo human skin, HER2Match and HEMIT.
 
-The 26 November 2026 snapshot contains **300 public run records and 622 ranked
-dataset/split results across eight datasets**. All 596 previously published
-ranked rows retain their exact means, checkpoints, manifests and comparison
-protocols. The 26 new rows come from six HEMIT methods, HER2Match HAT, Finland
-BBDM and five BCI methods. Unfinished training remains unranked.
+The 28 November 2026 snapshot contains **307 public run records and 622 ranked
+dataset/split results across eight datasets**. Every previously published ranked
+evaluation retains its complete payload. HEMIT now has15 submitted model families
+and an explicit decision for all46 catalog methods. Unfinished training remains
+unranked.
 
 The first view is a visual atlas of reviewed, paper-backed methods across eight datasets. Every catalog method links to its paper; preprints are labelled. Conventional dataset adaptations remain, while unpublished local gates, fusion modules, refiners, marker-panel studies and other research recipes are omitted. The dataset bars count distinct model families with held-out test evidence, once per family. Training and planned coverage remain separate from completed test scores.
 
@@ -27,6 +27,15 @@ The [searchable, sortable benchmark table](https://thomasdekerf.github.io/virtua
 The 19 November refresh preserves every previously published ranked result and adds the verified current results: nine completed HER2Match models, three newly completed Finland families and recovered skin ASP. This gives 19 complete Finland test profiles and 21 for skin. Separately dated campaign cards show unfinished training, evaluations and the focused 17-run expansion. The expansion adds HEMIT, ImplicitStainer and MiPHEI-ViT to the breast HER2 anchor comparisons, plus BBDM across the original breast anchors, Finland and skin. Original breast and HER2Match target 14 benchmark families; Finland and skin target 22. These are planned targets until the runs and full evaluations finish. The small `dist/data/visual-summary.json` records source fingerprints and scope notes.
 
 ## Published architecture expansion
+
+The 28 November HEMIT expansion adds Restormer, SwinIR, HAT, I2I-Mamba, Palette,
+Pix2PixHD and Pyramid Pix2Pix to the original eight. The interactive HEMIT panel
+accounts for all46 catalog entries:29 compatible implementations, six further
+integrations and eleven supervision/source blockers. Search and status filters
+expose every decision. Actual submissions, GPU readiness checks, production and
+final evaluations remain distinct. Four-H200 jobs have no extra array concurrency
+cap. Each new run retains its native architecture/objectives, a native reference
+horizon followed by fresh validation patience, and complete resume state.
 
 The 26 November refresh adds the **HEMIT dataset**, separate from the HEMIT
 model and ORION's reverse translation task. Six native-horizon-qualified methods
@@ -104,6 +113,14 @@ bash tools/sync_evidence.sh
 ```
 
 First refresh the workspace campaign progress snapshots and Excel from completed evaluation reports. The synchronizer only reads allowed result files into the ignored `.source-cache/` directory. It does not copy model weights or change jobs. `BENCHMARK_SSH_HOST` and `BENCHMARK_REMOTE_ROOT` can override its source. Completed unstained scores, sample counts and checkpoint/manifest fingerprints are reconciled with Excel. Workbook mismatches stop export rather than silently replacing values. Excel is never edited by the exporter.
+
+For a HEMIT execution-only update, first run the workspace's
+`artifacts/new_datasets_20261125/collect_progress.py` and
+`artifacts/hemit_expansion_20261127/stage_website_evidence.py`. Then run
+`tools/refresh_hemit_expansion.py`, `tools/build_visual_summary.py` and
+`tools/validate_data.py` using the build environment. This path verifies every
+existing ranked evaluation verbatim and adds only source-bound execution records;
+it does not infer final scores from training logs.
 
 `--quick` skips TensorBoard/media extraction for a first preview. `--reuse-curves` may be used after presentation or exporter changes **only if the raw TensorBoard snapshot is unchanged**. It reuses the full exported scalar CSVs, not the downsampled chart data. Dense display curves contain at most 700 points; full measurements remain downloadable.
 

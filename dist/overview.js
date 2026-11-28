@@ -1,4 +1,4 @@
-import {buildProfileCohorts, materializeProfileCohort} from './profile-data.js?v=20261126-hemit-results';
+import {buildProfileCohorts, materializeProfileCohort} from './profile-data.js?v=20261128-hemit-expansion';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const number = value => Number(value || 0).toLocaleString('en-GB', {maximumFractionDigits: 0});
 const date = value => value ? new Date(value).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}) : 'Not recorded';
@@ -14,16 +14,17 @@ const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
 function cellStyle(cell) {
   if (cell.evaluated_runs) return 'scored';
-  if (cell.status && /train|queue|submitted|running|paused/i.test(cell.status)) return 'active';
+  if (cell.status==='blocked') return 'blocked';
+  if (cell.active_runs || (cell.status && /train|queue|submitted|running|paused|checking/i.test(cell.status))) return 'active';
   return cell.runs ? 'recorded' : 'absent';
 }
 
 function miniature(data) {
   return `<div class="atlas-mini" role="group" aria-label="Interactive experiment landscape" aria-describedby="landscape-help">${data.coverage.datasets.map((dataset,di) => `<div class="atlas-mini-row"><span>${esc(dataset.short_name || dataset.name || dataset.id)}</span><div>${data.coverage.rows.map((row,mi) => {
     const cell = row.cells.find(c => c.dataset === dataset.id) || {};
-    const label=`${row.name} · ${dataset.name || dataset.id} · ${cell.evaluated_runs||0} scored of ${cell.runs||0} run records · ${cell.active_runs||0} unfinished · ${cell.status||'No recorded work'}${cell.quality_warning?' · Quality warning: '+cell.quality_warning:''}`;
+    const label=`${row.name} · ${dataset.name || dataset.id} · ${cell.evaluated_runs||0} scored of ${cell.runs||0} run records · ${cell.active_runs||0} unfinished · ${cell.status||'No recorded work'}${cell.reason?' · '+cell.reason:''}${cell.quality_warning?' · Quality warning: '+cell.quality_warning:''}`;
     return `<a class="atlas-mini-cell ${cellStyle(cell)} ${cell.quality_warning?'quality-warning':''}" href="#/benchmark?dataset=${encodeURIComponent(dataset.id)}&model=${encodeURIComponent(row.id)}" tabindex="${di===0&&mi===0?'0':'-1'}" data-landscape-dataset="${esc(dataset.id)}" data-landscape-model="${esc(row.id)}" data-landscape-row="${di}" data-landscape-column="${mi}" title="${esc(label)}" aria-label="${esc(label)}"></a>`;
-  }).join('')}</div></div>`).join('')}</div><div class="landscape-legend"><span><i class="scored"></i>Scored evaluation</span><span><i class="active"></i>Training / pending scores</span><span><i class="recorded"></i>Other recorded work</span><span><i class="absent"></i>No record</span><span><i class="quality-warning"></i>Quality issue</span></div><p id="landscape-help" class="landscape-help">Hover or tap a rectangle to identify it. Arrow keys move through the grid; Enter opens matching runs.</p><div class="landscape-inspector" id="landscape-inspector" role="status" aria-live="polite"><strong>Explore a model and dataset</strong><span>Select a rectangle to see its model, dataset and saved evaluation status.</span></div>`;
+  }).join('')}</div></div>`).join('')}</div><div class="landscape-legend"><span><i class="scored"></i>Scored evaluation</span><span><i class="active"></i>Training / pending scores</span><span><i class="recorded"></i>Other recorded work</span><span><i class="absent"></i>No record</span><span><i class="blocked"></i>Blocked: labels / code</span><span><i class="quality-warning"></i>Quality issue</span></div><p id="landscape-help" class="landscape-help">Hover or tap a rectangle to identify it. Arrow keys move through the grid; Enter opens matching runs.</p><div class="landscape-inspector" id="landscape-inspector" role="status" aria-live="polite"><strong>Explore a model and dataset</strong><span>Select a rectangle to see its model, dataset and saved evaluation status.</span></div>`;
 }
 
 function scaleCard(value, label, note) {
@@ -81,7 +82,7 @@ function coverage(data) {
   const datasets = data.coverage.datasets;
   const rows = data.coverage.rows;
   return `<div class="atlas-layout"><section class="visual-panel coverage-panel"><div class="visual-panel-heading"><div><div class="eyebrow">Example 01 / The scope of the programme</div><h2>The coverage atlas</h2><p>Model families × datasets. Numbers count run records, including separate stains and training recipes.</p></div><span class="chart-badge">${number(rows.length)} families · ${number(datasets.length)} datasets</span></div>
-    <div class="coverage-legend"><span><i class="scored"></i>Has scored evaluation</span><span><i class="recorded"></i>Other recorded work</span><span><i class="active"></i>Training / pending scores</span><span><i class="absent"></i>No record</span><span><i class="quality-warning"></i>Quality issue</span></div>
+    <div class="coverage-legend"><span><i class="scored"></i>Has scored evaluation</span><span><i class="recorded"></i>Other recorded work</span><span><i class="active"></i>Training / pending scores</span><span><i class="absent"></i>No record</span><span><i class="blocked"></i>Blocked: labels / code</span><span><i class="quality-warning"></i>Quality issue</span></div>
     <div class="coverage-scroll"><table class="coverage-table"><caption class="sr-only">Number of run records per model family and dataset. A pooled run can occur in several columns.</caption><thead><tr><th>Model family</th>${datasets.map(d=>`<th scope="col">${esc(d.short_name || d.name || d.id)}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr><th scope="row">${esc(row.name)}</th>${datasets.map(d=>{
       const c=row.cells.find(c=>c.dataset===d.id)||{};
       const style=cellStyle(c), runs=c.runs||0;
@@ -180,6 +181,13 @@ function her2matchCampaign(data){
   return `<section class="visual-panel her2-completion" aria-labelledby="her2-completion-title"><div class="visual-panel-heading"><div><div class="eyebrow">HER2Match / ${number(campaign.target_model_families)} landscape families</div><h2 id="her2-completion-title">${number(campaign.counts.evaluated)} evaluated. ${number(campaign.target_model_families)} families accounted for.</h2><p>Original author case splits · observed ${esc(new Date(campaign.snapshot).toLocaleString('en-GB',{timeZone:'Europe/Brussels',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}))} Brussels time</p></div><a href="${esc(campaign.download)}" download>Download the HER2Match campaign</a></div><div class="her2-completion-counts">${Object.entries(labels).map(([key,label])=>`<span class="her2-status-${key}"><strong>${number(campaign.counts[key])}</strong> ${label}</span>`).join('')}</div>${campaign.quality_warning_count?`<p class="her2-quality-label"><strong>${number(campaign.quality_warning_count)} confirmed colour-collapse warnings.</strong> Complete evaluation does not make those models useful training outcomes.</p>`:''}<p class="visual-caption">Evaluated means that the selected checkpoint has complete validation and test results; it does not certify useful prediction quality. Training, queued and blocked methods have no invented scores. Existing scores remain available while a model continues training.</p><div class="her2-completion-grid">${campaign.rows.map(row=>{const tag=row.run_id?'a':'article';return `<${tag} ${row.run_id?`href="#/run/${encodeURIComponent(row.run_id)}"`:''} class="her2-completion-card her2-status-${esc(row.status)} ${row.quality_warning?'has-quality-warning':''}" data-her2-model="${esc(row.model)}" data-her2-status="${esc(row.status)}"><strong>${esc(row.name)}</strong><span>${esc(labels[row.status]||row.status)}</span>${row.quality_warning?'<span class="her2-quality-label">Output collapse</span>':''}<small>${row.reason?esc(row.reason):row.status==='evaluated'?'Full selected-checkpoint val/test results':row.step?number(row.step)+' saved production updates':row.gate_passed?'Native update/resume check passed':esc(row.scientific_status||'Original preparation pending')}</small>${row.job&&row.status!=='evaluated'?`<small>Job ${esc(row.job)}</small>`:''}</${tag}>`;}).join('')}</div>${campaign.rows.filter(row=>row.quality_warning).map(row=>`<p class="her2-quality-note" role="note"><strong>${esc(row.name)} quality warning.</strong> ${esc(row.quality_warning)}${row.quality_replacement_run_id?` <a href="#/run/${encodeURIComponent(row.quality_replacement_run_id)}">Inspect the completed corrected run</a>.`:''}${row.repair_jobs?.length?' Repair job '+esc(row.repair_jobs.join(', '))+'.':''}</p>`).join('')}${campaign.rows.some(row=>row.reason)?`<p class="training-archive-note"><strong>BCIStainer requires genuine crop-level HER2 grades.</strong> Released WSI scores are metadata; they cannot be substituted for the original classifier/comparator labels. This method remains blocked pending those labels.</p>`:''}${campaign.external_validation?`<p class="visual-caption"><strong>Separate external validation:</strong> official BCIStainer author EMA checkpoint · job ${esc(campaign.external_validation.job_id)} · ${esc(campaign.external_validation.status)}. This transfers an externally trained generator; it does not train BCIStainer on HER2Match or complete the in-domain task.</p>`:''}<p class="visual-caption">${esc(campaign.note)} Clinical HER2 grading is not evaluated. This is a saved execution snapshot; the page does not poll the cluster.</p></section>`;
 }
 
+function hemitCampaign(data){
+  const c=data.hemit_campaign;if(!c?.rows)return '';
+  const labels={evaluated:'Evaluated',training:'Training',checking:'GPU readiness check',queued:'Queued',preparing:'Preparing',integrating:'Integration in progress',blocked:'Blocked',failed:'Needs attention'};
+  const eligible=c.rows.filter(r=>r.runnable_HEMIT).length;
+  return `<section class="visual-panel hemit-completion" id="hemit-campaign" aria-labelledby="hemit-campaign-title"><div class="visual-panel-heading"><div><div class="eyebrow">HEMIT / H&amp;E → DAPI · CD3 · panCK</div><h2 id="hemit-campaign-title">${number(c.catalog_families)} methods accounted for.</h2><p>${number(eligible)} compatible published implementations · ${number(c.model_families)} model families submitted · ${number(c.completed_models)} fully evaluated</p><p>Observed ${esc(new Date(c.snapshot).toLocaleString('en-GB',{timeZone:'Europe/Brussels',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}))} Brussels time</p></div><a href="${esc(c.download)}" download>Download every model decision</a></div><div class="her2-completion-counts">${Object.entries(labels).filter(([key])=>c.counts[key]).map(([key,label])=>`<span class="her2-status-${key}"><strong>${number(c.counts[key])}</strong> ${esc(label)}</span>`).join('')}</div><p class="visual-caption">${esc(c.note)} The three targets are numerical fluorescence channels. Stain grades and chromogen labels are unavailable; reasons for every blocked method are shown below.</p><div class="hemit-filters"><label>Find a model<input type="search" id="hemit-model-search" placeholder="Model name or blocker…"></label><label>Show status<select id="hemit-model-status"><option value="">All methods</option>${Object.entries(labels).map(([key,label])=>`<option value="${key}">${label}</option>`).join('')}</select></label><span id="hemit-model-count" role="status">${number(c.rows.length)} methods shown</span></div><div class="her2-completion-grid">${c.rows.map(row=>`<article class="her2-completion-card her2-status-${esc(row.status)}" data-hemit-model="${esc(row.model)}" data-hemit-status="${esc(row.status)}"><strong>${row.run_id?`<a href="#/run/${encodeURIComponent(row.run_id)}">${esc(row.name)}</a>`:esc(row.name)}</strong><span>${esc(labels[row.status]||row.status)}</span>${row.job?`<small>Job ${esc(row.job)}${row.step?' · '+number(row.step)+' saved updates':''}</small>`:''}<small>${esc(row.reason)}</small>${row.quality_note?`<small class="her2-quality-label">${esc(row.quality_note)}</small>`:''}</article>`).join('')}</div><p class="visual-caption">The queue can use concurrent four-H200 allocations as resources become available. A preparation card is an explicit plan, rather than a completed experiment. This page shows a saved snapshot.</p></section>`;
+}
+
 function gpuActivity(data){
   const activity=data.gpu_activity;if(!activity)return '';
   const partition=activity.partition||{},total=partition.schedulable_gpus||1;
@@ -219,7 +227,7 @@ function bind(main, data, layout) {
       const cell=row?.cells.find(c=>c.dataset===dataset?.id)||{},style=cellStyle(cell);
       const state=style==='scored'?'Scored evaluation available':style==='active'?'Training recorded or awaiting scores':style==='recorded'?'Recorded work; no scored evaluation':'No run recorded';
       cells.forEach(c=>{c.classList.toggle('landscape-column-active',c.dataset.landscapeModel===row?.id);c.classList.toggle('landscape-cell-active',c===element);c.tabIndex=c===element?0:-1;});
-      inspector.innerHTML=`<strong>${esc(row?.name)} <span>· ${esc(dataset?.name||dataset?.id)}</span></strong><span>${esc(state)} · ${number(cell.runs)} run records · ${number(cell.evaluated_runs)} scored · ${number(cell.tested_runs)} with tests${cell.active_runs?' · '+number(cell.active_runs)+' unfinished':''}</span><small>${esc(cell.status||'No recorded work')}.${cell.quality_warning?' Quality warning: '+esc(cell.quality_warning):''} <a href="${esc(element.getAttribute('href'))}">Open matching runs</a></small>`;
+      inspector.innerHTML=`<strong>${esc(row?.name)} <span>· ${esc(dataset?.name||dataset?.id)}</span></strong><span>${esc(state)} · ${number(cell.runs)} run records · ${number(cell.evaluated_runs)} scored · ${number(cell.tested_runs)} with tests${cell.active_runs?' · '+number(cell.active_runs)+' unfinished':''}</span><small>${esc(cell.status||'No recorded work')}.${cell.reason?' '+esc(cell.reason):''}${cell.quality_warning?' Quality warning: '+esc(cell.quality_warning):''} <a href="${esc(element.getAttribute('href'))}">Open matching runs</a></small>`;
     };
     cells.forEach(element=>{
       let pointerType;
@@ -291,16 +299,21 @@ export async function renderOverview(main, layout='atlas', index) {
   if(layout==='radar')data=prepareProfiles(data,index);
   activeSummary=data;
   const content=layout==='radar'?radarView(data):layout==='atlas'?coverage(data):'<div class="loading">Loading the visual explorer…</div>';
-  main.innerHTML=`<div class="research-overview">${header(data,layout)}<section class="visual-example" id="visual-example" aria-label="${layout} explorer">${content}</section>${her2matchCampaign(data)}${gpuActivity(data)}${balancePlan(data)}${trainingAudit(data)}${activities(data)}</div>`;
+  main.innerHTML=`<div class="research-overview">${header(data,layout)}<section class="visual-example" id="visual-example" aria-label="${layout} explorer">${content}</section>${hemitCampaign(data)}${her2matchCampaign(data)}${gpuActivity(data)}${balancePlan(data)}${trainingAudit(data)}${activities(data)}</div>`;
+  const hemitSearch=$('#hemit-model-search',main),hemitStatus=$('#hemit-model-status',main);
+  if(hemitSearch&&hemitStatus){
+    const filter=()=>{let count=0;$$('[data-hemit-model]',main).forEach(card=>{card.hidden=!!((hemitStatus.value&&card.dataset.hemitStatus!==hemitStatus.value)||(hemitSearch.value&&!card.textContent.toLowerCase().includes(hemitSearch.value.toLowerCase())));if(!card.hidden)count++;});$('#hemit-model-count',main).textContent=number(count)+' methods shown';};
+    hemitSearch.oninput=filter;hemitStatus.onchange=filter;
+  }
   bind(main,data,layout);
   const container=$('#visual-example',main);
   if(layout==='curves'){
-    const module=await import('./learning-explorer.js?v=20261126-hemit-results');
+    const module=await import('./learning-explorer.js?v=20261128-hemit-expansion');
     if(sequence!==renderSequence)return;
     const cleanup=await module.renderLearningExplorer(container,index);
     if(sequence===renderSequence)explorerCleanup=cleanup;else if(typeof cleanup==='function')cleanup();
   }else if(['scatter','heatmap','parallel','correlation'].includes(layout)){
-    const module=await import('./data-laboratory.js?v=20261126-hemit-results');
+    const module=await import('./data-laboratory.js?v=20261128-hemit-expansion');
     if(sequence!==renderSequence)return;
     const cleanup=await module.renderDataLaboratory(container,index,layout);
     if(sequence===renderSequence)explorerCleanup=cleanup;else if(typeof cleanup==='function')cleanup();

@@ -65,17 +65,24 @@ assert unstained_rows==index['audit']['unstained_result_rows_verified'], 'Unreco
 # Numerical H&E-to-mIF is a separate task from ORION's reverse translation.
 from hemit_dataset_results import CHANNELS, COUNTS, FINAL_MODELS, MODELS
 hemit=[r for r in index['runs'] if 'hemit_dataset' in r['datasets']]
-assert len(hemit)==len(MODELS) and {r['model'] for r in hemit}==set(MODELS)
-assert {r['model'] for r in hemit if r['evaluation_complete']}==set(FINAL_MODELS)
+campaign=index['hemit_campaign']
+planned={r['model'] for r in campaign.get('rows',campaign['runs']) if r.get('run_id',r.get('id'))}
+assert len(hemit)==len(planned)==campaign['model_families'] and {r['model'] for r in hemit}==planned
+assert set(MODELS)<=planned
+assert set(FINAL_MODELS)<={r['model'] for r in hemit if r['evaluation_complete']}
+if campaign.get('rows'):
+    assert len(campaign['rows'])==46 and len({r['model']for r in campaign['rows']})==46
+    assert all(r['reason'] for r in campaign['rows'])
 for entry in hemit:
     r=run_details[entry['id']]
     assert r['task']=='he_to_mif' and r['target_channels']==list(CHANNELS)
     assert r['normalization']['physical_intensity_calibration'] is False
     assert r['normalization']['canonical_reindex']==[2,1,0]
     assert not r['gallery'] and not r['distributions']
-    assert r['curves'] and r['curve_protocol']['inherited_parent_deduplicated']
+    if r['model'] in MODELS:assert r['curves']
+    if r['curves']:assert r['curve_protocol']['inherited_parent_deduplicated']
     assert r['clinical_score_evaluation'] is False
-    if r['model'] not in FINAL_MODELS:
+    if not r['evaluation_complete']:
         assert not r['evaluations'] and not r['training_complete']
     else:
         assert r['native_adequacy_verified'] and len(r['evaluations'])==2
